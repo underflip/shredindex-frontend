@@ -1,11 +1,11 @@
-import { ApolloProvider } from '@apollo/react-hooks';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
+import {ApolloProvider} from '@apollo/react-hooks';
+import {InMemoryCache} from 'apollo-cache-inmemory';
+import {ApolloClient} from 'apollo-client';
+import {HttpLink} from 'apollo-link-http';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IntlProvider } from 'react-intl';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {IntlProvider} from 'react-intl';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import langEn from './lang/en.json';
 
@@ -30,7 +30,7 @@ const App = () => (
     <ApolloProvider client={client}>
       <IntlProvider locale={locale} message={t[locale]}>
         <Switch>
-          <Route path="/" component={Home} />
+          <Route path="/" component={Home}/>
         </Switch>
       </IntlProvider>
     </ApolloProvider>
