@@ -18,7 +18,10 @@ import {
   CInputGroupText,
   CRow
 } from '@coreui/react';
+
+
 import CIcon from '@coreui/icons-react';
+import { freeSet } from '@coreui/icons';
 import React from 'react';
 
 export default { title: 'Buttons' };
