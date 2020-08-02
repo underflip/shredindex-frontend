@@ -186,7 +186,7 @@ export const Typography = () => (
                 <p>
                   Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec
                   elit.
-                  </p>
+                </p>
                 <p>Donec id elit non mi porta gravida at eget metus.</p>
               </dd>
 
@@ -204,9 +204,9 @@ export const Typography = () => (
                 <dl className="row">
                   <dt className="col-sm-4">Nested definition list</dt>
                   <dd className="col-sm-8">
-                      Aenean posuere, tortor sed cursus feugiat, nunc augue
-                      blandit nunc.
-                    </dd>
+                    Aenean posuere, tortor sed cursus feugiat, nunc augue
+                    blandit nunc.
+                  </dd>
                 </dl>
               </dd>
             </dl>
