@@ -20,6 +20,25 @@ import {
 } from '@coreui/react';
 
 import CIcon from '@coreui/icons-react';
+import {
+  cibBehance,
+  cibDribbble,
+  cibFacebook,
+  cibFlickr,
+  cibGithub,
+  cibInstagram,
+  cibLinkedin,
+  cibPinterest,
+  cibReddit,
+  cibStackoverflow,
+  cibTumblr,
+  cibTwitter,
+  cibVimeo,
+  cibVk,
+  cibXing,
+  cibYahoo,
+  cibYoutube
+} from '@coreui/icons';
 import React from 'react';
 
 export default { title: 'Buttons' };
@@ -170,7 +189,7 @@ export const Buttons = () => (
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
               <CButton block variant="outline" color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
           </CRow>
           <CRow className="align-items-center mt-3">
             <CCol col="12" xl className="mb-3 mb-xl-0">
@@ -264,7 +283,7 @@ export const Buttons = () => (
                 Dark
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
           </CRow>
           <CRow className="align-items-center mt-3">
             <CCol col="12" xl className="mb-3 mb-xl-0">
@@ -294,7 +313,7 @@ export const Buttons = () => (
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
               <CButton block variant="outline" color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
           </CRow>
         </CCardBody>
       </CCard>
@@ -338,7 +357,7 @@ export const Buttons = () => (
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
               <CButton block variant="ghost" color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
           </CRow>
           <CRow className="align-items-center mt-3">
             <CCol col="12" xl className="mb-3 mb-xl-0">
@@ -432,7 +451,7 @@ export const Buttons = () => (
                 Dark
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
           </CRow>
           <CRow className="align-items-center mt-3">
             <CCol col="12" xl className="mb-3 mb-xl-0">
@@ -462,7 +481,7 @@ export const Buttons = () => (
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
               <CButton block variant="ghost" color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
           </CRow>
         </CCardBody>
       </CCard>
@@ -866,25 +885,25 @@ export const Buttons = () => (
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton color="secondary" variant="outline">
-                <CIcon name="cil-lightbulb" />
+                <CIcon name="cil-lightbulb"/>
                 Outline Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton variant="ghost" color="success">
-                <CIcon name="cil-lightbulb" />
+                <CIcon name="cil-lightbulb"/>
                 Ghost Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton shape="square" color="warning">
-                <CIcon name="cil-lightbulb" />
+                <CIcon name="cil-lightbulb"/>
                 Square Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton shape="pill" color="danger">
-                <CIcon name="cil-lightbulb" />
+                <CIcon name="cil-lightbulb"/>
                 Pill Button
               </CButton>
             </CCol>
@@ -979,12 +998,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1 btn-group">
               <CDropdownToggle color="primary">
@@ -994,7 +1013,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1006,7 +1025,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1018,7 +1037,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1030,7 +1049,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1042,7 +1061,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1054,12 +1073,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
             <CDropdown className="m-1">
               <CDropdownToggle split color="primary">
                 Primary
@@ -1068,7 +1087,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1080,7 +1099,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1092,7 +1111,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1104,7 +1123,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1116,7 +1135,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1128,12 +1147,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1" size="lg">
               <CDropdownToggle color="secondary">
@@ -1143,7 +1162,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1156,12 +1175,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary" size="sm">
@@ -1171,7 +1190,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1184,12 +1203,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1276,7 +1295,7 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1292,7 +1311,7 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1305,7 +1324,7 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1313,12 +1332,12 @@ export const ButtonDropdowns = () => (
               </CDropdownToggle>
               <CDropdownMenu>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider />
+                <CDropdownDivider/>
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1330,7 +1349,7 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
 
-            <hr />
+            <hr/>
 
             <CDropdown className="m-1">
               <CDropdownToggle color="info">
@@ -1407,7 +1426,7 @@ export const ButtonGroups = () => (
                 <CInputGroupPrepend>
                   <CInputGroupText>@</CInputGroupText>
                 </CInputGroupPrepend>
-                <CInput placeholder="Input group example" />
+                <CInput placeholder="Input group example"/>
               </CInputGroup>
             </CButtonToolbar>
             <CButtonToolbar justify="between">
@@ -1421,7 +1440,7 @@ export const ButtonGroups = () => (
                 <CInputGroupPrepend>
                   <CInputGroupText>@</CInputGroupText>
                 </CInputGroupPrepend>
-                <CInput placeholder="Input group example" />
+                <CInput placeholder="Input group example"/>
               </CInputGroup>
             </CButtonToolbar>
           </CCardBody>
@@ -1455,15 +1474,15 @@ export const ButtonGroups = () => (
               <CButton color="secondary">Middle</CButton>
               <CButton color="secondary">Right</CButton>
             </CButtonGroup>
-            <br />
-            <br />
+            <br/>
+            <br/>
             <CButtonGroup>
               <CButton color="secondary">Left</CButton>
               <CButton color="secondary">Middle</CButton>
               <CButton color="secondary">Right</CButton>
             </CButtonGroup>
-            <br />
-            <br />
+            <br/>
+            <br/>
             <CButtonGroup size="sm">
               <CButton color="secondary">Left</CButton>
               <CButton color="secondary">Middle</CButton>
@@ -1540,102 +1559,119 @@ export const BrandButtons = () => (
             <p>
               <CButton size="sm" className="btn-facebook btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFacebook}
                   name="cib-facebook"
                 />
                 <span>Facebook</span>
               </CButton>
               <CButton size="sm" className="btn-twitter btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTwitter}
                   name="cib-twitter"
                 />
                 <span>Twitter</span>
               </CButton>
               <CButton size="sm" className="btn-linkedin btn-brand mr-1 mb-1">
                 <CIcon
-                  name="cib-linkedin"
+                content={cibLinkedin}
+                name="cib-linkedin"
                 />
                 <span>LinkedIn</span>
               </CButton>
               <CButton size="sm" className="btn-flickr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFlickr}
                   name="cib-flickr"
                 />
                 <span>Flickr</span>
               </CButton>
               <CButton size="sm" className="btn-tumblr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTumblr}
                   name="cib-tumblr"
                 />
                 <span>Tumblr</span>
               </CButton>
               <CButton size="sm" className="btn-xing btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibXing}
                   name="cib-xing"
                 />
                 <span>Xing</span>
               </CButton>
               <CButton size="sm" className="btn-github btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibGithub}
                   name="cib-github"
                 />
                 <span>Github</span>
               </CButton>
               <CButton size="sm" className="btn-stack-overflow btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
                 <span>StackOverflow</span>
               </CButton>
               <CButton size="sm" className="btn-youtube btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYoutube}
                   name="cib-youtube"
                 />
                 <span>YouTube</span>
               </CButton>
               <CButton size="sm" className="btn-dribbble btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibDribbble}
                   name="cib-dribbble"
                 />
                 <span>Dribbble</span>
               </CButton>
               <CButton size="sm" className="btn-instagram btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibInstagram}
                   name="cib-instagram"
                 />
                 <span>Instagram</span>
               </CButton>
               <CButton size="sm" className="btn-pinterest btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibPinterest}
                   name="cib-pinterest"
                 />
                 <span>Pinterest</span>
               </CButton>
               <CButton size="sm" className="btn-vk btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVk}
                   name="cib-vk"
                 />
                 <span>VK</span>
               </CButton>
               <CButton size="sm" className="btn-yahoo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYahoo}
                   name="cib-yahoo"
                 />
                 <span>Yahoo</span>
               </CButton>
               <CButton size="sm" className="btn-behance btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibBehance}
                   name="cib-behance"
                 />
                 <span>Behance</span>
               </CButton>
               <CButton size="sm" className="btn-reddit btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibReddit}
                   name="cib-reddit"
                 />
                 <span>Reddit</span>
               </CButton>
               <CButton size="sm" className="btn-vimeo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVimeo}
                   name="cib-vimeo"
                 />
                 <span>Vimeo</span>
@@ -1645,102 +1681,119 @@ export const BrandButtons = () => (
             <p>
               <CButton className="btn-facebook btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFacebook}
                   name="cib-facebook"
                 />
                 <span>Facebook</span>
               </CButton>
               <CButton className="btn-twitter btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTwitter}
                   name="cib-twitter"
                 />
                 <span>Twitter</span>
               </CButton>
               <CButton className="btn-linkedin btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibLinkedin}
                   name="cib-linkedin"
                 />
                 <span>LinkedIn</span>
               </CButton>
               <CButton className="btn-flickr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFlickr}
                   name="cib-flickr"
                 />
                 <span>Flickr</span>
               </CButton>
               <CButton className="btn-tumblr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTumblr}
                   name="cib-tumblr"
                 />
                 <span>Tumblr</span>
               </CButton>
               <CButton className="btn-xing btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibXing}
                   name="cib-xing"
                 />
                 <span>Xing</span>
               </CButton>
               <CButton className="btn-github btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibGithub}
                   name="cib-github"
                 />
                 <span>Github</span>
               </CButton>
               <CButton className="btn-stack-overflow btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
                 <span>StackOverflow</span>
               </CButton>
               <CButton className="btn-youtube btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYoutube}
                   name="cib-youtube"
                 />
                 <span>YouTube</span>
               </CButton>
               <CButton className="btn-dribbble btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibDribbble}
                   name="cib-dribbble"
                 />
                 <span>Dribbble</span>
               </CButton>
               <CButton className="btn-instagram btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibInstagram}
                   name="cib-instagram"
                 />
                 <span>Instagram</span>
               </CButton>
               <CButton className="btn-pinterest btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibPinterest}
                   name="cib-pinterest"
                 />
                 <span>Pinterest</span>
               </CButton>
               <CButton className="btn-vk btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVk}
                   name="cib-vk"
                 />
                 <span>VK</span>
               </CButton>
               <CButton className="btn-yahoo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYahoo}
                   name="cib-yahoo"
                 />
                 <span>Yahoo</span>
               </CButton>
               <CButton className="btn-behance btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibBehance}
                   name="cib-behance"
                 />
                 <span>Behance</span>
               </CButton>
               <CButton className="btn-reddit btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibReddit}
                   name="cib-reddit"
                 />
                 <span>Reddit</span>
               </CButton>
               <CButton className="btn-vimeo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVimeo}
                   name="cib-vimeo"
                 />
                 <span>Vimeo</span>
@@ -1757,102 +1810,119 @@ export const BrandButtons = () => (
             <p>
               <CButton size="lg" className="btn-facebook btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFacebook}
                   name="cib-facebook"
                 />
                 <span>Facebook</span>
               </CButton>
               <CButton size="lg" className="btn-twitter btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTwitter}
                   name="cib-twitter"
                 />
                 <span>Twitter</span>
               </CButton>
               <CButton size="lg" className="btn-linkedin btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibLinkedin}
                   name="cib-linkedin"
                 />
                 <span>LinkedIn</span>
               </CButton>
               <CButton size="lg" className="btn-flickr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFlickr}
                   name="cib-flickr"
                 />
                 <span>Flickr</span>
               </CButton>
               <CButton size="lg" className="btn-tumblr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTumblr}
                   name="cib-tumblr"
                 />
                 <span>Tumblr</span>
               </CButton>
               <CButton size="lg" className="btn-xing btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibXing}
                   name="cib-xing"
                 />
                 <span>Xing</span>
               </CButton>
               <CButton size="lg" className="btn-github btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibGithub}
                   name="cib-github"
                 />
                 <span>Github</span>
               </CButton>
               <CButton size="lg" className="btn-stack-overflow btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
                 <span>StackOverflow</span>
               </CButton>
               <CButton size="lg" className="btn-youtube btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYoutube}
                   name="cib-youtube"
                 />
                 <span>YouTube</span>
               </CButton>
               <CButton size="lg" className="btn-dribbble btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibDribbble}
                   name="cib-dribbble"
                 />
                 <span>Dribbble</span>
               </CButton>
               <CButton size="lg" className="btn-instagram btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibInstagram}
                   name="cib-instagram"
                 />
                 <span>Instagram</span>
               </CButton>
               <CButton size="lg" className="btn-pinterest btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibPinterest}
                   name="cib-pinterest"
                 />
                 <span>Pinterest</span>
               </CButton>
               <CButton size="lg" className="btn-vk btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVk}
                   name="cib-vk"
                 />
                 <span>VK</span>
               </CButton>
               <CButton size="lg" className="btn-yahoo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYahoo}
                   name="cib-yahoo"
                 />
                 <span>Yahoo</span>
               </CButton>
               <CButton size="lg" className="btn-behance btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibBehance}
                   name="cib-behance"
                 />
                 <span>Behance</span>
               </CButton>
               <CButton size="lg" className="btn-reddit btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibReddit}
                   name="cib-reddit"
                 />
                 <span>Reddit</span>
               </CButton>
               <CButton size="lg" className="btn-vimeo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVimeo}
                   name="cib-vimeo"
                 />
                 <span>Vimeo</span>
@@ -1879,87 +1949,103 @@ export const BrandButtons = () => (
             </h6>
             <p>
               <CButton size="sm" className="btn-facebook btn-brand mr-1 mb-1">
-                <CIcon
-                  name="cib-facebook"
+                <CIcon content={cibFacebook}
+                       name="cib-facebook"
                 />
               </CButton>
               <CButton size="sm" className="btn-twitter btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTwitter}
                   name="cib-twitter"
                 />
               </CButton>
               <CButton size="sm" className="btn-linkedin btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibLinkedin}
                   name="cib-linkedin"
                 />
               </CButton>
               <CButton size="sm" className="btn-flickr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFlickr}
                   name="cib-flickr"
                 />
               </CButton>
               <CButton size="sm" className="btn-tumblr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTumblr}
                   name="cib-tumblr"
                 />
               </CButton>
               <CButton size="sm" className="btn-xing btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibXing}
                   name="cib-xing"
                 />
               </CButton>
               <CButton size="sm" className="btn-github btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibGithub}
                   name="cib-github"
                 />
               </CButton>
               <CButton size="sm" className="btn-stack-overflow btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
               </CButton>
               <CButton size="sm" className="btn-youtube btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYoutube}
                   name="cib-youtube"
                 />
               </CButton>
               <CButton size="sm" className="btn-dribbble btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibDribbble}
                   name="cib-dribbble"
                 />
               </CButton>
               <CButton size="sm" className="btn-instagram btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibInstagram}
                   name="cib-instagram"
                 />
               </CButton>
               <CButton size="sm" className="btn-pinterest btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibPinterest}
                   name="cib-pinterest"
                 />
               </CButton>
               <CButton size="sm" className="btn-vk btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVk}
                   name="cib-vk"
                 />
               </CButton>
               <CButton size="sm" className="btn-yahoo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYahoo}
                   name="cib-yahoo"
                 />
               </CButton>
               <CButton size="sm" className="btn-behance btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibBehance}
                   name="cib-behance"
                 />
               </CButton>
               <CButton size="sm" className="btn-reddit btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibReddit}
                   name="cib-reddit"
                 />
               </CButton>
               <CButton size="sm" className="btn-vimeo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVimeo}
                   name="cib-vimeo"
                 />
               </CButton>
@@ -1968,78 +2054,102 @@ export const BrandButtons = () => (
             <p>
               <CButton className="btn-facebook btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFacebook}
                   name="cib-facebook"
                 />
               </CButton>
               <CButton className="btn-twitter btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTwitter}
                   name="cib-twitter"
                 />
               </CButton>
               <CButton className="btn-linkedin btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibLinkedin}
                   name="cib-linkedin"
                 />
               </CButton>
               <CButton className="btn-flickr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFlickr}
                   name="cib-flickr"
                 />
               </CButton>
               <CButton className="btn-tumblr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTumblr}
                   name="cib-tumblr"
                 />
               </CButton>
-              <CButton className="btn-xing btn-brand mr-1 mb-1"><CIcon name="cib-xing" /></CButton>
+              <CButton className="btn-xing btn-brand mr-1 mb-1">
+                <CIcon
+                  content={cibXing}
+                  name="cib-xing"/>
+              </CButton>
               <CButton className="btn-github btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibGithub}
                   name="cib-github"
                 />
               </CButton>
               <CButton className="btn-stack-overflow btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
               </CButton>
               <CButton className="btn-youtube btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYoutube}
                   name="cib-youtube"
                 />
               </CButton>
               <CButton className="btn-dribbble btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibDribbble}
                   name="cib-dribbble"
                 />
               </CButton>
               <CButton className="btn-instagram btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibInstagram}
                   name="cib-instagram"
                 />
               </CButton>
               <CButton className="btn-pinterest btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibPinterest}
                   name="cib-pinterest"
                 />
               </CButton>
-              <CButton className="btn-vk btn-brand mr-1 mb-1"><CIcon name="cib-vk" /></CButton>
+              <CButton className="btn-vk btn-brand mr-1 mb-1">
+                <CIcon
+                  content={cibVk}
+                  name="cib-vk"
+                />
+              </CButton>
               <CButton className="btn-yahoo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYahoo}
                   name="cib-yahoo"
                 />
               </CButton>
               <CButton className="btn-behance btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibBehance}
                   name="cib-behance"
                 />
               </CButton>
               <CButton className="btn-reddit btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibReddit}
                   name="cib-reddit"
                 />
               </CButton>
               <CButton className="btn-vimeo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVimeo}
                   name="cib-vimeo"
                 />
               </CButton>
@@ -2055,86 +2165,103 @@ export const BrandButtons = () => (
             <p>
               <CButton size="lg" className="btn-facebook btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFacebook}
                   name="cib-facebook"
                 />
               </CButton>
               <CButton size="lg" className="btn-twitter btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTwitter}
                   name="cib-twitter"
                 />
               </CButton>
               <CButton size="lg" className="btn-linkedin btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibLinkedin}
                   name="cib-linkedin"
                 />
               </CButton>
               <CButton size="lg" className="btn-flickr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibFlickr}
                   name="cib-flickr"
                 />
               </CButton>
               <CButton size="lg" className="btn-tumblr btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibTumblr}
                   name="cib-tumblr"
                 />
               </CButton>
               <CButton size="lg" className="btn-xing btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibXing}
                   name="cib-xing"
                 />
               </CButton>
               <CButton size="lg" className="btn-github btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibGithub}
                   name="cib-github"
                 />
               </CButton>
               <CButton size="lg" className="btn-stack-overflow btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
               </CButton>
               <CButton size="lg" className="btn-youtube btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYoutube}
                   name="cib-youtube"
                 />
               </CButton>
               <CButton size="lg" className="btn-dribbble btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibDribbble}
                   name="cib-dribbble"
                 />
               </CButton>
               <CButton size="lg" className="btn-instagram btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibInstagram}
                   name="cib-instagram"
                 />
               </CButton>
               <CButton size="lg" className="btn-pinterest btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibPinterest}
                   name="cib-pinterest"
                 />
               </CButton>
               <CButton size="lg" className="btn-vk btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVk}
                   name="cib-vk"
                 />
               </CButton>
               <CButton size="lg" className="btn-yahoo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibYahoo}
                   name="cib-yahoo"
                 />
               </CButton>
               <CButton size="lg" className="btn-behance btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibBehance}
                   name="cib-behance"
                 />
               </CButton>
               <CButton size="lg" className="btn-reddit btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibReddit}
                   name="cib-reddit"
                 />
               </CButton>
               <CButton size="lg" className="btn-vimeo btn-brand mr-1 mb-1">
                 <CIcon
+                  content={cibVimeo}
                   name="cib-vimeo"
                 />
               </CButton>
