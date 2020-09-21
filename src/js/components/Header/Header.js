@@ -1,10 +1,10 @@
 import React from 'react';
-import CHeader from '@coreui/react';
+import CNavbar from '@coreui/react/lib/navbar/CNavbar';
 
-export default { title: 'Header' };
-
-export const Header = () => (
+const Header = () => (
   <>
-    <CHeader></CHeader>
+    <CNavbar></CNavbar>
   </>
 );
+
+export default Header;
