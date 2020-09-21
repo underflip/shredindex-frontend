@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import Header from '../Header/Header';
 
 const Home = () => (
   <>
