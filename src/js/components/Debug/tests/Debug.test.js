@@ -28,7 +28,7 @@ const mocks = {
 };
 
 describe('Test <Debug />', () => {
-  it('succeeds a graphql healthcheck', async () => {
+  it('should succeed a graphql healthcheck', async () => {
     const wrapper = mount(
       <MockedProvider mocks={[mocks.healthCheckSuccess]} addTypename={false}>
         <Debug />
@@ -47,7 +47,7 @@ describe('Test <Debug />', () => {
     });
   });
 
-  it('fails a graphql healthcheck', async () => {
+  it('should fail a graphql healthcheck', async () => {
     const wrapper = mount(
       <MockedProvider mocks={[mocks.healthCheckFailed]} addTypename={false}>
         <Debug />
