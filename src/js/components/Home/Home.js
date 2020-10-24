@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Header from '../Header/Header';
+import TheFooter from '../Footer/TheFooter';
 
 const Home = () => (
   <>
@@ -22,6 +23,7 @@ const Home = () => (
           </p>
         </div>
       </div>
+    <TheFooter />
     </div>
   </>
 );
