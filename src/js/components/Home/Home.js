@@ -2,11 +2,12 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Header from '../Header/Header';
 import TheFooter from '../Footer/TheFooter';
+import TheSupporters from '../Footer/TheSupporters';
 
 const Home = () => (
   <>
     <div className="c-wrapper">
-      <Header />
+      <Header/>
       <div className="c-body">
         <div className="c-main">
           <h1>
@@ -23,7 +24,8 @@ const Home = () => (
           </p>
         </div>
       </div>
-    <TheFooter />
+      <TheSupporters />
+      <TheFooter />
     </div>
   </>
 );

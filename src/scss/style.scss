@@ -1,8 +1,13 @@
 // If you want to override variables do it here
-@import "darktheme";
+@import "darkTheme";
 
 // Import CoreUI styles
 @import "~@coreui/coreui/scss/coreui.scss";
 
 // If you want to add something do it here
 @import "custom";
+
+// Component styles
+@import "theSupportersColor";
+@import "theSupporters";
+
