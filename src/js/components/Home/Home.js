@@ -1,11 +1,9 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import Header from '../Header/Header';
 
 const Home = () => (
   <>
     <div className="c-wrapper">
-      <Header />
       <div className="c-body">
         <div className="c-main">
           <h1>
