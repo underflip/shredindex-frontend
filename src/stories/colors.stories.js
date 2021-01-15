@@ -32,6 +32,7 @@ const ThemeView = () => {
   );
 };
 
+// eslint-disable-next-line react/prop-types
 const ThemeColor = ({ className, children }) => {
   const classes = classNames(className, 'theme-color w-75 rounded mb-3');
   return (

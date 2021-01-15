@@ -57,6 +57,7 @@
     "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
     "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.6",
     "css-loader": "^3.6.0",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",

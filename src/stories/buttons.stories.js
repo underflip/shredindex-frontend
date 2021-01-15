@@ -37,7 +37,7 @@ import {
   cibVk,
   cibXing,
   cibYahoo,
-  cibYoutube
+  cibYoutube,
 } from '@coreui/icons';
 import React from 'react';
 
@@ -151,6 +151,7 @@ export const Buttons = () => (
       </CCard>
       <CCard>
         <CCardHeader>
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           variant="outline" Buttons
         </CCardHeader>
         <CCardBody>
@@ -189,7 +190,7 @@ export const Buttons = () => (
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
               <CButton block variant="outline" color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
           </CRow>
           <CRow className="align-items-center mt-3">
             <CCol col="12" xl className="mb-3 mb-xl-0">
@@ -283,7 +284,7 @@ export const Buttons = () => (
                 Dark
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
           </CRow>
           <CRow className="align-items-center mt-3">
             <CCol col="12" xl className="mb-3 mb-xl-0">
@@ -313,12 +314,13 @@ export const Buttons = () => (
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
               <CButton block variant="outline" color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
           </CRow>
         </CCardBody>
       </CCard>
       <CCard>
         <CCardHeader>
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           variant="ghost" Buttons
         </CCardHeader>
         <CCardBody>
@@ -327,6 +329,7 @@ export const Buttons = () => (
             {' '}
             <code>.btn-ghost-*</code>
             {' '}
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             class for variant="ghost" buttons.
           </p>
           <CRow className="align-items-center">
@@ -357,7 +360,7 @@ export const Buttons = () => (
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
               <CButton block variant="ghost" color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
           </CRow>
           <CRow className="align-items-center mt-3">
             <CCol col="12" xl className="mb-3 mb-xl-0">
@@ -451,7 +454,7 @@ export const Buttons = () => (
                 Dark
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
           </CRow>
           <CRow className="align-items-center mt-3">
             <CCol col="12" xl className="mb-3 mb-xl-0">
@@ -481,7 +484,7 @@ export const Buttons = () => (
             <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
               <CButton block variant="ghost" color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0"/>
+            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
           </CRow>
         </CCardBody>
       </CCard>
@@ -802,9 +805,11 @@ export const Buttons = () => (
           <p>
             Fancy larger or smaller buttons?
             Add
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <code>size="lg"</code>
             {' '}
             or
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <code>size="sm"</code>
             {' '}
             for additional sizes.
@@ -885,25 +890,25 @@ export const Buttons = () => (
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton color="secondary" variant="outline">
-                <CIcon name="cil-lightbulb"/>
+                <CIcon name="cil-lightbulb" />
                 Outline Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton variant="ghost" color="success">
-                <CIcon name="cil-lightbulb"/>
+                <CIcon name="cil-lightbulb" />
                 Ghost Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton shape="square" color="warning">
-                <CIcon name="cil-lightbulb"/>
+                <CIcon name="cil-lightbulb" />
                 Square Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton shape="pill" color="danger">
-                <CIcon name="cil-lightbulb"/>
+                <CIcon name="cil-lightbulb" />
                 Pill Button
               </CButton>
             </CCol>
@@ -998,12 +1003,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1 btn-group">
               <CDropdownToggle color="primary">
@@ -1013,7 +1018,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1025,7 +1030,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1037,7 +1042,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1049,7 +1054,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1061,7 +1066,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1073,12 +1078,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
             <CDropdown className="m-1">
               <CDropdownToggle split color="primary">
                 Primary
@@ -1087,7 +1092,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1099,7 +1104,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1111,7 +1116,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1123,7 +1128,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1135,7 +1140,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1147,12 +1152,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1" size="lg">
               <CDropdownToggle color="secondary">
@@ -1162,7 +1167,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1175,12 +1180,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary" size="sm">
@@ -1190,7 +1195,7 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
@@ -1203,12 +1208,12 @@ export const ButtonDropdowns = () => (
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1295,7 +1300,7 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1311,7 +1316,7 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1324,7 +1329,7 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1332,12 +1337,12 @@ export const ButtonDropdowns = () => (
               </CDropdownToggle>
               <CDropdownMenu>
                 <CDropdownItem>Action</CDropdownItem>
-                <CDropdownDivider/>
+                <CDropdownDivider />
                 <CDropdownItem>Another Action</CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1">
               <CDropdownToggle color="secondary">
@@ -1349,7 +1354,7 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
 
-            <hr/>
+            <hr />
 
             <CDropdown className="m-1">
               <CDropdownToggle color="info">
@@ -1426,7 +1431,7 @@ export const ButtonGroups = () => (
                 <CInputGroupPrepend>
                   <CInputGroupText>@</CInputGroupText>
                 </CInputGroupPrepend>
-                <CInput placeholder="Input group example"/>
+                <CInput placeholder="Input group example" />
               </CInputGroup>
             </CButtonToolbar>
             <CButtonToolbar justify="between">
@@ -1440,7 +1445,7 @@ export const ButtonGroups = () => (
                 <CInputGroupPrepend>
                   <CInputGroupText>@</CInputGroupText>
                 </CInputGroupPrepend>
-                <CInput placeholder="Input group example"/>
+                <CInput placeholder="Input group example" />
               </CInputGroup>
             </CButtonToolbar>
           </CCardBody>
@@ -1474,15 +1479,15 @@ export const ButtonGroups = () => (
               <CButton color="secondary">Middle</CButton>
               <CButton color="secondary">Right</CButton>
             </CButtonGroup>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <CButtonGroup>
               <CButton color="secondary">Left</CButton>
               <CButton color="secondary">Middle</CButton>
               <CButton color="secondary">Right</CButton>
             </CButtonGroup>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <CButtonGroup size="sm">
               <CButton color="secondary">Left</CButton>
               <CButton color="secondary">Middle</CButton>
@@ -1573,8 +1578,8 @@ export const BrandButtons = () => (
               </CButton>
               <CButton size="sm" className="btn-linkedin btn-brand mr-1 mb-1">
                 <CIcon
-                content={cibLinkedin}
-                name="cib-linkedin"
+                  content={cibLinkedin}
+                  name="cib-linkedin"
                 />
                 <span>LinkedIn</span>
               </CButton>
@@ -1949,8 +1954,9 @@ export const BrandButtons = () => (
             </h6>
             <p>
               <CButton size="sm" className="btn-facebook btn-brand mr-1 mb-1">
-                <CIcon content={cibFacebook}
-                       name="cib-facebook"
+                <CIcon
+                  content={cibFacebook}
+                  name="cib-facebook"
                 />
               </CButton>
               <CButton size="sm" className="btn-twitter btn-brand mr-1 mb-1">
@@ -2085,7 +2091,8 @@ export const BrandButtons = () => (
               <CButton className="btn-xing btn-brand mr-1 mb-1">
                 <CIcon
                   content={cibXing}
-                  name="cib-xing"/>
+                  name="cib-xing"
+                />
               </CButton>
               <CButton className="btn-github btn-brand mr-1 mb-1">
                 <CIcon
