@@ -9,8 +9,10 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { cilBell, cilEnvelopeOpen, cilTask } from '@coreui/icons';
+import User from '../../../images/user_sp.jpg';
 
 export default { title: 'TheHeaderDropdown' };
+
 
 export const TheHeaderDropdown = () => (
   <CDropdown
@@ -21,7 +23,7 @@ export const TheHeaderDropdown = () => (
     <CDropdownToggle className="c-header-nav-link" caret={false}>
       <div className="c-avatar">
         <CImg
-          src={'https://shredindex.com/storage/app/uploads/public/5c0/04f/e78/thumb_43_90_90_0_0_crop.png'}
+          src={User}
           className="c-avatar-img"
           alt="admin@bootstrapmaster.com"
         />
