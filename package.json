@@ -4,6 +4,7 @@
   "description": "The front-end for www.shredindex.com",
   "scripts": {
     "start": "webpack-dev-server",
+    "watch": "webpack-dev-server",
     "build": "webpack",
     "watch": "webpack --watch",
     "lint": "eslint src/",
