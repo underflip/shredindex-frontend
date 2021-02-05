@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "The front-end for www.shredindex.com",
   "scripts": {
+    "start": "webpack-dev-server",
     "build": "webpack",
     "watch": "webpack --watch",
     "lint": "eslint src/",
@@ -42,6 +43,7 @@
     "sass-loader": "^8.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
     "webpack-fix-style-only-entries": "^0.4.0"
   },
   "dependencies": {

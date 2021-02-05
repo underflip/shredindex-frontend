@@ -22,6 +22,12 @@ module.exports = {
     ],
     'css/style': './src/scss/style.scss',
   },
+  devServer: {
+    contentBase: './public',
+    open: true,
+    port: 3000,
+    overlay: true,
+  },
   output: {
     path: path.resolve(__dirname, 'public/dist'),
     filename: '[name].js',
