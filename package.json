@@ -3,6 +3,8 @@
   "version": "2.0.0",
   "description": "The front-end for www.shredindex.com",
   "scripts": {
+    "start": "webpack-dev-server",
+    "watch": "webpack-dev-server",
     "build": "webpack",
     "watch": "webpack --watch",
     "lint": "eslint src/",
@@ -45,6 +47,7 @@
     "sass-loader": "^8.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
     "webpack-fix-style-only-entries": "^0.4.0"
   },
   "dependencies": {
@@ -60,6 +63,7 @@
     "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
     "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.6",
     "css-loader": "^3.6.0",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
