@@ -4,9 +4,7 @@
   "description": "The front-end for www.shredindex.com",
   "scripts": {
     "start": "webpack-dev-server",
-    "watch": "webpack-dev-server",
     "build": "webpack",
-    "watch": "webpack --watch",
     "lint": "eslint src/",
     "test": "jest --coverage",
     "storybook": "start-storybook -p 9009"
@@ -26,6 +24,7 @@
     "@storybook/react": "^5.3.19",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^2.0.1",
     "copy-webpack-plugin": "^5.1.1",
     "cypress": "^5.2.0",
     "dotenv": "^8.2.0",
@@ -38,6 +37,8 @@
     "eslint-plugin-jsx-a11y": "^6.3.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
     "file-loader": "^6.2.0",
     "image-webpack-loader": "^7.0.1",
     "jest": "^25.5.4",
