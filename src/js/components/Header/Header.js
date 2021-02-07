@@ -4,53 +4,61 @@ import {
   CHeader,
   CHeaderBrand,
   CHeaderNav,
+  CHeaderNavLink,
   CHeaderNavItem,
   CSubheader,
   CToggler,
-  CImg
+  CImg,
 } from '@coreui/react';
 
-import {
-  cilChatBubble,
-  cilFilter,
-  cilUserPlus
-} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
+import { FormattedMessage } from 'react-intl';
+import Routes from './NavRoutesService';
 import Logo from '../../../images/logo.svg';
 
 const Header = () => (
+
   <>
     <CHeader withSubheader>
       <CToggler
         inHeader
         className="ml-md-3 d-lg-none"
       />
-      <CToggler
-        inHeader
-        className="ml-3 d-md-down-none"
-      />
       <CHeaderBrand className="px-3 d-md-down-none">
-        <CImg src={Logo} name="logo" height="28" alt="Logo" />
+        <CHeaderNavLink to="/">
+          <CImg src={Logo} name="logo" height="28" alt="Logo" />
+        </CHeaderNavLink>
+
       </CHeaderBrand>
       <CHeaderBrand className="mx-auto d-lg-none">
-        <CImg src={Logo} name="logo" height="28" alt="Logo" />
+        <CHeaderNavLink to="/">
+          <CImg src={Logo} name="logo" height="28" alt="Logo" />
+        </CHeaderNavLink>
       </CHeaderBrand>
       <CHeaderNav className="d-md-down-none mr-auto">
-        <CHeaderNavItem className="px-3">
-          <CIcon content={cilFilter} name="cil-graph" alt="Dashboard"/>&nbsp;Resorts
-        </CHeaderNavItem>
-        <CHeaderNavItem className="px-3">
-          <CIcon content={cilChatBubble} name="cil-settings" alt="Settings"/>&nbsp;
-          Join Chat
-        </CHeaderNavItem>
-        <CHeaderNavItem className="px-3">
-          <CIcon content={cilUserPlus} name="cil-settings" alt="Settings"/>&nbsp;
-          Member Benefits
-        </CHeaderNavItem>
+        {Routes
+          .filter((item) => item.path !== '/')
+          .map((item) => (
+            <CHeaderNavItem key={item.path} className="px-3">
+              <CHeaderNavLink to={item.path}>
+                <CIcon
+                  content={item.icon}
+                  name="cil-graph"
+                  alt="Dashboard"
+                  className="mr-1 mb-1"
+                />
+                <FormattedMessage
+                  id={item.name}
+                  defaultMessage={item.name}
+                />
+              </CHeaderNavLink>
+            </CHeaderNavItem>
+          ))}
       </CHeaderNav>
-      <CSubheader className="px-3 justify-content-between">
+      <CSubheader className="px-3 justify-content-between d-md-down-none">
         <CBreadcrumbRouter
           className="border-0 c-subheader-nav m-0 px-0 px-md-3"
+          routes={Routes}
         />
       </CSubheader>
     </CHeader>
