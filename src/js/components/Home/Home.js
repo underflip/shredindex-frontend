@@ -3,12 +3,18 @@ import { FormattedMessage } from 'react-intl';
 import Header from '../Header/Header';
 import MobileNav from '../Header/MobileNav';
 
+export const ToggleSidebar = React.createContext();
+
 const Home = () => (
   <>
     <div className="c-app c-default-layout">
-      <MobileNav />
+      <ToggleSidebar>
+        <MobileNav />
+      </ToggleSidebar>
       <div className="c-wrapper">
-        <Header />
+        <ToggleSidebar>
+          <Header />
+        </ToggleSidebar>
         <div className="c-body">
           <div className="c-main">
             <h1>

@@ -10,12 +10,12 @@ import {
 import Routes from './NavRoutesService';
 
 const showMobileNav = createContext(true);
-const dispatch = showMobileNav()
+// const dispatch = showMobileNav()
 
 const MobileNav = () => (
   <CSidebar
     show={showMobileNav}
-    onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
+    // onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
   >
 
     <CSidebarNav>
