@@ -1,25 +1,34 @@
-import React, { createContext } from 'react';
-
+import React from 'react';
 import {
   CSidebar,
   CSidebarNav,
-  CSidebarMinimizer,
+  CSidebarMinimizer, CHeaderBrand, CHeaderNavLink, CImg, CHeader,
 } from '@coreui/react';
+import CIcon from '@coreui/icons-react';
+import NavService from './NavService';
+import Logo from "../../../images/logo.svg";
 
-
-import Routes from './NavRoutesService';
-
-const showMobileNav = createContext(true);
-// const dispatch = showMobileNav()
-
-const MobileNav = () => (
+const MobileNav = ({ toggle, setToggleNav }) => (
   <CSidebar
-    show={showMobileNav}
-    // onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
+    show={toggle}
+    onShowChange={() => setToggleNav(!toggle)}
   >
-
     <CSidebarNav>
-      yo mother fucker yea maaaaaate
+      <CHeaderBrand className="mx-auto d-lg-none">
+        <CHeaderNavLink to="/">
+          <CImg src={Logo} name="logo" height="28" alt="Logo" />
+        </CHeaderNavLink>
+      </CHeaderBrand>
+      {NavService
+        .filter((item) => item.path !== '/')
+        .map((item) => (
+          <li key={item.path} className="c-sidebar-nav-item">
+            <a href={item.path} className="c-sidebar-nav-link">
+              <CIcon content={item.icon} className="mr-2" />
+              {item.name}
+            </a>
+          </li>
+        ))}
     </CSidebarNav>
     <CSidebarMinimizer className="c-d-md-down-none" />
   </CSidebar>
