@@ -6,9 +6,9 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import NavService from './NavService';
-import Logo from "../../../images/logo.svg";
+import Logo from '../../../images/logo.svg';
 
-const MobileNav = ({ toggle, setToggleNav }) => (
+const MobileSidebar = ({ toggle, setToggleNav }) => (
   <CSidebar
     show={toggle}
     onShowChange={() => setToggleNav(!toggle)}
@@ -34,4 +34,4 @@ const MobileNav = ({ toggle, setToggleNav }) => (
   </CSidebar>
 );
 
-export default MobileNav;
+export default MobileSidebar;
