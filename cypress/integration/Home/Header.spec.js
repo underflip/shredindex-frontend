@@ -9,7 +9,6 @@ describe('Header', () => {
     cy.get('.c-header-toggler').get('.c-header-toggler-icon');
   });
 
-
   context('mobile resolution', () => {
     beforeEach(() => {
       // run these tests as if in a desktop
