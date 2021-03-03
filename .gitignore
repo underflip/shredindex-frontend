@@ -10,3 +10,5 @@ cypress/
 debug.log
 
 cypress.json
+
+cypress.env.json

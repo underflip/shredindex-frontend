@@ -6,7 +6,7 @@ export default {
   component: Header,
 };
 
-export function HeaderWith() {
+export function HeaderStory() {
   return (
     <Header />
   );
