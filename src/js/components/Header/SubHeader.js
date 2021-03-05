@@ -1,6 +1,6 @@
 import { CBreadcrumbRouter, CHeader, CSubheader } from '@coreui/react';
 import React from 'react';
-import NavService from './NavService';
+import NavData from './NavData';
 
 function SubHeader() {
   return (
@@ -8,7 +8,7 @@ function SubHeader() {
       <CSubheader className="px-3 justify-content-between">
         <CBreadcrumbRouter
           className="border-0 c-subheader-nav m-0 px-0 px-md-3"
-          routes={NavService}
+          routes={NavData}
         />
       </CSubheader>
     </>

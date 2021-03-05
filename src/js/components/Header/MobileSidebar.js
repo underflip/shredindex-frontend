@@ -2,10 +2,9 @@ import React from 'react';
 import {
   CSidebar,
   CSidebarNav,
-  CSidebarMinimizer, CHeaderBrand, CHeaderNavLink, CImg, CHeader,
+  CSidebarMinimizer, CHeaderBrand, CHeaderNavLink, CImg,
 } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
-import NavService from './NavService';
+import SidebarItems from './SidebarItems';
 import Logo from '../../../images/logo.svg';
 
 const MobileSidebar = ({ toggle, setToggleNav }) => (
@@ -19,16 +18,7 @@ const MobileSidebar = ({ toggle, setToggleNav }) => (
           <CImg src={Logo} name="logo" height="28" alt="Logo" />
         </CHeaderNavLink>
       </CHeaderBrand>
-      {NavService
-        .filter((item) => item.path !== '/')
-        .map((item) => (
-          <li key={item.path} className="c-sidebar-nav-item">
-            <a href={item.path} className="c-sidebar-nav-link">
-              <CIcon content={item.icon} className="mr-2" />
-              {item.name}
-            </a>
-          </li>
-        ))}
+      <SidebarItems />
     </CSidebarNav>
     <CSidebarMinimizer className="c-d-md-down-none" />
   </CSidebar>
