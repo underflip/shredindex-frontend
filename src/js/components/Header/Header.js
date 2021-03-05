@@ -6,10 +6,10 @@ import {
 import HeaderNavigation from './HeaderNavigation';
 import SubHeader from './SubHeader';
 
-import MobileSidebarContext from './MobileSidebarContext';
+import ViewContext from './ViewContext';
 
 function Header() {
-  const { toggleNav, setToggleNav } = useContext(MobileSidebarContext);
+  const { toggleNav, setToggleNav } = useContext(ViewContext);
   return (
     <CHeader withSubheader>
       <CToggler

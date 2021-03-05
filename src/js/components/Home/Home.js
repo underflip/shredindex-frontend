@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Header from '../Header/Header';
-import MobileSidebar from '../Header/MobileSidebar';
-import MobileSidebarContext from '../Header/MobileSidebarContext';
+import SidebarNav from '../Header/SidebarNav';
+import ViewContext from '../Header/ViewContext';
 
 export default function Home() {
   const [toggleNav, setToggleNav] = useState(false);
   return (
     <div className="c-app c-default-layout">
-      <MobileSidebarContext.Provider value={{ toggleNav, setToggleNav }}>
-        <MobileSidebar toggle={toggleNav} setToggleNav={setToggleNav} />
+      <ViewContext.Provider value={{ toggleNav, setToggleNav }}>
+        <SidebarNav toggle={toggleNav} setToggleNav={setToggleNav} />
         <div className="c-wrapper">
           <Header />
           <div className="c-body">
@@ -29,7 +29,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </MobileSidebarContext.Provider>
+      </ViewContext.Provider>
     </div>
   );
 }

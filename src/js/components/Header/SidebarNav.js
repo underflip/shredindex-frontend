@@ -7,7 +7,7 @@ import {
 import SidebarItems from './SidebarItems';
 import Logo from '../../../images/logo.svg';
 
-const MobileSidebar = ({ toggle, setToggleNav }) => (
+const SidebarNav = ({ toggle, setToggleNav }) => (
   <CSidebar
     show={toggle}
     onShowChange={() => setToggleNav(!toggle)}
@@ -24,4 +24,4 @@ const MobileSidebar = ({ toggle, setToggleNav }) => (
   </CSidebar>
 );
 
-export default MobileSidebar;
+export default SidebarNav;

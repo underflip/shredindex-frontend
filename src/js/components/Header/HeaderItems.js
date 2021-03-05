@@ -4,24 +4,21 @@ import CIcon from '@coreui/icons-react';
 import { FormattedMessage } from 'react-intl';
 import NavData from './NavData';
 
-function HeaderItems() {
+const HeaderItems = () => {
+  const filtered = NavData.filter((item) => item.path !== '/');
+
   return (
-    <>
-      {NavData
-        .filter((item) => item.path !== '/')
-        .map((item) => (
-          <CHeaderNavItem key={item.path} className="px-3">
-            <CHeaderNavLink to={item.path}>
-              <CIcon content={item.icon} className="mr-2" />
-              <FormattedMessage
-                id={item.name}
-                defaultMessage={item.name}
-              />
-            </CHeaderNavLink>
-          </CHeaderNavItem>
-        ))}
-    </>
-  );
-}
+    filtered.map((item) => (
+      <CHeaderNavItem key={item.path} className="px-3">
+        <CHeaderNavLink to={item.path}>
+          <CIcon content={item.icon} className="mr-2" />
+          <FormattedMessage
+            id={item.name}
+            defaultMessage={item.name}
+          />
+        </CHeaderNavLink>
+      </CHeaderNavItem>
+    )));
+};
 
 export default HeaderItems;
