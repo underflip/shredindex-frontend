@@ -1,6 +1,6 @@
 import { CBreadcrumbRouter, CHeader, CSubheader } from '@coreui/react';
 import React from 'react';
-import NavConfig from '../config/NavConfig';
+import NavConfig from '../config/nav-config';
 
 const SubHeader = () => (
   <CSubheader className="px-3 justify-content-between">

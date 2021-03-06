@@ -1,6 +1,6 @@
 import React from 'react';
 import CIcon from '@coreui/icons-react';
-import NavConfig from '../config/NavConfig';
+import NavConfig from '../config/nav-config';
 
 const SidebarItems = () => {
   const filtered = NavConfig.filter((item) => item.path !== '/');
