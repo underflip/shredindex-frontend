@@ -2,10 +2,10 @@ import React from 'react';
 import { CHeaderNavItem, CHeaderNavLink } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { FormattedMessage } from 'react-intl';
-import NavData from './NavData';
+import NavConfig from '../config/NavConfig';
 
 const HeaderItems = () => {
-  const filtered = NavData.filter((item) => item.path !== '/');
+  const filtered = NavConfig.filter((item) => item.path !== '/');
 
   return (
     filtered.map((item) => (

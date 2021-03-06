@@ -1,9 +1,9 @@
 import React from 'react';
 import CIcon from '@coreui/icons-react';
-import NavData from './NavData';
+import NavConfig from '../config/NavConfig';
 
 const SidebarItems = () => {
-  const filtered = NavData.filter((item) => item.path !== '/');
+  const filtered = NavConfig.filter((item) => item.path !== '/');
 
   return filtered.map((item) => (
     <li key={item.path} className="c-sidebar-nav-item">

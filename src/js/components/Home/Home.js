@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Header from '../Header/Header';
-import SidebarNav from '../Header/SidebarNav';
-import ViewContext from '../Header/ViewContext';
+import SidebarNav from '../Sidebar/SidebarNav';
+import ViewContext from '../ViewContext/ViewContext';
 
 export default function Home() {
   const [toggleNav, setToggleNav] = useState(false);

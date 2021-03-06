@@ -3,12 +3,12 @@ import {
   CHeader,
   CToggler,
 } from '@coreui/react';
-import HeaderNavigation from './HeaderNavigation';
-import SubHeader from './SubHeader';
+import HeaderNavigation from '../HeaderNavigation/HeaderNavigation';
+import SubHeader from '../SubHeader/SubHeader';
 
-import ViewContext from './ViewContext';
+import ViewContext from '../ViewContext/ViewContext';
 
-function Header() {
+const Header = () => {
   const { toggleNav, setToggleNav } = useContext(ViewContext);
   return (
     <CHeader withSubheader>

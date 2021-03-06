@@ -6,7 +6,7 @@ import {
   cilUserPlus,
 } from '@coreui/icons';
 
-const NavData = [
+const NavConfig = [
   {
     name: 'Home',
     path: '/',
@@ -29,4 +29,4 @@ const NavData = [
   },
 ];
 
-export default NavData;
+export default NavConfig;
