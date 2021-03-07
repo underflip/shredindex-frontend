@@ -18,11 +18,11 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 module.exports = {
   mode: development,
   entry: {
-    'js/app': [
+    'dist/js/app': [
       '@babel/polyfill',
       './src/js/app.js',
     ],
-    'css/style': './src/scss/style.scss',
+    'dist/css/style': './src/scss/style.scss',
   },
   devServer: {
     contentBase: './public',
@@ -31,7 +31,7 @@ module.exports = {
     overlay: true,
   },
   output: {
-    path: path.resolve(__dirname, 'public/dist'),
+    path: path.resolve(__dirname, 'public/'),
     filename: '[name].js',
   },
   module: {
@@ -39,7 +39,12 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'dist/images/',
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
@@ -100,8 +105,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
+      title: 'Shred Index',
+      template: 'src/index.html',
     }),
     new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
