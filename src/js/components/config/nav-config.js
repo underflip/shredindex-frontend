@@ -1,10 +1,4 @@
-import React from 'react';
-
-import {
-  cilHome,
-  cilMap,
-  cilUserPlus,
-} from '@coreui/icons';
+import { cilHome, cilMap, cilUserPlus } from '@coreui/icons';
 
 const NavConfig = [
   {

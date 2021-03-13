@@ -21,6 +21,6 @@ const Header = () => {
       <SubHeader />
     </CHeader>
   );
-}
+};
 
 export default Header;

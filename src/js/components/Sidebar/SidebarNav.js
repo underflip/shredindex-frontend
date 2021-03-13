@@ -1,11 +1,15 @@
-import React from 'react';
 import {
+  CHeaderBrand,
+  CHeaderNavLink,
+  CImg,
   CSidebar,
+  CSidebarMinimizer,
   CSidebarNav,
-  CSidebarMinimizer, CHeaderBrand, CHeaderNavLink, CImg,
 } from '@coreui/react';
-import SidebarItems from './SidebarItems';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Logo from '../../../images/logo.svg';
+import SidebarItems from './SidebarItems';
 
 const SidebarNav = ({ toggle, setToggleNav }) => (
   <CSidebar
@@ -23,5 +27,10 @@ const SidebarNav = ({ toggle, setToggleNav }) => (
     <CSidebarMinimizer className="c-d-md-down-none" />
   </CSidebar>
 );
+
+SidebarNav.propTypes = {
+  toggle: PropTypes.string.isRequired,
+  setToggleNav: PropTypes.func.isRequired,
+};
 
 export default SidebarNav;

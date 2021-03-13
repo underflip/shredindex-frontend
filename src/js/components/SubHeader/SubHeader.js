@@ -1,4 +1,4 @@
-import { CBreadcrumbRouter, CHeader, CSubheader } from '@coreui/react';
+import { CBreadcrumbRouter, CSubheader } from '@coreui/react';
 import React from 'react';
 import NavConfig from '../config/nav-config';
 

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Header from '../Header/Header';
