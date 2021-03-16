@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Header from '../Header/Header';
 import SidebarNav from '../Sidebar/SidebarNav';
 import ViewContext from '../ViewContext/ViewContext';
+import ResortSingle from '../ResortSingle/ResortSingle';
 
 export default function Home() {
   const [toggleNav, setToggleNav] = useState(false);
@@ -12,8 +13,10 @@ export default function Home() {
         <SidebarNav toggle={toggleNav} setToggleNav={setToggleNav} />
         <div className="c-wrapper">
           <Header />
+
           <div className="c-body">
             <div className="c-main">
+              <ResortSingle />
               <h1>
                 <FormattedMessage
                   id="shredindex.app.TITLE"
