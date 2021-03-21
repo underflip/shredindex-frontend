@@ -28,24 +28,30 @@ const Ratings = () => {
       <CCollapse show={ratingAll}>
 
         <CCardBody>
-          <CRow>
-            <label className="col-5">Shred Score</label>
-            <CCol className="col-7">
-              <CProgress value={25.3746472} showPercentage precision={0} className="mb-3" />
-            </CCol>
-          </CRow>
-          <CRow>
-            <label className="col-5">Digital Nomad</label>
-            <CCol className="col-7">
-              <CProgress value={50.45} showValue className="mb-3" />
-            </CCol>
-          </CRow>
-          <CRow>
-            <label className="col-5">Family</label>
-            <CCol className="col-7">
-              <CProgress value={15} max={20} showPercentage className="mb-3" />
-            </CCol>
-          </CRow>
+          <CCol className="col-lg-6">
+            <CRow>
+              <label className="col-5 font-weight-bold">Shred Score</label>
+              <CCol className="col-7">
+                <CProgress color="gradient-info" value={25.3746472} showPercentage precision={0} className="mb-3 font-weight-bold" />
+              </CCol>
+            </CRow>
+          </CCol>
+          <CCol className="col-lg-6">
+            <CRow>
+              <label className="col-5 font-weight-bold">Digital Nomad</label>
+              <CCol className="col-7">
+                <CProgress color="gradient-info" value={50.45} showValue className="mb-3 font-weight-bold" />
+              </CCol>
+            </CRow>
+          </CCol>
+          <CCol className="col-lg-5">
+            <CRow>
+              <label className="col-5 font-weight-bold">Family</label>
+              <CCol className="col-7">
+                <CProgress color="gradient-info" value={15} max={20} showPercentage className="mb-3 font-weight-bold" />
+              </CCol>
+            </CRow>
+          </CCol>
         </CCardBody>
       </CCollapse>
 
