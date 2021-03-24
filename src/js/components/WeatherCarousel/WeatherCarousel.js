@@ -6,7 +6,7 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import Flickity from 'react-flickity-component';
-import WeatherConfig from '../config/weather.config';
+import WeatherConfig from '../config/weather-config';
 import ChartSimple from '../Charts/chartSimple';
 
 const flickityOptions = {

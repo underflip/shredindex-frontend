@@ -13,7 +13,7 @@ import {
 import CIcon from '@coreui/icons-react';
 
 import { cilChevronBottom, cilChevronRight } from '@coreui/icons';
-import LocalGuideItems from '../config/local-guide.config';
+import LocalGuideItems from '../config/local-guide-config';
 
 const LocalGuide = () => {
   const [guideAll, setGuideAll] = useState(true);
@@ -27,18 +27,7 @@ const LocalGuide = () => {
             name={guideAll ? 'cil-chevron-bottom' : 'cil-chevron-right'}
           />
         </CLink>
-        <span className="">Local Guide</span>
-        <div className="card-header-actions">
-          <CLink className="card-header-action">
-            <CButton
-              size="sm"
-              color="light"
-              variant="outline"
-            >
-              Guide
-            </CButton>
-          </CLink>
-        </div>
+        <span className="h6">Local Guide</span>
       </CCardHeader>
       <CCollapse show={guideAll}>
         <CCardBody>

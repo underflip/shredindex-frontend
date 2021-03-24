@@ -15,7 +15,7 @@ import CIcon from '@coreui/icons-react';
 import {
   cilChevronBottom, cilChevronRight, cilChevronTop, cilSettings,
 } from '@coreui/icons';
-import RatingItems from '../config/rating.config';
+import RatingItems from '../config/rating-config';
 
 const Ratings = () => {
   const [ratingAll, setRatingAll] = useState(true);
@@ -29,22 +29,9 @@ const Ratings = () => {
             name={ratingAll ? 'cil-chevron-bottom' : 'cil-chevron-right'}
           />
         </CLink>
-        <span className=" ">Ratings</span>
-        <div className="card-header-actions">
-
-          <CLink className="card-header-action">
-            <CButton
-              size="sm"
-              color="light"
-              variant="outline"
-            >
-              All Ratings
-            </CButton>
-          </CLink>
-        </div>
+        <span className="h6">Ratings</span>
       </CCardHeader>
       <CCollapse show={ratingAll}>
-
         <CCardBody>
           <CListGroup>
             <RatingListItems />
@@ -66,7 +53,7 @@ const RatingListItems = () => RatingItems.map((item) => (
         {item.name}
       </div>
       <div className="col-7" content={item.icon} color="primary">
-        <CProgress color="gradient-info" value={item.percentage} max={100} showPercentage className="font-weight-bold" />
+        <CProgress color="gradient-warning" value={item.percentage} max={100} showPercentage className="font-weight-bold" />
       </div>
     </CRow>
   </CListGroupItem>

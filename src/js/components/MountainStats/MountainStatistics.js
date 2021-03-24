@@ -13,7 +13,7 @@ import {
 import CIcon from '@coreui/icons-react';
 
 import { cilChevronBottom, cilChevronRight } from '@coreui/icons';
-import MountainStatItems from '../config/mountain-statistics.config';
+import MountainStatItems from '../config/mountain-statistics-config';
 
 const MountainStatistics = () => {
   const [statsAll, setStatsAll] = useState(true);
@@ -27,18 +27,7 @@ const MountainStatistics = () => {
             name={statsAll ? 'cil-chevron-bottom' : 'cil-chevron-right'}
           />
         </CLink>
-        <span className="">Mountain Statistics</span>
-        <div className="card-header-actions">
-          <CLink className="card-header-action">
-            <CButton
-              size="sm"
-              color="light"
-              variant="outline"
-            >
-              All Stats
-            </CButton>
-          </CLink>
-        </div>
+        <span className="h6">Mountain Statistics</span>
       </CCardHeader>
       <CCollapse show={statsAll}>
         <CCardBody>

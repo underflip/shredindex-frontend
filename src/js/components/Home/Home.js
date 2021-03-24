@@ -15,7 +15,7 @@ export default function Home() {
           <Header />
 
           <div className="c-body">
-            <div className="c-main">
+            <div className="c-main container px-0">
               <ResortSingle />
               <h1>
                 <FormattedMessage

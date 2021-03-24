@@ -5,7 +5,7 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import Flickity from 'react-flickity-component';
-import HeroStats from '../config/hero-stat.config';
+import HeroStats from '../config/hero-stat-config';
 
 const flickityOptions = {
   contain: true,

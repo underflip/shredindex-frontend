@@ -1,6 +1,6 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
-import ResortHeroCarouselSlides from '../config/resort-hero-carousel-slides.config';
+import ResortHeroCarouselSlides from '../config/resort-hero-carousel-config';
 
 const flickityOptions = {
   contain: true,
