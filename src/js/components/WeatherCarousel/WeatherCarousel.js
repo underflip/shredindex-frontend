@@ -29,7 +29,7 @@ export default function WeatherCarousel() {
 }
 
 const WeatherDay = () => WeatherConfig.map((item) => (
-  <CCol key={item.name} xs="10" sm="6" lg="3" className="p-2">
+  <CCol key={item.day} xs="10" sm="6" lg="3" className="p-2">
     <CWidgetDropdown
       color="dark-gradient"
       header={item.day}

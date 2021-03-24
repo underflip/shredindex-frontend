@@ -6,12 +6,14 @@ import {
   CTabContent,
   CTabPane,
   CNavLink,
+  CCard,
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import Flickity from 'react-flickity-component';
 import Ratings from '../Ratings/Ratings';
 import ResortInfoNav from '../config/resort-info-nav.config';
-import Statistics from "../MountainStats/Statistics";
+import MountainStatistics from '../MountainStats/MountainStatistics';
+import LocalGuide from '../LocalGuide/LocalGuide';
 
 const flickityOptions = {
   prevNextButtons: false,
@@ -39,8 +41,11 @@ export default function ResortSingleNav() {
         </CNav>
         <CTabContent>
           <CTabPane>
-            <Ratings />
-            <Statistics />
+            <CCard>
+              <Ratings />
+              <MountainStatistics />
+              <LocalGuide />
+            </CCard>
           </CTabPane>
           <CTabPane>
             {`2. ${lorem}`}
@@ -55,10 +60,10 @@ export default function ResortSingleNav() {
       </CTabs>
     </div>
   );
-};
+}
 
 const ResortNavItems = () => ResortInfoNav.map((item) => (
-  <CNavItem className="col-5">
+  <CNavItem key={item.name} className="col-5">
     <CNavLink>
       <CIcon content={item.icon} />
       {` ${item.name}`}

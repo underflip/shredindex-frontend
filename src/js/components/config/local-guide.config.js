@@ -1,6 +1,6 @@
 import {cilElevator, cilList, cilMediaSkipBackward, cilRain, cilSnowflake, cilTerrain} from '@coreui/icons';
 
-const MountainStatItems = [
+const LocalGuideItems = [
   {
     id: 0, stat: 'Average Annual Snow Fall', icon: cilSnowflake, value: 6, type: 'meters',
   },
@@ -21,4 +21,4 @@ const MountainStatItems = [
   },
 ];
 
-export default MountainStatItems;
+export default LocalGuideItems;

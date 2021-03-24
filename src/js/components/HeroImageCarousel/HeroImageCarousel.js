@@ -23,5 +23,5 @@ export default function HeroImageCarousel() {
 }
 
 const ImageSlides = () => ResortHeroCarouselSlides.map((item) => (
-  <img className="d-block border-radius-md pl-2 pr-2 carousel-cell-height" src={item} alt="slide 1" />
+  <img key={item} className="d-block border-radius-md pl-2 pr-2 carousel-cell-height" src={item} alt="slide 1" />
 ));

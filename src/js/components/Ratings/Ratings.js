@@ -8,50 +8,47 @@ import {
   CProgress,
   CCol,
   CRow,
+  CLink, CListGroup, CListGroupItem,
 } from '@coreui/react';
+
+import CIcon from '@coreui/icons-react';
+import {
+  cilChevronBottom, cilChevronRight, cilChevronTop, cilSettings,
+} from '@coreui/icons';
+import RatingItems from '../config/rating.config';
 
 const Ratings = () => {
   const [ratingAll, setRatingAll] = useState(true);
   return (
     <CCard accentColor="primary">
-      <CCardHeader>
-        <span className="h5">Ratings</span>
-        <CButton
-          color="primary"
-          variant="outline"
-          className="mb-1 card-header-actions"
-          onClick={() => setRatingAll(!ratingAll)}
-        >
-          All Ratings
-        </CButton>
+      <CCardHeader onClick={() => setRatingAll(!ratingAll)}>
+        <CLink className="mr-1">
+          <CIcon
+            size="sm"
+            content={ratingAll ? cilChevronBottom : cilChevronRight}
+            name={ratingAll ? 'cil-chevron-bottom' : 'cil-chevron-right'}
+          />
+        </CLink>
+        <span className=" ">Ratings</span>
+        <div className="card-header-actions">
+
+          <CLink className="card-header-action">
+            <CButton
+              size="sm"
+              color="light"
+              variant="outline"
+            >
+              All Ratings
+            </CButton>
+          </CLink>
+        </div>
       </CCardHeader>
       <CCollapse show={ratingAll}>
 
         <CCardBody>
-          <CCol className="col-lg-6">
-            <CRow>
-              <label className="col-5 font-weight-bold">Shred Score</label>
-              <CCol className="col-7">
-                <CProgress color="gradient-info" value={25.3746472} showPercentage precision={0} className="mb-3 font-weight-bold" />
-              </CCol>
-            </CRow>
-          </CCol>
-          <CCol className="col-lg-6">
-            <CRow>
-              <label className="col-5 font-weight-bold">Digital Nomad</label>
-              <CCol className="col-7">
-                <CProgress color="gradient-info" value={50.45} showValue className="mb-3 font-weight-bold" />
-              </CCol>
-            </CRow>
-          </CCol>
-          <CCol className="col-lg-5">
-            <CRow>
-              <label className="col-5 font-weight-bold">Family</label>
-              <CCol className="col-7">
-                <CProgress color="gradient-info" value={15} max={20} showPercentage className="mb-3 font-weight-bold" />
-              </CCol>
-            </CRow>
-          </CCol>
+          <CListGroup>
+            <RatingListItems />
+          </CListGroup>
         </CCardBody>
       </CCollapse>
 
@@ -60,3 +57,17 @@ const Ratings = () => {
 };
 
 export default Ratings;
+
+const RatingListItems = () => RatingItems.map((item) => (
+  <CListGroupItem key={item.id} className="justify-content-between">
+    <CRow>
+      <div className="col-5">
+        <CIcon className="float-left mr-2 mt-1" content={item.icon} color="primary" />
+        {item.name}
+      </div>
+      <div className="col-7" content={item.icon} color="primary">
+        <CProgress color="gradient-info" value={item.percentage} max={100} showPercentage className="font-weight-bold" />
+      </div>
+    </CRow>
+  </CListGroupItem>
+));
