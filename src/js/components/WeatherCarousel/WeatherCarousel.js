@@ -20,7 +20,7 @@ const flickityOptions = {
 export default function WeatherCarousel() {
   return (
     <Flickity
-      options={flickityOptions} // takes flickity options {}
+      options={flickityOptions}
     >
       <WeatherDay />
       <></>
