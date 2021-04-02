@@ -14,6 +14,8 @@ import Ratings from '../Ratings/Ratings';
 import ResortInfoNav from '../config/resort-info-nav-config';
 import MountainStatistics from '../MountainStats/MountainStatistics';
 import LocalGuide from '../LocalGuide/LocalGuide';
+import Description from "../Description/Description";
+import GoogleMap from "../GoogleMap/GoogleMap";
 
 const flickityOptions = {
   prevNextButtons: false,
@@ -41,9 +43,11 @@ export default function ResortSingleNav() {
         <CTabContent>
           <CTabPane>
             <CCard>
+              <Description />
               <Ratings />
               <MountainStatistics />
               <LocalGuide />
+              <GoogleMap />
             </CCard>
           </CTabPane>
           <CTabPane>

@@ -1,27 +1,10 @@
 import React from 'react';
-import Flickity from 'react-flickity-component';
-import ResortHeroCarouselSlides from '../config/resort-hero-carousel-config';
-
-const flickityOptions = {
-  contain: true,
-  prevNextButtons: false,
-  pageDots: false,
-  selectedAttraction: 0.2,
-  friction: 0.8,
-};
+import Unsplash from './unsplash';
 
 export default function HeroImageCarousel() {
   return (
-    <Flickity
-      className="hero-image-carousel pl-2 pr-2 pt-2"
-      options={flickityOptions}
-    >
-      <ImageSlides />
-      <></>
-    </Flickity>
+
+    <Unsplash />
+
   );
 }
-
-const ImageSlides = () => ResortHeroCarouselSlides.map((item) => (
-  <img key={item} className="d-block border-radius-md pl-2 pr-2 carousel-cell-height" src={item} alt="slide 1" />
-));

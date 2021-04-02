@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import {
-  CButton,
   CCard,
   CCardBody,
   CCardHeader,
   CCollapse,
   CProgress,
-  CCol,
   CRow,
   CLink, CListGroup, CListGroupItem,
 } from '@coreui/react';
@@ -38,7 +36,6 @@ const Ratings = () => {
           </CListGroup>
         </CCardBody>
       </CCollapse>
-
     </CCard>
   );
 };

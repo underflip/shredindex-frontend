@@ -71,6 +71,7 @@
     "flickity": "^2.2.2",
     "graphql": "^14.7.0",
     "graphql-tag": "^2.11.0",
+    "node-fetch": "^2.6.1",
     "normalize-scss": "^7.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
@@ -79,7 +80,8 @@
     "react-flickity-component": "^3.6.1",
     "react-intl": "^3.12.1",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "unsplash-js": "^7.0.8"
   },
   "jest": {
     "setupFiles": [
