@@ -1,35 +1,24 @@
 import React, { useState } from 'react';
 
 import {
-  CButton,
   CCard,
   CCardBody,
   CCardHeader, CCollapse,
-  CLink,
   CListGroup,
   CListGroupItem,
 } from '@coreui/react';
 
 import CIcon from '@coreui/icons-react';
 
-import { cilChevronBottom, cilChevronRight } from '@coreui/icons';
 import LocalGuideItems from '../config/local-guide-config';
 
 const LocalGuide = () => {
-  const [guideAll, setGuideAll] = useState(true);
   return (
-    <CCard accentColor="primary">
-      <CCardHeader onClick={() => setGuideAll(!guideAll)}>
-        <CLink className="mr-1">
-          <CIcon
-            size="sm"
-            content={guideAll ? cilChevronBottom : cilChevronRight}
-            name={guideAll ? 'cil-chevron-bottom' : 'cil-chevron-right'}
-          />
-        </CLink>
+    <CCard className="mb-2">
+      <CCardHeader>
         <span className="h6">Local Guide</span>
       </CCardHeader>
-      <CCollapse show={guideAll}>
+      <CCollapse show={true}>
         <CCardBody>
           <CListGroup>
             <StatItems />
