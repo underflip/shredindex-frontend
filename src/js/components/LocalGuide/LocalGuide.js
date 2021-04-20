@@ -31,14 +31,14 @@ const LocalGuide = () => {
 
 export default LocalGuide;
 
-const StatItems = () => LocalGuideItems.map((item) => (
-  <CListGroupItem key={item.id} className="justify-content-between">
-    <CIcon className="float-left mr-2 mt-1" content={item.icon} color="primary" />
-    {item.stat}
-    <div className="float-right" content={item.icon} color="primary">
-      {item.value}
+const StatItems = () => LocalGuideItems.map((guideItem) => (
+  <CListGroupItem key={guideItem.id} className="justify-content-between">
+    <CIcon className="float-left mr-2 mt-1" content={guideItem.icon} color="primary" />
+    {guideItem.stat}
+    <div className="float-right" content={guideItem.icon} color="primary">
+      {guideItem.value}
       {' '}
-      {item.type}
+      {guideItem.type}
     </div>
   </CListGroupItem>
 ));

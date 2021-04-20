@@ -10,6 +10,7 @@ import {
 } from '@coreui/react';
 
 import CIcon from '@coreui/icons-react';
+import PropTypes from 'prop-types';
 
 const Ratings = (props) => {
   const { scores } = props;
@@ -21,15 +22,15 @@ const Ratings = (props) => {
       <CCollapse show>
         <CCardBody>
           <CListGroup>
-            {scores.map((item) => (
-              <CListGroupItem key={item.id} className="justify-content-between">
+            {scores.map((score) => (
+              <CListGroupItem key={score.id} className="justify-content-between">
                 <CRow>
                   <div className="col-5">
-                    <CIcon className="float-left mr-2 mt-1" content={item.icon} color="primary" />
-                    {item.name}
+                    <CIcon className="float-left mr-2 mt-1" content={score.icon} color="primary" />
+                    {score.name}
                   </div>
-                  <div className="col-7" content={item.icon} color="primary">
-                    <CProgress color="gradient-warning" value={item.percentage} max={100} showPercentage className="font-weight-bold" />
+                  <div className="col-7" content={score.icon} color="primary">
+                    <CProgress color="gradient-warning" value={score.percentage} max={100} showPercentage className="font-weight-bold" />
                   </div>
                 </CRow>
               </CListGroupItem>
@@ -39,6 +40,10 @@ const Ratings = (props) => {
       </CCollapse>
     </CCard>
   );
+};
+
+Ratings.propTypes = {
+  scores: PropTypes.objectOf(Object).isRequired,
 };
 
 export default Ratings;

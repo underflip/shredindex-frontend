@@ -14,10 +14,6 @@ const ResortMainInfo = {
     lat: -45.0540695,
     lng: 168.8121154,
   },
-  tags: {
-    open: true,
-    rating: '3',
-  },
   scores: [
     {
       id: 0, name: 'Shred Total', icon: cilSnowflake, percentage: 64,
