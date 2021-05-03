@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import NavConfig from '../config/nav-config';
 
 const HeaderItems = () => {
-  const filtered = NavConfig.filter((item) => item.path !== '/');
+  const filtered = NavConfig.filter((item) => item.name !== 'Home' && item.name !== 'Resort');
 
   return (
     filtered.map((item) => (

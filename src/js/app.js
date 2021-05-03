@@ -6,8 +6,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './components/Home/Home';
+import Resorts from './components/Resorts/Resorts';
 import langEn from './lang/en.json';
+import Resort from './components/Resort/Resort';
+import Layout from './components/Layout/Layout';
+
+// Containers
+// const Layout = React.lazy(() => import('./components/Layout/Layout'));
 
 const t = {
   en: langEn,
@@ -30,7 +35,9 @@ const App = () => (
     <ApolloProvider client={client}>
       <IntlProvider locale={locale} message={t[locale]}>
         <Switch>
-          <Route path="/" component={Home} />
+          <Route path="/" name="Home" render={(props) => <Layout {...props} />} />
+          <Route exact path="/resorts" component={Resorts} />
+          <Route exact path="/resorts/:name/:country" component={Resort} />
         </Switch>
       </IntlProvider>
     </ApolloProvider>

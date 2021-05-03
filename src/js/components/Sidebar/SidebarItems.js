@@ -4,7 +4,7 @@ import { CNavLink } from '@coreui/react';
 import NavConfig from '../config/nav-config';
 
 const SidebarItems = () => {
-  const filtered = NavConfig.filter((item) => item.path !== '/');
+  const filtered = NavConfig.filter((item) => item.name !== 'Home' && item.name !== 'Resort');
 
   return filtered.map((item) => (
     <li key={item.path} className="c-sidebar-nav-item">
