@@ -1,23 +1,63 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
 import { useParams } from 'react-router';
 import ResortHeader from '../ResortHeader/ResortHeader';
 import Ratings from '../Ratings/Ratings';
 import Description from '../Description/Description';
-import ResortMainInfo from '../config/resort-main-config';
+
+export const QUERY_RESORT = gql`
+query resortID($resortID: ID = 2) {
+  resort(id: $resortID) {
+    title
+    url_segment
+    description
+    location {
+      id
+      country{
+        id
+        name
+        code
+      }
+      state {
+        id
+        name
+        code
+      }
+    }
+    ratings {
+      id
+      title
+      value
+    }
+    numerics {
+      id
+      name
+      title
+      value
+    }
+  }
+}
+`;
 
 const Resort = () => {
-  const resortName = useParams().name;
-  const foundResort = ResortMainInfo.find((name) => name.path === resortName);
+  const urlID = useParams().name;
+  console.log('urlParam', urlID);
+
+  const { loading, data } = useQuery(QUERY_RESORT, { variables: { resortID: urlID } });
+
+  if (loading) {
+    return '';
+  }
+  const resortData = data.resort;
+  console.log('resortData', resortData);
+
   return (
-    foundResort
-      ? (
-        <div className="container">
-          <ResortHeader resortInfo={foundResort} />
-          <Description description={foundResort.description} />
-          <Ratings scores={foundResort.scores} />
-        </div>
-      )
-      : <p> No Resort Found </p>
+    <div className="container">
+      <ResortHeader resortInfo={resortData} />
+      <Description description={resortData.description} />
+      {/* <Ratings ratings={foundResort.ratings} /> */}
+    </div>
   );
 };
 

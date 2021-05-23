@@ -37,7 +37,7 @@ const App = () => (
         <Switch>
           <Route path="/" name="Home" render={(props) => <Layout {...props} />} />
           <Route exact path="/resorts" component={Resorts} />
-          <Route exact path="/resorts/:name/:country" component={Resort} />
+          <Route exact path="/resorts/:name/:title" component={Resort} />
         </Switch>
       </IntlProvider>
     </ApolloProvider>

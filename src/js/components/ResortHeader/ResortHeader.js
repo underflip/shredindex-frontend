@@ -5,16 +5,16 @@ import {
 import PropTypes from 'prop-types';
 
 const ResortHeader = (props) => {
-  const { resortInfo: { name, location: { country, state } } } = props;
+  const { resortInfo: { title, location: { country, state } } } = props;
   return (
     <CCard className="p-4 mt-4">
-      <h1 className="display-5 text-center resort-title" color="secondary">{name}</h1>
+      <h1 className="display-5 text-center resort-title" color="secondary">{title}</h1>
       <div className="text-center mb-2">
-        {state}
+        {state.code}
         {' '}
         |
         {' '}
-        {country}
+        {country.code}
       </div>
     </CCard>
   );
@@ -23,11 +23,17 @@ const ResortHeader = (props) => {
 ResortHeader.propTypes = {
   resortInfo: PropTypes.shape({
     location: {
-      country: PropTypes.string.isRequired,
-      state: PropTypes.string.isRequired,
+      country: {
+        name: PropTypes.string.isRequired,
+        code: PropTypes.string.isRequired,
+      },
+      state:{
+        name: PropTypes.string.isRequired,
+        code: PropTypes.string.isRequired,
+      },
     }.isRequired,
-    path: PropTypes.number.isRequired,
-    name: PropTypes.bool.isRequired,
+    url_segment: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
 };
 
