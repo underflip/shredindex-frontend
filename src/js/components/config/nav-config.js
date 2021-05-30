@@ -13,7 +13,7 @@ const NavConfig = [
   },
   {
     name: 'Resorts',
-    path: '/resorts',
+    path: '/Resorts',
     exact: true,
     icon: cilHome,
     component: Resorts,
@@ -21,7 +21,7 @@ const NavConfig = [
   {
     name: 'Resort',
     exact: true,
-    path: '/resorts/:name/:country',
+    path: '/Resorts/:name/:country',
     icon: cilHome,
     component: Resort,
   },

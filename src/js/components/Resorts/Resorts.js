@@ -11,29 +11,23 @@ export const QUERY_RESORTS = gql`
         id
         title
         url_segment
-        ratings {
-          title
-          value
-        }
       }
     }
   }
 `;
 
 const Resorts = (props) => {
-  const { loading, data } = useQuery(QUERY_RESORTS);
-  console.log(data);
+  const { loading, error, data } = useQuery(QUERY_RESORTS);
 
-  if (loading) {
-    return '';
-  }
+  if (loading) return null;
+  if (error) return `Error! ${error}`;
 
   const { resorts: { data: resortsData } } = data;
 
   return (
     resortsData.map((resort) => (
       <CHeaderNavItem key={resort.id} className="px-3">
-        <CHeaderNavLink to={`${props.match.path}/${resort.id}/${resort.url_segment}`}>
+        <CHeaderNavLink className="resort-link"to={`${props.match.path}/${resort.id}/${resort.url_segment}`}>
           <FormattedMessage
             id={resort.title}
             defaultMessage={resort.title}

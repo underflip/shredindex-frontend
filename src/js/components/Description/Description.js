@@ -2,9 +2,11 @@ import React from 'react';
 import {
   CCard, CCardBody, CCardHeader, CCollapse,
 } from '@coreui/react';
+import PropTypes from "prop-types";
+import ResortHeader from "../ResortHeader/ResortHeader";
 
 const Description = (props) => (
-  <CCard>
+  <CCard className="resort-description__card">
     <CCardHeader>
       <span className="h6">Description</span>
     </CCardHeader>
@@ -15,5 +17,9 @@ const Description = (props) => (
     </CCollapse>
   </CCard>
 );
+
+Description.propTypes = {
+  description: PropTypes.string.isRequired,
+};
 
 export default Description;

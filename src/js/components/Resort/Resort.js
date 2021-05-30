@@ -2,27 +2,30 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { useParams } from 'react-router';
+import PropTypes from 'prop-types';
 import ResortHeader from '../ResortHeader/ResortHeader';
 import Ratings from '../Ratings/Ratings';
 import Description from '../Description/Description';
+import Statistics from '../Statistics/Statistics';
 
 export const QUERY_RESORT = gql`
-query resortID($resortID: ID = 2) {
-  resort(id: $resortID) {
+query Resort($id: ID!) {
+  resort(id: $id) {
+    id
     title
     url_segment
     description
     location {
       id
-      country{
+      country {
         id
-        name
         code
+        name
       }
       state {
         id
-        name
         code
+        name
       }
     }
     ratings {
@@ -32,7 +35,11 @@ query resortID($resortID: ID = 2) {
     }
     numerics {
       id
-      name
+      title
+      value
+    }
+    generics {
+      id
       title
       value
     }
@@ -40,25 +47,28 @@ query resortID($resortID: ID = 2) {
 }
 `;
 
-const Resort = () => {
-  const urlID = useParams().name;
-  console.log('urlParam', urlID);
+const Resort = (props) => {
+  const urlID = useParams().name || props.urlID;
 
-  const { loading, data } = useQuery(QUERY_RESORT, { variables: { resortID: urlID } });
+  const { loading, error, data } = useQuery(QUERY_RESORT, { variables: { id: urlID } });
 
-  if (loading) {
-    return '';
-  }
+  if (loading) return null;
+  if (error) return `Error! ${error}`;
+
   const resortData = data.resort;
-  console.log('resortData', resortData);
 
   return (
-    <div className="container">
+    <div className="container resort-container">
       <ResortHeader resortInfo={resortData} />
       <Description description={resortData.description} />
-      {/* <Ratings ratings={foundResort.ratings} /> */}
+      <Ratings ratings={resortData.ratings} />
+      <Statistics statistics={resortData.numerics} generics={resortData.generics} />
     </div>
   );
+};
+
+Resort.propTypes = {
+  urlID: PropTypes.string,
 };
 
 export default Resort;

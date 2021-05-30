@@ -10,13 +10,12 @@ import {
 } from '@coreui/react';
 
 import CIcon from '@coreui/icons-react';
-import PropTypes, {object} from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Ratings = (props) => {
   const { ratings } = props;
-  con
   return (
-    <CCard className="mb-2">
+    <CCard className="resort-rating__card">
       <CCardHeader>
         <span className="h6">Ratings</span>
       </CCardHeader>
@@ -26,12 +25,11 @@ const Ratings = (props) => {
             {ratings.map((rating) => (
               <CListGroupItem key={rating.id} className="justify-content-between">
                 <CRow>
-                  <div className="col-5">
-                    <CIcon className="float-left mr-2 mt-1" content={rating.icon} color="primary" />
+                  <div className="resort-rating__label col-5">
                     {rating.title}
                   </div>
                   <div className="col-7" content={rating.icon} color="primary">
-                    <CProgress color="gradient-warning" value={rating.value} max={100} showPercentage className="font-weight-bold" />
+                    <CProgress color="gradient-warning" value={rating.value} max={100} showPercentage className="resort-rating__value font-weight-bold" />
                   </div>
                 </CRow>
               </CListGroupItem>
@@ -43,9 +41,14 @@ const Ratings = (props) => {
   );
 };
 
-// Ratings.propTypes = {
-//   rating: PropTypes.objectOf(object).isRequired,
-//   ratings: PropTypes.arrayOf().isRequired,
-// };
+const Rating = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+});
+
+Ratings.propTypes = {
+  ratings: PropTypes.arrayOf(Rating).isRequired,
+};
 
 export default Ratings;
