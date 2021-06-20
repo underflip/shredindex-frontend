@@ -7,10 +7,10 @@ import { CContainer, CFade } from '@coreui/react';
 import Header from '../Header/Header';
 import SidebarNav from '../Sidebar/SidebarNav';
 import ViewContext from '../ViewContext/ViewContext';
-import NavConfig from '../config/nav-config';
+import routingConfig from '../config/routing-config';
 
 const loading = (
-  <div className="pt-3 text-center">
+  <div className="p-5 text-center">
     <div className="sk-spinner sk-spinner-pulse" />
   </div>
 );
@@ -27,7 +27,9 @@ export default function Layout() {
             <CContainer fluid>
               <Suspense fallback={loading}>
                 <Switch>
-                  {NavConfig.map((route) => route.component && (
+                  {routingConfig.map((
+                    route, path, exact, name,
+                  ) => route.component && (
                   <Route
                     key={route.path}
                     path={route.path}

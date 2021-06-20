@@ -10,7 +10,15 @@ const ResortHeader = (props) => {
     <CCard className="resort-header__card p-4">
       <h1 className="display-5 text-center resort-title" color="secondary">{title}</h1>
       <div className="text-center mb-2">
-        <span className="state-name">{state && state.name ? state.name + ' ' | ' ' : ''}</span>
+        {(state && state.name)
+        && (
+        <span className="state-name">
+          {state.name}
+          {' '}
+          |
+          {' '}
+        </span>
+        )}
         <span className="country-name">{country.name}</span>
       </div>
     </CCard>

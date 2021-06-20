@@ -11,9 +11,6 @@ import langEn from './lang/en.json';
 import Resort from './components/Resort/Resort';
 import Layout from './components/Layout/Layout';
 
-// Containers
-// const Layout = React.lazy(() => import('./components/Layout/Layout'));
-
 const t = {
   en: langEn,
 };

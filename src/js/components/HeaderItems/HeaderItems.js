@@ -2,10 +2,10 @@ import React from 'react';
 import { CHeaderNavItem, CHeaderNavLink } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { FormattedMessage } from 'react-intl';
-import NavConfig from '../config/nav-config';
+import routingConfig from '../config/routing-config';
 
 const HeaderItems = () => {
-  const filtered = NavConfig.filter((item) => item.name !== 'Home' && item.name !== 'Resort');
+  const filtered = routingConfig.filter((item) => item.name !== 'Home' && item.name !== 'Resort');
 
   return (
     filtered.map((item) => (

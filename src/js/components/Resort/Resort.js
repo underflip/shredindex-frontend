@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { useParams } from 'react-router';
 import PropTypes from 'prop-types';
+import LoadingSkeleton from '../SkeletonState/LoadingSkeleton';
 import ResortHeader from '../ResortHeader/ResortHeader';
 import Ratings from '../Ratings/Ratings';
 import Description from '../Description/Description';
@@ -50,10 +51,15 @@ query Resort($id: ID!) {
 const Resort = (props) => {
   const urlID = useParams().name || props.urlID;
 
-  const { loading, error, data } = useQuery(QUERY_RESORT, { variables: { id: urlID } });
+  const { loading, data } = useQuery(QUERY_RESORT, { variables: { id: urlID } });
 
-  if (loading) return null;
-  if (error) return `Error! ${error}`;
+  if (loading) {
+    return (
+      <>
+        {LoadingSkeleton}
+      </>
+    );
+  }
 
   const resortData = data.resort;
 

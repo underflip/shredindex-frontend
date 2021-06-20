@@ -2,8 +2,8 @@ import React from 'react';
 import {
   CCard, CCardBody, CCardHeader, CCollapse,
 } from '@coreui/react';
-import PropTypes from "prop-types";
-import ResortHeader from "../ResortHeader/ResortHeader";
+import PropTypes from 'prop-types';
+import ResortHeader from '../ResortHeader/ResortHeader';
 
 const Description = (props) => (
   <CCard className="resort-description__card">
@@ -12,7 +12,7 @@ const Description = (props) => (
     </CCardHeader>
     <CCollapse show="true">
       <CCardBody>
-        <p>{props.description}</p>
+        <p className="description">{props.description}</p>
       </CCardBody>
     </CCollapse>
   </CCard>

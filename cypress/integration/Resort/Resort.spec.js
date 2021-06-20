@@ -1,74 +1,60 @@
 const dataProvider = {
-  id: '3',
   title: 'remarkables',
   url_segment: 'remarkables',
   description: 'remarkables',
   location: {
-    id: '3',
     country: {
-      id: '161',
-      code: 'NZ',
       name: 'New Zealand',
-      __typename: 'LocationItem',
     },
     state: {
-      id: '22',
-      code: 'CAN',
       name: 'Dont have a State ey bro',
-      __typename: 'LocationItem',
     },
-    __typename: 'LocationType',
   },
   ratings: [
     {
-      id: '2',
       title: 'Total Shred Score',
       value: 76,
-      __typename: 'Rating',
     },
   ],
   numerics: [
     {
-      id: '1',
       title: 'Average Annual Snowfall',
       value: 10,
-      __typename: 'Numeric',
     },
   ],
   generics: [
     {
-      id: '1',
       title: 'Snow Making',
       value: 'true',
-      __typename: 'Generic',
     },
   ],
-  __typename: 'Resort',
 };
 
 describe('Resort', () => {
-  before(() => {
-    cy.visit('/iframe.html?id=shred-index-components-resort--resort');
+  beforeEach(() => {
+    context('All devices', () => {
+      cy.visit('/iframe.html?id=shred-index-components-resort--resort');
+    });
   });
 
-  it('Has a container', () => {
-    cy.get('.resort-container').should('exist');
+  it('Has a resort title', () => {
+    cy.get('.resort-title').should('be.visible');
   });
 
-  it('Has a resort header card', () => {
-    cy.get('.resort-header__card').should('be.visible');
+  it('Has a resort country', () => {
+    cy.get('.country-name').should('contain.text', 'New Zealand');
   });
 
-  it('Has a description card', () => {
-    cy.get('.resort-description__card').should('be.visible');
+  it('Has a resort state', () => {
+    cy.get('.state-name').should('contain.text', 'Dont have a State ey bro');
   });
 
-  it('Has a ratings card', () => {
-    cy.get('.resort-description__card').should('be.visible');
+  it('Has a description', () => {
+    cy.get('.description').should('be.visible');
   });
 
-  it('Has a statistics card', () => {
-    cy.get('.resort-statistics__card').should('be.visible');
+  it('Have ratings', () => {
+    cy.get('.ratings-list').should('be.visible');
   });
 
   dataProvider.ratings.forEach((data) => {
@@ -77,6 +63,10 @@ describe('Resort', () => {
     it(`Should render a rating "${title}"`, () => {
       cy.get('.resort-rating__label')
         .should('contain', title);
+    });
+
+    it('Should have a value', () => {
+      cy.get('.progress-bar').should('have.attr', 'aria-valuenow', '76');
     });
 
     it('Should render a value', () => {
@@ -112,5 +102,4 @@ describe('Resort', () => {
         .should('be.visible');
     });
   });
-
 });

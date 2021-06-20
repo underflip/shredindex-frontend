@@ -1,6 +1,5 @@
 import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
-import { MemoryRouter } from 'react-router';
 import ResortComponent, { QUERY_RESORT } from '../../js/components/Resort/Resort';
 
 export default {
@@ -72,14 +71,8 @@ export const Resort = () => {
   };
 
   return (
-    <MemoryRouter
-      initialEntries={[{ pathname: '/yes' }]}
-      initialIndex={2}
-    >
-      <MockedProvider mocks={[mocks.resort]} addTypename={false}>
-        <ResortComponent urlID={mocks.resort.request.variables.id} />
-      </MockedProvider>
-    </MemoryRouter>
-
+    <MockedProvider mocks={[mocks.resort]} addTypename={false}>
+      <ResortComponent urlID={mocks.resort.request.variables.id} />
+    </MockedProvider>
   );
 };

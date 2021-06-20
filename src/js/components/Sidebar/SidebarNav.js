@@ -30,7 +30,7 @@ const SidebarNav = ({ toggle, setToggleNav }) => (
 
 SidebarNav.propTypes = {
   toggle: PropTypes.string.isRequired,
-  setToggleNav: PropTypes.string.isRequired,
+  setToggleNav: PropTypes.func.isRequired,
 };
 
 export default SidebarNav;
