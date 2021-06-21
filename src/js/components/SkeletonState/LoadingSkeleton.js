@@ -3,10 +3,10 @@ import React from 'react';
 
 const LoadingSkeleton = (
   <div className="container resort-container skeleton">
-    <CCard className="p-5" />
-    <CCard className="p-5" />
-    <CCard className="p-5" />
-    <CCard className="p-5" />
+    <CCard className="bg-gradient-dark p-5" />
+    <CCard className="bg-gradient-dark p-5" />
+    <CCard className="bg-gradient-dark p-5" />
+    <CCard className="bg-gradient-dark p-5" />
   </div>
 );
 
