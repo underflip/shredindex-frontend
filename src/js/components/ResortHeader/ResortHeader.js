@@ -5,28 +5,31 @@ import {
 import PropTypes from 'prop-types';
 
 const ResortHeader = (props) => {
-  const { resortInfo: { title, location: { country, state } } } = props;
+  const {
+    resort: {
+      title,
+      location: {
+        country: {
+          name: countryName,
+        },
+        state,
+      },
+    },
+  } = props;
+
   return (
-    <CCard className="resort-header__card p-4">
-      <h1 className="display-5 text-center resort-title" color="secondary">{title}</h1>
-      <div className="text-center mb-2">
-        {(state && state.name)
-        && (
-        <span className="state-name">
-          {state.name}
-          {' '}
-          |
-          {' '}
-        </span>
-        )}
-        <span className="country-name">{country.name}</span>
+    <CCard className="resort-header p-4">
+      <h1 className="resort-header__title display-5 text-center" color="secondary">{title}</h1>
+      <div className="resort-header__location text-center mb-2">
+        {(state && state.name) && <span className="resort-header__state-name">{`${state.name} | `}</span>}
+        <span className="resort-header__country-name">{countryName}</span>
       </div>
     </CCard>
   );
 };
 
 ResortHeader.propTypes = {
-  resortInfo: PropTypes.shape({
+  resort: PropTypes.shape({
     location: {
       country: {
         name: PropTypes.string,

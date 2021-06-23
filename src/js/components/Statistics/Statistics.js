@@ -1,17 +1,16 @@
-import React from 'react';
 import {
   CCard,
   CCardBody,
   CCardHeader,
   CCollapse,
+  CListGroup,
+  CListGroupItem,
   CProgress,
   CRow,
-  CListGroup, CListGroupItem,
 } from '@coreui/react';
-
-import CIcon from '@coreui/icons-react';
 import PropTypes from 'prop-types';
-import {FormattedMessage} from "react-intl";
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const Statistics = (props) => {
   const { statistics, generics } = props;
@@ -27,7 +26,9 @@ const Statistics = (props) => {
       <CCollapse show>
         <CCardBody>
           <CListGroup>
-            {statistics.map(({ id, title, icon, value }) => (
+            {statistics.map(({
+              id, title, icon, value,
+            }) => (
               <CListGroupItem key={id} className="justify-content-between">
                 <CRow>
                   <div className="resort-statistic__label col-5">
@@ -39,7 +40,9 @@ const Statistics = (props) => {
                 </CRow>
               </CListGroupItem>
             ))}
-            {generics.map(({ id, title, icon, value }) => (
+            {generics.map(({
+              id, title, icon, value,
+            }) => (
               <CListGroupItem key={id} className="justify-content-between">
                 <CRow>
                   <div className="resort-generic__label col-5">
@@ -61,7 +64,10 @@ const Statistics = (props) => {
 const StatisticGenericType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
 });
 
 Statistics.propTypes = {

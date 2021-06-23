@@ -1,17 +1,18 @@
-import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import {
+  CCard, CCardBody, CCardHeader, CCollapse,
+} from '@coreui/react';
 import { gql } from 'apollo-boost';
+import React from 'react';
 import { useParams } from 'react-router';
-import PropTypes from 'prop-types';
-import LoadingSkeleton from '../SkeletonState/LoadingSkeleton';
-import ResortHeader from '../ResortHeader/ResortHeader';
 import Ratings from '../Ratings/Ratings';
-import Description from '../Description/Description';
+import ResortHeader from '../ResortHeader/ResortHeader';
+import LoadingSkeleton from '../SkeletonState/LoadingSkeleton';
 import Statistics from '../Statistics/Statistics';
 
 export const QUERY_RESORT = gql`
-query Resort($id: ID!) {
-  resort(id: $id) {
+query ResortByURLSegment($url_segment: String!) {
+  resortByUrlSegment(url_segment: $url_segment) {
     id
     title
     url_segment
@@ -48,10 +49,15 @@ query Resort($id: ID!) {
 }
 `;
 
-const Resort = (props) => {
-  const urlID = useParams().name || props.urlID;
+const Resort = () => {
+  const { urlSegment } = useParams();
 
-  const { loading, data } = useQuery(QUERY_RESORT, { variables: { id: urlID } });
+  const { loading, data } = useQuery(
+    QUERY_RESORT,
+    {
+      variables: { url_segment: urlSegment },
+    },
+  );
 
   if (loading) {
     return (
@@ -61,20 +67,30 @@ const Resort = (props) => {
     );
   }
 
-  const resortData = data.resort;
+  const {
+    resortByUrlSegment: resort,
+    resortByUrlSegment: {
+      description, ratings, numerics, generics,
+    },
+  } = data;
 
   return (
     <div className="container resort-container">
-      <ResortHeader resortInfo={resortData} />
-      <Description description={resortData.description} />
-      <Ratings ratings={resortData.ratings} />
-      <Statistics statistics={resortData.numerics} generics={resortData.generics} />
+      <ResortHeader resort={resort} />
+      <CCard className="resort-description__card">
+        <CCardHeader>
+          <span className="h6">Description</span>
+        </CCardHeader>
+        <CCollapse show>
+          <CCardBody>
+            <p className="description">{description}</p>
+          </CCardBody>
+        </CCollapse>
+      </CCard>
+      <Ratings ratings={ratings} />
+      <Statistics statistics={numerics} generics={generics} />
     </div>
   );
-};
-
-Resort.propTypes = {
-  urlID: PropTypes.string,
 };
 
 export default Resort;

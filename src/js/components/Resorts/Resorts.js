@@ -15,18 +15,20 @@ export const QUERY_RESORTS = gql`
   }
 `;
 
-const Resorts = (props) => {
+const Resorts = () => {
   const { loading, data } = useQuery(QUERY_RESORTS);
 
-  if (loading) return null;
+  if (loading) {
+    return <></>;
+  }
 
-  const { resorts: { data: resortsData } } = data;
+  const { resorts: { data: resorts } } = data;
 
   return (
-    resortsData.map((resort) => (
-      <div key={resort.id} className="px-3">
-        <Link className="resort-link" to={`${props.match.path}/${resort.id}/${resort.url_segment}`}>
-          {resort.title}
+    resorts.map(({ id, url_segment, title }) => (
+      <div key={id} className="px-3">
+        <Link className="resort-link" to={`resorts/${url_segment}`}>
+          {title}
         </Link>
       </div>
     ))

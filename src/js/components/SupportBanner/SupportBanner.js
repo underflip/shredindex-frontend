@@ -37,10 +37,12 @@ const Supporters = () => {
   return supporters
     .sort((a, b) => (a.sort_order > b.sort_order ? 1 : -1))
     .map((supporter) => {
-      const { name, url, image: { path } } = supporter;
+      const {
+        name, url, image: { path }, sort_order,
+      } = supporter;
 
       return (
-        <div className="support-banner__supporter m-auto p-3" key={name}>
+        <div className="support-banner__supporter m-auto p-3" key={sort_order}>
           <a href={url} className="support-banner__supporter-link" rel="noopener noreferrer">
             {path && (
               <CImg

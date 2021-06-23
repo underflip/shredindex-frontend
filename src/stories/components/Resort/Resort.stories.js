@@ -1,6 +1,8 @@
 import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
-import ResortComponent, { QUERY_RESORT } from '../../js/components/Resort/Resort';
+import { MemoryRouter } from 'react-router';
+import { Route } from 'react-router-dom';
+import ResortComponent, { QUERY_RESORT } from '../../../js/components/Resort/Resort';
 
 export default {
   title: 'Shred index/components/Resort',
@@ -9,16 +11,16 @@ export default {
 
 export const Resort = () => {
   const mocks = {
-    resort: {
+    resortByUrlSegment: {
       request: {
         query: QUERY_RESORT,
         variables: {
-          id: '3',
+          url_segment: 'remarkables',
         },
       },
       result: {
         data: {
-          resort: {
+          resortByUrlSegment: {
             id: '3',
             title: 'remarkables',
             url_segment: 'remarkables',
@@ -71,8 +73,12 @@ export const Resort = () => {
   };
 
   return (
-    <MockedProvider mocks={[mocks.resort]} addTypename={false}>
-      <ResortComponent urlID={mocks.resort.request.variables.id} />
-    </MockedProvider>
+    <MemoryRouter initialEntries={['resorts/remarkables']}>
+      <Route exact path="resorts/:urlSegment">
+        <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
+          <ResortComponent />
+        </MockedProvider>
+      </Route>
+    </MemoryRouter>
   );
 };
