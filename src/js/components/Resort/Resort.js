@@ -5,7 +5,6 @@ import { FormattedMessage } from 'react-intl';
 import { useParams } from 'react-router';
 import {
   CCard, CCardBody, CCardHeader, CCollapse,
-  CFade,
 } from '@coreui/react';
 import ResortHeader from '../ResortHeader/ResortHeader';
 import Ratings from '../Ratings/Ratings';

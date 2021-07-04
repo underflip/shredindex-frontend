@@ -111,7 +111,8 @@
     "report-dir": "cypress-coverage",
     "exclude": [
       "src/stories/coreui/*.js",
-      "src/stories/index.stories.js"
+      "src/stories/index.stories.js",
+      "src/js/components/Resorts/Resorts.js"
     ]
   }
 }

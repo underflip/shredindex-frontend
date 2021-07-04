@@ -15,22 +15,22 @@ export const Resort = () => {
       request: {
         query: QUERY_RESORT,
         variables: {
-          url_segment: 'remarkables',
+          url_segment: 'pipedream',
         },
       },
       result: {
         data: {
           resortByUrlSegment: {
             id: '3',
-            title: 'remarkables',
-            url_segment: 'remarkables',
-            description: 'remarkables',
+            title: 'Pipe Dream',
+            url_segment: 'pipedream',
+            description: 'Perpendicular curves to the ceiling for maximum air time.',
             location: {
               id: '3',
               country: {
                 id: '161',
                 code: 'NZ',
-                name: 'New Zealand',
+                name: 'Antarctica',
                 __typename: 'LocationItem',
               },
               state: {
@@ -73,7 +73,7 @@ export const Resort = () => {
   };
 
   return (
-    <MemoryRouter initialEntries={['resorts/remarkables']}>
+    <MemoryRouter initialEntries={['resorts/pipedream']}>
       <Route exact path="resorts/:urlSegment">
         <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
           <ResortComponent />

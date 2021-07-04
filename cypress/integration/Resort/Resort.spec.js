@@ -1,10 +1,10 @@
 const dataProvider = {
-  title: 'remarkables',
-  url_segment: 'remarkables',
-  description: 'remarkables',
+  title: 'Pipe Dream',
+  url_segment: 'pipedream',
+  description: 'Perpendicular curves to the ceiling for maximum air time',
   location: {
     country: {
-      name: 'New Zealand',
+      name: 'Antarctica',
     },
     state: {
       name: 'Dont have a State ey bro',
@@ -42,7 +42,7 @@ describe('Resort', () => {
   });
 
   it('Has a resort country', () => {
-    cy.get('.resort-header__country-name').should('contain.text', 'New Zealand');
+    cy.get('.resort-header__country-name').should('contain.text', 'Antarctica');
   });
 
   it('Has a resort state', () => {
@@ -50,56 +50,35 @@ describe('Resort', () => {
   });
 
   it('Has a description', () => {
-    cy.get('.description').should('be.visible');
+    cy.get('.resort__description-content').should('contain.text', 'Perpendicular curves to the ceiling for maximum air time');
   });
 
-  it('Have ratings', () => {
-    cy.get('.ratings-list').should('be.visible');
+  it('Should render a rating Total Shred Score', () => {
+    cy.get('.resort-rating__label')
+      .should('contain', 'Total Shred Score');
   });
 
-  dataProvider.ratings.forEach((data) => {
-    const { title } = data;
-
-    it(`Should render a rating "${title}"`, () => {
-      cy.get('.resort-rating__label')
-        .should('contain', title);
-    });
-
-    it('Should have a value', () => {
-      cy.get('.progress-bar').should('have.attr', 'aria-valuenow', '76');
-    });
-
-    it('Should render a value', () => {
-      cy.get('.resort-rating__value')
-        .should('be.visible');
-    });
+  it('Rating should have a value', () => {
+    cy.get('.resort-rating__value').children('.progress-bar').should('have.attr', 'aria-valuenow', '76');
   });
 
-  dataProvider.numerics.forEach((data) => {
-    const { title } = data;
-
-    it(`Should render a numeric "${title}"`, () => {
-      cy.get('.statistic__label')
-        .should('contain', title);
-    });
-
-    it('Should render a numeric', () => {
-      cy.get('.statistic__value')
-        .should('be.visible');
-    });
+  it('Should render a numeric "Average Annual Snowfall"', () => {
+    cy.get('.statistic__label')
+      .should('contain', 'Average Annual Snowfall');
   });
 
-  dataProvider.generics.forEach((data) => {
-    const { title } = data;
+  it('Should render a numeric value "Average Annual Snowfall"', () => {
+    cy.get('.statistic__value')
+      .children('.progress-bar').should('have.attr', 'aria-valuenow', '10');
+  });
 
-    it(`Should render a generic "${title}"`, () => {
-      cy.get('.generic__label')
-        .should('contain', title);
-    });
+  it('Should render a generic "Snow Making"', () => {
+    cy.get('.generic__label')
+      .should('contain', 'Snow Making');
+  });
 
-    it('Should render a generic', () => {
-      cy.get('.generic__value')
-        .should('be.visible');
-    });
+  it('Should render a generic', () => {
+    cy.get('.generic__value')
+      .should('contain.text', 'true');
   });
 });

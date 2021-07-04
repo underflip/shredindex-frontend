@@ -1,7 +1,6 @@
 import { cilHome, cilMap, cilUserPlus } from '@coreui/icons';
 import Home from '../Home/Home';
 import Resorts from '../Resorts/Resorts';
-import Resort from '../Resort/Resort';
 
 const routingConfig = [
   {
@@ -18,14 +17,6 @@ const routingConfig = [
     showInMenu: true,
     icon: cilHome,
     component: Resorts,
-  },
-  {
-    name: 'Resort',
-    path: '/Resorts/:name/:country',
-    exact: true,
-    showInMenu: false,
-    icon: cilHome,
-    component: Resort,
   },
   {
     name: 'Maps',
