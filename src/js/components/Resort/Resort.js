@@ -7,9 +7,9 @@ import {
   CCard, CCardBody, CCardHeader,
 } from '@coreui/react';
 import ResortHeader from '../ResortHeader/ResortHeader';
-import Ratings from '../Ratings/Ratings';
-import ResortSkeleton from '../SkeletonState/ResortSkeleton';
+import ResortRatings from '../ResortRatings/ResortRatings';
 import Statistics from '../Statistics/Statistics';
+import ResortSkeleton from '../SkeletonState/ResortSkeleton';
 
 export const QUERY_RESORT = gql`
 query ResortByURLSegment($url_segment: String!) {
@@ -89,7 +89,7 @@ const Resort = () => {
           <p className="resort__description-content mb-0">{description}</p>
         </CCardBody>
       </CCard>
-      <Ratings ratings={ratings} />
+      <ResortRatings ratings={ratings} />
       <Statistics statistics={numerics} generics={generics} />
     </div>
   );

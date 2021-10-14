@@ -44,7 +44,7 @@ export const Resort = () => {
             ratings: [
               {
                 id: '2',
-                title: 'Total Shred Score',
+                title: 'Digital Nomad Score',
                 value: 76,
                 __typename: 'Rating',
               },

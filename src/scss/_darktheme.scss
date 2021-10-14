@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700;800;900&family=Roboto:wght@100;300;500;700;900&display=swap');
 
 // Type
-$headings-font-family: roboto;
-$font-family-base: nunito;
+$headings-font-family: "Plus Jakarta Sans";
+$font-family-base: "Plus Jakarta Sans";
 
 // CoreUI Colors
 $white: #fff;
@@ -179,8 +179,8 @@ $escaped-characters: (
 );
 
 // Body
-$body-bg: $gray-200;
-$body-color: #c2dbed;
+$body-bg: $gray-300;
+$body-color: $gray-base;
 $border-color: $gray-600;
 $hr-border-color: $gray-600;
 
@@ -213,6 +213,12 @@ $card-bg: $gray-400;
 $card-cap-bg: $gray-400;
 $card-cap-color: $body-color;
 $card-border-color: $gray-400;
+$card-bg-semi-transparent: rgba(29, 46, 57, 0.48);
+<<<<<<< HEAD
+$card-animation-transition-time: .3s;
+=======
+$card-animation-transition-time: 0.3s;
+>>>>>>> 028cf98... ResortCard Modifications
 
 // Modal
 $modal-content-bg: $gray-400;
