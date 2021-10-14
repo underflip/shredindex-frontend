@@ -1,8 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import { Link } from 'react-router-dom';
-import { CFade } from '@coreui/react';
+import ResortCard from '../ResortCard/ResortCard';
 
 export const QUERY_RESORTS = gql`
   {
@@ -26,12 +25,13 @@ const Resorts = () => {
   const { resorts: { data: resorts } } = data;
 
   return (
-    resorts.map(({ id, url_segment, title }) => (
-      <CFade key={id} className="px-3">
-        <Link className="resort-link" to={`resorts/${url_segment}`}>
-          {title}
-        </Link>
-      </CFade>
+    resorts.map(({
+      id, url_segment,
+    }) => (
+
+      <div key={id} className="">
+        <ResortCard url_segment={url_segment} />
+      </div>
     ))
   );
 };

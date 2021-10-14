@@ -1,0 +1,140 @@
+.score-bar-container {
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  background-color: $gray-300;
+}
+
+.score-number-wrap {
+  position: absolute;
+  font-family: $headings-font-family;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 3px;
+    height: 100%;
+    width: 50%;
+    transform: skewX(
+        -17deg);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 86%;
+    width: 50%;
+    transform: skewX(22deg);
+  }
+  .score-number-small {
+    font-size: xx-small;
+  }
+}
+
+.score-number-border {
+  display: inline-flex;
+  position: absolute;
+  bottom: 0;
+}
+
+//Total Score Header
+.total-score {
+  position: relative;
+  height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  .score-number-wrap {
+    padding: .4rem .3rem .0rem 0.8rem;
+    height: 35px;
+
+    &:before {
+      border-top-left-radius: .5rem;
+      border-bottom-left-radius: .7rem;
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+      border-left: 2px solid;
+    }
+    &:after {
+      border-top-right-radius: .5rem;
+      border-top: 2px solid;
+      border-right: 2px solid;
+    }
+  }
+  .resort-header-card__title {
+    font-family: $headings-font-family;
+    font-size: 1.1875rem;
+    padding-left: 56px;
+    position: relative;
+    line-height: 2.1;
+  }
+
+  .score-number-big {
+    font-size: 1.1875rem;
+  }
+
+  .score-number-border {
+    width: 56px;
+    height: 35px;
+  }
+
+  .score-bar-container {
+    margin-left: 10px;
+  }
+
+  .score-bar {
+    height: 2px;
+  }
+}
+
+//Sub Score
+.sub-score {
+  position: relative;
+  height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  .score-number-wrap {
+    height: 25px;
+    padding: .25rem .3rem 0rem 0.7rem;
+
+    &:before {
+      border-top-left-radius: .3rem;
+      border-bottom-left-radius: .7rem;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+    }
+    &:after {
+      border-top-right-radius: .3rem;
+      border-top: 1px solid;
+      border-right: 1px solid;
+    }
+  }
+
+  .resort-header-card__title {
+    padding-left: 46px;
+    position: relative;
+    font-size: 0.7rem;
+    line-height: 2.5;
+  }
+
+  .score-number-border {
+    width: 48px;
+    height: 25px;
+  }
+
+  .score-bar-container {
+    height: 1px;
+    margin-left: 10px;
+
+    .score-bar {
+      height: 1px;
+    }
+  }
+}

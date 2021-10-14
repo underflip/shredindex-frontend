@@ -179,7 +179,7 @@ $escaped-characters: (
 );
 
 // Body
-$body-bg: $gray-200;
+$body-bg: $gray-300;
 $body-color: #c2dbed;
 $border-color: $gray-600;
 $hr-border-color: $gray-600;
@@ -213,6 +213,8 @@ $card-bg: $gray-400;
 $card-cap-bg: $gray-400;
 $card-cap-color: $body-color;
 $card-border-color: $gray-400;
+$card-bg-semi-transparent: rgba(29, 46, 57, 0.48);
+$card-animation-transition-time: .3s;
 
 // Modal
 $modal-content-bg: $gray-400;

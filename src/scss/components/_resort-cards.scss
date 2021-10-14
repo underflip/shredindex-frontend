@@ -1,0 +1,191 @@
+.resort-card__wrap{
+  background: $gray-400 !important;
+  border: none !important;
+  border-radius: 1.3rem;
+  overflow: hidden;
+}
+
+.resort-card__header-wrap {
+
+}
+
+
+
+//Location
+.country-flag-wrap {
+  overflow: hidden;
+  width: 29px;
+  height: 20px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .country-flag {
+    object-fit: cover;
+    min-width: 39px;
+  }
+}
+
+
+.resort-card__sub-scores-list {
+  label {
+    font-size: .6rem;
+    color: $gray-700;
+    margin-bottom: 0;
+  }
+}
+
+.resort-header-card__title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  overflow: hidden
+}
+
+
+
+.resort-card__sub-scores-list {
+  .list-scroll {
+    overflow-y: scroll;
+    height: 95px;
+  }
+}
+
+//ScrollBar
+::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: $gray-400;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $gray-500;
+}
+
+//Footer
+.resort-card__footer {
+  position: relative;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    height: 100%;
+    border-top-left-radius: .5rem;
+    width: 100%;
+    background-color: $card-bg-semi-transparent;
+    transform: skewX(
+        -25deg);
+    transition-duration: $card-animation-transition-time;
+  }
+
+  &:hover:before {
+    background-color: $gray-300;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-top-left-radius: .5rem;
+    opacity: .2;
+    background: #ff68ae;
+    right: -10px;
+    width: 65px;
+    transition-duration: $card-animation-transition-time;
+    transform: skewX(
+        -25deg);
+  }
+}
+
+//Gallery
+.resort-card__gallery-wrap {
+  display: flex;
+}
+
+.resort-card__gallery-wrap, .resort-card__comment-wrap {
+  max-width: 217px;
+  height: 120px;
+  overflow: hidden;
+}
+
+//Buttons
+.share-wrap {
+  cursor: pointer;
+  margin: auto;
+  padding: .5rem 1rem;
+  background-color: $card-bg-semi-transparent;
+  border-radius: 5rem;
+  position: relative;
+  top: -10px;
+  transition-duration: $card-animation-transition-time;
+
+  &:hover {
+    background-color: $gray-300;
+  }
+}
+
+.resort-card__expand {
+  margin-left: 2.5rem;
+  position: relative;
+}
+
+.resort-card__go-to-resort {
+  position: relative;
+  float: right;
+  z-index: 2;
+}
+
+.resort-card__description {
+  max-width: 300px;
+}
+
+.resort-card__location-description {
+  width: 100%;
+}
+
+//Expand Animations
+.resort-card__description, .resort-card__content-2{
+  opacity: 0;
+  max-height: 0;
+  transition-duration: $card-animation-transition-time;
+}
+
+.resort-card__expand .c-icon {
+  transform: rotateZ(0deg);
+  transition-duration: $card-animation-transition-time;
+}
+
+.full-expanded {
+
+  .resort-card__footer {
+
+    &:after {
+      opacity: 1;
+      width: 160px;
+    }
+  }
+
+  .resort-card__description {
+    opacity: 1;
+    max-height: 100px;
+  }
+
+  .resort-card__content-2 {
+    opacity: 1;
+    max-height: 220px;
+  }
+
+  .resort-card__expand .c-icon {
+    transform: rotateZ(-180deg);
+  }
+}
