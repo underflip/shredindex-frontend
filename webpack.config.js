@@ -45,6 +45,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto',
+      },
+      {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           {
@@ -108,7 +113,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.gif', '.png', '.jpg', '.jpeg', '.svg'],
+    extensions: ['.js', '.jsx', '.scss', '.gif', '.png', '.jpg', '.jpeg', '.svg', '*', '.mjs', '.json', '.gql', '.graphql'],
   },
   plugins: [
     new CleanWebpackPlugin(),

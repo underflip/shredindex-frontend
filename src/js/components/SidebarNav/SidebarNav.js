@@ -1,14 +1,11 @@
 import CIcon from '@coreui/icons-react';
 import {
-  CHeaderBrand,
-  CHeaderNavLink,
-  CImg,
+  CImage,
   CNavLink,
-  CSidebar,
-  CSidebarMinimizer,
-  CSidebarNav,
+  CSidebar, CSidebarBrand,
+  CSidebarNav, CSidebarToggler,
 } from '@coreui/react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Logo from '../../../images/logo.svg';
 import routingConfig from '../config/routing-config';
 import ViewContext from '../ViewContext/ViewContext';
@@ -18,18 +15,23 @@ const SidebarNav = () => {
 
   return (
     <CSidebar
-      show={showSidebar}
-      onShowChange={() => setShowSidebar(!showSidebar)}
+      position="fixed"
+      unfoldable={false}
+      visible={showSidebar}
+      // onVisibleChange={(visible) => { setShowSidebar(visible); }}
     >
       <CSidebarNav className="sidebar-nav">
-        <CHeaderBrand className="sidebar-nav__logo mx-auto d-lg-none">
-          <CHeaderNavLink className="sidebar-nav__logo-link" to="/">
-            <CImg src={Logo} className="sidebar-nav__logo-img" name="logo" height="28" alt="Logo" />
-          </CHeaderNavLink>
-        </CHeaderBrand>
+        <CSidebarBrand className="sidebar-nav__logo mx-auto d-lg-none">
+          <CNavLink className="sidebar-nav__logo-link" href="/">
+            <CImage src={Logo} className="sidebar-nav__logo-img" name="logo" height="28" alt="Logo" />
+          </CNavLink>
+        </CSidebarBrand>
         <SidebarNavItems />
       </CSidebarNav>
-      <CSidebarMinimizer className="sidebar-nav__minimizer c-d-md-down-none" />
+      <CSidebarToggler
+        className="sidebar-nav__minimizer"
+        onClick={() => setShowSidebar(!showSidebar)}
+      />
     </CSidebar>
   );
 };
@@ -39,8 +41,8 @@ const SidebarNavItems = () => {
 
   return filtered.map(({ path, icon, name }) => (
     <li key={path} className="sidebar-nav__item c-sidebar-nav-item">
-      <CNavLink to={path} className="sidebar-nav__link c-sidebar-nav-link">
-        <CIcon content={icon} className="sidebar-nav__icon mr-2" />
+      <CNavLink href={path} className="sidebar-nav__link c-sidebar-nav-link">
+        <CIcon icon={icon} className="sidebar-nav__icon me-2" />
         {name}
       </CNavLink>
     </li>

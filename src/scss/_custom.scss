@@ -22,3 +22,11 @@ button {
   border: none;
   background: linear-gradient(to right, #172935 0%, #192e3b 25%, #192e3b 75%, #172935 100%) !important;
 }
+
+.header, .sidebar-brand, .list-group-item {
+  background-color: unset;
+}
+
+.sidebar {
+  background-color: $gray-100;
+}
