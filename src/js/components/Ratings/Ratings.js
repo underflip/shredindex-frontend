@@ -9,7 +9,6 @@ import {
 
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import CIcon from '@coreui/icons-react';
 
 const Ratings = (props) => {
   const { ratings } = props;
@@ -26,17 +25,17 @@ const Ratings = (props) => {
       <CCardBody>
         <CListGroup className="ratings-list">
           {ratings.map(({
-            id, title, value, icon,
+            id, title, value,
           }) => (
             <div className="progress-group" key={id}>
               <div className="progress-group-header">
-                <span>{title}</span>
-                <span className="me-auto fw-semibold">
+                <span className="resort-rating__label">{title}</span>
+                <span className="ms-auto fw-semibold">
                   {value}
                   %
                 </span>
               </div>
-              <div className="progress-group-bars">
+              <div className="rating__value progress-group-bars">
                 <CProgress thin color="success" value={value} />
               </div>
             </div>

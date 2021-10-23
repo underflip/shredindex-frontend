@@ -51,7 +51,7 @@ const HeaderNavItems = () => {
     filtered.map((item) => (
       <CNavItem key={item.path} className="header-nav__item px-3">
         <CNavLink className="header-nav__link" href={item.path}>
-          <CIcon content={item.icon} className="header-nav__icon me-2" />
+          <CIcon icon={item.icon} className="header-nav__icon me-2" />
           <FormattedMessage
             id={item.name}
             defaultMessage={item.name}

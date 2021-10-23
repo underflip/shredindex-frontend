@@ -5,7 +5,7 @@ import {
   CSidebar, CSidebarBrand,
   CSidebarNav, CSidebarToggler,
 } from '@coreui/react';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Logo from '../../../images/logo.svg';
 import routingConfig from '../config/routing-config';
 import ViewContext from '../ViewContext/ViewContext';
@@ -18,7 +18,7 @@ const SidebarNav = () => {
       position="fixed"
       unfoldable={false}
       visible={showSidebar}
-      // onVisibleChange={(visible) => { setShowSidebar(visible); }}
+      onVisibleChange={(visible) => { setShowSidebar(visible); }}
     >
       <CSidebarNav className="sidebar-nav">
         <CSidebarBrand className="sidebar-nav__logo mx-auto d-lg-none">

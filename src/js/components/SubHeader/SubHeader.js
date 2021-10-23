@@ -28,6 +28,7 @@ const SubHeader = () => {
     location.split('/').reduce((prev, curr, index, array) => {
       const currentPathname = `${prev}/${curr}`;
       breadcrumbs.push({
+        key: index + 1,
         pathname: currentPathname,
         name: getRouteName(currentPathname, routingConfig),
         active: index + 1 === array.length,
@@ -43,11 +44,11 @@ const SubHeader = () => {
       <CHeaderDivider />
       <CContainer fluid>
         <CBreadcrumb className="m-0 ms-2">
-          {/* <CBreadcrumbItem href="/">Home</CBreadcrumbItem> */}
-          {breadcrumbs.map((breadcrumb, index) => (
+          <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
+          {breadcrumbs.map((breadcrumb) => (
             <CBreadcrumbItem
               {...(breadcrumb.active ? { active: true } : { href: breadcrumb.pathname })}
-              key={index}
+              key={breadcrumb.key}
             >
               {breadcrumb.name}
             </CBreadcrumbItem>

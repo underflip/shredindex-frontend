@@ -4,7 +4,7 @@ import { gql } from 'apollo-boost';
 import { FormattedMessage } from 'react-intl';
 import { useParams } from 'react-router';
 import {
-  CCard, CCardBody, CCardHeader, CCollapse,
+  CCard, CCardBody, CCardHeader,
 } from '@coreui/react';
 import ResortHeader from '../ResortHeader/ResortHeader';
 import Ratings from '../Ratings/Ratings';

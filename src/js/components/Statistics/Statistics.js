@@ -3,7 +3,6 @@ import {
   CCard,
   CCardBody,
   CCardHeader,
-  CCollapse,
   CProgress,
   CRow,
   CListGroup, CListGroupItem,
@@ -27,21 +26,21 @@ const Statistics = (props) => {
         <CCardBody>
           <CListGroup>
             {statistics.map(({
-              id, title, icon, value,
+              id, title, value,
             }) => (
               <CListGroupItem key={id} className="justify-content-between">
                 <CRow>
                   <div className="statistic__label col-5">
                     {title}
                   </div>
-                  <div className="col-7" color="primary">
-                    <CProgress color="gradient-warning" value={value} max={100} showPercentage className="statistic__value font-weight-bold" />
+                  <div className="col-7 progress-group-bars statistic__value">
+                    <CProgress color="success" value={value} />
                   </div>
                 </CRow>
               </CListGroupItem>
             ))}
             {generics.map(({
-              id, title, icon, value,
+              id, title, value,
             }) => (
               <CListGroupItem key={id} className="justify-content-between">
                 <CRow>

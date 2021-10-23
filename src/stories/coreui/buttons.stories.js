@@ -1,5 +1,6 @@
 import {
   CButton,
+  CContainer,
   CButtonGroup,
   CButtonToolbar,
   CCard,
@@ -12,9 +13,8 @@ import {
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
-  CInput,
+  CFormInput,
   CInputGroup,
-  CInputGroupPrepend,
   CInputGroupText,
   CRow,
 } from '@coreui/react';
@@ -45,105 +45,105 @@ export default { title: 'CoreUI/Buttons' };
 
 export const Buttons = () => (
   <>
-    <div className="c-main container-fluid">
+    <CContainer fluid>
       <CCard>
         <CCardHeader>
           Standard Buttons
         </CCardHeader>
         <CCardBody>
           <CRow className="align-items-center">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Normal
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="primary">Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="secondary">Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="success">Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="warning">Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="danger">Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="info">Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="light">Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="link">Link</CButton>
             </CCol>
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Active State
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="primary" aria-pressed="true">Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="secondary" aria-pressed="true">Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="success" aria-pressed="true">Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="warning" aria-pressed="true">Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="danger" aria-pressed="true">Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="info" aria-pressed="true">Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="light" aria-pressed="true">Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="dark" aria-pressed="true">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block color="link" aria-pressed="true">Link</CButton>
             </CCol>
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Disabled
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="primary" disabled>Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="secondary" disabled>Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="success" disabled>Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="warning" disabled>Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="danger" disabled>Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="info" disabled>Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="light" disabled>Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block color="link" disabled>Link</CButton>
             </CCol>
           </CRow>
@@ -163,40 +163,40 @@ export const Buttons = () => (
             prop.
           </p>
           <CRow className="align-items-center">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Normal
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="primary">Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="secondary">Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="success">Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="warning">Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="danger">Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="info">Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="light">Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 " />
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Active State
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 variant="outline"
@@ -207,7 +207,7 @@ export const Buttons = () => (
                 Primary
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 variant="outline"
@@ -218,7 +218,7 @@ export const Buttons = () => (
                 Secondary
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 variant="outline"
@@ -229,7 +229,7 @@ export const Buttons = () => (
                 Success
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 variant="outline"
@@ -240,7 +240,7 @@ export const Buttons = () => (
                 Warning
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 variant="outline"
@@ -251,7 +251,7 @@ export const Buttons = () => (
                 Danger
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 variant="outline"
@@ -262,7 +262,7 @@ export const Buttons = () => (
                 Info
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 variant="outline"
@@ -273,7 +273,7 @@ export const Buttons = () => (
                 Light
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 variant="outline"
@@ -284,37 +284,37 @@ export const Buttons = () => (
                 Dark
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 " />
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Disabled
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="primary" disabled>Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="secondary" disabled>Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="success" disabled>Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="warning" disabled>Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="danger" disabled>Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="info" disabled>Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="light" disabled>Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="outline" color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 " />
           </CRow>
         </CCardBody>
       </CCard>
@@ -333,40 +333,40 @@ export const Buttons = () => (
             class for variant="ghost" buttons.
           </p>
           <CRow className="align-items-center">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Normal
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="primary">Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="secondary">Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="success">Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="warning">Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="danger">Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="info">Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="light">Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 " />
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Active State
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 active
@@ -377,7 +377,7 @@ export const Buttons = () => (
                 Primary
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 active
@@ -388,7 +388,7 @@ export const Buttons = () => (
                 Secondary
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 active
@@ -399,7 +399,7 @@ export const Buttons = () => (
                 Success
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 active
@@ -410,7 +410,7 @@ export const Buttons = () => (
                 Warning
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 active
@@ -421,7 +421,7 @@ export const Buttons = () => (
                 Danger
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 active
@@ -432,7 +432,7 @@ export const Buttons = () => (
                 Info
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 active
@@ -443,7 +443,7 @@ export const Buttons = () => (
                 Light
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 block
                 active
@@ -454,37 +454,37 @@ export const Buttons = () => (
                 Dark
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 " />
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Disabled
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="primary" disabled>Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="secondary" disabled>Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="success" disabled>Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="warning" disabled>Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="danger" disabled>Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="info" disabled>Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="light" disabled>Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block variant="ghost" color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0" />
+            <CCol col="6" sm="4" md="2" xl className="mb-3 " />
           </CRow>
         </CCardBody>
       </CCard>
@@ -501,42 +501,42 @@ export const Buttons = () => (
             class for square buttons.
           </p>
           <CRow className="align-items-center">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Normal
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="primary">Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="secondary">Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="success">Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="warning">Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="danger">Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="info">Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="light">Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="link">Link</CButton>
             </CCol>
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Active State
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -547,7 +547,7 @@ export const Buttons = () => (
                 Primary
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -558,7 +558,7 @@ export const Buttons = () => (
                 Secondary
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -569,7 +569,7 @@ export const Buttons = () => (
                 Success
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -580,7 +580,7 @@ export const Buttons = () => (
                 Warning
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -591,10 +591,10 @@ export const Buttons = () => (
                 Danger
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block shape="square" color="info" aria-pressed="true">Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -605,42 +605,42 @@ export const Buttons = () => (
                 Light
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block shape="square" color="dark" aria-pressed="true">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block shape="square" color="link" aria-pressed="true">Link</CButton>
             </CCol>
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Disabled
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="primary" disabled>Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="secondary" disabled>Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="success" disabled>Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="warning" disabled>Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="danger" disabled>Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="info" disabled>Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="light" disabled>Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="square" color="link" disabled>Link</CButton>
             </CCol>
           </CRow>
@@ -659,42 +659,42 @@ export const Buttons = () => (
             class for pill buttons.
           </p>
           <CRow className="align-items-center">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Normal
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="primary" className="">Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="secondary">Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="success">Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="warning">Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="danger">Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="info">Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="light">Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="dark">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="link">Link</CButton>
             </CCol>
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Active State
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -705,7 +705,7 @@ export const Buttons = () => (
                 Primary
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -716,7 +716,7 @@ export const Buttons = () => (
                 Secondary
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -727,7 +727,7 @@ export const Buttons = () => (
                 Success
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -738,7 +738,7 @@ export const Buttons = () => (
                 Warning
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton
                 active
                 block
@@ -749,48 +749,48 @@ export const Buttons = () => (
                 Danger
               </CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block shape="pill" color="info" aria-pressed="true">Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block shape="pill" color="light" aria-pressed="true">Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block shape="pill" color="dark" aria-pressed="true">Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton active block shape="pill" color="link" aria-pressed="true">Link</CButton>
             </CCol>
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="12" xl className="mb-3 mb-xl-0">
+            <CCol col="12" xl className="mb-3 ">
               Disabled
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="primary" disabled>Primary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="secondary" disabled>Secondary</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="success" disabled>Success</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="warning" disabled>Warning</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="danger" disabled>Danger</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="info" disabled>Info</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="light" disabled>Light</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="dark" disabled>Dark</CButton>
             </CCol>
-            <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+            <CCol col="6" sm="4" md="2" xl className="mb-3 ">
               <CButton block shape="pill" color="link" disabled>Link</CButton>
             </CCol>
           </CRow>
@@ -815,62 +815,62 @@ export const Buttons = () => (
             for additional sizes.
           </p>
           <CRow className="align-items-center">
-            <CCol col="2" xl className="mb-3 mb-xl-0">
+            <CCol col="2" xl className="mb-3 ">
               Small
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton color="primary" size="sm">Standard Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton color="secondary" variant="outline" size="sm">Outline Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton size="sm" variant="ghost" color="ghost">Ghost Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton shape="square" color="warning" size="sm">Square Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton shape="pill" color="danger" size="sm">Pill Button</CButton>
             </CCol>
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="2" xl className="mb-3 mb-xl-0">
+            <CCol col="2" xl className="mb-3 ">
               Normal
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton color="primary">Standard Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton variant="outline" color="secondary">Outline Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton variant="ghost" color="success">Ghost Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton shape="square" color="warning">Square Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton shape="pill" color="danger">Pill Button</CButton>
             </CCol>
           </CRow>
           <CRow className="align-items-center mt-3">
-            <CCol col="2" xl className="mb-3 mb-xl-0">
+            <CCol col="2" xl className="mb-3 ">
               Large
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton color="primary" size="lg">Standard Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton variant="outline" color="secondary" size="lg">Outline Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton variant="ghost" color="success" size="lg">Ghost Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton shape="square" color="warning" size="lg">Square Button</CButton>
             </CCol>
-            <CCol col="2" className="mb-3 mb-xl-0 text-center">
+            <CCol col="2" className="mb-3  text-center">
               <CButton shape="pill" color="danger" size="lg">Pill Button</CButton>
             </CCol>
           </CRow>
@@ -890,25 +890,25 @@ export const Buttons = () => (
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton color="secondary" variant="outline">
-                <CIcon name="cil-lightbulb" />
+                <CIcon icon="cil-lightbulb" />
                 Outline Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton variant="ghost" color="success">
-                <CIcon name="cil-lightbulb" />
+                <CIcon icon="cil-lightbulb" />
                 Ghost Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton shape="square" color="warning">
-                <CIcon name="cil-lightbulb" />
+                <CIcon icon="cil-lightbulb" />
                 Square Button
               </CButton>
             </CCol>
             <CCol col="2" className="text-center mt-3">
               <CButton shape="pill" color="danger">
-                <CIcon name="cil-lightbulb" />
+                <CIcon icon="cil-lightbulb" />
                 Pill Button
               </CButton>
             </CCol>
@@ -926,13 +926,13 @@ export const Buttons = () => (
                 Add prop
                 <code>block</code>
               </p>
-              <CButton color="secondary" size="lg" block>Block level button</CButton>
-              <CButton color="primary" size="lg" block>Block level button</CButton>
-              <CButton color="success" size="lg" block>Block level button</CButton>
-              <CButton color="info" size="lg" block>Block level button</CButton>
-              <CButton color="warning" size="lg" block>Block level button</CButton>
-              <CButton color="danger" size="lg" block>Block level button</CButton>
-              <CButton color="link" size="lg" block>Block level button</CButton>
+              <CButton className="me-2 mb-2" color="secondary" size="lg" block>Block level button</CButton>
+              <CButton className="me-2 mb-2" color="primary" size="lg" block>Block level button</CButton>
+              <CButton className="me-2 mb-2" color="success" size="lg" block>Block level button</CButton>
+              <CButton className="me-2 mb-2" color="info" size="lg" block>Block level button</CButton>
+              <CButton className="me-2 mb-2" color="warning" size="lg" block>Block level button</CButton>
+              <CButton className="me-2 mb-2" color="danger" size="lg" block>Block level button</CButton>
+              <CButton className="me-2 mb-2" color="link" size="lg" block>Block level button</CButton>
             </CCardBody>
           </CCard>
         </CCol>
@@ -972,12 +972,12 @@ export const Buttons = () => (
           </CCard>
         </CCol>
       </CRow>
-    </div>
+    </CContainer>
   </>
 );
 
 export const ButtonDropdowns = () => (
-  <div className="c-main container-fluid">
+  <CContainer fluid>
     <CRow>
       <CCol xs="12">
         <CCard>
@@ -1085,9 +1085,8 @@ export const ButtonDropdowns = () => (
 
             <hr />
             <CDropdown className="m-1">
-              <CDropdownToggle split color="primary">
-                Primary
-              </CDropdownToggle>
+              <CButton color="primary">Primary</CButton>
+              <CDropdownToggle split color="primary" />
               <CDropdownMenu>
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
@@ -1097,9 +1096,8 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
             <CDropdown className="m-1">
-              <CDropdownToggle split color="secondary">
-                Secondary
-              </CDropdownToggle>
+              <CButton color="secondary">Secondary</CButton>
+              <CDropdownToggle split color="secondary" />
               <CDropdownMenu>
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
@@ -1109,9 +1107,8 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
             <CDropdown className="m-1">
-              <CDropdownToggle split color="success">
-                Success
-              </CDropdownToggle>
+              <CButton color="success">Success</CButton>
+              <CDropdownToggle split color="success" />
               <CDropdownMenu>
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
@@ -1121,9 +1118,8 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
             <CDropdown className="m-1">
-              <CDropdownToggle split color="info">
-                Info
-              </CDropdownToggle>
+              <CButton color="info">Info</CButton>
+              <CDropdownToggle split color="info" />
               <CDropdownMenu>
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
@@ -1133,9 +1129,8 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
             <CDropdown className="m-1">
-              <CDropdownToggle split color="warning">
-                Warning
-              </CDropdownToggle>
+              <CButton color="warning">Warning</CButton>
+              <CDropdownToggle split color="warning" />
               <CDropdownMenu>
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
@@ -1145,9 +1140,8 @@ export const ButtonDropdowns = () => (
               </CDropdownMenu>
             </CDropdown>
             <CDropdown className="m-1">
-              <CDropdownToggle split color="danger">
-                Danger
-              </CDropdownToggle>
+              <CButton color="danger">Danger</CButton>
+              <CDropdownToggle split color="danger" />
               <CDropdownMenu>
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
@@ -1160,9 +1154,8 @@ export const ButtonDropdowns = () => (
             <hr />
 
             <CDropdown className="m-1" size="lg">
-              <CDropdownToggle color="secondary">
-                Large button
-              </CDropdownToggle>
+              <CButton color="secondary">Large button</CButton>
+              <CDropdownToggle color="secondary" />
               <CDropdownMenu>
                 <CDropdownItem header>Header</CDropdownItem>
                 <CDropdownItem disabled>Action Disabled</CDropdownItem>
@@ -1367,7 +1360,7 @@ export const ButtonDropdowns = () => (
         </CCard>
       </CCol>
     </CRow>
-  </div>
+  </CContainer>
 );
 
 export const ButtonGroups = () => (
@@ -1405,13 +1398,13 @@ export const ButtonGroups = () => (
           </CCardHeader>
           <CCardBody>
             <CButtonToolbar className="mb-3">
-              <CButtonGroup className="mr-2">
+              <CButtonGroup className="me-2">
                 <CButton color="secondary">1</CButton>
                 <CButton color="secondary">2</CButton>
                 <CButton color="secondary">3</CButton>
                 <CButton color="secondary">4</CButton>
               </CButtonGroup>
-              <CButtonGroup className="mr-2">
+              <CButtonGroup className="me-2">
                 <CButton color="secondary">5</CButton>
                 <CButton color="secondary">6</CButton>
                 <CButton color="secondary">7</CButton>
@@ -1421,17 +1414,15 @@ export const ButtonGroups = () => (
               </CButtonGroup>
             </CButtonToolbar>
             <CButtonToolbar className="mb-3">
-              <CButtonGroup className="mr-2">
+              <CButtonGroup className="me-2">
                 <CButton color="secondary">1</CButton>
                 <CButton color="secondary">2</CButton>
                 <CButton color="secondary">3</CButton>
                 <CButton color="secondary">4</CButton>
               </CButtonGroup>
               <CInputGroup>
-                <CInputGroupPrepend>
-                  <CInputGroupText>@</CInputGroupText>
-                </CInputGroupPrepend>
-                <CInput placeholder="Input group example" />
+                <CInputGroupText>@</CInputGroupText>
+                <CFormInput placeholder="Input group example" />
               </CInputGroup>
             </CButtonToolbar>
             <CButtonToolbar justify="between">
@@ -1442,10 +1433,8 @@ export const ButtonGroups = () => (
                 <CButton color="secondary">4</CButton>
               </CButtonGroup>
               <CInputGroup>
-                <CInputGroupPrepend>
-                  <CInputGroupText>@</CInputGroupText>
-                </CInputGroupPrepend>
-                <CInput placeholder="Input group example" />
+                <CInputGroupText>@</CInputGroupText>
+                <CFormInput placeholder="Input group example" />
               </CInputGroup>
             </CButtonToolbar>
           </CCardBody>
@@ -1499,7 +1488,7 @@ export const ButtonGroups = () => (
         <CCard>
           <CCardHeader>
             Button Group
-            <small> nestingccc</small>
+            <small> nesting</small>
           </CCardHeader>
           <CCardBody>
             <CButtonGroup>
@@ -1545,7 +1534,7 @@ export const ButtonGroups = () => (
 );
 
 export const BrandButtons = () => (
-  <div className="c-main container-fluid">
+  <CContainer className="c-main container-fluid">
     <CRow>
       <CCol xs="12">
         <CCard>
@@ -1562,121 +1551,121 @@ export const BrandButtons = () => (
               </small>
             </h6>
             <p>
-              <CButton size="sm" className="btn-facebook btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-facebook btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFacebook}
+                  icon={cibFacebook}
                   name="cib-facebook"
                 />
                 <span>Facebook</span>
               </CButton>
-              <CButton size="sm" className="btn-twitter btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-twitter btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTwitter}
+                  icon={cibTwitter}
                   name="cib-twitter"
                 />
                 <span>Twitter</span>
               </CButton>
-              <CButton size="sm" className="btn-linkedin btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-linkedin btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibLinkedin}
+                  icon={cibLinkedin}
                   name="cib-linkedin"
                 />
                 <span>LinkedIn</span>
               </CButton>
-              <CButton size="sm" className="btn-flickr btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-flickr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFlickr}
+                  icon={cibFlickr}
                   name="cib-flickr"
                 />
                 <span>Flickr</span>
               </CButton>
-              <CButton size="sm" className="btn-tumblr btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-tumblr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTumblr}
+                  icon={cibTumblr}
                   name="cib-tumblr"
                 />
                 <span>Tumblr</span>
               </CButton>
-              <CButton size="sm" className="btn-xing btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-xing btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibXing}
+                  icon={cibXing}
                   name="cib-xing"
                 />
                 <span>Xing</span>
               </CButton>
-              <CButton size="sm" className="btn-github btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-github btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibGithub}
+                  icon={cibGithub}
                   name="cib-github"
                 />
                 <span>Github</span>
               </CButton>
-              <CButton size="sm" className="btn-stack-overflow btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-stack-overflow btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibStackoverflow}
+                  icon={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
                 <span>StackOverflow</span>
               </CButton>
-              <CButton size="sm" className="btn-youtube btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-youtube btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYoutube}
+                  icon={cibYoutube}
                   name="cib-youtube"
                 />
                 <span>YouTube</span>
               </CButton>
-              <CButton size="sm" className="btn-dribbble btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-dribbble btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibDribbble}
+                  icon={cibDribbble}
                   name="cib-dribbble"
                 />
                 <span>Dribbble</span>
               </CButton>
-              <CButton size="sm" className="btn-instagram btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-instagram btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibInstagram}
+                  icon={cibInstagram}
                   name="cib-instagram"
                 />
                 <span>Instagram</span>
               </CButton>
-              <CButton size="sm" className="btn-pinterest btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-pinterest btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibPinterest}
+                  icon={cibPinterest}
                   name="cib-pinterest"
                 />
                 <span>Pinterest</span>
               </CButton>
-              <CButton size="sm" className="btn-vk btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-vk btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVk}
+                  icon={cibVk}
                   name="cib-vk"
                 />
                 <span>VK</span>
               </CButton>
-              <CButton size="sm" className="btn-yahoo btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-yahoo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYahoo}
+                  icon={cibYahoo}
                   name="cib-yahoo"
                 />
                 <span>Yahoo</span>
               </CButton>
-              <CButton size="sm" className="btn-behance btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-behance btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibBehance}
+                  icon={cibBehance}
                   name="cib-behance"
                 />
                 <span>Behance</span>
               </CButton>
-              <CButton size="sm" className="btn-reddit btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-reddit btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibReddit}
+                  icon={cibReddit}
                   name="cib-reddit"
                 />
                 <span>Reddit</span>
               </CButton>
-              <CButton size="sm" className="btn-vimeo btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-vimeo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVimeo}
+                  icon={cibVimeo}
                   name="cib-vimeo"
                 />
                 <span>Vimeo</span>
@@ -1684,121 +1673,121 @@ export const BrandButtons = () => (
             </p>
             <h6>Size Normal</h6>
             <p>
-              <CButton className="btn-facebook btn-brand mr-1 mb-1">
+              <CButton className="btn-facebook btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFacebook}
+                  icon={cibFacebook}
                   name="cib-facebook"
                 />
                 <span>Facebook</span>
               </CButton>
-              <CButton className="btn-twitter btn-brand mr-1 mb-1">
+              <CButton className="btn-twitter btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTwitter}
+                  icon={cibTwitter}
                   name="cib-twitter"
                 />
                 <span>Twitter</span>
               </CButton>
-              <CButton className="btn-linkedin btn-brand mr-1 mb-1">
+              <CButton className="btn-linkedin btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibLinkedin}
+                  icon={cibLinkedin}
                   name="cib-linkedin"
                 />
                 <span>LinkedIn</span>
               </CButton>
-              <CButton className="btn-flickr btn-brand mr-1 mb-1">
+              <CButton className="btn-flickr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFlickr}
+                  icon={cibFlickr}
                   name="cib-flickr"
                 />
                 <span>Flickr</span>
               </CButton>
-              <CButton className="btn-tumblr btn-brand mr-1 mb-1">
+              <CButton className="btn-tumblr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTumblr}
+                  icon={cibTumblr}
                   name="cib-tumblr"
                 />
                 <span>Tumblr</span>
               </CButton>
-              <CButton className="btn-xing btn-brand mr-1 mb-1">
+              <CButton className="btn-xing btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibXing}
+                  icon={cibXing}
                   name="cib-xing"
                 />
                 <span>Xing</span>
               </CButton>
-              <CButton className="btn-github btn-brand mr-1 mb-1">
+              <CButton className="btn-github btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibGithub}
+                  icon={cibGithub}
                   name="cib-github"
                 />
                 <span>Github</span>
               </CButton>
-              <CButton className="btn-stack-overflow btn-brand mr-1 mb-1">
+              <CButton className="btn-stack-overflow btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibStackoverflow}
+                  icon={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
                 <span>StackOverflow</span>
               </CButton>
-              <CButton className="btn-youtube btn-brand mr-1 mb-1">
+              <CButton className="btn-youtube btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYoutube}
+                  icon={cibYoutube}
                   name="cib-youtube"
                 />
                 <span>YouTube</span>
               </CButton>
-              <CButton className="btn-dribbble btn-brand mr-1 mb-1">
+              <CButton className="btn-dribbble btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibDribbble}
+                  icon={cibDribbble}
                   name="cib-dribbble"
                 />
                 <span>Dribbble</span>
               </CButton>
-              <CButton className="btn-instagram btn-brand mr-1 mb-1">
+              <CButton className="btn-instagram btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibInstagram}
+                  icon={cibInstagram}
                   name="cib-instagram"
                 />
                 <span>Instagram</span>
               </CButton>
-              <CButton className="btn-pinterest btn-brand mr-1 mb-1">
+              <CButton className="btn-pinterest btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibPinterest}
+                  icon={cibPinterest}
                   name="cib-pinterest"
                 />
                 <span>Pinterest</span>
               </CButton>
-              <CButton className="btn-vk btn-brand mr-1 mb-1">
+              <CButton className="btn-vk btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVk}
+                  icon={cibVk}
                   name="cib-vk"
                 />
                 <span>VK</span>
               </CButton>
-              <CButton className="btn-yahoo btn-brand mr-1 mb-1">
+              <CButton className="btn-yahoo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYahoo}
+                  icon={cibYahoo}
                   name="cib-yahoo"
                 />
                 <span>Yahoo</span>
               </CButton>
-              <CButton className="btn-behance btn-brand mr-1 mb-1">
+              <CButton className="btn-behance btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibBehance}
+                  icon={cibBehance}
                   name="cib-behance"
                 />
                 <span>Behance</span>
               </CButton>
-              <CButton className="btn-reddit btn-brand mr-1 mb-1">
+              <CButton className="btn-reddit btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibReddit}
+                  icon={cibReddit}
                   name="cib-reddit"
                 />
                 <span>Reddit</span>
               </CButton>
-              <CButton className="btn-vimeo btn-brand mr-1 mb-1">
+              <CButton className="btn-vimeo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVimeo}
+                  icon={cibVimeo}
                   name="cib-vimeo"
                 />
                 <span>Vimeo</span>
@@ -1813,121 +1802,121 @@ export const BrandButtons = () => (
               </small>
             </h6>
             <p>
-              <CButton size="lg" className="btn-facebook btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-facebook btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFacebook}
+                  icon={cibFacebook}
                   name="cib-facebook"
                 />
                 <span>Facebook</span>
               </CButton>
-              <CButton size="lg" className="btn-twitter btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-twitter btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTwitter}
+                  icon={cibTwitter}
                   name="cib-twitter"
                 />
                 <span>Twitter</span>
               </CButton>
-              <CButton size="lg" className="btn-linkedin btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-linkedin btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibLinkedin}
+                  icon={cibLinkedin}
                   name="cib-linkedin"
                 />
                 <span>LinkedIn</span>
               </CButton>
-              <CButton size="lg" className="btn-flickr btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-flickr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFlickr}
+                  icon={cibFlickr}
                   name="cib-flickr"
                 />
                 <span>Flickr</span>
               </CButton>
-              <CButton size="lg" className="btn-tumblr btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-tumblr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTumblr}
+                  icon={cibTumblr}
                   name="cib-tumblr"
                 />
                 <span>Tumblr</span>
               </CButton>
-              <CButton size="lg" className="btn-xing btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-xing btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibXing}
+                  icon={cibXing}
                   name="cib-xing"
                 />
                 <span>Xing</span>
               </CButton>
-              <CButton size="lg" className="btn-github btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-github btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibGithub}
+                  icon={cibGithub}
                   name="cib-github"
                 />
                 <span>Github</span>
               </CButton>
-              <CButton size="lg" className="btn-stack-overflow btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-stack-overflow btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibStackoverflow}
+                  icon={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
                 <span>StackOverflow</span>
               </CButton>
-              <CButton size="lg" className="btn-youtube btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-youtube btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYoutube}
+                  icon={cibYoutube}
                   name="cib-youtube"
                 />
                 <span>YouTube</span>
               </CButton>
-              <CButton size="lg" className="btn-dribbble btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-dribbble btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibDribbble}
+                  icon={cibDribbble}
                   name="cib-dribbble"
                 />
                 <span>Dribbble</span>
               </CButton>
-              <CButton size="lg" className="btn-instagram btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-instagram btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibInstagram}
+                  icon={cibInstagram}
                   name="cib-instagram"
                 />
                 <span>Instagram</span>
               </CButton>
-              <CButton size="lg" className="btn-pinterest btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-pinterest btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibPinterest}
+                  icon={cibPinterest}
                   name="cib-pinterest"
                 />
                 <span>Pinterest</span>
               </CButton>
-              <CButton size="lg" className="btn-vk btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-vk btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVk}
+                  icon={cibVk}
                   name="cib-vk"
                 />
                 <span>VK</span>
               </CButton>
-              <CButton size="lg" className="btn-yahoo btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-yahoo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYahoo}
+                  icon={cibYahoo}
                   name="cib-yahoo"
                 />
                 <span>Yahoo</span>
               </CButton>
-              <CButton size="lg" className="btn-behance btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-behance btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibBehance}
+                  icon={cibBehance}
                   name="cib-behance"
                 />
                 <span>Behance</span>
               </CButton>
-              <CButton size="lg" className="btn-reddit btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-reddit btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibReddit}
+                  icon={cibReddit}
                   name="cib-reddit"
                 />
                 <span>Reddit</span>
               </CButton>
-              <CButton size="lg" className="btn-vimeo btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-vimeo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVimeo}
+                  icon={cibVimeo}
                   name="cib-vimeo"
                 />
                 <span>Vimeo</span>
@@ -1953,210 +1942,210 @@ export const BrandButtons = () => (
               </small>
             </h6>
             <p>
-              <CButton size="sm" className="btn-facebook btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-facebook btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFacebook}
+                  icon={cibFacebook}
                   name="cib-facebook"
                 />
               </CButton>
-              <CButton size="sm" className="btn-twitter btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-twitter btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTwitter}
+                  icon={cibTwitter}
                   name="cib-twitter"
                 />
               </CButton>
-              <CButton size="sm" className="btn-linkedin btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-linkedin btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibLinkedin}
+                  icon={cibLinkedin}
                   name="cib-linkedin"
                 />
               </CButton>
-              <CButton size="sm" className="btn-flickr btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-flickr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFlickr}
+                  icon={cibFlickr}
                   name="cib-flickr"
                 />
               </CButton>
-              <CButton size="sm" className="btn-tumblr btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-tumblr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTumblr}
+                  icon={cibTumblr}
                   name="cib-tumblr"
                 />
               </CButton>
-              <CButton size="sm" className="btn-xing btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-xing btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibXing}
+                  icon={cibXing}
                   name="cib-xing"
                 />
               </CButton>
-              <CButton size="sm" className="btn-github btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-github btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibGithub}
+                  icon={cibGithub}
                   name="cib-github"
                 />
               </CButton>
-              <CButton size="sm" className="btn-stack-overflow btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-stack-overflow btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibStackoverflow}
+                  icon={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
               </CButton>
-              <CButton size="sm" className="btn-youtube btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-youtube btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYoutube}
+                  icon={cibYoutube}
                   name="cib-youtube"
                 />
               </CButton>
-              <CButton size="sm" className="btn-dribbble btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-dribbble btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibDribbble}
+                  icon={cibDribbble}
                   name="cib-dribbble"
                 />
               </CButton>
-              <CButton size="sm" className="btn-instagram btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-instagram btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibInstagram}
+                  icon={cibInstagram}
                   name="cib-instagram"
                 />
               </CButton>
-              <CButton size="sm" className="btn-pinterest btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-pinterest btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibPinterest}
+                  icon={cibPinterest}
                   name="cib-pinterest"
                 />
               </CButton>
-              <CButton size="sm" className="btn-vk btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-vk btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVk}
+                  icon={cibVk}
                   name="cib-vk"
                 />
               </CButton>
-              <CButton size="sm" className="btn-yahoo btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-yahoo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYahoo}
+                  icon={cibYahoo}
                   name="cib-yahoo"
                 />
               </CButton>
-              <CButton size="sm" className="btn-behance btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-behance btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibBehance}
+                  icon={cibBehance}
                   name="cib-behance"
                 />
               </CButton>
-              <CButton size="sm" className="btn-reddit btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-reddit btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibReddit}
+                  icon={cibReddit}
                   name="cib-reddit"
                 />
               </CButton>
-              <CButton size="sm" className="btn-vimeo btn-brand mr-1 mb-1">
+              <CButton size="sm" className="btn-vimeo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVimeo}
+                  icon={cibVimeo}
                   name="cib-vimeo"
                 />
               </CButton>
             </p>
             <h6>Size Normal</h6>
             <p>
-              <CButton className="btn-facebook btn-brand mr-1 mb-1">
+              <CButton className="btn-facebook btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFacebook}
+                  icon={cibFacebook}
                   name="cib-facebook"
                 />
               </CButton>
-              <CButton className="btn-twitter btn-brand mr-1 mb-1">
+              <CButton className="btn-twitter btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTwitter}
+                  icon={cibTwitter}
                   name="cib-twitter"
                 />
               </CButton>
-              <CButton className="btn-linkedin btn-brand mr-1 mb-1">
+              <CButton className="btn-linkedin btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibLinkedin}
+                  icon={cibLinkedin}
                   name="cib-linkedin"
                 />
               </CButton>
-              <CButton className="btn-flickr btn-brand mr-1 mb-1">
+              <CButton className="btn-flickr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFlickr}
+                  icon={cibFlickr}
                   name="cib-flickr"
                 />
               </CButton>
-              <CButton className="btn-tumblr btn-brand mr-1 mb-1">
+              <CButton className="btn-tumblr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTumblr}
+                  icon={cibTumblr}
                   name="cib-tumblr"
                 />
               </CButton>
-              <CButton className="btn-xing btn-brand mr-1 mb-1">
+              <CButton className="btn-xing btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibXing}
+                  icon={cibXing}
                   name="cib-xing"
                 />
               </CButton>
-              <CButton className="btn-github btn-brand mr-1 mb-1">
+              <CButton className="btn-github btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibGithub}
+                  icon={cibGithub}
                   name="cib-github"
                 />
               </CButton>
-              <CButton className="btn-stack-overflow btn-brand mr-1 mb-1">
+              <CButton className="btn-stack-overflow btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibStackoverflow}
+                  icon={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
               </CButton>
-              <CButton className="btn-youtube btn-brand mr-1 mb-1">
+              <CButton className="btn-youtube btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYoutube}
+                  icon={cibYoutube}
                   name="cib-youtube"
                 />
               </CButton>
-              <CButton className="btn-dribbble btn-brand mr-1 mb-1">
+              <CButton className="btn-dribbble btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibDribbble}
+                  icon={cibDribbble}
                   name="cib-dribbble"
                 />
               </CButton>
-              <CButton className="btn-instagram btn-brand mr-1 mb-1">
+              <CButton className="btn-instagram btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibInstagram}
+                  icon={cibInstagram}
                   name="cib-instagram"
                 />
               </CButton>
-              <CButton className="btn-pinterest btn-brand mr-1 mb-1">
+              <CButton className="btn-pinterest btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibPinterest}
+                  icon={cibPinterest}
                   name="cib-pinterest"
                 />
               </CButton>
-              <CButton className="btn-vk btn-brand mr-1 mb-1">
+              <CButton className="btn-vk btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVk}
+                  icon={cibVk}
                   name="cib-vk"
                 />
               </CButton>
-              <CButton className="btn-yahoo btn-brand mr-1 mb-1">
+              <CButton className="btn-yahoo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYahoo}
+                  icon={cibYahoo}
                   name="cib-yahoo"
                 />
               </CButton>
-              <CButton className="btn-behance btn-brand mr-1 mb-1">
+              <CButton className="btn-behance btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibBehance}
+                  icon={cibBehance}
                   name="cib-behance"
                 />
               </CButton>
-              <CButton className="btn-reddit btn-brand mr-1 mb-1">
+              <CButton className="btn-reddit btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibReddit}
+                  icon={cibReddit}
                   name="cib-reddit"
                 />
               </CButton>
-              <CButton className="btn-vimeo btn-brand mr-1 mb-1">
+              <CButton className="btn-vimeo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVimeo}
+                  icon={cibVimeo}
                   name="cib-vimeo"
                 />
               </CButton>
@@ -2170,105 +2159,105 @@ export const BrandButtons = () => (
               </small>
             </h6>
             <p>
-              <CButton size="lg" className="btn-facebook btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-facebook btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFacebook}
+                  icon={cibFacebook}
                   name="cib-facebook"
                 />
               </CButton>
-              <CButton size="lg" className="btn-twitter btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-twitter btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTwitter}
+                  icon={cibTwitter}
                   name="cib-twitter"
                 />
               </CButton>
-              <CButton size="lg" className="btn-linkedin btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-linkedin btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibLinkedin}
+                  icon={cibLinkedin}
                   name="cib-linkedin"
                 />
               </CButton>
-              <CButton size="lg" className="btn-flickr btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-flickr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibFlickr}
+                  icon={cibFlickr}
                   name="cib-flickr"
                 />
               </CButton>
-              <CButton size="lg" className="btn-tumblr btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-tumblr btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibTumblr}
+                  icon={cibTumblr}
                   name="cib-tumblr"
                 />
               </CButton>
-              <CButton size="lg" className="btn-xing btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-xing btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibXing}
+                  icon={cibXing}
                   name="cib-xing"
                 />
               </CButton>
-              <CButton size="lg" className="btn-github btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-github btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibGithub}
+                  icon={cibGithub}
                   name="cib-github"
                 />
               </CButton>
-              <CButton size="lg" className="btn-stack-overflow btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-stack-overflow btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibStackoverflow}
+                  icon={cibStackoverflow}
                   name="cib-stackoverflow"
                 />
               </CButton>
-              <CButton size="lg" className="btn-youtube btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-youtube btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYoutube}
+                  icon={cibYoutube}
                   name="cib-youtube"
                 />
               </CButton>
-              <CButton size="lg" className="btn-dribbble btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-dribbble btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibDribbble}
+                  icon={cibDribbble}
                   name="cib-dribbble"
                 />
               </CButton>
-              <CButton size="lg" className="btn-instagram btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-instagram btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibInstagram}
+                  icon={cibInstagram}
                   name="cib-instagram"
                 />
               </CButton>
-              <CButton size="lg" className="btn-pinterest btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-pinterest btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibPinterest}
+                  icon={cibPinterest}
                   name="cib-pinterest"
                 />
               </CButton>
-              <CButton size="lg" className="btn-vk btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-vk btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVk}
+                  icon={cibVk}
                   name="cib-vk"
                 />
               </CButton>
-              <CButton size="lg" className="btn-yahoo btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-yahoo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibYahoo}
+                  icon={cibYahoo}
                   name="cib-yahoo"
                 />
               </CButton>
-              <CButton size="lg" className="btn-behance btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-behance btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibBehance}
+                  icon={cibBehance}
                   name="cib-behance"
                 />
               </CButton>
-              <CButton size="lg" className="btn-reddit btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-reddit btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibReddit}
+                  icon={cibReddit}
                   name="cib-reddit"
                 />
               </CButton>
-              <CButton size="lg" className="btn-vimeo btn-brand mr-1 mb-1">
+              <CButton size="lg" className="btn-vimeo btn-brand me-1 mb-1">
                 <CIcon
-                  content={cibVimeo}
+                  icon={cibVimeo}
                   name="cib-vimeo"
                 />
               </CButton>
@@ -2277,5 +2266,5 @@ export const BrandButtons = () => (
         </CCard>
       </CCol>
     </CRow>
-  </div>
+  </CContainer>
 );

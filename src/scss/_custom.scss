@@ -1,4 +1,5 @@
 // Buttons
+
 button {
   text-decoration: none !important;
 
@@ -7,7 +8,17 @@ button {
   }
 }
 
+.btn-check:focus + .btn, .btn:focus, .btn-check:checked + .btn:focus, .btn-check:active + .btn:focus, .btn:active:focus, .btn.active:focus, .show > .btn.dropdown-toggle:focus {
+  box-shadow: 0 0 0.6rem var(--cui-btn-shadow);
+}
+
 // Cards
+
+.card {
+  margin-bottom: 2rem;
+  border: none;
+}
+
 .card-header {
   button:focus {
     box-shadow: none !important;
