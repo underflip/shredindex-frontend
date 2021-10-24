@@ -8,7 +8,12 @@ button {
   }
 }
 
-.btn-check:focus + .btn, .btn:focus, .btn-check:checked + .btn:focus, .btn-check:active + .btn:focus, .btn:active:focus, .btn.active:focus, .show > .btn.dropdown-toggle:focus {
+.btn:focus,
+.btn.active:focus,
+.btn-check:focus + .btn,
+.btn-check:checked + .btn:focus,
+.btn-check:active + .btn:focus,
+.show > .btn.dropdown-toggle:focus {
   box-shadow: 0 0 0.6rem var(--cui-btn-shadow);
 }
 
@@ -34,7 +39,9 @@ button {
   background: linear-gradient(to right, #172935 0%, #192e3b 25%, #192e3b 75%, #172935 100%) !important;
 }
 
-.header, .sidebar-brand, .list-group-item {
+.header,
+.sidebar-brand,
+.list-group-item {
   background-color: unset;
 }
 

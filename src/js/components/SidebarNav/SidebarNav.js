@@ -3,7 +3,7 @@ import {
   CImage,
   CNavLink,
   CSidebar, CSidebarBrand,
-  CSidebarNav, CSidebarToggler,
+  CSidebarNav,
 } from '@coreui/react';
 import React, { useContext } from 'react';
 import Logo from '../../../images/logo.svg';
@@ -16,7 +16,6 @@ const SidebarNav = () => {
   return (
     <CSidebar
       position="fixed"
-      unfoldable={false}
       visible={showSidebar}
       onVisibleChange={(visible) => { setShowSidebar(visible); }}
     >
@@ -28,10 +27,6 @@ const SidebarNav = () => {
         </CSidebarBrand>
         <SidebarNavItems />
       </CSidebarNav>
-      <CSidebarToggler
-        className="sidebar-nav__minimizer"
-        onClick={() => setShowSidebar(!showSidebar)}
-      />
     </CSidebar>
   );
 };

@@ -8,19 +8,9 @@ import routingConfig from '../config/routing-config';
 const SubHeader = () => {
   const currentLocation = useLocation().pathname;
 
-  function toTitleCase(str) {
-    return str.replace(/-/g, ' ').replace(
-      /\w\S*/g,
-      (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
-    );
-  }
-
   const getRouteName = (pathname, routes) => {
     const currentRoute = routes.find((route) => route.path === pathname);
-    if (currentRoute) {
-      return currentRoute.name;
-    }
-    return toTitleCase(pathname.split('/').pop());
+    return currentRoute.name;
   };
 
   const getBreadcrumbs = (location) => {
