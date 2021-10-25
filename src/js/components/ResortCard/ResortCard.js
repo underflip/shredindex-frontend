@@ -36,6 +36,16 @@ query ResortByURLSegment($url_segment: String!) {
       title
       value
     }
+    images {
+      id
+      name
+      url
+      sort_order
+      image {
+        path
+        content_type
+      }
+    }
   }
 }
 `;

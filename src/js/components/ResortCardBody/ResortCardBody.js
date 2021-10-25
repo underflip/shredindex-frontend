@@ -1,6 +1,6 @@
 import React from 'react';
 import CIcon from '@coreui/icons-react';
-import { cilShareAlt } from '@coreui/icons';
+import { cifCa, cilShareAlt } from '@coreui/icons';
 import { CImg } from '@coreui/react';
 import { number } from 'prop-types';
 import Score from '../Score/Score';
@@ -16,6 +16,7 @@ const ResortCardBody = (props) => {
         city,
         country: {
           name: countryName,
+          code: countryCode,
         },
         state,
       },
@@ -26,6 +27,7 @@ const ResortCardBody = (props) => {
   } = props;
 
   const imgKey = parseInt(id, number);
+  const countryFlag = 'cifCa';
 
   return (
     <div>
@@ -33,7 +35,7 @@ const ResortCardBody = (props) => {
         <div className="resort-card__location-description">
           <div className="resort-header-card__location text-left d-inline-flex">
             <div className="country-flag-wrap mr-2">
-              <CImg className="country-flag" src="https://www.countryflags.io/CA/flat/64.png" width="40" height="25" align="center" />
+              <CIcon className="country-flag" content={cifCa} width="40" height="25" align="center" />
             </div>
             <span>
               {`${city},`}

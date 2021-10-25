@@ -80,6 +80,26 @@ export const ResortCard = () => {
                 __typename: 'Rating',
               },
             ],
+            images: [
+              {
+                name: 'elevated',
+                url: 'https://localhost/one',
+                sort_order: 0,
+                image: {
+                  path: 'https://source.unsplash.com/TW_z_iUD_bQ/300x300',
+                  content_type: 'image/png',
+                },
+              },
+              {
+                name: 'churning through',
+                url: 'https://localhost/two',
+                sort_order: 1,
+                image: {
+                  path: 'https://source.unsplash.com/W0i1N6FdCWA/300x300',
+                  content_type: 'image/png',
+                },
+              },
+            ],
             __typename: 'Resort',
           },
         },
