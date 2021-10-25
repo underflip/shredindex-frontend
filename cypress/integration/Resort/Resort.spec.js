@@ -60,7 +60,9 @@ describe('Resort', () => {
   });
 
   it('Rating should have a value', () => {
-    cy.get('.rating__value').children('.progress').children('.progress-bar').should('have.attr', 'aria-valuenow', '76');
+    cy.get('.rating__value').within(($rating) => {
+      cy.get('.progress-bar').should('have.attr', 'aria-valuenow', '76');
+    });
   });
 
   it('Should render a numeric "Average Annual Snowfall"', () => {
@@ -69,7 +71,9 @@ describe('Resort', () => {
   });
 
   it('Should render a numeric value "Average Annual Snowfall"', () => {
-    cy.get('.statistic__value').children('.progress').children('.progress-bar').should('have.attr', 'aria-valuenow', '10');
+    cy.get('.statistic__value').within(($statistic) => {
+      cy.get('.progress-bar').should('have.attr', 'aria-valuenow', '10');
+    });
   });
 
   it('Should render a generic "Snow Making"', () => {

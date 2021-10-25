@@ -49,7 +49,7 @@ describe('Header', () => {
       cy.get('.breadcrumb-item').should('have.length.greaterThan', 0).should('be.visible');
     });
 
-    it('Breadcrumb name should be title case', () => {
+    it('Should display Breadcrumbs with title case', () => {
       cy.get('.breadcrumb-item').should('contain.text', 'Home');
     });
   });
