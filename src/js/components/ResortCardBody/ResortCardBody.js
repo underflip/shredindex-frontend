@@ -22,12 +22,10 @@ const ResortCardBody = (props) => {
       },
       description,
       ratings,
+      resort_images,
+      comments,
     },
-    collapsed,
   } = props;
-
-  const imgKey = parseInt(id, number);
-  const countryFlag = 'cifCa';
 
   return (
     <div>
@@ -64,13 +62,13 @@ const ResortCardBody = (props) => {
           <div className="resort-card__sub-scores-list w-50 mr-2">
             <ScoreList label="highlights" scores={ratings} ascending />
           </div>
-          <ResortImageCarousel id={imgKey} />
+          <ResortImageCarousel images={resort_images} />
         </div>
         <div className="resort-card__content-2 d-flex">
           <div className="resort-card__sub-scores-list w-50 mr-2">
             <ScoreList label="lowlights" scores={ratings} />
           </div>
-          <ResortCardCommentCarousel />
+          <ResortCardCommentCarousel comments={comments} />
         </div>
       </div>
     </div>

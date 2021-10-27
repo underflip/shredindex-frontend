@@ -1,17 +1,12 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import { CImg } from '@coreui/react';
 import Score from '../Score/Score';
 
 const ResortCardHeader = (props) => {
   const {
-    resort: {
-      title,
-    },
+    title, score,
   } = props;
-
-  const score = 38.7;
 
   return (
     <>

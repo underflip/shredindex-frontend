@@ -36,7 +36,7 @@ query ResortByURLSegment($url_segment: String!) {
       title
       value
     }
-    images {
+    resort_images {
       id
       name
       url
@@ -45,6 +45,11 @@ query ResortByURLSegment($url_segment: String!) {
         path
         content_type
       }
+    }
+    comments {
+      id
+      comment
+      author
     }
   }
 }
@@ -82,11 +87,14 @@ function ResortCard(props) {
     );
   }
 
+  const { title } = resort;
+  const totalScore = resort.ratings.find((rating) => rating.title === 'Total Shred Score').value || 0;
+
   return (
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <ResortCardHeader resort={resort} />
+          <ResortCardHeader title={title} score={totalScore} />
         </CCardHeader>
         <CCardBody className="resort-card__body pt-0 pb-0">
           <ResortCardBody resort={resort} collapsed={collapsed} />

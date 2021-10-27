@@ -108,14 +108,18 @@
 }
 
 //Gallery
-.resort-card__gallery-wrap {
+.resort-card__carousel-wrap {
   display: flex;
+  max-width: 217px;
+  height: 115px;
+  overflow: hidden;
 }
 
-.resort-card__gallery-wrap, .resort-card__comment-wrap {
-  max-width: 217px;
-  height: 120px;
-  overflow: hidden;
+//Comments
+.author {
+  bottom: .3rem;
+  right: .5rem;
+  font-size: xx-small;
 }
 
 //Buttons
