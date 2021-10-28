@@ -1,24 +1,11 @@
-// Buttons
-
-button {
-  text-decoration: none !important;
-
-  &:focus {
-    outline: none !important;
-  }
+//Inputs
+input {
+  border-style: hidden;
 }
 
-.btn:focus,
-.btn.active:focus,
-.btn-check:focus + .btn,
-.btn-check:checked + .btn:focus,
-.btn-check:active + .btn:focus,
-.show > .btn.dropdown-toggle:focus {
-  box-shadow: 0 0 0.6rem var(--cui-btn-shadow);
-}
+
 
 // Cards
-
 .card {
   margin-bottom: 2rem;
   border: none;
