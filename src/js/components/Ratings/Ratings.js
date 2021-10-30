@@ -26,7 +26,7 @@ const Ratings = (props) => {
       <CCollapse show>
         <CCardBody>
           <CListGroup className="ratings-list">
-            {ratings.map(({
+            {ratings ? ratings.map(({
               id, title, icon, value,
             }) => (
               <CListGroupItem key={id} className="justify-content-between">
@@ -45,7 +45,7 @@ const Ratings = (props) => {
                   </div>
                 </CRow>
               </CListGroupItem>
-            ))}
+            )) : null}
           </CListGroup>
         </CCardBody>
       </CCollapse>

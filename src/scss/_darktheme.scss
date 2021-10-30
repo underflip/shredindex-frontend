@@ -180,7 +180,7 @@ $escaped-characters: (
 
 // Body
 $body-bg: $gray-300;
-$body-color: #c2dbed;
+$body-color: $gray-base;
 $border-color: $gray-600;
 $hr-border-color: $gray-600;
 
@@ -231,13 +231,6 @@ $popover-header-color: $gray-900;
 
 // Sidebar
 $sidebar-dark-bg: $gray-500;
-
-.c-sidebar,
-.card,
-.c-header,
-.modal-content {
-  background: linear-gradient(45deg, #283c49, #39576b) !important;
-}
 
 // DropDown
 $dropdown-bg: $gray-400;

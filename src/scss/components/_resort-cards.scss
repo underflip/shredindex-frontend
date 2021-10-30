@@ -1,15 +1,11 @@
+//Resort Card Global Sizing
 .resort-card__wrap{
+  width: 500px;
   background: $gray-400 !important;
   border: none !important;
   border-radius: 1.3rem;
   overflow: hidden;
 }
-
-.resort-card__header-wrap {
-
-}
-
-
 
 //Location
 .country-flag-wrap {
@@ -27,7 +23,6 @@
   }
 }
 
-
 .resort-card__sub-scores-list {
   label {
     font-size: .6rem;
@@ -36,12 +31,20 @@
   }
 }
 
-.resort-header-card__title {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 100%;
-  display: block;
-  overflow: hidden
+.resort-header-card {
+
+  &__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+    overflow: hidden
+  }
+
+  &__location {
+    font-family: $headings-font-family;
+    font-size: small;
+  }
 }
 
 
@@ -49,7 +52,7 @@
 .resort-card__sub-scores-list {
   .list-scroll {
     overflow-y: scroll;
-    height: 95px;
+    height: 100px;
   }
 }
 
@@ -70,8 +73,10 @@
 
 //Footer
 .resort-card__footer {
+  border-top: 0;
   position: relative;
   cursor: pointer;
+  padding: 0;
 
   &:before {
     content: "";
@@ -98,7 +103,7 @@
     height: 100%;
     border-top-left-radius: .5rem;
     opacity: .2;
-    background: #ff68ae;
+    background: $warning;
     right: -10px;
     width: 65px;
     transition-duration: $card-animation-transition-time;
@@ -139,18 +144,26 @@
 }
 
 .resort-card__expand {
-  margin-left: 2.5rem;
+  margin-left: 3.5rem;
   position: relative;
+  line-height: 45px;
 }
 
 .resort-card__go-to-resort {
   position: relative;
   float: right;
+  line-height: 45px;
   z-index: 2;
 }
 
 .resort-card__description {
   max-width: 300px;
+  color: $gray-800;
+}
+
+.resort-card__comment {
+  background: rgba(29, 46, 57, 0.29);
+  color: $gray-800;
 }
 
 .resort-card__location-description {
@@ -191,5 +204,109 @@
 
   .resort-card__expand .c-icon {
     transform: rotateZ(-180deg);
+  }
+}
+
+a.resort-link {
+  height: 45px;
+  color: $white;
+  padding: 0rem 1rem;
+}
+
+//Skeleton
+
+.skeleton-card__header {
+  .skel-score-header {
+    height: 35px;
+    width: 50px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: $gray-300;
+      height: 35px;
+      border-top-right-radius: 0.5rem;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.7rem;
+      width: 30px;
+      transform: skewX(-17deg);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 34px;
+      border-top-left-radius: .5rem;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.7rem;
+      height: 35px;
+      width: 30px;
+      background-color: $gray-300;
+      transform: skewX(22deg);
+    }
+  }
+}
+
+.skel-sub-score-wrap {
+  .skel-score-header {
+    height: 25px;
+    width: 44px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: $gray-300;
+      height: 25px;
+      border-top-right-radius: 0.5rem;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.7rem;
+      width: 25px;
+      transform: skewX(-17deg);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 34px;
+      border-top-left-radius: .5rem;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.7rem;
+      height: 25px;
+      width: 25px;
+      background-color: $gray-300;
+      transform: skewX(22deg);
+    }
+  }
+}
+
+.skel-score-title {
+  border-radius: 1rem;
+  height: 24px;
+  margin-top: .3rem;
+}
+
+.skel-sub-score {
+  border-radius: 1rem;
+  height: 23px;
+}
+
+.skel-location-details {
+  border-radius: 1rem;
+}
+
+.skel-image {
+  border-radius: 1rem;
+  height: 115px;
+}
+
+.skel-footer {
+  height: 45px;
+
+  &:before {
+    background-color: $gray-300 !important;
+  }
+
+  &:after {
+    background-color: unset !important;
   }
 }

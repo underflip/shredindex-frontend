@@ -7,8 +7,9 @@ import {
 } from '@coreui/react';
 import ResortCardHeader from '../ResortCardHeader/ResortCardHeader';
 import ResortCardBody from '../ResortCardBody/ResortCardBody';
-import ResortSkeleton from '../SkeletonState/ResortSkeleton';
+import ResortCardSkeleton from '../SkeletonState/ResortCardSkeleton';
 import ResortCardFooter from '../ResorctCardFooter/ResortCardFooter';
+import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeletonList';
 
 export const QUERY_RESORT = gql`
 query ResortByURLSegment($url_segment: String!) {
@@ -64,7 +65,7 @@ function ResortCard(props) {
 
   const { url_segment } = props;
 
-  const { loading, data } = useQuery(
+  const { loading, error, data } = useQuery(
     QUERY_RESORT,
     {
       variables: { url_segment },
@@ -73,7 +74,7 @@ function ResortCard(props) {
 
   if (loading) {
     return (
-      <ResortSkeleton />
+      <ResortCardSkeletonList />
     );
   }
 
@@ -81,14 +82,20 @@ function ResortCard(props) {
     resortByUrlSegment: resort,
   } = data;
 
-  if (!resort) {
+  if (!resort || error) {
     return (
       <p>Theres an error</p>
     );
   }
 
   const { title } = resort;
-  const totalScore = resort.ratings.find((rating) => rating.title === 'Total Shred Score').value || 0;
+
+  function checkScore() {
+    if (resort.ratings.find((rating) => rating.title === 'Total Shred Score').value) return resort.ratings.find((rating) => rating.title === 'Total Shred Score').value;
+    return 0;
+  }
+
+  const totalScore = checkScore();
 
   return (
     <div className="resort-card d-flex justify-content-center">

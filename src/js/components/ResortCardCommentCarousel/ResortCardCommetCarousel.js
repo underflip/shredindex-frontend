@@ -1,33 +1,39 @@
 import React from 'react';
-import {
-  CCarousel, CCarouselControl, CCarouselInner, CCarouselItem, CImg,
-} from '@coreui/react';
+import Flickity from 'react-flickity-component';
+import { CCarouselItem } from '@coreui/react';
 
 const ResortCardCommentCarousel = (props) => {
   const { comments } = props;
+  const flickityOptions = {
+    initialIndex: 2,
+    wrapAround: true,
+    prevNextButtons: false,
+    pageDots: true,
+  };
 
   return (
-    <div className="resort-card__carousel-wrap w-50 ml-2">
-      <CCarousel animate className="w-100">
-        <CCarouselInner>
-          {comments.map(({
-            id, comment, author,
-          }) => (
-            <CCarouselItem key={id}>
-              <p className="d-block p-2 bg-dark h-100">
-                {comment}
-                <span className="position-absolute author font-italic">
-                  -
-                  {' '}
-                  {author}
-                </span>
-              </p>
-            </CCarouselItem>
-          ))}
-        </CCarouselInner>
-        <CCarouselControl direction="prev" />
-        <CCarouselControl direction="next" />
-      </CCarousel>
+    <div className="resort-card__carousel-wrap d-block w-50 ml-2">
+      <Flickity
+        className="carousel w-100 h-100"
+        elementType="div"
+        options={flickityOptions}
+        disableImagesLoaded={false}
+        reloadOnUpdate
+        static
+      >
+        {comments.map(({
+          id, comment, author,
+        }) => (
+          <p key={id} className="resort-card__comment font-xs d-block p-2 w-100">
+            {comment}
+            <span className="position-absolute author font-italic">
+              -
+              {' '}
+              {author}
+            </span>
+          </p>
+        ))}
+      </Flickity>
     </div>
   );
 };

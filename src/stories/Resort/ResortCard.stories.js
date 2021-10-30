@@ -100,6 +100,18 @@ export const ResortCard = () => {
                 },
               },
             ],
+            comments: [
+              {
+                id: 0,
+                comment: 'Lets go skiing!',
+                author: 'Mike Weigele',
+              },
+              {
+                id: 1,
+                comment: 'Keep it deep!',
+                author: 'Horse Meister',
+              },
+            ],
             __typename: 'Resort',
           },
         },
@@ -111,7 +123,9 @@ export const ResortCard = () => {
     <MemoryRouter initialEntries={['resorts/pipedream']}>
       <Route exact path="resorts/:urlSegment">
         <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
-          <ResortCardComponent url_segment={mocks.resortByUrlSegment.request.variables.url_segment} />
+          <ResortCardComponent
+            url_segment={mocks.resortByUrlSegment.request.variables.url_segment}
+          />
         </MockedProvider>
       </Route>
     </MemoryRouter>

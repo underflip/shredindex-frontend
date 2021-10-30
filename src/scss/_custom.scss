@@ -1,3 +1,28 @@
+.c-sidebar,
+.c-header,
+.modal-content {
+  background: linear-gradient(45deg, #283c49, #39576b) !important;
+}
+
+// Opacity
+.opacity {
+  &-1 {
+    opacity: 1;
+  }
+  &-8 {
+    opacity: .8;
+  }
+  &-6 {
+    opacity: .6;
+  }
+  &-4 {
+    opacity: .4;
+  }
+  &-2 {
+    opacity: .2;
+  }
+}
+
 // Buttons
 button {
   text-decoration: none !important;

@@ -8,7 +8,7 @@ import {
 } from '@coreui/react';
 import ResortHeader from '../ResortHeader/ResortHeader';
 import Ratings from '../Ratings/Ratings';
-import ResortSkeleton from '../SkeletonState/ResortSkeleton';
+import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeleton';
 import Statistics from '../Statistics/Statistics';
 
 export const QUERY_RESORT = gql`
@@ -62,7 +62,7 @@ const Resort = () => {
 
   if (loading) {
     return (
-      <ResortSkeleton />
+      <ResortCardSkeletonList />
     );
   }
 

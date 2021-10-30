@@ -1,21 +1,10 @@
-.fill {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden
-}
-.fill img {
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%
+@import "flickityCarousel";
+
+.resort-card__comment {
+  height: 115px;
 }
 
 .carousel {
   border-radius: .5rem;
   overflow: hidden;
-
-  &-inner {
-    display: flex;
-    height: 100%;
-  }
 }
