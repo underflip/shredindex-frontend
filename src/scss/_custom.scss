@@ -1,3 +1,7 @@
+//Inputs
+input {
+  border-style: hidden;
+}
 .c-sidebar,
 .c-header,
 .modal-content {
@@ -23,16 +27,12 @@
   }
 }
 
-// Buttons
-button {
-  text-decoration: none !important;
-
-  &:focus {
-    outline: none !important;
-  }
+// Cards
+.card {
+  margin-bottom: 2rem;
+  border: none;
 }
 
-// Cards
 .card-header {
   button:focus {
     box-shadow: none !important;
@@ -48,3 +48,12 @@ button {
   background: linear-gradient(to right, #172935 0%, #192e3b 25%, #192e3b 75%, #172935 100%) !important;
 }
 
+.header,
+.sidebar-brand,
+.list-group-item {
+  background-color: unset;
+}
+
+.sidebar {
+  background-color: $gray-100;
+}
