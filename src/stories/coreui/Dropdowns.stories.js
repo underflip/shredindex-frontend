@@ -6,19 +6,16 @@ import {
   CDropdownMenu,
   CDropdownToggle,
   CButtonGroup,
-  CButtonToolbar,
   CCard,
   CCardBody,
   CCardHeader,
   CCol,
-  CFormCheck,
-  CFormInput,
-  CInputGroup,
-  CInputGroupText,
   CRow,
 } from '@coreui/react';
 
 import React from 'react';
+
+/* eslint-disable react/no-array-index-key */
 
 export default { title: 'CoreUI/Buttons' };
 

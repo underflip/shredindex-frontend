@@ -8,31 +8,15 @@ import {
 } from '@coreui/react';
 
 import CIcon from '@coreui/icons-react';
-import {
-  cibBehance,
-  cibDribbble,
-  cibFacebook,
-  cibFlickr,
-  cibGithub,
-  cibInstagram,
-  cibLinkedin,
-  cibPinterest,
-  cibReddit,
-  cibStackoverflow,
-  cibTumblr,
-  cibTwitter,
-  cibVimeo,
-  cibVk,
-  cibXing,
-  cibYahoo,
-  cibYoutube,
-  cilBell,
-} from '@coreui/icons';
+import cilBell from '@coreui/icons';
 import React from 'react';
+
+/* eslint-disable react/no-array-index-key */
 
 export default { title: 'CoreUI/Buttons' };
 
 export const Buttons = () => (
+
   <CRow>
     <CCol xs={12}>
       <CCard className="mb-4">
@@ -46,8 +30,8 @@ export const Buttons = () => (
             it. CoreUI buttons are used to initialize operations, both in the background or
             foreground of an experience.
           </p>
-          {['normal', 'active', 'disabled'].map((state, index) => (
-            <CRow className="align-items-center mb-3" key={index}>
+          {['normal', 'active', 'disabled'].map((state, i) => (
+            <CRow className="align-items-center mb-3" key={i}>
               <CCol xs={12} xl={2} className="mb-3 mb-xl-0">
                 {state.charAt(0).toUpperCase() + state.slice(1)}
               </CCol>
@@ -93,8 +77,8 @@ export const Buttons = () => (
             <a href="https://icons.coreui.io/">CoreUI Icons</a>
             .
           </p>
-          {['normal', 'active', 'disabled'].map((state, index) => (
-            <CRow className="align-items-center mb-3" key={index}>
+          {['normal', 'active', 'disabled'].map((state, i) => (
+            <CRow className="align-items-center mb-3" key={i}>
               <CCol xs={12} xl={2} className="mb-3 mb-xl-0">
                 {state.charAt(0).toUpperCase() + state.slice(1)}
               </CCol>
@@ -199,8 +183,8 @@ export const Buttons = () => (
             {' '}
             prop to remove all background colors.
           </p>
-          {['normal', 'active', 'disabled'].map((state, index) => (
-            <CRow className="align-items-center mb-3" key={index}>
+          {['normal', 'active', 'disabled'].map((state, i) => (
+            <CRow className="align-items-center mb-3" key={i}>
               <CCol xs={12} xl={2} className="mb-3 mb-xl-0">
                 {state.charAt(0).toUpperCase() + state.slice(1)}
               </CCol>
@@ -248,8 +232,8 @@ export const Buttons = () => (
             prop
             to remove all background colors.
           </p>
-          {['normal', 'active', 'disabled'].map((state, index) => (
-            <CRow className="align-items-center mb-3" key={index}>
+          {['normal', 'active', 'disabled'].map((state, i) => (
+            <CRow className="align-items-center mb-3" key={i}>
               <CCol xs={12} xl={2} className="mb-3 mb-xl-0">
                 {state.charAt(0).toUpperCase() + state.slice(1)}
               </CCol>
@@ -489,7 +473,7 @@ export const Buttons = () => (
             stacked.
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-            <CButton className="me-2" color="primary" className="me-md-2">
+            <CButton color="primary" className="me-2 me-md-2">
               Button
             </CButton>
             <CButton className="me-2" color="primary">Button</CButton>
