@@ -11,19 +11,19 @@ const Score = (props) => {
 
   switch (true) {
     case (score < 20):
-      color = 'var(--secondary)';
+      color = 'var(--cui-secondary)';
       break;
     case (score < 40):
-      color = 'var(--warning)';
+      color = 'var(--cui-warning)';
       break;
     case (score < 60):
-      color = 'var(--info)';
+      color = 'var(--cui-info)';
       break;
     case (score < 80):
-      color = 'var(--primary)';
+      color = 'var(--cui-primary)';
       break;
     case (score < 100):
-      color = 'var(--success)';
+      color = 'var(--cui-success)';
       break;
   }
 
@@ -44,7 +44,7 @@ const Score = (props) => {
     <>
       <div className={`${subscore ? 'sub-score' : 'total-score'}`}>
         <div className="score-number-border">
-          <div className="score-number-wrap mr-2 d-inline" style={scoreNumberStyle}>
+          <div className="score-number-wrap me-2 d-inline" style={scoreNumberStyle}>
             <span className="score-number-big user-select-none">{scoreInt}</span>
             <span className="score-number-small strong user-select-none">
               .

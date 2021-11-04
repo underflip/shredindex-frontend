@@ -5,6 +5,10 @@
   border: none !important;
   border-radius: 1.3rem;
   overflow: hidden;
+
+  .icon {
+    vertical-align: middle;
+  }
 }
 
 //Location
@@ -120,11 +124,25 @@
   overflow: hidden;
 }
 
+.resort-card__comment-text {
+  display: -webkit-box;
+  font-size: small;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
 //Comments
 .author {
-  bottom: .3rem;
-  right: .5rem;
-  font-size: xx-small;
+    display: block;
+    bottom: 0;
+    margin-left: auto;
+    right: 0;
+    font-size: xx-small;
+    padding: 0.4rem 0.8rem;
+    border-top-left-radius: 0.5rem;
+    background-color: #1d2e39e3;
 }
 
 //Buttons
@@ -177,7 +195,7 @@
   transition-duration: $card-animation-transition-time;
 }
 
-.resort-card__expand .c-icon {
+.resort-card__expand .icon {
   transform: rotateZ(0deg);
   transition-duration: $card-animation-transition-time;
 }
@@ -202,7 +220,7 @@
     max-height: 220px;
   }
 
-  .resort-card__expand .c-icon {
+  .resort-card__expand .icon {
     transform: rotateZ(-180deg);
   }
 }
@@ -280,6 +298,7 @@ a.resort-link {
 }
 
 .skel-score-title {
+  background-color: $gray-300;
   border-radius: 1rem;
   height: 24px;
   margin-top: .3rem;
@@ -291,16 +310,23 @@ a.resort-link {
 }
 
 .skel-location-details {
+  background-color: $gray-300;
   border-radius: 1rem;
 }
 
+.country-flag-wrap {
+  background-color: $gray-300;
+}
+
 .skel-image {
+  background-color: $gray-300;
   border-radius: 1rem;
   height: 115px;
 }
 
 .skel-footer {
-  height: 45px;
+  height: 46px;
+  border: none;
 
   &:before {
     background-color: $gray-300 !important;

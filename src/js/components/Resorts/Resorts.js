@@ -30,7 +30,6 @@ const Resorts = () => {
       {resorts.map(({
         id, url_segment,
       }) => (
-
         <div key={id} className="">
           <ResortCard url_segment={url_segment} />
         </div>

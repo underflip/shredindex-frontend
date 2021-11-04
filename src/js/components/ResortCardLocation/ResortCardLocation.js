@@ -1,5 +1,5 @@
 import React from 'react';
-import { CImg } from '@coreui/react';
+import { CImage } from '@coreui/react';
 
 const Location = (props) => {
   const {
@@ -16,9 +16,9 @@ const Location = (props) => {
   const flag = `https://flagcdn.com/${countryCode.toLowerCase()}.svg`;
   return (
     <>
-      <div className="resort-header-card__location text-left d-inline-flex">
-        <div className="country-flag-wrap mr-2">
-          <CImg
+      <div className="resort-header-card__location text-left d-inline-flex user-select-none">
+        <div className="country-flag-wrap me-2">
+          <CImage
             src={flag}
             className="country-flag"
             width="50"

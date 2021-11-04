@@ -12,7 +12,7 @@ const ResortCardCommentCarousel = (props) => {
   };
 
   return (
-    <div className="resort-card__carousel-wrap d-block w-50 ml-2">
+    <div className="resort-card__carousel-wrap d-block w-50 ms-2">
       <Flickity
         className="carousel w-100 h-100"
         elementType="div"
@@ -24,14 +24,16 @@ const ResortCardCommentCarousel = (props) => {
         {comments.map(({
           id, comment, author,
         }) => (
-          <p key={id} className="resort-card__comment font-xs d-block p-2 w-100">
-            {comment}
-            <span className="position-absolute author font-italic">
+          <div key={id} className="resort-card__comment w-100 d-flex flex-column justify-content-between">
+            <span className="resort-card__comment-text p-2 small user-select-none">
+              {comment}
+            </span>
+            <span className="author font-italic user-select-none">
               -
               {' '}
               {author}
             </span>
-          </p>
+          </div>
         ))}
       </Flickity>
     </div>
