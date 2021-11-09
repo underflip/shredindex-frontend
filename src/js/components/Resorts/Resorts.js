@@ -2,7 +2,6 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import ResortCard from '../ResortCard/ResortCard';
-import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeletonList';
 
 export const QUERY_RESORTS = gql`
   {

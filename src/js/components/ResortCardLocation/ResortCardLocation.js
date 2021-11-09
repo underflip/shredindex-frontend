@@ -1,5 +1,6 @@
 import React from 'react';
 import { CImage } from '@coreui/react';
+import PropTypes from 'prop-types';
 
 const Location = (props) => {
   const {
@@ -39,6 +40,23 @@ const Location = (props) => {
       </div>
     </>
   );
+};
+
+const CountryStateType = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+});
+
+const LocationType = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  country: CountryStateType.isRequired,
+  state: CountryStateType.isRequired,
+});
+
+Location.propTypes = {
+  location: LocationType.isRequired,
 };
 
 export default Location;

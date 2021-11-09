@@ -2,10 +2,25 @@
 input {
   border-style: hidden;
 }
-.c-sidebar,
-.c-header,
-.modal-content {
-  background: linear-gradient(45deg, #283c49, #39576b) !important;
+
+// Backgrounds
+.gray-300-bg {
+  background-color: $gray-300;
+}
+
+// Borders
+.border-radius {
+  &-small {
+    border-radius: 0.2rem;
+  }
+
+  &-medium {
+    border-radius: 0.5rem;
+  }
+
+  &-large {
+    border-radius: 1rem;
+  }
 }
 
 // Opacity
@@ -13,17 +28,21 @@ input {
   &-1 {
     opacity: 1;
   }
+
   &-8 {
-    opacity: .8;
+    opacity: 0.8;
   }
+
   &-6 {
-    opacity: .6;
+    opacity: 0.6;
   }
+
   &-4 {
-    opacity: .4;
+    opacity: 0.4;
   }
+
   &-2 {
-    opacity: .2;
+    opacity: 0.2;
   }
 }
 

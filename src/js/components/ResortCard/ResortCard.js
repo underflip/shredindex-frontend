@@ -5,9 +5,9 @@ import { gql } from 'apollo-boost';
 import {
   CCard, CCardHeader, CCardBody, CCardFooter,
 } from '@coreui/react';
-import ResortCardHeader from '../ResortCardHeader/ResortCardHeader';
+import PropTypes from 'prop-types';
 import ResortCardBody from '../ResortCardBody/ResortCardBody';
-import ResortCardSkeleton from '../SkeletonState/ResortCardSkeleton';
+import ResortCardHeader from '../ResortCardHeader/ResortCardHeader';
 import ResortCardFooter from '../ResorctCardFooter/ResortCardFooter';
 import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeletonList';
 
@@ -37,10 +37,20 @@ query ResortByURLSegment($url_segment: String!) {
       title
       value
     }
+    highlights {
+      id
+      title
+      value
+    }
+    lowlights {
+      id
+      title
+      value
+    }
     resort_images {
       id
       name
-      url
+      alt
       sort_order
       image {
         path
@@ -106,6 +116,7 @@ function ResortCard(props) {
         <CCardBody className="resort-card__body pt-0 pb-0">
           <ResortCardBody resort={resort} collapsed={collapsed} />
         </CCardBody>
+        {/* eslint-disable-next-line react/jsx-no-bind */}
         <CCardFooter className="resort-card__footer pointer-event" onClick={handleCardCollapseClick}>
           <ResortCardFooter url_segment={url_segment} collapsed={collapsed} />
         </CCardFooter>
@@ -113,5 +124,9 @@ function ResortCard(props) {
     </div>
   );
 }
+
+ResortCard.propTypes = {
+  url_segment: PropTypes.string.isRequired,
+};
 
 export default ResortCard;

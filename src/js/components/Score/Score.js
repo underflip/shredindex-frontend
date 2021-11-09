@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Score = (props) => {
   const {
     name,
     score,
-    subscore,
+    scoreType,
   } = props;
 
   let color = 'red';
@@ -42,7 +43,7 @@ const Score = (props) => {
 
   return (
     <>
-      <div className={`${subscore ? 'sub-score' : 'total-score'}`}>
+      <div className={`${scoreType ? 'sub-score' : 'total-score'}`}>
         <div className="score-number-border">
           <div className="score-number-wrap me-2 d-inline" style={scoreNumberStyle}>
             <span className="score-number-big user-select-none">{scoreInt}</span>
@@ -61,6 +62,12 @@ const Score = (props) => {
       </div>
     </>
   );
+};
+
+Score.propTypes = {
+  name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  scoreType: PropTypes.string.isRequired,
 };
 
 export default Score;

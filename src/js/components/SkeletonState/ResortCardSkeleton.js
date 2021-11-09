@@ -2,7 +2,7 @@ import {
   CCard, CCardBody, CCardFooter, CCardHeader, CImage,
 } from '@coreui/react';
 import React from 'react';
-import NoResort from '../../../images/no_resort.svg';
+import NoResort from '../../../images/resort-image-placeholder.svg';
 
 const ResortCardSkeleton = () => (
   <div className="resort-card d-flex justify-content-center fade-in">

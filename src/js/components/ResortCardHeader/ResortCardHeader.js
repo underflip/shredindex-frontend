@@ -17,4 +17,9 @@ const ResortCardHeader = (props) => {
   );
 };
 
+ResortCardHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+};
+
 export default ResortCardHeader;

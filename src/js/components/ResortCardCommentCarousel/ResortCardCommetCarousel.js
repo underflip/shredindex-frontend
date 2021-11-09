@@ -1,6 +1,6 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
-import { CCarouselItem } from '@coreui/react';
+import PropTypes from 'prop-types';
 
 const ResortCardCommentCarousel = (props) => {
   const { comments } = props;
@@ -25,8 +25,10 @@ const ResortCardCommentCarousel = (props) => {
           id, comment, author,
         }) => (
           <div key={id} className="resort-card__comment w-100 d-flex flex-column justify-content-between">
-            <span className="resort-card__comment-text p-2 small user-select-none">
+            <span className="resort-card__comment-text small user-select-none">
+              &quot;
               {comment}
+              &quot;
             </span>
             <span className="author font-italic user-select-none">
               -
@@ -38,6 +40,16 @@ const ResortCardCommentCarousel = (props) => {
       </Flickity>
     </div>
   );
+};
+
+const CommentsType = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  comment: PropTypes.string.isRequired,
+});
+
+ResortCardCommentCarousel.propTypes = {
+  comments: PropTypes.arrayOf(CommentsType).isRequired,
 };
 
 export default ResortCardCommentCarousel;

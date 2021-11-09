@@ -9,7 +9,7 @@ export default {
   component: ResortCardComponent,
 };
 
-export const ResortCard = () => {
+export const ResortCardFull = () => {
   const mocks = {
     resortByUrlSegment: {
       request: {
@@ -21,95 +21,97 @@ export const ResortCard = () => {
       result: {
         data: {
           resortByUrlSegment: {
-            id: '3',
-            title: 'Pipe Dream',
-            url_segment: 'pipedream',
-            description: 'Perpendicular curves to the ceiling for maximum air time.',
+            id: '1',
+            title: 'Tokyo Megaplex',
+            url_segment: 'tokyo-megaplex',
+            description: 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.',
             location: {
-              id: '3',
-              city: 'South Pole',
+              id: '1',
+              city: 'Tokyo',
               country: {
-                id: '161',
-                code: 'NZ',
-                name: 'Antarctica',
-                __typename: 'LocationItem',
+                id: '114',
+                code: 'JP',
+                name: 'Japan',
               },
               state: {
-                id: '22',
-                code: 'CAN',
-                name: 'Dont have a State ey bro',
-                __typename: 'LocationItem',
+                id: '114',
+                code: 'KW',
+                name: 'Japan',
               },
-              __typename: 'LocationType',
             },
             ratings: [
               {
                 id: '1',
                 title: 'Total Shred Score',
-                value: 76,
-                __typename: 'Rating',
+                value: 77,
               },
+            ],
+            highlights: [
               {
-                id: '2',
-                title: 'Has Chicken',
-                value: 99,
-                __typename: 'Rating',
-              },
-              {
-                id: '3',
-                title: 'Prozzies',
-                value: 12,
-                __typename: 'Rating',
-              },
-              {
-                id: '4',
-                title: 'Pizza',
-                value: 33,
-                __typename: 'Rating',
-              },
-              {
-                id: '5',
-                title: 'Snow',
-                value: 73,
-                __typename: 'Rating',
+                id: '1',
+                title: 'Total Shred Score',
+                value: 77,
               },
               {
                 id: '6',
-                title: 'Half Pipe',
-                value: 73,
-                __typename: 'Rating',
+                title: 'Snow Quality',
+                value: 99,
+              },
+              {
+                id: '7',
+                title: 'Sexy Bitches',
+                value: 75.3,
               },
             ],
-            images: [
+            lowlights: [
               {
-                name: 'elevated',
-                url: 'https://localhost/one',
-                sort_order: 0,
+                id: '2',
+                title: 'Family Vacation Score',
+                value: 2,
+              },
+              {
+                id: '4',
+                title: 'Cannabis Friendly',
+                value: 0,
+              },
+              {
+                id: '5',
+                title: 'Co-working Spaces',
+                value: 33,
+              },
+            ],
+            resort_images: [
+              {
+                id: '1',
+                name: 'Yoy yoyoyo',
+                alt: '',
+                sort_order: 1,
                 image: {
-                  path: 'https://source.unsplash.com/TW_z_iUD_bQ/300x300',
-                  content_type: 'image/png',
+                  path: 'https://www.merqurycity.com/ssximages/tokyoinelevator.jpg',
+                  content_type: 'image/jpeg',
                 },
               },
               {
-                name: 'churning through',
-                url: 'https://localhost/two',
+                id: '2',
+                name: 'Yoyoyo',
+                alt: 'wqwqd',
                 sort_order: 1,
                 image: {
-                  path: 'https://source.unsplash.com/W0i1N6FdCWA/300x300',
-                  content_type: 'image/png',
+                  path: 'https://www.mobygames.com/images/shots/l/109138-ssx-tricky-gamecube-screenshot-you-can-get-a-lot-of-air-at.png',
+                  content_type: 'image/jpeg',
                 },
               },
             ],
             comments: [
               {
-                id: 0,
-                comment: 'Lets go skiing!',
-                author: 'Mike Weigele',
+                id: '1',
+                comment: 'Welcome back to Tokyo, where the manmade mammoth, Megaplex, has undergone a massive overhaul. Past challengers of the SSX World Circuit may recognize the locale, but the layout, paths, and jumps have been completely reworked at the staggering cost of 1.3 billion dollars. Getting to the suspended top level is going to be hard, staying there will be even harder.',
+                author: 'SSX Narrator',
               },
               {
-                id: 1,
-                comment: 'Keep it deep!',
-                author: 'Horse Meister',
+                id: '2',
+                comment: 'I is get flickety wickety wicky whack slap joel on her back, this indoor slopestyle mayhem could pin an elephant to a doorknob, check it homeslice!',
+                author: 'Slippery G Nasty',
               },
             ],
             __typename: 'Resort',

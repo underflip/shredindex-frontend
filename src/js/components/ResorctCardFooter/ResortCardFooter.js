@@ -2,6 +2,7 @@ import React from 'react';
 import CIcon from '@coreui/icons-react';
 import { cilArrowRight, cilChevronBottom } from '@coreui/icons';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ResortCardFooter = (props) => {
   const { url_segment, collapsed } = props;
@@ -19,6 +20,11 @@ const ResortCardFooter = (props) => {
       </Link>
     </div>
   );
+};
+
+ResortCardFooter.propTypes = {
+  url_segment: PropTypes.string.isRequired,
+  collapsed: PropTypes.bool.isRequired,
 };
 
 export default ResortCardFooter;
