@@ -1,25 +1,25 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import Score from '../Score/Score';
+import Rating from '../Rating/Rating';
 
-const ScoreList = (props) => {
+const RatingList = (props) => {
   const {
-    scores, label, labelMessageId,
+    ratings, label, labelMessageId,
   } = props;
 
   return (
     <>
-      <div className="score-list-label user-select-none">
+      <div className="rating-list-label user-select-none">
         <FormattedMessage id={labelMessageId} defaultMessage={label} />
       </div>
       <div className="list-scroll">
-        {scores
+        {ratings
           .map(({
             id, title, value,
           }) => (
-            <div key={id} className="score mb-2 me-1">
-              <Score name={title} score={value} scoreType />
+            <div key={id} className="rating mb-2 me-1">
+              <Rating name={title} rating={value} ratingType />
             </div>
           ))}
       </div>
@@ -33,10 +33,10 @@ const ScoreType = PropTypes.shape({
   value: PropTypes.string.isRequired,
 });
 
-ScoreList.propTypes = {
-  scores: PropTypes.arrayOf(ScoreType).isRequired,
+RatingList.propTypes = {
+  ratings: PropTypes.arrayOf(ScoreType).isRequired,
   label: PropTypes.string.isRequired,
   labelMessageId: PropTypes.string.isRequired,
 };
 
-export default ScoreList;
+export default RatingList;

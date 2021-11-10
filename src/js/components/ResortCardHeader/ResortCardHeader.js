@@ -1,17 +1,17 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import Score from '../Score/Score';
+import Rating from '../Rating/Rating';
 
 const ResortCardHeader = (props) => {
   const {
-    title, score,
+    title, rating,
   } = props;
 
   return (
     <>
-      <div className="score mb-3">
-        <Score name={title} score={score} />
+      <div className="rating mb-3">
+        <Rating name={title} rating={rating} />
       </div>
     </>
   );
@@ -19,7 +19,7 @@ const ResortCardHeader = (props) => {
 
 ResortCardHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
 };
 
 export default ResortCardHeader;

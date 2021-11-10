@@ -23,10 +23,8 @@ const ResortImageCarousel = (props) => {
         reloadOnUpdate
         static
       >
-        {images.map(({
-          id, name, image,
-        }) => (image ? <img key={id} className="w-100" src={image.path} alt={name} />
-          : <img key={id} className="w-100" src={resortImagePlaceholder} alt={name} />
+        {images.map(({ id, name, image }) => (
+          <img key={id} className="w-100" src={image ? image.path : resortImagePlaceholder} alt={name} />
         ))}
       </Flickity>
     </div>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-
 import {
   CCard, CCardHeader, CCardBody, CCardFooter,
 } from '@coreui/react';
@@ -100,18 +99,18 @@ function ResortCard(props) {
 
   const { title } = resort;
 
-  function checkScore() {
+  function checkRating() {
     if (resort.ratings.find((rating) => rating.title === 'Total Shred Score').value) return resort.ratings.find((rating) => rating.title === 'Total Shred Score').value;
     return 0;
   }
 
-  const totalScore = checkScore();
+  const totalRating = checkRating();
 
   return (
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <ResortCardHeader title={title} score={totalScore} />
+          <ResortCardHeader title={title} rating={totalRating} />
         </CCardHeader>
         <CCardBody className="resort-card__body pt-0 pb-0">
           <ResortCardBody resort={resort} collapsed={collapsed} />

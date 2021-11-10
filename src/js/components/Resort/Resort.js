@@ -7,7 +7,7 @@ import {
   CCard, CCardBody, CCardHeader,
 } from '@coreui/react';
 import ResortHeader from '../ResortHeader/ResortHeader';
-import Ratings from '../Ratings/Ratings';
+import ResortRatings from '../ResortRatings/ResortRatings';
 import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeleton';
 import Statistics from '../Statistics/Statistics';
 
@@ -89,7 +89,7 @@ const Resort = () => {
           <p className="resort__description-content mb-0">{description}</p>
         </CCardBody>
       </CCard>
-      <Ratings ratings={ratings} />
+      <ResortRatings ratings={ratings} />
       <Statistics statistics={numerics} generics={generics} />
     </div>
   );

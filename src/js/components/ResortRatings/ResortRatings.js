@@ -10,7 +10,7 @@ import {
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-const Ratings = (props) => {
+const ResortRatings = (props) => {
   const { ratings } = props;
 
   return (
@@ -19,7 +19,7 @@ const Ratings = (props) => {
         <FormattedMessage
           className="h6"
           id="shredindex.rating.RATINGS"
-          defaultMessage="Ratings"
+          defaultMessage="ResortRatings"
         />
       </CCardHeader>
       <CCardBody>
@@ -52,8 +52,8 @@ const Rating = PropTypes.shape({
   value: PropTypes.number.isRequired,
 });
 
-Ratings.propTypes = {
+ResortRatings.propTypes = {
   ratings: PropTypes.arrayOf(Rating).isRequired,
 };
 
-export default Ratings;
+export default ResortRatings;

@@ -31,8 +31,8 @@
   }
 }
 
-.resort-card__sub-scores-list {
-  .score-list-label {
+.resort-card__sub-ratings-list {
+  .rating-list-label {
     font-size: .6rem;
     color: $gray-700;
     position: absolute;
@@ -57,7 +57,7 @@
 
 
 
-.resort-card__sub-scores-list {
+.resort-card__sub-ratings-list {
   .list-scroll {
     overflow-y: scroll;
     height: 100px;
@@ -255,7 +255,7 @@ a.resort-link {
 //Skeleton
 
 .skeleton-card__header {
-  .skel-score-header {
+  .skel-rating-header {
     height: 35px;
     width: 50px;
 
@@ -286,8 +286,8 @@ a.resort-link {
   }
 }
 
-.skel-sub-score-wrap {
-  .skel-score-header {
+.skel-sub-rating-wrap {
+  .skel-rating-header {
     height: 25px;
     width: 44px;
 
@@ -318,14 +318,14 @@ a.resort-link {
   }
 }
 
-.skel-score-title {
+.skel-rating-title {
   background-color: $gray-300;
   border-radius: 1rem;
   height: 24px;
   margin-top: .3rem;
 }
 
-.skel-sub-score {
+.skel-sub-rating {
   border-radius: 1rem;
   height: 23px;
 }

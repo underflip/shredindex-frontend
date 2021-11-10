@@ -26,14 +26,10 @@ const ResortCardCommentCarousel = (props) => {
         }) => (
           <div key={id} className="resort-card__comment w-100 d-flex flex-column justify-content-between">
             <span className="resort-card__comment-text small user-select-none">
-              &quot;
-              {comment}
-              &quot;
+              {`"${comment}"`}
             </span>
             <span className="author font-italic user-select-none">
-              -
-              {' '}
-              {author}
+              {`- ${author}`}
             </span>
           </div>
         ))}

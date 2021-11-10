@@ -9,8 +9,8 @@ const ResortCardSkeleton = () => (
     <CCard className="resort-card__wrap collapsed">
       <CCardHeader className="resort-card__header-wrap pb-0 mb-2">
         <div className="skeleton-card__header d-flex mb-3">
-          <div className="skel-score-header me-3" />
-          <div className="skel-score-title  w-100" />
+          <div className="skel-rating-header me-3" />
+          <div className="skel-rating-title  w-100" />
         </div>
         <div className="skel-location d-flex mb-2">
           <div className="country-flag-wrap me-3 " />
@@ -19,18 +19,18 @@ const ResortCardSkeleton = () => (
       </CCardHeader>
       <CCardBody className="resort-card__body pt-0 pb-0 mb-3">
         <div className="skel-content-wrap d-flex mb-2">
-          <div className="skel-sub-score-wrap w-100 mt-2 me-2">
-            <div className="skel-sub-score d-flex mb-2">
-              <div className="skel-score-header mt-1 me-3" />
-              <div className="skel-score-title w-100" />
+          <div className="skel-sub-rating-wrap w-100 mt-2 me-2">
+            <div className="skel-sub-rating d-flex mb-2">
+              <div className="skel-rating-header mt-1 me-3" />
+              <div className="skel-rating-title w-100" />
             </div>
-            <div className="skel-sub-score d-flex mb-2">
-              <div className="skel-score-header mt-1 me-3" />
-              <div className="skel-score-title w-100" />
+            <div className="skel-sub-rating d-flex mb-2">
+              <div className="skel-rating-header mt-1 me-3" />
+              <div className="skel-rating-title w-100" />
             </div>
-            <div className="skel-sub-score d-flex mb-2">
-              <div className="skel-score-header mt-1 me-3" />
-              <div className="skel-score-title w-100" />
+            <div className="skel-sub-rating d-flex mb-2">
+              <div className="skel-rating-header mt-1 me-3" />
+              <div className="skel-rating-title w-100" />
             </div>
           </div>
           <div className="skel-image mb-2 w-100 ms-2">

@@ -2,8 +2,8 @@
     "shredindex.app.TITLE": "Shred Index",
     "shredindex.app.SUBTITLE": "Live your best adventure lifestyle",
     "shredindex.resort.DESCRIPTION": "Description",
-    "shredindex.scorelist.HIGHLIGHTS": "Highlights",
-    "shredindex.scorelist.LOWLIGHTS": "Lowlights",
+    "shredindex.ratinglist.HIGHLIGHTS": "Highlights",
+    "shredindex.ratinglist.LOWLIGHTS": "Lowlights",
     "shredindex.ratings.RATINGS": "Ratings",
     "shredindex.statistics.STATISTICS": "Statistics"
 }
