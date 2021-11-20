@@ -10,6 +10,7 @@ import ResortHeader from '../ResortHeader/ResortHeader';
 import ResortRatings from '../ResortRatings/ResortRatings';
 import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeleton';
 import Statistics from '../Statistics/Statistics';
+import ResortSkeleton from '../SkeletonState/ResortSkeleton';
 
 export const QUERY_RESORT = gql`
 query ResortByURLSegment($url_segment: String!) {
@@ -62,7 +63,7 @@ const Resort = () => {
 
   if (loading) {
     return (
-      <ResortCardSkeletonList />
+      <ResortSkeleton />
     );
   }
 

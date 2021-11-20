@@ -30,7 +30,7 @@ const RatingList = (props) => {
 const ScoreType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 });
 
 RatingList.propTypes = {

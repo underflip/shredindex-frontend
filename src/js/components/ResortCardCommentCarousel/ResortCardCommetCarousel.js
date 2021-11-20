@@ -2,8 +2,7 @@ import React from 'react';
 import Flickity from 'react-flickity-component';
 import PropTypes from 'prop-types';
 
-const ResortCardCommentCarousel = (props) => {
-  const { comments } = props;
+const ResortCardCommentCarousel = ({ comments }) => {
   const flickityOptions = {
     initialIndex: 2,
     wrapAround: true,

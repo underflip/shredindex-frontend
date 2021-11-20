@@ -3,18 +3,23 @@ import CIcon from '@coreui/icons-react';
 import { cilArrowRight, cilChevronBottom } from '@coreui/icons';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 const ResortCardFooter = (props) => {
-  const { url_segment, collapsed } = props;
+  const { url, collapsed } = props;
 
   return (
     <div className="d-flex justify-content-between">
       <div className="resort-card__expand">
         <CIcon icon={cilChevronBottom} />
       </div>
-      <Link className="resort-link" to={`resorts/${url_segment}`}>
+      <Link className="resort-link" to={url}>
         <div className="resort-card__go-to-resort">
-          {collapsed ? null : <span className="me-2 fade-in">Go to resort </span>}
+          {collapsed ? null : (
+            <span className="me-2 fade-in user-select-none">
+              <FormattedMessage id="shredindex.resortcard.GOTORESORT" defaultMessage="Go to Resort" />
+            </span>
+          )}
           <CIcon icon={cilArrowRight} />
         </div>
       </Link>
@@ -23,7 +28,7 @@ const ResortCardFooter = (props) => {
 };
 
 ResortCardFooter.propTypes = {
-  url_segment: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   collapsed: PropTypes.bool.isRequired,
 };
 

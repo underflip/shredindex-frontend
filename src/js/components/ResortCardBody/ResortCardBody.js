@@ -91,7 +91,7 @@ const LocationType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   country: CountryStateType.isRequired,
-  state: CountryStateType.isRequired,
+  state: CountryStateType,
 });
 
 const ResortType = PropTypes.shape({

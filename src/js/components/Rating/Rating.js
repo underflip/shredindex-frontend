@@ -8,34 +8,8 @@ const Rating = (props) => {
     ratingType,
   } = props;
 
-  let color = 'red';
-
-  switch (true) {
-    case (rating < 20):
-      color = 'var(--cui-secondary)';
-      break;
-    case (rating < 40):
-      color = 'var(--cui-warning)';
-      break;
-    case (rating < 60):
-      color = 'var(--cui-info)';
-      break;
-    case (rating < 80):
-      color = 'var(--cui-primary)';
-      break;
-    case (rating < 100):
-      color = 'var(--cui-success)';
-      break;
-  }
-
   const barStyle = {
-    backgroundColor: color,
     width: `${rating}%`,
-  };
-
-  const ratingNumberStyle = {
-    color,
-    borderColor: color,
   };
 
   const ratingDecimal = rating.toString().split('.')[1];
@@ -45,7 +19,7 @@ const Rating = (props) => {
     <>
       <div className={`${ratingType ? 'sub-rating' : 'total-rating'}`}>
         <div className="rating-number-border">
-          <div className="rating-number-wrap me-2 d-inline" style={ratingNumberStyle}>
+          <div className={`rating__border-${Math.ceil(rating / 20) * 20} rating-number-wrap me-2 d-inline`}>
             <span className="rating-number-big user-select-none">{ratingInt}</span>
             <span className="rating-number-small strong user-select-none">
               .
@@ -57,7 +31,7 @@ const Rating = (props) => {
           {name}
         </span>
         <div className="rating-bar-container">
-          <div className="rating-bar excellent" style={barStyle} />
+          <div className={`rating__bar-${Math.ceil(rating / 20) * 20} rating-bar`} style={barStyle} />
         </div>
       </div>
     </>

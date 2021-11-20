@@ -1,6 +1,6 @@
 .rating-bar-container {
   width: 100%;
-  height: 2px;
+  height: 0.125rem;
   position: absolute;
   bottom: 0;
   background-color: $gray-300;
@@ -14,7 +14,7 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 3px;
+    left: 0.1875rem;
     height: 100%;
     width: 50%;
     transform: skewX(
@@ -43,33 +43,33 @@
 //Total Rating Header
 .total-rating {
   position: relative;
-  height: 35px;
+  height: 2.1875rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 
   .rating-number-wrap {
     padding: .3rem .3rem .0rem 0.8rem;
-    height: 35px;
+    height: 2.1875rem;
 
     &:before {
       border-top-left-radius: .5rem;
       border-bottom-left-radius: .7rem;
-      border-top: 2px solid;
-      border-bottom: 2px solid;
-      border-left: 2px solid;
+      border-top: 0.125rem solid;
+      border-bottom: 0.125rem solid;
+      border-left: 0.125rem solid;
     }
     &:after {
       border-top-right-radius: .5rem;
-      border-top: 2px solid;
-      border-right: 2px solid;
+      border-top: 0.125rem solid;
+      border-right: 0.125rem solid;
     }
   }
   .resort-header-card__title {
     font-family: $headings-font-family;
     font-size: 1.1875rem;
     font-weight: bold;
-    padding-left: 56px;
+    padding-left: 3.5rem;
     position: relative;
     line-height: 2.1;
   }
@@ -79,29 +79,29 @@
   }
 
   .rating-number-border {
-    width: 56px;
-    height: 35px;
+    width: 3.5rem;
+    height: 2.1875rem;
   }
 
   .rating-bar-container {
-    margin-left: 8px;
+    margin-left: 0.5rem;
   }
 
   .rating-bar {
-    height: 2px;
+    height: 0.125rem;
   }
 }
 
 //Sub Rating
 .sub-rating {
   position: relative;
-  height: 25px;
+  height: 1.5625rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 
   .rating-number-wrap {
-    height: 25px;
+    height: 1.5625rem;
     padding: 0.05rem 0.25rem 0 0.65rem;
 
     &:before {
@@ -119,23 +119,67 @@
   }
 
   .resort-header-card__title {
-    padding-left: 47px;
+    padding-left: 2.9375rem;
     position: relative;
     font-size: 0.8rem;
     line-height: 2.0;
   }
 
   .rating-number-border {
-    width: 48px;
-    height: 25px;
+    width: 3rem;
+    height: 1.5625rem;
   }
 
   .rating-bar-container {
     height: 1px;
-    margin-left: 10px;
+    margin-left: 0.625rem;
 
     .rating-bar {
       height: 1px;
+    }
+  }
+}
+
+// Rating Bar Colors
+.rating__ {
+  &border- {
+    &20 {
+      border-color: var(--cui-secondary);
+      color: var(--cui-secondary);
+    }
+    &40 {
+      border-color: var(--cui-warning);
+      color: var(--cui-warning);
+    }
+    &60 {
+      border-color: var(--cui-info);
+      color: var(--cui-info);
+    }
+    &80 {
+      border-color: var(--cui-primary);
+      color: var(--cui-primary);
+    }
+    &100 {
+      border-color: var(--cui-success);
+      color: var(--cui-success);
+    }
+  }
+
+  &bar- {
+    &20 {
+      background-color: var(--cui-secondary);
+    }
+    &40 {
+      background-color: var(--cui-warning);
+    }
+    &60 {
+      background-color: var(--cui-info);
+    }
+    &80 {
+      background-color: var(--cui-primary);
+    }
+    &100 {
+      background-color: var(--cui-success);
     }
   }
 }
