@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import {
   CCard, CCardHeader, CCardBody, CCardFooter,
 } from '@coreui/react';
-import PropTypes, { array, number, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import ResortCardBody from '../ResortCardBody/ResortCardBody';
 import ResortCardHeader from '../ResortCardHeader/ResortCardHeader';
 import ResortCardFooter from '../ResorctCardFooter/ResortCardFooter';
 import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeletonList';
+import useResortCardToggledState from '../../hooks/useResortCardToggledState';
 
 export const QUERY_RESORT = gql`
 query ResortByURLSegment($url_segment: String!) {
@@ -66,33 +66,13 @@ query ResortByURLSegment($url_segment: String!) {
 }
 `;
 
-let yo = [];
-
-const useStateWithLocalStorage = (localStorageKey) => {
-  const [collapsed, setCollapsed] = React.useState(
-    localStorage.getItem(localStorageKey) || '',
-  );
-
-  React.useEffect(() => {
-    localStorage.setItem(localStorageKey, collapsed);
-  }, [collapsed]);
-
-  return [collapsed, setCollapsed];
-};
-
-function ResortCard(props) {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-
-  const [collapsed, setCollapsed] = useStateWithLocalStorage(
-    'resortCardCollapseStates',
-  );
-
-  const { url_segment } = props;
+function ResortCard({ resortId, urlSegment }) {
+  const [collapsed, setToggled] = useResortCardToggledState(resortId);
 
   const { loading, error, data } = useQuery(
     QUERY_RESORT,
     {
-      variables: { url_segment },
+      variables: { url_segment: urlSegment },
     },
   );
 
@@ -105,29 +85,6 @@ function ResortCard(props) {
   const {
     resortByUrlSegment: resort,
   } = data;
-
-  const resort_id = parseInt(resort.id);
-
-  function handleCardCollapseClick() {
-    if (typeof collapsed === 'string' || collapsed instanceof string) {
-      yo = collapsed.split(',').map((item) => parseInt(item, 10));
-    } else {
-      yo = collapsed;
-    }
-    console.log('Resort id', resort_id);
-    console.log('Collapsed', collapsed);
-
-    if (yo.includes(resort_id || resort.id)) {
-      yo = yo.filter((id) => id !== resort_id);
-      setIsCollapsed(true);
-    } else {
-      yo.push(resort_id);
-      setIsCollapsed(false);
-    }
-    console.log('Yo', yo);
-
-    setCollapsed(yo);
-  }
 
   if (!resort || error) {
     return (
@@ -146,16 +103,16 @@ function ResortCard(props) {
 
   return (
     <div className="resort-card d-flex justify-content-center">
-      <CCard className={`${isCollapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
+      <CCard className={`${!collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
           <ResortCardHeader title={title} rating={totalRating} />
         </CCardHeader>
         <CCardBody className="resort-card__body pt-0 pb-0">
-          <ResortCardBody resort={resort} collapsed={isCollapsed} />
+          <ResortCardBody resort={resort} collapsed={!collapsed} />
         </CCardBody>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <CCardFooter className="resort-card__footer pointer-event" onClick={handleCardCollapseClick}>
-          <ResortCardFooter url={url} collapsed={isCollapsed} />
+        <CCardFooter className="resort-card__footer pointer-event" onClick={() => setToggled(!collapsed)}>
+          <ResortCardFooter url={url} collapsed={!collapsed} />
         </CCardFooter>
       </CCard>
     </div>
@@ -163,7 +120,8 @@ function ResortCard(props) {
 }
 
 ResortCard.propTypes = {
-  url_segment: PropTypes.string.isRequired,
+  resortId: PropTypes.number.isRequired,
+  urlSegment: PropTypes.string.isRequired,
 };
 
 export default ResortCard;

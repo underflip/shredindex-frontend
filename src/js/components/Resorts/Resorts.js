@@ -29,7 +29,7 @@ const Resorts = () => {
       {resorts.map(({
         id, url_segment,
       }) => (
-        <ResortCard key={id} url_segment={url_segment} />
+        <ResortCard key={id} resortId={id} urlSegment={url_segment} />
       ))}
     </>
   );
