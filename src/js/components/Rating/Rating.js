@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Rating = (props) => {
-  const {
-    name,
-    rating,
-    ratingType,
-  } = props;
-
+const Rating = ({ name, rating, ratingType }) => {
   const barStyle = {
     width: `${rating}%`,
   };

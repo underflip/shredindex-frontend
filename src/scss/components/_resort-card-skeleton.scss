@@ -1,103 +1,121 @@
-.skeleton-card__header {
-  .skeleton-rating-header {
-    height: 2.1875rem;
-    width: 3.125rem;
+.resort-card__skeleton {
+  &:nth-child(2) {
+    opacity: 0.8;
+  }
+
+  &:nth-child(3) {
+    opacity: 0.6;
+  }
+
+  &:nth-child(4) {
+    opacity: 0.4;
+  }
+
+  &:nth-child(5) {
+    opacity: 0.2;
+  }
+
+  .skeleton-card__header {
+    .skeleton-rating-header {
+      height: 2.1875rem;
+      width: 3.125rem;
+
+      &:before {
+        content: "";
+        position: absolute;
+        background-color: $gray-300;
+        height: 2.1875rem;
+        border-top-right-radius: 0.5rem;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.7rem;
+        width: 1.875rem;
+        transform: skewX(-17deg);
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 2.125rem;
+        border-top-left-radius: .5rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.7rem;
+        height: 2.1875rem;
+        width: 1.875rem;
+        background-color: $gray-300;
+        transform: skewX(22deg);
+      }
+    }
+  }
+
+  .skeleton-sub-rating-wrap {
+    .skeleton-rating-header {
+      height: 1.5625rem;
+      width: 2.75rem;
+
+      &:before {
+        content: "";
+        position: absolute;
+        background-color: $gray-300;
+        height: 1.5625rem;
+        border-top-right-radius: 0.5rem;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.7rem;
+        width: 1.5625rem;
+        transform: skewX(-17deg);
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 1.9375rem;
+        border-top-left-radius: .5rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.7rem;
+        height: 1.5625rem;
+        width: 1.5625rem;
+        background-color: $gray-300;
+        transform: skewX(22deg);
+      }
+    }
+  }
+
+  .skeleton-rating-title {
+    background-color: $gray-300;
+    border-radius: 1rem;
+    height: 1.5rem;
+    margin-top: .3rem;
+  }
+
+  .skeleton-sub-rating {
+    border-radius: 1rem;
+    height: 1.4375rem;
+  }
+
+  .skeleton-location-details {
+    background-color: $gray-300;
+    border-radius: 1rem;
+  }
+
+  .country-flag-wrap {
+    background-color: $gray-300;
+  }
+
+  .skeleton-image {
+    background-color: $gray-300;
+    border-radius: 1rem;
+    height: 7.1875rem;
+  }
+
+  .skeleton-footer {
+    height: 2.875rem;
+    border: none;
 
     &:before {
-      content: "";
-      position: absolute;
-      background-color: $gray-300;
-      height: 2.1875rem;
-      border-top-right-radius: 0.5rem;
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.7rem;
-      width: 1.875rem;
-      transform: skewX(-17deg);
+      background-color: $gray-300 !important;
     }
 
     &:after {
-      content: "";
-      position: absolute;
-      left: 2.125rem;
-      border-top-left-radius: .5rem;
-      border-top-right-radius: 0.5rem;
-      border-bottom-right-radius: 0.7rem;
-      height: 2.1875rem;
-      width: 1.875rem;
-      background-color: $gray-300;
-      transform: skewX(22deg);
+      background-color: unset !important;
     }
-  }
-}
-
-.skeleton-sub-rating-wrap {
-  .skeleton-rating-header {
-    height: 1.5625rem;
-    width: 2.75rem;
-
-    &:before {
-      content: "";
-      position: absolute;
-      background-color: $gray-300;
-      height: 1.5625rem;
-      border-top-right-radius: 0.5rem;
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.7rem;
-      width: 1.5625rem;
-      transform: skewX(-17deg);
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      left: 1.9375rem;
-      border-top-left-radius: .5rem;
-      border-top-right-radius: 0.5rem;
-      border-bottom-right-radius: 0.7rem;
-      height: 1.5625rem;
-      width: 1.5625rem;
-      background-color: $gray-300;
-      transform: skewX(22deg);
-    }
-  }
-}
-
-.skeleton-rating-title {
-  background-color: $gray-300;
-  border-radius: 1rem;
-  height: 1.5rem;
-  margin-top: .3rem;
-}
-
-.skeleton-sub-rating {
-  border-radius: 1rem;
-  height: 1.4375rem;
-}
-
-.skeleton-location-details {
-  background-color: $gray-300;
-  border-radius: 1rem;
-}
-
-.country-flag-wrap {
-  background-color: $gray-300;
-}
-
-.skeleton-image {
-  background-color: $gray-300;
-  border-radius: 1rem;
-  height: 7.1875rem;
-}
-
-.skeleton-footer {
-  height: 2.875rem;
-  border: none;
-
-  &:before {
-    background-color: $gray-300 !important;
-  }
-
-  &:after {
-    background-color: unset !important;
   }
 }

@@ -5,7 +5,7 @@ import React from 'react';
 import NoResort from '../../../images/resort-image-placeholder.svg';
 
 const ResortCardSkeleton = () => (
-  <div className="resort-card d-flex justify-content-center fade-in">
+  <div className="resort-card__skeleton d-flex justify-content-center fade-in">
     <CCard className="resort-card__wrap collapsed">
       <CCardHeader className="resort-card__header-wrap pb-0 mb-2">
         <div className="skeleton-card__header d-flex mb-3">

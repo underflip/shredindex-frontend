@@ -1,3 +1,4 @@
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import {
@@ -7,7 +8,7 @@ import PropTypes from 'prop-types';
 import ResortCardBody from '../ResortCardBody/ResortCardBody';
 import ResortCardHeader from '../ResortCardHeader/ResortCardHeader';
 import ResortCardFooter from '../ResorctCardFooter/ResortCardFooter';
-import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeletonList';
+import ResortCardSkeleton from '../SkeletonState/ResortCardSkeleton';
 import useResortCardToggledState from '../../hooks/useResortCardToggledState';
 
 export const QUERY_RESORT = gql`
@@ -78,7 +79,7 @@ function ResortCard({ resortId, urlSegment }) {
 
   if (loading) {
     return (
-      <ResortCardSkeletonList />
+      <ResortCardSkeleton />
     );
   }
 
@@ -95,7 +96,7 @@ function ResortCard({ resortId, urlSegment }) {
   const { title, url } = resort;
 
   function checkRating() {
-    if (resort.ratings.find((rating) => rating.title === 'Total Shred Score').value) return resort.ratings.find((rating) => rating.title === 'Total Shred Score').value;
+    if (resort.ratings.length > 1 && resort.ratings.find((rating) => rating.title === 'Total Shred Score').value) return resort.ratings.find((rating) => rating.title === 'Total Shred Score').value;
     return 0;
   }
 

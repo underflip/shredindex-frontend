@@ -1,8 +1,9 @@
 import React from 'react';
 import { CImage } from '@coreui/react';
 import PropTypes from 'prop-types';
+import getResortFlagImage from '../../hooks/getResortFlagImage';
 
-const Location = (props) => {
+const Location = (location) => {
   const {
     location: {
       city,
@@ -12,9 +13,10 @@ const Location = (props) => {
       },
       state,
     },
-  } = props;
+  } = location;
 
-  const flag = `https://flagcdn.com/${countryCode.toLowerCase()}.svg`;
+  const flag = getResortFlagImage(countryCode);
+  
   return (
     <>
       <div className="resort-header-card__location text-left d-inline-flex user-select-none">

@@ -1,14 +1,32 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 const ResortCardCommentCarousel = ({ comments }) => {
+  const commentsExist = comments.length > 1;
+
   const flickityOptions = {
     initialIndex: 2,
     wrapAround: true,
     prevNextButtons: false,
-    pageDots: true,
+    pageDots: commentsExist,
   };
+
+  if (!commentsExist) {
+    return (
+      <div className="resort-card__carousel-wrap d-block w-50 ms-2">
+        <div className="resort-card__comment w-100 d-flex flex-column justify-content-between">
+          <span className="resort-card__comment-text small user-select-none">
+            <FormattedMessage
+              id="shredindex.commentcard.NOCOMMENTSSAVAILABLE"
+              defaultMessage="No Comments Available"
+            />
+          </span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="resort-card__carousel-wrap d-block w-50 ms-2">

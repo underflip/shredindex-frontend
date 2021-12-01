@@ -3,14 +3,12 @@ import Flickity from 'react-flickity-component';
 import PropTypes from 'prop-types';
 import resortImagePlaceholder from '../../../images/resort-image-placeholder.svg';
 
-const ResortImageCarousel = (props) => {
-  const { images } = props;
-
+const ResortImageCarousel = ({ images }) => {
   const flickityOptions = {
     initialIndex: 2,
     wrapAround: true,
     prevNextButtons: false,
-    pageDots: true,
+    pageDots: images.length > 1,
   };
 
   return (
@@ -23,9 +21,10 @@ const ResortImageCarousel = (props) => {
         reloadOnUpdate
         static
       >
-        {images.map(({ id, name, image }) => (
-          <img key={id} className="w-100" src={image ? image.path : resortImagePlaceholder} alt={name} />
-        ))}
+        {images.length > 0 ? images.map(({ id, name, image }) => (
+          <img key={id} className="w-100" src={image.path} alt={name} />
+        ))
+          : <img className="w-100" src={resortImagePlaceholder} alt={name} />}
       </Flickity>
     </div>
   );

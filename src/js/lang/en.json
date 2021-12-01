@@ -4,6 +4,8 @@
     "shredindex.resort.DESCRIPTION": "Description",
     "shredindex.ratinglist.HIGHLIGHTS": "Highlights",
     "shredindex.ratinglist.LOWLIGHTS": "Lowlights",
+    "shredindex.ratinglist.NORATINGSAVAILABLE": "No Ratings Available",
+    "shredindex.commentcard.NOCOMMENTSSAVAILABLE": "No Comments Available",
     "shredindex.resortcard.GOTORESORT": "Go To Resort",
     "shredindex.ratings.RATINGS": "Ratings",
     "shredindex.statistics.STATISTICS": "Statistics"

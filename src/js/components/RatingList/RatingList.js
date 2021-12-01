@@ -8,6 +8,13 @@ const RatingList = (props) => {
     ratings, label, labelMessageId,
   } = props;
 
+  if (ratings.length < 1) {
+    return (
+      <div className="rating-list-label user-select-none">
+        <FormattedMessage id="shredindex.ratinglist.NORATINGSAVAILABLE" defaultMessage="No Ratings Available" />
+      </div>
+    );
+  }
   return (
     <>
       <div className="rating-list-label user-select-none">
