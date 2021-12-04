@@ -16,7 +16,7 @@ const Location = (location) => {
   } = location;
 
   const flag = getResortFlagImage(countryCode);
-  
+
   return (
     <>
       <div className="resort-header-card__location text-left d-inline-flex user-select-none">
