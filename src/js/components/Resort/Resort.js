@@ -8,7 +8,6 @@ import {
 } from '@coreui/react';
 import ResortHeader from '../ResortHeader/ResortHeader';
 import ResortRatings from '../ResortRatings/ResortRatings';
-import ResortCardSkeletonList from '../SkeletonState/ResortCardSkeleton';
 import Statistics from '../Statistics/Statistics';
 import ResortSkeleton from '../SkeletonState/ResortSkeleton';
 

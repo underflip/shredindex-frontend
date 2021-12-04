@@ -24,7 +24,7 @@ const ResortImageCarousel = ({ images }) => {
         {images.length > 0 ? images.map(({ id, name, image }) => (
           <img key={id} className="w-100" src={image.path} alt={name} />
         ))
-          : <img className="w-100" src={resortImagePlaceholder} alt={name} />}
+          : <img className="w-100" src={resortImagePlaceholder} />}
       </Flickity>
     </div>
   );
