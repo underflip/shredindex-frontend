@@ -24,7 +24,7 @@ const ResortImageCarousel = ({ images }) => {
         {images.length > 0 ? images.map(({ id, name, image }) => (
           <img key={id} className="w-100" src={image.path} alt={name} />
         ))
-          : <img className="w-100" src={resortImagePlaceholder} />}
+          : <img className="w-100" src={resortImagePlaceholder} alt="shred-index-resort-placeholder" />}
       </Flickity>
     </div>
   );
@@ -33,7 +33,7 @@ const ResortImageCarousel = ({ images }) => {
 const ImagesType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  alt: PropTypes.string,
+  alt: PropTypes.string.isRequired,
   image: {
     path: PropTypes.string.isRequired,
     content_type: PropTypes.string.isRequired,
