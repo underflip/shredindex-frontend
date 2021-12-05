@@ -15,7 +15,7 @@ export const ResortCardFull = () => {
       request: {
         query: QUERY_RESORT,
         variables: {
-          url_segment: 'pipedream',
+          url_segment: 'tokyo-megaplex',
         },
       },
       result: {
@@ -84,7 +84,7 @@ export const ResortCardFull = () => {
               {
                 id: '1',
                 name: 'Yoy yoyoyo',
-                alt: '',
+                alt: 'Yo yo',
                 sort_order: 1,
                 image: {
                   path: 'https://www.merqurycity.com/ssximages/tokyoinelevator.jpg',
@@ -122,7 +122,7 @@ export const ResortCardFull = () => {
   };
 
   return (
-    <MemoryRouter initialEntries={['resorts/pipedream']}>
+    <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
       <Route exact path="resorts/:urlSegment">
         <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
           <ResortCardComponent

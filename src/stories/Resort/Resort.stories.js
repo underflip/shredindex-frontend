@@ -73,8 +73,8 @@ export const Resort = () => {
   };
 
   return (
-    <MemoryRouter initialEntries={['resorts/pipedream']}>
-      <Route exact path="resorts/:urlSegment">
+    <MemoryRouter initialEntries={['resort/pipedream']}>
+      <Route exact path="resort/:urlSegment">
         <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
           <ResortComponent />
         </MockedProvider>

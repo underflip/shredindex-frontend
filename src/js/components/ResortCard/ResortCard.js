@@ -121,7 +121,7 @@ function ResortCard({ resortId, urlSegment }) {
 }
 
 ResortCard.propTypes = {
-  resortId: PropTypes.number.isRequired,
+  resortId: PropTypes.string.isRequired,
   urlSegment: PropTypes.string.isRequired,
 };
 
