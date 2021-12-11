@@ -30,7 +30,7 @@ const ResortImageCarousel = ({ images }) => {
   );
 };
 
-const ImagesType = PropTypes.shape({
+export const ImagesType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,

@@ -2,7 +2,7 @@ import React from 'react';
 import CIcon from '@coreui/icons-react';
 import { cilShareAlt } from '@coreui/icons';
 import PropTypes from 'prop-types';
-import ResortImageCarousel from '../ResortCardImageCarousel/ResortImageCarousel';
+import ResortImageCarousel, { ImagesType } from '../ResortCardImageCarousel/ResortImageCarousel';
 import ResortCardCommentCarousel from '../ResortCardCommentCarousel/ResortCardCommetCarousel';
 import RatingList from '../RatingList/RatingList';
 import ResortCardLocation from '../ResortCardLocation/ResortCardLocation';
@@ -69,16 +69,6 @@ const CountryStateType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-});
-
-const ImagesType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-  image: {
-    path: PropTypes.string.isRequired,
-    content_type: PropTypes.string.isRequired,
-  },
 });
 
 const CommentsType = PropTypes.shape({

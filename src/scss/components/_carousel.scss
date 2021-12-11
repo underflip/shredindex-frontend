@@ -1,10 +1,10 @@
 @import "flickityCarousel";
 
-.carousel__comment {
-  height: 7.1875rem !important;
-
-}
 
 .carousel {
   overflow: hidden;
+
+  &__comment {
+    height: 7.1875rem !important;
+  }
 }

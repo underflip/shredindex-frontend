@@ -141,8 +141,8 @@
 }
 
 // Rating Bar Colors
-.rating__ {
-  &border- {
+.rating {
+  &__border- {
     &20 {
       border-color: var(--cui-secondary);
       color: var(--cui-secondary);
@@ -165,7 +165,7 @@
     }
   }
 
-  &bar- {
+  &__bar- {
     &20 {
       background-color: var(--cui-secondary);
     }

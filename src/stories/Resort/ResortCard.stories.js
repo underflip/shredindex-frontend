@@ -9,7 +9,7 @@ export default {
   component: ResortCardComponent,
 };
 
-export const ResortCardFull = () => {
+export const ResortCard = () => {
   const mocks = {
     resortByUrlSegment: {
       request: {
@@ -24,6 +24,8 @@ export const ResortCardFull = () => {
             id: '1',
             title: 'Tokyo Megaplex',
             url_segment: 'tokyo-megaplex',
+            url: 'resorts/tokyo-megaplex',
+            total_score: 96.7,
             description: 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.',
             location: {
               id: '1',

@@ -10,8 +10,7 @@ const Rating = ({ name, rating, ratingType }) => {
     return Math.ceil(rating / 20) * 20;
   }
 
-  const ratingDecimal = rating.toString().split('.')[1];
-  const ratingInt = rating.toString().split('.')[0];
+  const [ratingInt, ratingDecimal] = rating.toString().split('.');
 
   return (
     <>
