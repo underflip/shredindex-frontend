@@ -54,9 +54,9 @@ describe('Resort', () => {
     cy.get('.resort__description-content').should('contain.text', 'Perpendicular curves to the ceiling for maximum air time');
   });
 
-  it('Should render a rating Total Shred Rating', () => {
+  it('Should render a rating Total Shred Score', () => {
     cy.get('.resort-rating__label')
-      .should('contain', 'Total Shred Rating');
+      .should('contain', 'Total Shred Score');
   });
 
   it('Rating should have a value', () => {
