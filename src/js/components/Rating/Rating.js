@@ -6,6 +6,10 @@ const Rating = ({ name, rating, ratingType }) => {
     width: `${rating}%`,
   };
 
+  function colorClassPercentage() {
+    return Math.ceil(rating / 20) * 20;
+  }
+
   const ratingDecimal = rating.toString().split('.')[1];
   const ratingInt = rating.toString().split('.')[0];
 
@@ -13,7 +17,7 @@ const Rating = ({ name, rating, ratingType }) => {
     <>
       <div className={`${ratingType ? 'sub-rating' : 'total-rating'}`}>
         <div className="rating-number-border">
-          <div className={`rating__border-${Math.ceil(rating / 20) * 20} rating-number-wrap me-2 d-inline`}>
+          <div className={`rating__border-${colorClassPercentage(rating)} rating-number-wrap me-2 d-inline`}>
             <span className="rating-number-big user-select-none">{ratingInt}</span>
             <span className="rating-number-small strong user-select-none">
               .
@@ -25,7 +29,7 @@ const Rating = ({ name, rating, ratingType }) => {
           {name}
         </span>
         <div className="rating-bar-container">
-          <div className={`rating__bar-${Math.ceil(rating / 20) * 20} rating-bar`} style={barStyle} />
+          <div className={`rating__bar-${colorClassPercentage(rating)} rating-bar`} style={barStyle} />
         </div>
       </div>
     </>

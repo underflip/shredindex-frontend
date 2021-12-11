@@ -11,7 +11,7 @@ const ResortCardHeader = (props) => {
   return (
     <>
       <div className="rating mb-3">
-        <Rating name={title} rating={rating} ratingType="Total Score" />
+        <Rating name={title} rating={rating} />
       </div>
     </>
   );

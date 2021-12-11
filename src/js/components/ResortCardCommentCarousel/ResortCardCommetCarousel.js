@@ -4,16 +4,14 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 const ResortCardCommentCarousel = ({ comments }) => {
-  const commentsExist = comments.length > 1;
-
   const flickityOptions = {
     initialIndex: 2,
     wrapAround: true,
     prevNextButtons: false,
-    pageDots: commentsExist,
+    pageDots: comments.length > 1,
   };
 
-  if (!commentsExist) {
+  if (!comments.length > 0) {
     return (
       <div className="resort-card__carousel-wrap d-block w-50 ms-2">
         <div className="resort-card__comment w-100 d-flex flex-column justify-content-between">
@@ -41,7 +39,7 @@ const ResortCardCommentCarousel = ({ comments }) => {
         {comments.map(({
           id, comment, author,
         }) => (
-          <div key={id} className="resort-card__comment w-100 d-flex flex-column justify-content-between">
+          <div key={id} className="carousel__comment w-100 d-flex flex-column justify-content-between">
             <span className="resort-card__comment-text small user-select-none">
               {`"${comment}"`}
             </span>

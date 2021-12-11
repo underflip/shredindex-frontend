@@ -3,11 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import Rating from '../Rating/Rating';
 
-const RatingList = (props) => {
-  const {
-    ratings, label, labelMessageId,
-  } = props;
-
+const RatingList = ({ ratings, label, labelMessageId }) => {
   if (ratings.length < 1) {
     return (
       <div className="rating-list-label user-select-none">
@@ -15,6 +11,7 @@ const RatingList = (props) => {
       </div>
     );
   }
+
   return (
     <>
       <div className="rating-list-label user-select-none">

@@ -18,6 +18,7 @@ query ResortByURLSegment($url_segment: String!) {
     title
     url_segment
     url
+    total_score
     description
     location {
       id
@@ -93,20 +94,13 @@ function ResortCard({ resortId, urlSegment }) {
     );
   }
 
-  const { title, url } = resort;
-
-  function checkRating() {
-    if (resort.ratings.length > 1 && resort.ratings.find((rating) => rating.title === 'Total Shred Score').value) return resort.ratings.find((rating) => rating.title === 'Total Shred Score').value;
-    return 0;
-  }
-
-  const totalRating = checkRating();
+  const { title, url, total_score } = resort;
 
   return (
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${!collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <ResortCardHeader title={title} rating={totalRating} />
+          <ResortCardHeader title={title} rating={total_score} />
         </CCardHeader>
         <CCardBody className="resort-card__body pt-0 pb-0">
           <ResortCardBody resort={resort} collapsed={!collapsed} />
