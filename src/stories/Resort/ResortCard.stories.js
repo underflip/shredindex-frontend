@@ -128,7 +128,8 @@ export const ResortCard = () => {
       <Route exact path="resorts/:urlSegment">
         <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
           <ResortCardComponent
-            url_segment={mocks.resortByUrlSegment.request.variables.url_segment}
+            resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
+            urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
           />
         </MockedProvider>
       </Route>
