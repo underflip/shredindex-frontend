@@ -11,7 +11,7 @@ import ResortCardFooter from '../ResorctCardFooter/ResortCardFooter';
 import ResortCardSkeleton from '../SkeletonState/ResortCardSkeleton';
 import useResortCardToggledState from '../../hooks/useResortCardToggledState';
 
-export const QUERY_RESORT = gql`
+export const QUERY_RESORTCARD = gql`
 query ResortByURLSegment($url_segment: String!) {
   resortByUrlSegment(url_segment: $url_segment) {
     id
@@ -72,7 +72,7 @@ function ResortCard({ resortId, urlSegment }) {
   const [collapsed, setToggled] = useResortCardToggledState(resortId);
 
   const { loading, error, data } = useQuery(
-    QUERY_RESORT,
+    QUERY_RESORTCARD,
     {
       variables: { url_segment: urlSegment },
     },

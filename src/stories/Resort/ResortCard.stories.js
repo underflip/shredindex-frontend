@@ -2,7 +2,7 @@ import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
-import ResortCardComponent, { QUERY_RESORT } from '../../js/components/ResortCard/ResortCard';
+import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/ResortCard/ResortCard';
 
 export default {
   title: 'Shred index/components/ResortCard',
@@ -13,7 +13,7 @@ export const ResortCard = () => {
   const mocks = {
     resortByUrlSegment: {
       request: {
-        query: QUERY_RESORT,
+        query: QUERY_RESORTCARD,
         variables: {
           url_segment: 'tokyo-megaplex',
         },
