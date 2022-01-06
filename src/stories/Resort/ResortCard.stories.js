@@ -96,12 +96,22 @@ export const ResortCard = (args) => {
                 alt: 'Yo yo',
                 sort_order: 1,
                 image: {
-                  path: 'https://www.merqurycity.com/ssximages/tokyoinelevator.jpg',
+                  path: 'https://www.snowseasoncentral.com/wp-content/uploads/2020/01/fernie-bowls.jpg',
                   content_type: 'image/jpeg',
                 },
               },
               {
                 id: '2',
+                name: 'Yoy yoyoyo',
+                alt: 'Yo yo',
+                sort_order: 1,
+                image: {
+                  path: 'https://www.merqurycity.com/ssximages/tokyoinelevator.jpg',
+                  content_type: 'image/jpeg',
+                },
+              },
+              {
+                id: '3',
                 name: 'Yoyoyo',
                 alt: 'wqwqd',
                 sort_order: 1,

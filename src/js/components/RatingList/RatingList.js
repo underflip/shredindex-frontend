@@ -22,7 +22,7 @@ const RatingList = ({ ratings, label, labelMessageId }) => {
           .map(({
             id, title, value,
           }) => (
-            <div key={id} className="rating mb-2 me-1">
+            <div key={id} className="rating mb-3 me-1">
               <Rating name={title} rating={value} ratingType />
             </div>
           ))}
