@@ -33,7 +33,7 @@ const ResortCardBody = ({
     </div>
     <div className="resort-card__content-wrap">
       <div className="resort-card__content-1 mb-2 d-flex">
-        <div className="resort-card__sub-ratings-list w-50 me-2">
+        <div className="resort-card__sub-ratings-list me-2">
           <RatingList
             labelMessageId="shredindex.ratinglist.HIGHLIGHTS"
             label="Highlights"
@@ -43,7 +43,7 @@ const ResortCardBody = ({
         <ResortImageCarousel images={resort_images} />
       </div>
       <div className="resort-card__content-2 mb-2 d-flex">
-        <div className="resort-card__sub-ratings-list w-50 me-2">
+        <div className="resort-card__sub-ratings-list me-2">
           <RatingList
             labelMessageId="shredindex.ratinglist.LOWLIGHTS"
             label="Lowlights"

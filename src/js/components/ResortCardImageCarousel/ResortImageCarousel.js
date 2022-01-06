@@ -9,10 +9,11 @@ const ResortImageCarousel = ({ images }) => {
     wrapAround: true,
     prevNextButtons: false,
     pageDots: images.length > 1,
+    fullscreen: true,
   };
 
   return (
-    <div className="resort-card__carousel-wrap w-50 ms-2 mb-2">
+    <div className="resort-card__carousel__image-wrap w-50 ms-2 mb-2">
       <Flickity
         className="carousel w-100 h-100 gray-300-bg border-radius-medium"
         elementType="div"
@@ -22,9 +23,11 @@ const ResortImageCarousel = ({ images }) => {
         static
       >
         {images.length > 0 ? images.map(({ id, name, image }) => (
-          <img key={id} className="w-100" src={image.path} alt={name} />
+          <div className="w-100 h-100">
+            <img key={id} className="resort-carousel-image" src={image.path} alt={name} />
+          </div>
         ))
-          : <img className="w-100" src={resortImagePlaceholder} alt="shred-index-resort-placeholder" />}
+          : <img className="resort-carousel-image" src={resortImagePlaceholder} alt="shred-index-resort-placeholder" />}
       </Flickity>
     </div>
   );

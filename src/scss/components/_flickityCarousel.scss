@@ -124,7 +124,7 @@ https://flickity.metafizzy.co
   padding: 0;
   margin: 0;
   list-style: none;
-  text-align: center;
+  text-align: left;
   line-height: 1;
 }
 
@@ -141,9 +141,16 @@ https://flickity.metafizzy.co
   border-radius: 50%;
   opacity: 0.45;
   cursor: pointer;
-  background: $warning;
+  background: $white;
+  box-shadow: 0px 0px 4px 2px #1d2e39;
 }
 
 .flickity-page-dots .dot.is-selected {
   opacity: 1;
+}
+
+.resort-card__carousel__comment-wrap {
+  .flickity-page-dots {
+    bottom: 1.3rem;
+  }
 }

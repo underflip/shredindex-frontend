@@ -3,13 +3,20 @@ import { MockedProvider } from '@apollo/react-testing';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
 import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/ResortCard/ResortCard';
+import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 
 export default {
   title: 'Shred index/components/ResortCard',
   component: ResortCardComponent,
+  argTypes: {
+    cardState: {
+      options: ['initial', 'skeleton'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
-export const ResortCard = () => {
+export const ResortCard = (args) => {
   const mocks = {
     resortByUrlSegment: {
       request: {
@@ -52,7 +59,7 @@ export const ResortCard = () => {
               {
                 id: '1',
                 title: 'Total Shred Score',
-                value: 77,
+                value: 100,
               },
               {
                 id: '6',
@@ -123,16 +130,23 @@ export const ResortCard = () => {
     },
   };
 
-  return (
-    <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
-      <Route exact path="resorts/:urlSegment">
-        <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
-          <ResortCardComponent
-            resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
-            urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
-          />
-        </MockedProvider>
-      </Route>
-    </MemoryRouter>
-  );
+  if (args.cardState === 'initial') {
+    return (
+      <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
+        <Route exact path="resorts/:urlSegment">
+          <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
+            <ResortCardComponent
+              resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
+              urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
+            />
+          </MockedProvider>
+        </Route>
+      </MemoryRouter>
+    );
+  }
+  return <ResortCardSkeleton />;
+};
+
+ResortCard.args = {
+  cardState: 'initial',
 };

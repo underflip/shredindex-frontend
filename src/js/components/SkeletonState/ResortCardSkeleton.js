@@ -6,7 +6,7 @@ import NoResort from '../../../images/resort-image-placeholder.svg';
 
 const ResortCardSkeleton = () => (
   <div className="resort-card__skeleton d-flex justify-content-center fade-in">
-    <CCard className="resort-card__wrap collapsed">
+    <CCard className="resort-card__wrap collapsed w-100">
       <CCardHeader className="resort-card__header-wrap pb-0 mb-2">
         <div className="skeleton-card__header d-flex mb-3">
           <div className="skeleton-rating-header me-3" />
@@ -19,7 +19,7 @@ const ResortCardSkeleton = () => (
       </CCardHeader>
       <CCardBody className="resort-card__body pt-0 pb-0 mb-3">
         <div className="skeleton-content-wrap d-flex mb-2">
-          <div className="skeleton-sub-rating-wrap w-100 mt-2 me-2">
+          <div className="skeleton-sub-rating-wrap mt-2 me-2">
             <div className="skeleton-sub-rating d-flex mb-2">
               <div className="skeleton-rating-header mt-1 me-3" />
               <div className="skeleton-rating-title w-100" />
@@ -33,7 +33,7 @@ const ResortCardSkeleton = () => (
               <div className="skeleton-rating-title w-100" />
             </div>
           </div>
-          <div className="skeleton-image mb-2 w-100 ms-2">
+          <div className="skeleton-image mb-2 ms-2">
             <CImage src={NoResort} />
           </div>
         </div>

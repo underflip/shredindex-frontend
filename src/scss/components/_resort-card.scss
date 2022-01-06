@@ -1,5 +1,4 @@
 .resort-card__wrap{
-  width: 31.25rem;
   background: $gray-400 !important;
   border: none !important;
   border-radius: 1.3rem;
@@ -30,6 +29,8 @@
 }
 
 .resort-card__sub-ratings-list {
+  width: 50%;
+
   .rating-list-label {
     font-size: .6rem;
     color: $gray-700;
@@ -88,7 +89,7 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 7%;
+    left: 1.7rem;
     height: 100%;
     border-top-left-radius: .5rem;
     width: 100%;
@@ -123,6 +124,14 @@
   max-width: 13.563rem;
   height: 7.1875rem;
   overflow: hidden;
+}
+
+.resort-card__carousel__image-wrap {
+  max-width: 300px;
+}
+
+.resort-card__carousel__comment-wrap {
+  max-width: 300px;
 }
 
 .resort-card__comment-text {
@@ -167,7 +176,7 @@
   background-color: $card-bg-semi-transparent;
   border-radius: 5rem;
   position: relative;
-  top: -0.625rem;
+  top: -0.425rem;
   transition-duration: $card-animation-transition-time;
 
   &:hover {
@@ -176,7 +185,7 @@
 }
 
 .resort-card__expand {
-  margin-left: 3.5rem;
+  margin-left: 3.2rem;
   position: relative;
   line-height: 2.8125rem;
 }
@@ -219,7 +228,7 @@
 
     &:after {
       opacity: 1;
-      width: 10rem;
+      width: 11rem;
     }
   }
 
@@ -242,4 +251,11 @@ a.resort-link {
   height: 2.8125rem;
   color: $white;
   padding: 0rem 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  .resort-card__sub-ratings-list,
+  .skeleton-sub-rating-wrap {
+    width: -webkit-fill-available !important;
+  }
 }

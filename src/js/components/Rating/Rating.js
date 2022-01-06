@@ -12,16 +12,25 @@ const Rating = ({ name, rating, ratingType }) => {
 
   const [ratingInt, ratingDecimal] = rating.toString().split('.');
 
+  function ratingIs100(ratingScore) {
+    if (ratingScore === 100) return true;
+    return false;
+  }
+
   return (
     <>
       <div className={`${ratingType ? 'sub-rating' : 'total-rating'}`}>
         <div className="rating-number-border">
           <div className={`rating__border-${colorClassPercentage(rating)} rating-number-wrap me-2 d-inline`}>
-            <span className="rating-number-big user-select-none">{ratingInt}</span>
-            <span className="rating-number-small strong user-select-none">
-              .
-              {ratingDecimal || '0'}
-            </span>
+            <span className={`rating-number-big user-select-none ${ratingIs100(rating) ? 'rating-100' : ''}`}>{ratingInt}</span>
+            {!ratingIs100(rating)
+              ? (
+                <span className="rating-number-small strong user-select-none">
+                  .
+                  {ratingDecimal || '0'}
+                </span>
+              )
+              : ''}
           </div>
         </div>
         <span className="resort-header-card__title display-5 text-left mb-2 user-select-none" color="secondary">
