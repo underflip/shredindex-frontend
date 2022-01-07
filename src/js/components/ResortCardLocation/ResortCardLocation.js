@@ -19,26 +19,28 @@ const Location = (location) => {
 
   return (
     <>
-      <div className="resort-header-card__location text-left d-inline-flex user-select-none">
-        <div className="country-flag-wrap me-2">
+      <div className="resort-card__location text-left d-inline-flex user-select-none">
+        <div className="resort-card__country-flag-wrap me-2">
           <CImage
             src={flag}
-            className="country-flag"
+            className="resort-card__country-flag-image"
             width="50"
             height="20"
           />
         </div>
-        <span>
-          {`${city},`}
+        <div className="resort-card__location-title">
+          <span>
+            {`${city},`}
         &nbsp;
-        </span>
-        {(state && state.name) && (
-        <span className="resort-header__state-name">
-          {`${state.code},`}
+          </span>
+          {(state && state.name) && (
+          <span>
+            {`${state.code},`}
           &nbsp;
-        </span>
-        )}
-        <span className="resort-header__country-name">{countryName}</span>
+          </span>
+          )}
+          <span>{countryName}</span>
+        </div>
       </div>
     </>
   );

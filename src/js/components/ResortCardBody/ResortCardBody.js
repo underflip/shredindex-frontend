@@ -19,7 +19,7 @@ const ResortCardBody = ({
 }) => (
   <div>
     <div className="resort-card__content-0 mb-2 w-100 d-inline-flex justify-content-between">
-      <div className="resort-card__location-description">
+      <div className="resort-card__location-wrap">
         <ResortCardLocation location={location} />
         <div className="resort-card__description mb-2 me-2 user-select-none">
           <span className="m-0">
@@ -27,7 +27,7 @@ const ResortCardBody = ({
           </span>
         </div>
       </div>
-      <div className="share-wrap me-2">
+      <div className="resort-card__share-wrap me-2">
         <CIcon icon={cilShareAlt} />
       </div>
     </div>

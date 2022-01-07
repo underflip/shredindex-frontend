@@ -102,11 +102,11 @@ function ResortCard({ resortId, urlSegment }) {
         <CCardHeader className="resort-card__header-wrap pb-0">
           <ResortCardHeader title={title} rating={total_score} />
         </CCardHeader>
-        <CCardBody className="resort-card__body pt-0 pb-0">
+        <CCardBody className="resort-card__body-wrap pt-0 pb-0">
           <ResortCardBody resort={resort} collapsed={!collapsed} />
         </CCardBody>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <CCardFooter className="resort-card__footer pointer-event" onClick={() => setToggled(!collapsed)}>
+        <CCardFooter className="resort-card__footer-wrap pointer-event" onClick={() => setToggled(!collapsed)}>
           <ResortCardFooter url={url} collapsed={!collapsed} />
         </CCardFooter>
       </CCard>

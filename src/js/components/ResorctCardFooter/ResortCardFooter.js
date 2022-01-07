@@ -10,7 +10,7 @@ const ResortCardFooter = ({ url, collapsed }) => (
     <div className="resort-card__expand">
       <CIcon icon={cilChevronBottom} />
     </div>
-    <Link className="resort-link" to={url}>
+    <Link className="resort-card__resort-link" to={url}>
       <div className="resort-card__go-to-resort">
         {collapsed ? null : (
           <span className="me-2 fade-in user-select-none">
