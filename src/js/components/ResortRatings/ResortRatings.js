@@ -9,51 +9,42 @@ import {
 
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { resortAttributeType } from '../../types/types';
 
-const ResortRatings = (props) => {
-  const { ratings } = props;
-
-  return (
-    <CCard className="resort-rating__card mb-4">
-      <CCardHeader>
-        <FormattedMessage
-          className="h6"
-          id="shredindex.rating.RATINGS"
-          defaultMessage="ResortRatings"
-        />
-      </CCardHeader>
-      <CCardBody>
-        <CListGroup className="ratings-list">
-          {ratings.map(({
-            id, title, value,
-          }) => (
-            <div className="progress-group" key={id}>
-              <div className="progress-group-header">
-                <span className="resort-rating__label">{title}</span>
-                <span className="ms-auto fw-semibold">
-                  {value}
-                  %
+const ResortRatings = ({ ratings }) => (
+  <CCard className="resort-rating__card mb-4">
+    <CCardHeader>
+      <FormattedMessage
+        className="h6"
+        id="shredindex.rating.RATINGS"
+        defaultMessage="Resort ratings"
+      />
+    </CCardHeader>
+    <CCardBody>
+      <CListGroup className="ratings-list">
+        {ratings.map(({
+          id, title, value,
+        }) => (
+          <div className="progress-group" key={id}>
+            <div className="progress-group-header">
+              <span className="resort-rating__label">{title}</span>
+              <span className="ms-auto fw-semibold">
+                {value}
+                %
                 </span>
-              </div>
-              <div className="rating__value progress-group-bars">
-                <CProgress thin color="success" value={value} />
-              </div>
             </div>
-          ))}
-        </CListGroup>
-      </CCardBody>
-    </CCard>
-  );
-};
-
-const Rating = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
-});
+            <div className="rating__value progress-group-bars">
+              <CProgress thin color="success" value={value} />
+            </div>
+          </div>
+        ))}
+      </CListGroup>
+    </CCardBody>
+  </CCard>
+);
 
 ResortRatings.propTypes = {
-  ratings: PropTypes.arrayOf(Rating).isRequired,
+  ratings: PropTypes.arrayOf(resortAttributeType).isRequired,
 };
 
 export default ResortRatings;

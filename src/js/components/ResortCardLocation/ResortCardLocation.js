@@ -1,66 +1,49 @@
-import React from 'react';
 import { CImage } from '@coreui/react';
-import PropTypes from 'prop-types';
-import getResortFlagImage from '../../hooks/getResortFlagImage';
+import React from 'react';
+import useResortFlagImage from '../../hooks/useResortFlagImage';
+import { locationType } from '../../types/types';
 
-const Location = (location) => {
+const ResortCardLocation = ({ location }) => {
   const {
-    location: {
-      city,
-      country: {
-        name: countryName,
-        code: countryCode,
-      },
-      state,
+    city,
+    country: {
+      name: countryName,
+      code: countryCode,
     },
+    state,
   } = location;
 
-  const flag = getResortFlagImage(countryCode);
+  const flag = useResortFlagImage(countryCode);
 
   return (
-    <>
-      <div className="resort-card__location text-left d-inline-flex user-select-none">
-        <div className="resort-card__country-flag-wrap me-2">
-          <CImage
-            src={flag}
-            className="resort-card__country-flag-image"
-            width="50"
-            height="20"
-          />
-        </div>
-        <div className="resort-card__location-title">
-          <span>
-            {`${city},`}
+    <div className="resort-card__location text-left d-inline-flex user-select-none">
+      <div className="resort-card__country-flag-wrap me-2">
+        <CImage
+          src={flag}
+          className="resort-card__country-flag-image"
+          width="50"
+          height="20"
+        />
+      </div>
+      <div className="resort-card__location-title">
+        <span>
+          {`${city},`}
         &nbsp;
-          </span>
-          {(state && state.name) && (
+        </span>
+        {(state && state.name) && (
           <span>
             {`${state.code},`}
           &nbsp;
           </span>
-          )}
-          <span>{countryName}</span>
-        </div>
+        )}
+        <span>{countryName}</span>
       </div>
-    </>
+    </div>
   );
 };
 
-const CountryStateType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  code: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-});
-
-const LocationType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  country: CountryStateType.isRequired,
-  state: CountryStateType,
-});
-
-Location.propTypes = {
-  location: LocationType.isRequired,
+ResortCardLocation.propTypes = {
+  location: locationType.isRequired,
 };
 
-export default Location;
+export default ResortCardLocation;

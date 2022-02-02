@@ -1,24 +1,36 @@
-import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
+import React from 'react';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
-import { propTypes } from 'react-markdown';
 import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/ResortCard/ResortCard';
-import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 import ResortCardError from '../../js/components/ResortCardError/ResortCardError';
+import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 
 export default {
   title: 'Shred index/components/ResortCard',
   component: ResortCardComponent,
   argTypes: {
     cardState: {
-      options: ['initial', 'skeleton', 'error'],
-      control: { type: 'radio' },
+      name: 'Card state',
+      options: ['Full', 'Loading', 'Error'],
+      control: { type: 'select' },
+    },
+    resortId: {
+      table: {
+        disable: true,
+      },
+    },
+    urlSegment: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
-export const ResortCard = ({ cardState }) => {
+export const ResortCard = (args) => {
+  const { cardState } = args;
+
   const mocks = {
     resortByUrlSegment: {
       request: {
@@ -150,37 +162,31 @@ export const ResortCard = ({ cardState }) => {
     },
   };
 
-  if (cardState === 'initial') {
-    return (
-      <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
-        <Route exact path="resorts/:urlSegment">
-          <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
-            <ResortCardComponent
-              resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
-              urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
-            />
-          </MockedProvider>
-        </Route>
-      </MemoryRouter>
-    );
-  }
-  if (cardState === 'skeleton') {
+  if (cardState === 'Loading') {
     return (<ResortCardSkeleton />);
   }
+
+  if (cardState === 'Error') {
+    return (
+      <ResortCardError
+        title={mocks.errorState.title}
+        help={mocks.errorState.help}
+        error={mocks.errorState.error}
+        errorInfo={mocks.errorState.errorInfo}
+      />
+    );
+  }
+
   return (
-    <ResortCardError
-      title={mocks.errorState.title}
-      help={mocks.errorState.help}
-      error={mocks.errorState.error}
-      errorInfo={mocks.errorState.errorInfo}
-    />
+    <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
+      <Route exact path="resorts/:urlSegment">
+        <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
+          <ResortCardComponent
+            resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
+            urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
+          />
+        </MockedProvider>
+      </Route>
+    </MemoryRouter>
   );
-};
-
-ResortCard.defaultProps = {
-  cardState: 'initial',
-};
-
-ResortCard.propTypes = {
-  cardState: propTypes.string,
 };

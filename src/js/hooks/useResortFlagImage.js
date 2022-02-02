@@ -4,7 +4,7 @@
  * @param {string} countryCode
  * @return {string}
  */
-const getResortFlagImage = (countryCode) => (countryCode ? `https://flagcdn.com/${countryCode.toLowerCase()}.svg`
+const useResortFlagImage = (countryCode) => (countryCode ? `https://flagcdn.com/${countryCode.toLowerCase()}.svg`
   : 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/320px-International_Flag_of_Planet_Earth.svg.png');
 
-export default getResortFlagImage;
+export default useResortFlagImage;

@@ -14,7 +14,7 @@ const ResortCardFooter = ({ url, collapsed }) => (
       <div className="resort-card__go-to-resort">
         {collapsed ? null : (
           <span className="me-2 fade-in user-select-none">
-            <FormattedMessage id="shredindex.resortcard.GOTORESORT" defaultMessage="Go to Resort" />
+            <FormattedMessage id="shredindex.resortcard.GO_TO_RESORT" defaultMessage="Go to Resort" />
           </span>
         )}
         <CIcon icon={cilArrowRight} />
