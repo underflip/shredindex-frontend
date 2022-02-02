@@ -4,13 +4,14 @@ import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
 import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/ResortCard/ResortCard';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
+import ResortCardError from '../../js/components/ResortCardError/ResortCardError';
 
 export default {
   title: 'Shred index/components/ResortCard',
   component: ResortCardComponent,
   argTypes: {
     cardState: {
-      options: ['initial', 'skeleton'],
+      options: ['initial', 'skeleton', 'error'],
       control: { type: 'radio' },
     },
   },
@@ -32,7 +33,6 @@ export const ResortCard = (args) => {
             title: 'Tokyo Megaplex',
             url_segment: 'tokyo-megaplex',
             url: 'resorts/tokyo-megaplex',
-            total_score: 96.7,
             description: 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.',
             location: {
               id: '1',
@@ -55,6 +55,9 @@ export const ResortCard = (args) => {
                 value: 77,
               },
             ],
+            total_score: {
+              value: '96.7',
+            },
             highlights: [
               {
                 id: '1',
@@ -138,6 +141,12 @@ export const ResortCard = (args) => {
         },
       },
     },
+    errorState: {
+      title: 'Woah... Gnarly Crash!!!',
+      help: 'check it out',
+      error: 'Error 69 biaaatch',
+      errorInfo: 'its cuz your muma dont know how good you are',
+    },
   };
 
   if (args.cardState === 'initial') {
@@ -154,7 +163,17 @@ export const ResortCard = (args) => {
       </MemoryRouter>
     );
   }
-  return <ResortCardSkeleton />;
+  if (args.cardState === 'skeleton') {
+    return (<ResortCardSkeleton />);
+  }
+  return (
+    <ResortCardError
+      title={mocks.errorState.title}
+      help={mocks.errorState.help}
+      error={mocks.errorState.error}
+      errorInfo={mocks.errorState.errorInfo}
+    />
+  );
 };
 
 ResortCard.args = {

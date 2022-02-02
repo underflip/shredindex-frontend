@@ -23,7 +23,7 @@ const RatingList = ({ ratings, label, labelMessageId }) => {
             id, title, value,
           }) => (
             <div key={id} className="rating mb-3 me-1">
-              <Rating name={title} rating={value} ratingType />
+              <Rating name={title} rating={value} ratingType="sub-rating" />
             </div>
           ))}
       </div>

@@ -3,7 +3,7 @@ import CIcon from '@coreui/icons-react';
 import { cilShareAlt } from '@coreui/icons';
 import PropTypes from 'prop-types';
 import ResortImageCarousel, { ImagesType } from '../ResortCardImageCarousel/ResortImageCarousel';
-import ResortCardCommentCarousel from '../ResortCardCommentCarousel/ResortCardCommetCarousel';
+import ResortCardCommentCarousel from '../ResortCardCommentCarousel/ResortCardCommentCarousel';
 import RatingList from '../RatingList/RatingList';
 import ResortCardLocation from '../ResortCardLocation/ResortCardLocation';
 

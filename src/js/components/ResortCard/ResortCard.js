@@ -9,6 +9,7 @@ import ResortCardBody from '../ResortCardBody/ResortCardBody';
 import ResortCardHeader from '../ResortCardHeader/ResortCardHeader';
 import ResortCardFooter from '../ResorctCardFooter/ResortCardFooter';
 import ResortCardSkeleton from '../SkeletonState/ResortCardSkeleton';
+import ResortCardError from '../ResortCardError/ResortCardError';
 import useResortCardToggledState from '../../hooks/useResortCardToggledState';
 
 export const QUERY_RESORTCARD = gql`
@@ -18,7 +19,6 @@ query ResortByURLSegment($url_segment: String!) {
     title
     url_segment
     url
-    total_score
     description
     location {
       id
@@ -34,9 +34,7 @@ query ResortByURLSegment($url_segment: String!) {
         name
       }
     }
-    ratings {
-      id
-      title
+    total_score {
       value
     }
     highlights {
@@ -90,7 +88,7 @@ function ResortCard({ resortId, urlSegment }) {
 
   if (!resort || error) {
     return (
-      <p>Theres an error</p>
+      <ResortCardError />
     );
   }
 
@@ -100,7 +98,7 @@ function ResortCard({ resortId, urlSegment }) {
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${!collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <ResortCardHeader title={title} rating={total_score} />
+          <ResortCardHeader title={title} total_score={total_score} />
         </CCardHeader>
         <CCardBody className="resort-card__body-wrap pt-0 pb-0">
           <ResortCardBody resort={resort} collapsed={!collapsed} />

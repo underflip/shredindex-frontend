@@ -19,18 +19,18 @@ const Rating = ({ name, rating, ratingType }) => {
 
   return (
     <>
-      <div className={`${ratingType ? 'sub-rating' : 'total-rating'}`}>
+      <div className={ratingType}>
         <div className="rating-number-border">
           <div className={`rating__border-${colorClassPercentage(rating)} rating-number-wrap me-2 d-inline`}>
             <span className={`rating-number-big user-select-none ${ratingIs100(rating) ? 'rating-100' : ''}`}>{ratingInt}</span>
-            {!ratingIs100(rating)
+            {!ratingIs100(rating) && rating != 0
               ? (
                 <span className="rating-number-small strong user-select-none">
                   .
                   {ratingDecimal || '0'}
                 </span>
               )
-              : ''}
+              : <span className="rating-number-small strong user-select-none" />}
           </div>
         </div>
         <span className="resort-header-card__title display-5 text-left mb-2 user-select-none" color="secondary">
@@ -44,9 +44,13 @@ const Rating = ({ name, rating, ratingType }) => {
   );
 };
 
+Rating.defaultProps = {
+  rating: 0,
+};
+
 Rating.propTypes = {
   name: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.number,
   ratingType: PropTypes.string.isRequired,
 };
 
