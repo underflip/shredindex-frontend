@@ -2,6 +2,7 @@ import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
+import { propTypes } from 'react-markdown';
 import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/ResortCard/ResortCard';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 import ResortCardError from '../../js/components/ResortCardError/ResortCardError';
@@ -17,7 +18,7 @@ export default {
   },
 };
 
-export const ResortCard = (args) => {
+export const ResortCard = ({ cardState }) => {
   const mocks = {
     resortByUrlSegment: {
       request: {
@@ -149,7 +150,7 @@ export const ResortCard = (args) => {
     },
   };
 
-  if (args.cardState === 'initial') {
+  if (cardState === 'initial') {
     return (
       <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
         <Route exact path="resorts/:urlSegment">
@@ -163,7 +164,7 @@ export const ResortCard = (args) => {
       </MemoryRouter>
     );
   }
-  if (args.cardState === 'skeleton') {
+  if (cardState === 'skeleton') {
     return (<ResortCardSkeleton />);
   }
   return (
@@ -176,6 +177,10 @@ export const ResortCard = (args) => {
   );
 };
 
-ResortCard.args = {
+ResortCard.defaultProps = {
   cardState: 'initial',
+};
+
+ResortCard.propTypes = {
+  cardState: propTypes.string,
 };

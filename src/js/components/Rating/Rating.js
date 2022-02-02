@@ -23,7 +23,7 @@ const Rating = ({ name, rating, ratingType }) => {
         <div className="rating-number-border">
           <div className={`rating__border-${colorClassPercentage(rating)} rating-number-wrap me-2 d-inline`}>
             <span className={`rating-number-big user-select-none ${ratingIs100(rating) ? 'rating-100' : ''}`}>{ratingInt}</span>
-            {!ratingIs100(rating) && rating != 0
+            {!ratingIs100(rating) && rating !== 0
               ? (
                 <span className="rating-number-small strong user-select-none">
                   .
