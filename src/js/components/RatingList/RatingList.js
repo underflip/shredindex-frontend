@@ -1,13 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import PropTypes from 'prop-types';
+import { resortAttributeType } from '../../types/types';
 import Rating from '../Rating/Rating';
 
 const RatingList = ({ ratings, label, labelMessageId }) => {
   if (ratings.length < 1) {
     return (
       <div className="rating-list-label user-select-none">
-        <FormattedMessage id="shredindex.ratinglist.NORATINGSAVAILABLE" defaultMessage="No Ratings Available" />
+        <FormattedMessage id="shredindex.ratinglist.NO_RATINGS_AVAILABLE" defaultMessage="No Ratings Available" />
       </div>
     );
   }
@@ -19,11 +20,9 @@ const RatingList = ({ ratings, label, labelMessageId }) => {
       </div>
       <div className="list-scroll">
         {ratings
-          .map(({
-            id, title, value,
-          }) => (
+          .map(({ id, title, value }) => (
             <div key={id} className="rating mb-3 me-1">
-              <Rating name={title} rating={value} ratingType="sub-rating" />
+              <Rating title={title} rating={value} />
             </div>
           ))}
       </div>
@@ -31,14 +30,8 @@ const RatingList = ({ ratings, label, labelMessageId }) => {
   );
 };
 
-const ScoreType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
-});
-
 RatingList.propTypes = {
-  ratings: PropTypes.arrayOf(ScoreType).isRequired,
+  ratings: PropTypes.arrayOf(resortAttributeType).isRequired,
   label: PropTypes.string.isRequired,
   labelMessageId: PropTypes.string.isRequired,
 };

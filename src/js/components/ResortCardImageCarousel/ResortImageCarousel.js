@@ -2,6 +2,7 @@ import React from 'react';
 import Flickity from 'react-flickity-component';
 import PropTypes from 'prop-types';
 import resortImagePlaceholder from '../../../images/resort-image-placeholder.svg';
+import { imageType } from '../../types/types';
 
 const ResortImageCarousel = ({ images }) => {
   const flickityOptions = {
@@ -33,18 +34,8 @@ const ResortImageCarousel = ({ images }) => {
   );
 };
 
-export const ImagesType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  image: {
-    path: PropTypes.string.isRequired,
-    content_type: PropTypes.string.isRequired,
-  },
-});
-
 ResortImageCarousel.propTypes = {
-  images: PropTypes.arrayOf(ImagesType).isRequired,
+  images: PropTypes.arrayOf(imageType).isRequired,
 };
 
 export default ResortImageCarousel;

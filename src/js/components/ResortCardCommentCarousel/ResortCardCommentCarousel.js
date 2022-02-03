@@ -1,7 +1,7 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
-import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { commentType } from '../../types/types';
 
 const ResortCardCommentCarousel = ({ comments }) => {
   const flickityOptions = {
@@ -17,7 +17,7 @@ const ResortCardCommentCarousel = ({ comments }) => {
         <div className="resort-card__comment w-100 d-flex flex-column justify-content-between">
           <span className="resort-card__comment-text small user-select-none">
             <FormattedMessage
-              id="shredindex.commentcard.NOCOMMENTSSAVAILABLE"
+              id="shredindex.commentcard.NO_COMMENTS_SAVAILABLE"
               defaultMessage="No Comments Available"
             />
           </span>
@@ -57,14 +57,8 @@ const ResortCardCommentCarousel = ({ comments }) => {
   );
 };
 
-const CommentsType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  comment: PropTypes.string.isRequired,
-});
-
 ResortCardCommentCarousel.propTypes = {
-  comments: PropTypes.arrayOf(CommentsType).isRequired,
+  comments: commentType.isRequired,
 };
 
 export default ResortCardCommentCarousel;

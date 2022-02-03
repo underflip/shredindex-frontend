@@ -1,16 +1,15 @@
-import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 import {
-  CCard, CCardHeader, CCardBody, CCardFooter,
+  CCard, CCardBody, CCardFooter, CCardHeader,
 } from '@coreui/react';
+import { gql } from 'apollo-boost';
 import PropTypes from 'prop-types';
+import React from 'react';
+import useResortCardToggledState from '../../hooks/useResortCardToggledState';
+import ResortCardFooter from '../ResorctCardFooter/ResortCardFooter';
 import ResortCardBody from '../ResortCardBody/ResortCardBody';
 import ResortCardHeader from '../ResortCardHeader/ResortCardHeader';
-import ResortCardFooter from '../ResorctCardFooter/ResortCardFooter';
 import ResortCardSkeleton from '../SkeletonState/ResortCardSkeleton';
-import ResortCardError from '../ResortCardError/ResortCardError';
-import useResortCardToggledState from '../../hooks/useResortCardToggledState';
 
 export const QUERY_RESORTCARD = gql`
 query ResortByURLSegment($url_segment: String!) {
@@ -87,9 +86,7 @@ function ResortCard({ resortId, urlSegment }) {
   } = data;
 
   if (!resort || error) {
-    return (
-      <ResortCardError />
-    );
+    throw new Error('Resort failed to load');
   }
 
   const { title, url, total_score } = resort;
@@ -98,7 +95,7 @@ function ResortCard({ resortId, urlSegment }) {
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${!collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <ResortCardHeader title={title} total_score={total_score} />
+          <ResortCardHeader title={title} totalScore={total_score} />
         </CCardHeader>
         <CCardBody className="resort-card__body-wrap pt-0 pb-0">
           <ResortCardBody resort={resort} collapsed={!collapsed} />

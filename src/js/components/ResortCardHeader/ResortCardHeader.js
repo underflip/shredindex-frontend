@@ -1,17 +1,17 @@
-import React from 'react';
-
 import PropTypes from 'prop-types';
+import React from 'react';
+import { resortAttributeType } from '../../types/types';
 import Rating from '../Rating/Rating';
 
-const ResortCardHeader = ({ title, total_score }) => (
+const ResortCardHeader = ({ title, totalScore: { value } }) => (
   <div className="rating mb-3">
-    <Rating name={title} rating={total_score.value} ratingType="total-rating" />
+    <Rating title={title} rating={value} ratingType="total-rating" />
   </div>
 );
 
 ResortCardHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  total_score: PropTypes.number.isRequired,
+  totalScore: resortAttributeType.isRequired,
 };
 
 export default ResortCardHeader;

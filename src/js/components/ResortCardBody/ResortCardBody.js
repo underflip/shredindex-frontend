@@ -1,10 +1,10 @@
-import React from 'react';
-import CIcon from '@coreui/icons-react';
 import { cilShareAlt } from '@coreui/icons';
-import PropTypes from 'prop-types';
-import ResortImageCarousel, { ImagesType } from '../ResortCardImageCarousel/ResortImageCarousel';
-import ResortCardCommentCarousel from '../ResortCardCommentCarousel/ResortCardCommentCarousel';
+import CIcon from '@coreui/icons-react';
+import React from 'react';
+import { resortType } from '../../types/types';
 import RatingList from '../RatingList/RatingList';
+import ResortCardCommentCarousel from '../ResortCardCommentCarousel/ResortCardCommentCarousel';
+import ResortImageCarousel from '../ResortCardImageCarousel/ResortImageCarousel';
 import ResortCardLocation from '../ResortCardLocation/ResortCardLocation';
 
 const ResortCardBody = ({
@@ -56,45 +56,8 @@ const ResortCardBody = ({
   </div>
 );
 
-const RatingsType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]).isRequired,
-});
-
-const CountryStateType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  code: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-});
-
-const CommentsType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  comment: PropTypes.string.isRequired,
-});
-
-const LocationType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  country: CountryStateType.isRequired,
-  state: CountryStateType,
-});
-
-const ResortType = PropTypes.shape({
-  description: PropTypes.string.isRequired,
-  location: LocationType.isRequired,
-  highlights: PropTypes.arrayOf(RatingsType).isRequired,
-  lowlights: PropTypes.arrayOf(RatingsType).isRequired,
-  comments: PropTypes.arrayOf(CommentsType).isRequired,
-  resort_images: PropTypes.arrayOf(ImagesType).isRequired,
-});
-
 ResortCardBody.propTypes = {
-  resort: ResortType.isRequired,
+  resort: resortType.isRequired,
 };
 
 export default ResortCardBody;

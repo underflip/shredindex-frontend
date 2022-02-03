@@ -1,57 +1,43 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
-const Rating = ({ name, rating, ratingType }) => {
+const Rating = ({ title, rating, ratingType }) => {
+  const [ratingInt, ratingDecimal] = rating.toString().split('.');
+  const styleSuffix = Math.ceil(rating / 20) * 20;
+  const isMax = rating >= 100;
   const barStyle = {
     width: `${rating}%`,
   };
 
-  function colorClassPercentage() {
-    return Math.ceil(rating / 20) * 20;
-  }
-
-  const [ratingInt, ratingDecimal] = rating.toString().split('.');
-
-  function ratingIs100(ratingScore) {
-    if (ratingScore === 100) return true;
-    return false;
-  }
-
   return (
-    <>
-      <div className={ratingType}>
-        <div className="rating-number-border">
-          <div className={`rating__border-${colorClassPercentage(rating)} rating-number-wrap me-2 d-inline`}>
-            <span className={`rating-number-big user-select-none ${ratingIs100(rating) ? 'rating-100' : ''}`}>{ratingInt}</span>
-            {!ratingIs100(rating) && rating !== 0
-              ? (
-                <span className="rating-number-small strong user-select-none">
-                  .
-                  {ratingDecimal || '0'}
-                </span>
-              )
-              : <span className="rating-number-small strong user-select-none" />}
-          </div>
-        </div>
-        <span className="resort-header-card__title display-5 text-left mb-2 user-select-none" color="secondary">
-          {name}
-        </span>
-        <div className="rating-bar-container">
-          <div className={`rating__bar-${colorClassPercentage(rating)} rating-bar`} style={barStyle} />
+    <div className={ratingType}>
+      <div className="rating-number-border">
+        <div className={`rating__border-${styleSuffix} rating-number-wrap me-2 d-inline`}>
+          <span className={`rating-number-big user-select-none ${isMax ? 'rating-100' : ''}`}>{ratingInt}</span>
+          <span className="rating-number-small strong user-select-none">
+            {isMax || `.${ratingDecimal || '0'}`}
+          </span>
         </div>
       </div>
-    </>
+      <span className="resort-header-card__title display-5 text-left mb-2 user-select-none" color="secondary">
+        {title}
+      </span>
+      <div className="rating-bar-container">
+        <div className={`rating__bar-${styleSuffix} rating-bar`} style={barStyle} />
+      </div>
+    </div>
   );
 };
 
 Rating.defaultProps = {
   rating: 0,
+  ratingType: 'sub-rating',
 };
 
 Rating.propTypes = {
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   rating: PropTypes.number,
-  ratingType: PropTypes.string.isRequired,
+  ratingType: PropTypes.string,
 };
 
 export default Rating;
