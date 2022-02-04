@@ -1,4 +1,4 @@
-.rating-bar-container {
+.rating__bar-container {
   width: 100%;
   height: 0.125rem;
   position: absolute;
@@ -6,7 +6,7 @@
   background-color: $gray-300;
 }
 
-.rating-number-wrap {
+.rating__number-wrap {
   position: absolute;
   font-family: $headings-font-family;
 
@@ -29,12 +29,12 @@
     width: 50%;
     transform: skewX(22deg);
   }
-  .rating-number-small {
+  .rating__number-small {
     font-size: xx-small;
   }
 }
 
-.rating-number-border {
+.rating__number-border {
   display: inline-flex;
   position: absolute;
   bottom: 0;
@@ -49,47 +49,51 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  .rating-number-wrap {
-    padding: .18rem .3rem .0rem 0.8rem;
-    height: 2.1875rem;
+  .rating {
+    &__number-wrap {
+      padding: .18rem .3rem .0rem 0.8rem;
+      height: 2.1875rem;
 
-    &:before {
-      border-top-left-radius: .5rem;
-      border-bottom-left-radius: .7rem;
-      border-top: 0.125rem solid;
-      border-bottom: 0.125rem solid;
-      border-left: 0.125rem solid;
+      &:before {
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .7rem;
+        border-top: 0.125rem solid;
+        border-bottom: 0.125rem solid;
+        border-left: 0.125rem solid;
+      }
+
+      &:after {
+        border-top-right-radius: .5rem;
+        border-top: 0.125rem solid;
+        border-right: 0.125rem solid;
+      }
     }
-    &:after {
-      border-top-right-radius: .5rem;
-      border-top: 0.125rem solid;
-      border-right: 0.125rem solid;
+
+    &__title {
+      font-family: $headings-font-family;
+      font-size: 1.1875rem;
+      font-weight: bold;
+      padding-left: 3.8rem;
+      position: relative;
+      line-height: 1.8;
     }
-  }
-  .resort-header-card__title {
-    font-family: $headings-font-family;
-    font-size: 1.1875rem;
-    font-weight: bold;
-    padding-left: 3.8rem;
-    position: relative;
-    line-height: 1.8;
-  }
 
-  .rating-number-big {
-    font-size: 1.25rem;
-  }
+    &__number-big {
+      font-size: 1.25rem;
+    }
 
-  .rating-number-border {
-    width: 3.5rem;
-    height: 2.1875rem;
-  }
+    &__number-border {
+      width: 3.5rem;
+      height: 2.1875rem;
+    }
 
-  .rating-bar-container {
-    margin-left: 0.5rem;
-  }
+    &__bar-container {
+      margin-left: 0.5rem;
+    }
 
-  .rating-bar {
-    height: 0.125rem;
+    &__bar {
+      height: 0.125rem;
+    }
   }
 }
 
@@ -101,50 +105,52 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  .rating-number-big {
-    font-size: 1rem;
-  }
-
-  .rating-100 {
-    margin-left: -0.1rem;
-  }
-
-  .rating-number-wrap {
-    height: 1.5625rem;
-    padding: 0.05rem 0.25rem 0 0.65rem;
-
-    &:before {
-      border-top-left-radius: .3rem;
-      border-bottom-left-radius: .7rem;
-      border-top: 1px solid;
-      border-bottom: 1px solid;
-      border-left: 1px solid;
+  .rating {
+    &__number-big {
+      font-size: 1rem;
     }
-    &:after {
-      border-top-right-radius: .3rem;
-      border-top: 1px solid;
-      border-right: 1px solid;
+
+    &__is-100 {
+      margin-left: -0.1rem;
     }
-  }
 
-  .resort-header-card__title {
-    padding-left: 3.1rem;
-    position: relative;
-    font-size: 0.8rem;
-    line-height: 2.0;
-    font-weight: 500;
-  }
+    &__number-wrap {
+      height: 1.5625rem;
+      padding: 0.05rem 0.25rem 0 0.65rem;
 
-  .rating-number-border {
-    width: 3rem;
-    height: 1.5625rem;
-  }
+      &:before {
+        border-top-left-radius: .3rem;
+        border-bottom-left-radius: .7rem;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-left: 1px solid;
+      }
+      &:after {
+        border-top-right-radius: .3rem;
+        border-top: 1px solid;
+        border-right: 1px solid;
+      }
+    }
 
-  .rating-bar-container {
-    height: 1px;
-    margin-left: 0.625rem;
+    &__title {
+      padding-left: 3.1rem;
+      position: relative;
+      font-size: 0.8rem;
+      line-height: 2.0;
+      font-weight: 500;
+    }
 
-    .rating-bar {
+    &__number-border {
+      width: 3rem;
+      height: 1.5625rem;
+    }
+
+    &__bar-container {
+      height: 1px;
+      margin-left: 0.625rem;
+    }
+
+    &__bar {
       height: 1px;
     }
   }

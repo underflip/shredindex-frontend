@@ -11,7 +11,7 @@ const ResortCardError = ({
     <CCard className="resort-card__wrap collapsed">
       <CCardHeader className="resort-card__header-wrap pb-0">
         <div className="total-rating">
-          <span className="ps-0 resort-header-card__title display-5 text-left mb-2 user-select-none mb-4" color="secondary">
+          <span className="ps-0 rating__title display-5 text-left mb-2 user-select-none mb-4" color="secondary">
             {title}
           </span>
         </div>

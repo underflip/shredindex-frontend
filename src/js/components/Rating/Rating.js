@@ -11,19 +11,19 @@ const Rating = ({ title, rating, ratingType }) => {
 
   return (
     <div className={ratingType}>
-      <div className="rating-number-border">
-        <div className={`rating__border-${styleSuffix} rating-number-wrap me-2 d-inline`}>
-          <span className={`rating-number-big user-select-none ${isMax ? 'rating-100' : ''}`}>{ratingInt}</span>
-          <span className="rating-number-small strong user-select-none">
+      <div className="rating__number-border">
+        <div className={`rating__border-${styleSuffix} rating__number-wrap me-2 d-inline`}>
+          <span className={`rating__number-big user-select-none ${isMax ? 'rating__is-100' : ''}`}>{ratingInt}</span>
+          <span className="rating__number-small strong user-select-none">
             {isMax || `.${ratingDecimal || '0'}`}
           </span>
         </div>
       </div>
-      <span className="resort-header-card__title display-5 text-left mb-2 user-select-none" color="secondary">
+      <span className="rating__title display-5 text-left mb-2 user-select-none" color="secondary">
         {title}
       </span>
-      <div className="rating-bar-container">
-        <div className={`rating__bar-${styleSuffix} rating-bar`} style={barStyle} />
+      <div className="rating__bar-container">
+        <div className={`rating__bar-${styleSuffix} rating__bar`} style={barStyle} />
       </div>
     </div>
   );

@@ -3,7 +3,6 @@ import React from 'react';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
 import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/ResortCard/ResortCard';
-import ResortCardError from '../../js/components/ResortCardError/ResortCardError';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 
 export default {
@@ -12,7 +11,7 @@ export default {
   argTypes: {
     cardState: {
       name: 'Card state',
-      options: ['Full', 'Loading', 'Error'],
+      options: ['Full', 'Loading'],
       control: { type: 'select' },
     },
     resortId: {
@@ -164,17 +163,6 @@ export const ResortCard = (args) => {
 
   if (cardState === 'Loading') {
     return (<ResortCardSkeleton />);
-  }
-
-  if (cardState === 'Error') {
-    return (
-      <ResortCardError
-        title={mocks.errorState.title}
-        help={mocks.errorState.help}
-        error={mocks.errorState.error}
-        errorInfo={mocks.errorState.errorInfo}
-      />
-    );
   }
 
   return (
