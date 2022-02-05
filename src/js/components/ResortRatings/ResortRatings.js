@@ -31,7 +31,7 @@ const ResortRatings = ({ ratings }) => (
               <span className="ms-auto fw-semibold">
                 {value}
                 %
-                </span>
+              </span>
             </div>
             <div className="rating__value progress-group-bars">
               <CProgress thin color="success" value={value} />
