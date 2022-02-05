@@ -21,7 +21,7 @@ const RatingList = ({ ratings, label, labelMessageId }) => {
       <div className="list-scroll">
         {ratings
           .map(({ id, title, value }) => (
-            <div key={id} className="rating mb-3 me-1">
+            <div key={id} className="mb-3 me-1">
               <Rating title={title} rating={value} />
             </div>
           ))}

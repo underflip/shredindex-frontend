@@ -4,7 +4,7 @@ import { resortAttributeType } from '../../types/types';
 import Rating from '../Rating/Rating';
 
 const ResortCardHeader = ({ title, totalScore: { value } }) => (
-  <div className="rating mb-3">
+  <div className="mb-3">
     <Rating title={title} rating={value} ratingType="total-rating" />
   </div>
 );

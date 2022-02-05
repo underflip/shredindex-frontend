@@ -6,7 +6,7 @@ import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/Resor
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 
 export default {
-  title: 'Shred index/components/ResortCard',
+  title: 'Shred index/components',
   component: ResortCardComponent,
   argTypes: {
     cardState: {
