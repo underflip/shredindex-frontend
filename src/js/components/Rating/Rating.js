@@ -10,7 +10,7 @@ const Rating = ({ title, rating, ratingType }) => {
   };
 
   return (
-    <div className={ratingType}>
+    <div className={`rating rating--${ratingType}`}>
       <div className="rating__number-border">
         <div className={`rating__border-${styleSuffix} rating__number-wrap me-2 d-inline`}>
           <span className={`rating__number-big user-select-none ${isMax ? 'rating__is-100' : ''}`}>{ratingInt}</span>
