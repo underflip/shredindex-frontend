@@ -175,11 +175,17 @@
     line-height: 2.8125rem;
   }
 
-  &__go-to-resort {
+  &__go-to-resort-button {
     position: relative;
     float: right;
     line-height: 2.8125rem;
     z-index: 2;
+  }
+
+  &__go-to-resort-text {
+    opacity: 0;
+    transition-duration: $card-animation-transition-time;
+    transition-delay: $card-animation-transition-time;
   }
 
   &__resort-link {
@@ -353,6 +359,10 @@
     &__content-2 {
       opacity: 1;
       max-height: 13.75rem;
+    }
+
+    &__go-to-resort-text {
+      opacity: 1;
     }
 
     &__expand .icon {
