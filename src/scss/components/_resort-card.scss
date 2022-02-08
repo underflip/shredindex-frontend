@@ -118,15 +118,17 @@
     position: relative;
     cursor: pointer;
     padding: 0;
+  }
 
+  &__expand {
     &:before {
       content: "";
       position: absolute;
       top: 0;
-      left: 1.7rem;
+      left: -1.7rem;
       height: 100%;
       border-top-left-radius: .5rem;
-      width: 100%;
+      width: 150%;
       background-color: $card-bg-semi-transparent;
       transform: skewX(
           -25deg);
@@ -136,17 +138,18 @@
     &:hover:before {
       background-color: $gray-300;
     }
+  }
 
+  &__resort-link {
     &:after {
       content: "";
       position: absolute;
       top: 0;
       height: 100%;
       border-top-left-radius: .5rem;
-      opacity: .2;
-      background: $warning;
+      background: #533c66;
       right: -0.625rem;
-      width: 4.0625rem;
+      width: 4.25rem;
       transition-duration: $card-animation-transition-time;
       transform: skewX(
           -25deg);
@@ -173,6 +176,7 @@
     margin-left: 3.2rem;
     position: relative;
     line-height: 2.8125rem;
+    width: 100%;
   }
 
   &__go-to-resort-button {
@@ -191,7 +195,8 @@
   &__resort-link {
     height: 2.8125rem;
     color: $white;
-    padding: 0rem 1rem;
+    padding-right: 1rem;
+    width: 0rem;
   }
 
   &__expand .icon {
@@ -343,11 +348,23 @@
 
 .full-expanded {
   .resort-card {
-    &__footer-wrap {
+
+    &__resort-link {
+      width: 18rem;
+
+      &:hover {
+        color: $body-color;
+      }
 
       &:after {
-        opacity: 1;
+        background: $warning;
         width: 11rem;
+      }
+
+      &:hover {
+        &:after {
+          background: $warning-dark;
+        }
       }
     }
 
@@ -363,6 +380,10 @@
 
     &__go-to-resort-text {
       opacity: 1;
+
+      &:hover {
+        color: $body-color;
+      }
     }
 
     &__expand .icon {
