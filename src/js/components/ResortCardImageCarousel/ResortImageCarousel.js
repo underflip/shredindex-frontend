@@ -11,6 +11,8 @@ const ResortImageCarousel = ({ images }) => {
     prevNextButtons: false,
     pageDots: images.length > 1,
     fullscreen: true,
+    selectedAttraction: 0.2,
+    friction: 0.8,
   };
 
   return (
