@@ -141,6 +141,13 @@
   }
 
   &__resort-link {
+    &:hover{
+      color: $white;
+      &:after {
+        background: $warning-dark;
+      }
+    }
+
     &:after {
       content: "";
       position: absolute;
@@ -187,6 +194,8 @@
   }
 
   &__go-to-resort-text {
+    font-size: .8rem;
+    font-weight: bold;
     opacity: 0;
     transition-duration: $card-animation-transition-time;
     transition-delay: $card-animation-transition-time;
@@ -358,7 +367,7 @@
 
       &:after {
         background: $warning;
-        width: 11rem;
+        width: 10rem;
       }
 
       &:hover {
