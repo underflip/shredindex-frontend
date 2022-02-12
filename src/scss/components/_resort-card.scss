@@ -170,13 +170,29 @@
     overflow: hidden;
   }
 
+  &__carousel-comment-wrap {
+    height: -webkit-fill-available;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__carousel-comment-background {
+    min-width: 100%;
+    width: 15rem;
+    max-width: 176%;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 0;
+  }
+
   &__comment-text {
     display: -webkit-box;
     font-size: small;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
+    margin: .2rem;
   }
 
   &__expand {

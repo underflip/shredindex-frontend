@@ -124,7 +124,7 @@ https://flickity.metafizzy.co
   padding: 0;
   margin: 0;
   list-style: none;
-  text-align: left;
+  text-align: center;
   line-height: 1;
 }
 
@@ -134,23 +134,19 @@ https://flickity.metafizzy.co
 
 .flickity-page-dots .dot {
   display: inline-block;
-  width: 0.625rem;
-  height: 0.625rem;
-  margin: 0 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 0.3rem;
   background: #333;
-  border-radius: 50%;
+  border-radius: 1rem;
   opacity: 0.45;
   cursor: pointer;
   background: $white;
   box-shadow: 0px 0px 4px 2px #1d2e39;
+  transition-duration: $card-animation-transition-time;
 }
 
 .flickity-page-dots .dot.is-selected {
   opacity: 1;
-}
-
-.resort-card__carousel__comment-wrap {
-  .flickity-page-dots {
-    bottom: 1.9rem;
-  }
+  width: 1rem;
 }
