@@ -1,9 +1,11 @@
 import { MockedProvider } from '@apollo/react-testing';
 import React from 'react';
+import { IntlProvider } from 'react-intl';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
 import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/ResortCard/ResortCard';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
+import langEn from '../../js/lang/en.json';
 
 export default {
   title: 'Shred index/components',
@@ -167,14 +169,16 @@ export const ResortCard = (args) => {
 
   return (
     <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
-      <Route exact path="resorts/:urlSegment">
-        <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
-          <ResortCardComponent
-            resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
-            urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
-          />
-        </MockedProvider>
-      </Route>
+      <IntlProvider locale="en" message={langEn}>
+        <Route exact path="resorts/:urlSegment">
+          <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
+            <ResortCardComponent
+              resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
+              urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
+            />
+          </MockedProvider>
+        </Route>
+      </IntlProvider>
     </MemoryRouter>
   );
 };

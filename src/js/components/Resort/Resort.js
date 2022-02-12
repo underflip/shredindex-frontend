@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 import { FormattedMessage } from 'react-intl';
 import { useParams } from 'react-router';
 import {

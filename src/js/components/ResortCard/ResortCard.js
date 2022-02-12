@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/react-hooks';
 import {
   CCard, CCardBody, CCardFooter, CCardHeader,
 } from '@coreui/react';
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 import PropTypes from 'prop-types';
 import React from 'react';
 import useResortCardToggledState from '../../hooks/useResortCardToggledState';
