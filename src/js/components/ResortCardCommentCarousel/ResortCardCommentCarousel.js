@@ -1,7 +1,9 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
 import { FormattedMessage } from 'react-intl';
+import { CImage } from '@coreui/react';
 import { commentType } from '../../types/types';
+import resortCardMountains from '../../../images/resort-card-comment-background.svg';
 
 const ResortCardCommentCarousel = ({ comments }) => {
   const flickityOptions = {
@@ -9,6 +11,8 @@ const ResortCardCommentCarousel = ({ comments }) => {
     wrapAround: true,
     prevNextButtons: false,
     pageDots: comments.length > 1,
+    selectedAttraction: 0.2,
+    friction: 0.8,
   };
 
   if (!comments.length > 0) {
@@ -27,7 +31,8 @@ const ResortCardCommentCarousel = ({ comments }) => {
   }
 
   return (
-    <div className="resort-card__carousel__comment-wrap d-block w-50 ms-2">
+    <div className="resort-card__carousel-comment-wrap d-block w-50 ms-2 border-radius-medium">
+      <CImage className="resort-card__carousel-comment-background position-absolute w-100" src={resortCardMountains} />
       <Flickity
         className="carousel w-100 h-100"
         elementType="div"
@@ -46,7 +51,7 @@ const ResortCardCommentCarousel = ({ comments }) => {
               &rdquo;
             </span>
             <span className="author font-italic user-select-none">
-              &ndash;
+              &#8226;
               &ensp;
               {author}
             </span>
