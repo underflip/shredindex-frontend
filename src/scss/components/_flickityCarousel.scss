@@ -60,9 +60,17 @@ https://flickity.metafizzy.co
   cursor: pointer;
 }
 
+.carousel {
+  .flickity-prev-next-button {
+    opacity: 0;
+  }
+  &:hover .flickity-prev-next-button {
+    opacity: 1;
+  }
+}
+
 .flickity-button:focus {
   outline: none;
-  box-shadow: 0 0 0 0.625rem #19f;
 }
 
 .flickity-button:active {
@@ -77,25 +85,38 @@ https://flickity.metafizzy.co
 }
 
 .flickity-button-icon {
-  fill: #333;
+  fill: $gray-300;
 }
 
 /* ---- previous/next buttons ---- */
 
 .flickity-prev-next-button {
   top: 50%;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
+  width: 1.75rem;
+  height: 1.75rem;
   /* vertically center */
   transform: translateY(-50%);
+  transition-duration: $card-animation-transition-time;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    background-color: $white;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .flickity-prev-next-button {
+    display: none;
+  }
 }
 
 .flickity-prev-next-button.previous {
-  left: 0.625rem;
+  border-radius: 0 50% 50% 0;
 }
+
 .flickity-prev-next-button.next {
-  right: 0.625rem;
+  right: 0rem;
+  border-radius: 50% 0 0 50%;
 }
 /* right to left */
 .flickity-rtl .flickity-prev-next-button.previous {
