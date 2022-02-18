@@ -30,7 +30,6 @@ const mocks = {
 
 describe('Test <Debug />', () => {
   it('succeeds a graphql healthcheck', async () => {
-    const promise = Promise.resolve();
     const wrapper = mount(
       <MockedProvider mocks={[mocks.healthCheckSuccess]} addTypename={false}>
         <Debug />
