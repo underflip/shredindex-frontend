@@ -4,24 +4,10 @@ import { FormattedMessage } from 'react-intl';
 import { CImage } from '@coreui/react';
 import { commentType } from '../../types/types';
 import resortCardMountains from '../../../images/resort-card-comment-background.svg';
+import flickityOptions from '../config/flickity-options';
 
 const ResortCardCommentCarousel = ({ comments }) => {
-  const flickityOptions = {
-    initialIndex: 2,
-    wrapAround: true,
-    prevNextButtons: comments.length > 1,
-    pageDots: comments.length > 1,
-    selectedAttraction: 0.2,
-    friction: 0.8,
-    arrowShape: {
-      x0: 20,
-      x1: 50,
-      y1: 40,
-      x2: 70,
-      y2: 40,
-      x3: 40,
-    },
-  };
+  const options = flickityOptions(comments);
 
   if (!comments.length > 0) {
     return (
@@ -44,7 +30,7 @@ const ResortCardCommentCarousel = ({ comments }) => {
       <Flickity
         className="carousel w-100 h-100"
         elementType="div"
-        options={flickityOptions}
+        options={options}
         disableImagesLoaded={false}
         reloadOnUpdate
         static
