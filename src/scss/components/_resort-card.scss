@@ -107,8 +107,8 @@
 
     .list-scroll {
       max-width: 22rem;
-      overflow-y: scroll;
-      height: 7.657rem;
+      overflow: hidden;
+      height: max-content;
       margin-top: 1.25rem;
     }
   }

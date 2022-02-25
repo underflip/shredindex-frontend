@@ -75,25 +75,25 @@ export const ResortCard = (args) => {
             highlights: [
               {
                 id: '1',
-                title: 'Total Shred Score',
-                value: 100,
+                title: 'Drum n Bass',
+                value: 88,
               },
               {
                 id: '6',
                 title: 'Snow Quality',
-                value: 99,
+                value: 69,
               },
               {
                 id: '7',
                 title: 'Sexy Bitches',
-                value: 75.3,
+                value: 55.3,
               },
             ],
             lowlights: [
               {
                 id: '2',
                 title: 'Family Vacation Score',
-                value: 2,
+                value: 33,
               },
               {
                 id: '4',
@@ -103,7 +103,7 @@ export const ResortCard = (args) => {
               {
                 id: '5',
                 title: 'Co-working Spaces',
-                value: 33,
+                value: 42,
               },
             ],
             resort_images: [

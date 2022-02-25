@@ -5,9 +5,7 @@ const Rating = ({ title, rating, ratingType }) => {
   const [ratingInt, ratingDecimal] = rating.toString().split('.');
   const styleSuffix = Math.ceil(rating / 20) * 20;
   const isMax = rating >= 100;
-  const barStyle = {
-    width: `${rating}%`,
-  };
+  const barWidth = `${rating}%`;
 
   return (
     <div className={`rating rating--${ratingType}`}>
@@ -23,7 +21,8 @@ const Rating = ({ title, rating, ratingType }) => {
         {title}
       </span>
       <div className="rating__bar-container">
-        <div className={`rating__bar-${styleSuffix} rating__bar`} style={barStyle} />
+        <div className={`rating__bar-${styleSuffix} rating__bar`} style={{ width: barWidth }} />
+        <div className={`rating__bar-${styleSuffix} rating__bar-indicator`} style={{ left: barWidth }} />
       </div>
     </div>
   );

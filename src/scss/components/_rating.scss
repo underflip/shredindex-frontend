@@ -1,7 +1,13 @@
+$total-rating-line-width: .188rem;
+$total-rating-indicator-size: .313rem;
+$total-rating-border: $total-rating-line-width solid;
+$sub-rating-line-width: .125rem;
+$sub-rating-indicator-size: .25rem;
+$sub-rating-border: $sub-rating-line-width solid;
+
 .rating {
   position: relative;
   height: 1.5625rem;
-  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 
@@ -17,7 +23,7 @@
     position: absolute;
     font-family: $headings-font-family;
     height: 1.5625rem;
-    padding: 0.05rem 0.25rem 0 0.65rem;
+    padding: 0.05rem 0.28rem 0 0.65rem;
 
     &::before {
       content: "";
@@ -27,11 +33,11 @@
       height: 100%;
       width: 50%;
       transform: skewX(-17deg);
-      border-top-left-radius: 0.3rem;
+      border-top-left-radius: 0.37rem;
       border-bottom-left-radius: 0.7rem;
-      border-top: 1px solid;
-      border-bottom: 1px solid;
-      border-left: 1px solid;
+      border-top: $sub-rating-border;
+      border-bottom: $sub-rating-border;
+      border-left: $sub-rating-border;
     }
 
     &::after {
@@ -39,12 +45,12 @@
       position: absolute;
       top: 0;
       left: 50%;
-      height: 86%;
+      height: 78%;
       width: 50%;
       transform: skewX(22deg);
-      border-top-right-radius: 0.3rem;
-      border-top: 1px solid;
-      border-right: 1px solid;
+      border-top-right-radius: 0.37rem;
+      border-top: $sub-rating-border;
+      border-right: $sub-rating-border;
     }
 
     .rating__number-small {
@@ -53,11 +59,14 @@
   }
 
   &__title {
-    padding-left: 3.1rem;
+    padding-left: 3.2rem;
     position: relative;
     font-size: 0.8rem;
     line-height: 2;
     font-weight: 500;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__number-border {
@@ -71,64 +80,86 @@
 
   &__bar-container {
     width: 100%;
-    height: 1px;
+    height: $sub-rating-line-width;
     position: absolute;
     bottom: 0;
     background-color: $gray-300;
     margin-left: 0.625rem;
+    width: -webkit-fill-available;
   }
 
   &__bar {
-    height: 1px;
+    height: $sub-rating-line-width;
   }
 
   &__border- {
+    &0 {
+      border-color: var(--cui-rating-20);
+      color: var(--cui-rating-20);
+
+    }
+
     &20 {
-      border-color: var(--cui-secondary);
-      color: var(--cui-secondary);
+      border-color: var(--cui-rating-20);
+      color: var(--cui-rating-20);
+
     }
 
     &40 {
-      border-color: var(--cui-warning);
-      color: var(--cui-warning);
+      border-color: var(--cui-rating-40);
+      color: var(--cui-rating-40);
+
     }
 
     &60 {
-      border-color: var(--cui-info);
-      color: var(--cui-info);
+      border-color: var(--cui-rating-60);
+      color: var(--cui-rating-60);
     }
 
     &80 {
-      border-color: var(--cui-primary);
-      color: var(--cui-primary);
+      border-color: var(--cui-rating-80);
+      color: var(--cui-rating-80);
     }
 
     &100 {
-      border-color: var(--cui-success);
-      color: var(--cui-success);
+      border-color: var(--cui-rating-100);
+      color: var(--cui-rating-100);
     }
   }
 
   &__bar- {
+    &0 {
+      background-color: var(--cui-rating-20);
+    }
+
     &20 {
-      background-color: var(--cui-secondary);
+      background-color: var(--cui-rating-20);
     }
 
     &40 {
-      background-color: var(--cui-warning);
+      background-color: var(--cui-rating-40);
     }
 
     &60 {
-      background-color: var(--cui-info);
+      background-color: var(--cui-rating-60);
     }
 
     &80 {
-      background-color: var(--cui-primary);
+      background-color: var(--cui-rating-80);
     }
 
     &100 {
-      background-color: var(--cui-success);
+      background-color: var(--cui-rating-100);
     }
+  }
+
+  &__bar-indicator {
+    width: $sub-rating-indicator-size;
+    height: $sub-rating-indicator-size;
+    position: absolute;
+    margin-left: -2px;
+    top: -1px;
+    border-radius: 50%;
   }
 
   &--total-rating {
@@ -142,15 +173,15 @@
         &::before {
           border-top-left-radius: 0.5rem;
           border-bottom-left-radius: 0.7rem;
-          border-top: 0.125rem solid;
-          border-bottom: 0.125rem solid;
-          border-left: 0.125rem solid;
+          border-top: $total-rating-border;
+          border-bottom: $total-rating-border;
+          border-left: $total-rating-border;
         }
 
         &::after {
           border-top-right-radius: 0.5rem;
-          border-top: 0.125rem solid;
-          border-right: 0.125rem solid;
+          border-top: $total-rating-border;
+          border-right: $total-rating-border;
         }
       }
 
@@ -172,12 +203,20 @@
       }
 
       &__bar-container {
-        height: 2px;
+        height: $total-rating-line-width;
         margin-left: 0.5rem;
       }
 
       &__bar {
-        height: 2px;
+        height: $total-rating-line-width;
+      }
+
+      &__bar-indicator {
+        height: $total-rating-indicator-size;
+        width: $total-rating-indicator-size;
+        position: absolute;
+        top: -1px;
+        border-radius: 50%;
       }
     }
   }

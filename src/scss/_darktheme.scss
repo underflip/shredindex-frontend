@@ -128,6 +128,12 @@ $dark-gradient: (
   "stop": $gray-100
 );
 
+$rating-20: #F0A5A6;
+$rating-40: #F7C99E;
+$rating-60: #E0D69B;
+$rating-80: #BEF79E;
+$rating-100: #A6F0D6;
+
 $pink: #ff68ae;
 
 $theme-colors: ();
@@ -135,13 +141,18 @@ $theme-colors: ();
 $theme-colors: map-merge(
   (
     "primary": $primary,
-    "secondary": $secondary-25,
+    "secondary": $secondary-50,
     "success": $success,
     "info": $info,
     "warning": $warning,
     "danger": $danger,
     "light": $light,
-    "dark": $dark
+    "dark": $dark,
+    "rating-20": $rating-20,
+    "rating-40": $rating-40,
+    "rating-60": $rating-60,
+    "rating-80": $rating-80,
+    "rating-100": $rating-100,
   ),
   $theme-colors
 );
