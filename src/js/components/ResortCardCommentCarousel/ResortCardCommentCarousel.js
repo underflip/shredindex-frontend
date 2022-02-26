@@ -7,7 +7,11 @@ import resortCardMountains from '../../../images/resort-card-comment-background.
 import flickityOptions from '../config/flickity-options';
 
 const ResortCardCommentCarousel = ({ comments }) => {
-  const options = flickityOptions(comments);
+  const options = {
+    ...flickityOptions,
+    prevNextButtons: comments.length > 1,
+    pageDots: comments.length > 1,
+  };
 
   if (!comments.length > 0) {
     return (
