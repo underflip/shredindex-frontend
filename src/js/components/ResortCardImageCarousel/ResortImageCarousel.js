@@ -6,7 +6,11 @@ import { imageType } from '../../types/types';
 import flickityOptions from '../config/flickity-options';
 
 const ResortImageCarousel = ({ images }) => {
-  const options = flickityOptions(images);
+  const options = {
+    ...flickityOptions,
+    prevNextButtons: images.length > 1,
+    pageDots: images.length > 1,
+  };
 
   return (
     <div className="resort-card__carousel__image-wrap w-50 ms-2 mb-2">
