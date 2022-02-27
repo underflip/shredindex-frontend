@@ -109,8 +109,8 @@ export const ResortCard = (args) => {
             resort_images: [
               {
                 id: '1',
-                name: 'Yoy yoyoyo',
-                alt: 'Yo yo',
+                name: 'Fernie Bowls',
+                alt: 'fernie-bowls',
                 sort_order: 1,
                 image: {
                   path: 'https://www.snowseasoncentral.com/wp-content/uploads/2020/01/fernie-bowls.jpg',
@@ -119,8 +119,8 @@ export const ResortCard = (args) => {
               },
               {
                 id: '2',
-                name: 'Yoy yoyoyo',
-                alt: 'Yo yo',
+                name: 'Tokyo Elevator',
+                alt: 'tokyo-elevator',
                 sort_order: 1,
                 image: {
                   path: 'https://www.merqurycity.com/ssximages/tokyoinelevator.jpg',
@@ -129,8 +129,8 @@ export const ResortCard = (args) => {
               },
               {
                 id: '3',
-                name: 'Yoyoyo',
-                alt: 'wqwqd',
+                name: 'Lots of Air',
+                alt: 'lots-of-air',
                 sort_order: 1,
                 image: {
                   path: 'https://www.mobygames.com/images/shots/l/109138-ssx-tricky-gamecube-screenshot-you-can-get-a-lot-of-air-at.png',

@@ -47,7 +47,7 @@ const ResortCardBody = ({
           <RatingList
             labelMessageId="shredindex.ratinglist.LOWLIGHTS"
             label="Lowlights"
-            ratings={lowlights.sort((a, b) => b.value - a.value)}
+            ratings={lowlights.slice().sort((a, b) => (a.value > b.value ? -1 : 1))}
           />
         </div>
         <ResortCardCommentCarousel comments={comments} />

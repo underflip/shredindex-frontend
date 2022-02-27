@@ -22,9 +22,9 @@ const ResortImageCarousel = ({ images }) => {
         reloadOnUpdate
         static
       >
-        {images.length > 0 ? images.map(({ id, name, image }) => (
+        {images.length > 0 ? images.map(({ id, alt, image }) => (
           <div className="w-100 h-100">
-            <img key={id} className="resort-carousel-image" src={image.path} alt={name} />
+            <img key={id} className="resort-carousel-image" src={image.path} alt={alt} />
           </div>
         ))
           : <img className="resort-carousel-image" src={resortImagePlaceholder} alt="shred-index-resort-placeholder" />}
