@@ -13,7 +13,7 @@ export default {
   argTypes: {
     cardState: {
       name: 'Card state',
-      options: ['Full', 'Loading'],
+      options: ['Full', 'Loading', 'Minimal Data', 'No Data'],
       control: { type: 'select' },
     },
     resortId: {
@@ -163,8 +163,122 @@ export const ResortCard = (args) => {
     },
   };
 
+  const mocksNoData = {
+    resortByUrlSegment: {
+      request: {
+        query: QUERY_RESORTCARD,
+        variables: {
+          url_segment: 'tokyo-megaplex',
+        },
+      },
+      result: {
+        data: {
+          resortByUrlSegment: {
+            id: '1',
+            title: 'Tokyo Megaplex',
+            url_segment: 'tokyo-megaplex',
+            url: 'resorts/tokyo-megaplex',
+            highlights: [
+            ],
+            lowlights: [
+            ],
+            resort_images: [
+            ],
+            comments: [
+            ],
+            __typename: 'Resort',
+          },
+        },
+      },
+    },
+  };
+
+  const mocksMinimalData = {
+    resortByUrlSegment: {
+      request: {
+        query: QUERY_RESORTCARD,
+        variables: {
+          url_segment: 'tokyo-megaplex',
+        },
+      },
+      result: {
+        data: {
+          resortByUrlSegment: {
+            id: '1',
+            title: 'Tokyo Megaplex',
+            url_segment: 'tokyo-megaplex',
+            url: 'resorts/tokyo-megaplex',
+            highlights: [
+              {
+                id: '1',
+                title: 'Drum n Bass',
+                value: 88,
+              },
+              {
+                id: '6',
+                title: 'Snow Quality',
+                value: 69,
+              },
+            ],
+            lowlights: [
+              {
+                id: '1',
+                title: 'Drum n Bass',
+                value: 88,
+              },
+              {
+                id: '6',
+                title: 'Snow Quality',
+                value: 69,
+              },
+            ],
+            resort_images: [
+            ],
+            comments: [
+            ],
+            __typename: 'Resort',
+          },
+        },
+      },
+    },
+  };
+
   if (cardState === 'Loading') {
     return (<ResortCardSkeleton />);
+  }
+
+  if (cardState === 'Minimal Data') {
+    return (
+      <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
+        <IntlProvider locale="en" message={langEn}>
+          <Route exact path="resorts/:urlSegment">
+            <MockedProvider mocks={[mocksMinimalData.resortByUrlSegment]} addTypename={false}>
+              <ResortCardComponent
+                resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
+                urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
+              />
+            </MockedProvider>
+          </Route>
+        </IntlProvider>
+      </MemoryRouter>
+    );
+  }
+
+  if (cardState === 'No Data') {
+    return (
+      <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
+        <IntlProvider locale="en" message={langEn}>
+          <Route exact path="resorts/:urlSegment">
+            <MockedProvider mocks={[mocksNoData.resortByUrlSegment]} addTypename={false}>
+              <ResortCardComponent
+                resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
+                urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
+              />
+            </MockedProvider>
+          </Route>
+        </IntlProvider>
+      </MemoryRouter>
+    );
   }
 
   return (

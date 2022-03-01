@@ -51,6 +51,7 @@
 
   &__location {
     width: 100%;
+    min-height: 1.25rem;
   }
 
   &__location-title {
@@ -64,10 +65,16 @@
     font-size: small;
   }
 
-  &__description, &__content-2{
+  &__description, &__description--not-available, &__content-2{
     opacity: 0;
     max-height: 0;
     transition-duration: $card-animation-transition-time;
+
+    &--not-available {
+      opacity: 0;
+      height: 0rem;
+      transition-duration: $card-animation-transition-time;
+    }
   }
 
   &__description {
@@ -99,18 +106,18 @@
   &__sub-ratings-list {
     width: 50%;
 
-    .rating-list-label {
-      font-size: .6rem;
-      color: $gray-700;
-      position: absolute;
-    }
-
-    .list-scroll {
+    .rating-list__list-scroll {
       max-width: 22rem;
       overflow: hidden;
       height: max-content;
-      margin-top: 1.25rem;
+      margin-top: .55rem;
     }
+  }
+
+  &__small-label {
+    font-size: .6rem;
+    font-weight: normal;
+    color: $gray-700;
   }
 
   &__footer-wrap {
@@ -176,25 +183,6 @@
     overflow: hidden;
   }
 
-  &__carousel-comment-background {
-    min-width: 100%;
-    width: 15rem;
-    max-width: 176%;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: 0;
-  }
-
-  &__comment-text {
-    display: -webkit-box;
-    font-size: small;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    margin: .2rem;
-  }
-
   &__expand {
     margin-left: 3.2rem;
     position: relative;
@@ -229,7 +217,7 @@
     transition-duration: $card-animation-transition-time;
   }
 
-  &__skeleton {
+  &--skeleton {
     &:nth-child(2) {
       opacity: 0.80;
     }
@@ -354,7 +342,8 @@
       height: 2.875rem;
       border: none;
 
-      &:before {
+      & .resort-card__expand:before {
+        height: 3.8rem;
         background-color: $gray-300 !important;
       }
 
@@ -396,6 +385,11 @@
     &__description {
       opacity: 1;
       max-height: 6.25rem;
+
+      &--not-available {
+        opacity: 1;
+        height: 2.8rem;
+      }
     }
 
     &__content-2 {

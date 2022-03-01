@@ -82,96 +82,212 @@ const dataProvider = {
   },
 };
 
-describe('ResortCard', () => {
+const mocksMinimalData = {
+  resortByUrlSegment: {
+    highlights: [
+      {
+        id: '1',
+        title: 'Drum n Bass',
+        value: 88,
+      },
+      {
+        id: '6',
+        title: 'Snow Quality',
+        value: 69,
+      },
+    ],
+    lowlights: [
+      {
+        id: '1',
+        title: 'Drum n Bass',
+        value: 88,
+      },
+      {
+        id: '6',
+        title: 'Snow Quality',
+        value: 69,
+      },
+    ],
+  },
+};
+
+describe('Resort Card Full Expanded', () => {
   beforeEach(() => {
-    context('All devices', () => {
+    context('Full Expanded', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card');
     });
   });
 
-  context('All devices', () => {
-    dataProvider.resortByUrlSegment.highlights.forEach((data) => {
-      const { title, value } = data;
-
-      it('Has a card title', () => {
-        cy.get('.rating__title').should('contain.text', 'Tokyo Megaplex');
-      });
-
-      it('Has a total rating', () => {
-        cy.get('.rating--total-rating').within(($totalRating) => {
-          cy.get('.rating__number-big').should('contain.text', '96');
-          cy.get('.rating__number-small').should('contain.text', '.7');
-        });
-      });
-
-      it('Has a resort flag', () => {
-        cy.get('.resort-card__country-flag-image').should('have.attr', 'src', 'https://flagcdn.com/jp.svg');
-      });
-
-      it('Has a location', () => {
-        cy.get('.resort-card__location-title').within(($location) => {
-          cy.get('span').should('contain.text', 'Tokyo,');
-          cy.get('span').next().should('contain.text', 'KW,');
-          cy.get('span').next().next().should('contain.text', 'Japan');
-        });
-      });
-
-      it('Has a description', () => {
-        cy.get('.resort-card__description').should('contain.text', 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.');
-      });
-
-      it('Has a share button', () => {
-        cy.get('.resort-card__share-wrap ').should('exist');
-      });
-
-      it(`Should render highlight "${title}"`, () => {
-        cy.get('.rating__title')
-          .contains(`${title}`).next()
-          .within(($subRating) => {
-            cy.get('.rating__bar').should('have.attr', 'style', `width: ${value}%;`);
-          });
-      });
-    });
-
-    dataProvider.resortByUrlSegment.lowlights.forEach((data) => {
-      const { title, value } = data;
-
-      it(`Should render lowlight "${title}"`, () => {
-        cy.get('.rating__title')
-          .contains(`${title}`).next()
-          .within(($subRating) => {
-            cy.get('.rating__bar').should('have.attr', 'style', `width: ${value}%;`);
-          });
-      });
-    });
-
-    dataProvider.resortByUrlSegment.resort_images.forEach((data) => {
-      const { alt, image: { path } } = data;
-
-      it(`Should render carousel images "${alt}"`, () => {
-        cy.get(`[alt="${alt}"]`).should('have.attr', 'src', `${path}`);
-      });
-    });
-
-    dataProvider.resortByUrlSegment.comments.forEach((data) => {
-      const { comment, author } = data;
-
-      it(`Should render carousel comment by "${author}"`, () => {
-        cy.get('.author').contains(`${author}`).prev().contains(`${comment}`);
-      });
-    });
-
-    it('Card Expands', () => {
-      if (cy.get('.full-expanded').should('not.exist')) {
+  it('Card Expands', () => {
+    cy.get('.card').then(($card) => {
+      if ($card.hasClass('collapsed')) {
         cy.get('.resort-card__expand').click();
         cy.get('.full-expanded').should('exist');
+      } else {
+        cy.get('.resort-card__expand').click();
+        cy.get('.card.collapsed').should('exist');
       }
     });
+  });
 
-    it('Has a Go to Resort Button', () => {
-      cy.get('.resort-card__resort-link').should('have.attr', 'href').then((href) => {
-        expect(href.endsWith('tokyo-megaplex')).to.be.true;
+  it('Card Collapses', () => {
+    cy.get('.card').then(($card) => {
+      if ($card.hasClass('full-expanded')) {
+        cy.get('.resort-card__expand').click();
+        cy.get('.card.collapsed').should('exist');
+      } else {
+        cy.get('.resort-card__expand').click();
+        cy.get('.card.full-expanded').should('exist');
+      }
+    });
+  });
+
+  dataProvider.resortByUrlSegment.highlights.forEach((data) => {
+    const { title, value } = data;
+
+    it('Has a card title', () => {
+      cy.get('.rating__title').should('contain.text', 'Tokyo Megaplex');
+    });
+
+    it('Has a total rating', () => {
+      cy.get('.rating--total-rating').within(($totalRating) => {
+        cy.get('.rating__number-big').should('contain.text', '96');
+        cy.get('.rating__number-small').should('contain.text', '.7');
       });
     });
+
+    it('Has a resort flag', () => {
+      cy.get('.resort-card__country-flag-image').should('have.attr', 'src', 'https://flagcdn.com/jp.svg');
+    });
+
+    it('Has a location', () => {
+      cy.get('.resort-card__location-title').within(($location) => {
+        cy.get('span').should('contain.text', 'Tokyo,');
+        cy.get('span').next().should('contain.text', 'KW,');
+        cy.get('span').next().next().should('contain.text', 'Japan');
+      });
+    });
+
+    it('Has a description', () => {
+      cy.get('.resort-card__description').should('contain.text', 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.');
+    });
+
+    it('Has a share button', () => {
+      cy.get('.resort-card__share-wrap').should('exist');
+    });
+
+    it(`Should render highlight "${title}"`, () => {
+      cy.get('.rating__title')
+        .contains(`${title}`).next()
+        .within(($subRating) => {
+          cy.get('.rating__bar').should('have.attr', 'style', `width: ${value}%;`);
+        });
+    });
+  });
+
+  dataProvider.resortByUrlSegment.lowlights.forEach((data) => {
+    const { title, value } = data;
+
+    it(`Should render lowlight "${title}"`, () => {
+      cy.get('.rating__title')
+        .contains(`${title}`).next()
+        .within(($subRating) => {
+          cy.get('.rating__bar').should('have.attr', 'style', `width: ${value}%;`);
+        });
+    });
+  });
+
+  dataProvider.resortByUrlSegment.resort_images.forEach((data) => {
+    const { alt, image: { path } } = data;
+
+    it(`Should render carousel images "${alt}"`, () => {
+      cy.get(`[alt="${alt}"]`).should('have.attr', 'src', `${path}`);
+    });
+  });
+
+  dataProvider.resortByUrlSegment.comments.forEach((data) => {
+    const { comment, author } = data;
+
+    it(`Should render carousel comment by "${author}"`, () => {
+      cy.get('.carousel__author').contains(`${author}`).prev().contains(`${comment}`);
+    });
+  });
+
+  it('Has a Go to Resort Button', () => {
+    cy.get('.resort-card__resort-link').should('have.attr', 'href').then((href) => {
+      expect(href.endsWith('tokyo-megaplex')).to.be.true;
+    });
+  });
+});
+
+describe('Resort Card Loading', () => {
+  beforeEach(() => {
+    context('Loading', () => {
+      cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:Loading');
+    });
+  });
+
+  it('Has render a skeleton card', () => {
+    cy.get('.resort-card--skeleton').should('exist');
+  });
+
+  it('Shows a placeholder image', () => {
+    cy.get('.skeleton-content-wrap').should('exist');
+  });
+});
+
+describe('Resort Card Minimal Data', () => {
+  beforeEach(() => {
+    context('Minimal Data', () => {
+      cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:Minimal+Data');
+    });
+  });
+
+  it('Has "ratings" list label', () => {
+    cy.get('.resort-card__sub-ratings-list .resort-card__small-label').should('contain.text', 'Ratings');
+  });
+
+  mocksMinimalData.resortByUrlSegment.highlights.forEach((data) => {
+    const { title, value } = data;
+
+    it(`Should render rating "${title}"`, () => {
+      cy.get('.rating__title')
+        .contains(`${title}`).next()
+        .within(($subRating) => {
+          cy.get('.rating__bar').should('have.attr', 'style', `width: ${value}%;`);
+        });
+    });
+  });
+
+  it('Shows a world flag', () => {
+    cy.get('.resort-card__country-flag-image').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/320px-International_Flag_of_Planet_Earth.svg.png');
+  });
+
+  it('Has a No Location Available prompt', () => {
+    cy.get('.resort-card__location-title .resort-card__small-label').should('contain.text', 'No Location Available');
+  });
+});
+
+describe('Resort Card No Data', () => {
+  beforeEach(() => {
+    context('No Data', () => {
+      cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:No+Data');
+    });
+  });
+
+  it('Total score shows n/a', () => {
+    cy.get('.rating__number-big').should('contain.text', 'n/a');
+  });
+
+  it('Shows a world flag', () => {
+    cy.get('.resort-card__country-flag-image').should('have.attr', 'src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/320px-International_Flag_of_Planet_Earth.svg.png');
+  });
+
+  it('Has a No Location Available prompt', () => {
+    cy.get('.resort-card__location-title .resort-card__small-label').should('contain.text', 'No Location Available');
+  });
+
+  it('Has a unrated resort Prompt', () => {
+    cy.get('.resort-card__small-label').should('contain.text', 'Resort Is Unrated');
   });
 });

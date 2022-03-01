@@ -3,14 +3,14 @@ import React from 'react';
 
 const Rating = ({ title, rating, ratingType }) => {
   const [ratingInt, ratingDecimal] = rating.toString().split('.');
-  const styleSuffix = Math.ceil(rating / 20) * 20;
-  const isMax = rating >= 100;
+  const styleSuffix = rating === 'n/a' ? 'na' : Math.ceil(rating / 20) * 20;
+  const isMax = rating >= 100 || rating === 'n/a';
   const barWidth = `${rating}%`;
 
   return (
     <div className={`rating rating--${ratingType}`}>
       <div className="rating__number-border">
-        <div className={`rating__border-${styleSuffix} rating__number-wrap me-2 d-inline`}>
+        <div className={`rating__border--${styleSuffix} rating__number-wrap me-2 d-inline`}>
           <span className={`rating__number-big user-select-none ${isMax ? 'rating__is-100' : ''}`}>{ratingInt}</span>
           <span className="rating__number-small strong user-select-none">
             {isMax || `.${ratingDecimal || '0'}`}
@@ -21,8 +21,8 @@ const Rating = ({ title, rating, ratingType }) => {
         {title}
       </span>
       <div className="rating__bar-container">
-        <div className={`rating__bar-${styleSuffix} rating__bar`} style={{ width: barWidth }} />
-        <div className={`rating__bar-${styleSuffix} rating__bar-indicator`} style={{ left: barWidth }} />
+        <div className={`rating__bar--${styleSuffix} rating__bar`} style={{ width: barWidth }} />
+        <div className={`rating__bar--${styleSuffix} rating__bar-indicator`} style={{ left: barWidth }} />
       </div>
     </div>
   );

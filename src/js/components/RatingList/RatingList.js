@@ -7,18 +7,18 @@ import Rating from '../Rating/Rating';
 const RatingList = ({ ratings, label, labelMessageId }) => {
   if (ratings.length < 1) {
     return (
-      <div className="rating-list-label user-select-none">
-        <FormattedMessage id="shredindex.ratinglist.NO_RATINGS_AVAILABLE" defaultMessage="No Ratings Available" />
+      <div className="resort-card__small-label user-select-none">
+        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="Resort Is Unrated" />
       </div>
     );
   }
 
   return (
-    <>
-      <div className="rating-list-label user-select-none">
+    <div className="rating-list">
+      <div className="resort-card__small-label user-select-none">
         <FormattedMessage id={labelMessageId} defaultMessage={label} />
       </div>
-      <div className="list-scroll">
+      <div className="rating-list__list-scroll">
         {ratings
           .map(({ id, title, value }) => (
             <div key={id} className="mb-3 me-1">
@@ -26,7 +26,7 @@ const RatingList = ({ ratings, label, labelMessageId }) => {
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 };
 

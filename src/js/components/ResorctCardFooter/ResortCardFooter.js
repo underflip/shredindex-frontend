@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 const ResortCardFooter = ({ url, collapsed }) => (
-  <div className="d-flex justify-content-between">
+  <div className="resort-card__footer d-flex justify-content-between">
     <div className="resort-card__expand">
       <CIcon icon={cilChevronBottom} />
     </div>

@@ -23,11 +23,11 @@ const ResortImageCarousel = ({ images }) => {
         static
       >
         {images.length > 0 ? images.map(({ id, alt, image }) => (
-          <div className="w-100 h-100">
-            <img key={id} className="resort-carousel-image" src={image.path} alt={alt} />
-          </div>
+          <img key={id} className="carousel__image" src={image.path} alt={alt} />
         ))
-          : <img className="resort-carousel-image" src={resortImagePlaceholder} alt="shred-index-resort-placeholder" />}
+          : (
+            <img className="carousel__image--no-images" src={resortImagePlaceholder} alt="shred-index-resort-placeholder" />
+          )}
       </Flickity>
     </div>
   );

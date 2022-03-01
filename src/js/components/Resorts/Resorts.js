@@ -24,15 +24,9 @@ const Resorts = () => {
 
   const { resorts: { data: resorts } } = data;
 
-  return (
-    <>
-      {resorts.map(({
-        id, url_segment,
-      }) => (
-        <ResortCard key={id} resortId={id} urlSegment={url_segment} />
-      ))}
-    </>
-  );
+  return resorts.map(({ id, url_segment }) => (
+    <ResortCard key={id} resortId={id} urlSegment={url_segment} />
+  ));
 };
 
 export default Resorts;

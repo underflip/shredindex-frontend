@@ -95,7 +95,7 @@ function ResortCard({ resortId, urlSegment }) {
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${!collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <ResortCardHeader title={title} totalScore={total_score || 0} />
+          <ResortCardHeader title={title} totalScore={total_score} />
         </CCardHeader>
         <CCardBody className="resort-card__body-wrap pt-0 pb-0">
           <ResortCardBody resort={resort} collapsed={!collapsed} />

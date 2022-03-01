@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const ResortCardError = ({
   title, help, error, errorInfo,
 }) => (
-  <div className="resort-card d-flex justify-content-center fade-in">
+  <div className="resort-card resort-card--error d-flex justify-content-center fade-in">
     <CCard className="resort-card__wrap collapsed">
       <CCardHeader className="resort-card__header-wrap pb-0">
         <div className="total-rating">

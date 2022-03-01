@@ -8,7 +8,7 @@ import { FormattedMessage } from 'react-intl';
 import { resortAttributeType } from '../../types/types';
 
 const ResortRatings = ({ ratings }) => (
-  <CCard className="resort-rating__card mb-4">
+  <CCard className="resort-rating__card resort-ratings mb-4">
     <CCardHeader>
       <FormattedMessage
         className="h6"

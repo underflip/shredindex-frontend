@@ -7,6 +7,10 @@ import ResortCardCommentCarousel from '../ResortCardCommentCarousel/ResortCardCo
 import ResortImageCarousel from '../ResortCardImageCarousel/ResortImageCarousel';
 import ResortCardLocation from '../ResortCardLocation/ResortCardLocation';
 
+function isDifferentRatings(a, b) {
+  return a.every(({ id }) => b.find((i) => i.id === id));
+}
+
 const ResortCardBody = ({
   resort: {
     location,
@@ -17,15 +21,20 @@ const ResortCardBody = ({
     comments,
   },
 }) => (
-  <div>
+
+  <>
     <div className="resort-card__content-0 mb-2 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">
-        <ResortCardLocation location={location} />
-        <div className="resort-card__description mb-2 me-2 user-select-none">
-          <span className="m-0">
-            {description}
-          </span>
+        <div className="resort-card__location text-left d-inline-flex user-select-none">
+          <ResortCardLocation location={location} />
         </div>
+        {description && (
+          <div className="resort-card__description mb-2 me-2 user-select-none">
+            <span className="m-0">
+              {description}
+            </span>
+          </div>
+        )}
       </div>
       <div className="resort-card__share-wrap me-2">
         <CIcon icon={cilShareAlt} />
@@ -34,26 +43,37 @@ const ResortCardBody = ({
     <div className="resort-card__content-wrap">
       <div className="resort-card__content-1 mb-2 d-flex">
         <div className="resort-card__sub-ratings-list me-2">
-          <RatingList
-            labelMessageId="shredindex.ratinglist.HIGHLIGHTS"
-            label="Highlights"
-            ratings={highlights}
-          />
+          {!isDifferentRatings(highlights, lowlights)
+            ? (
+              <RatingList
+                labelMessageId="shredindex.ratinglist.HIGHLIGHTS"
+                label="Highlights"
+                ratings={highlights.slice(0, 3)}
+              />
+            ) : (
+              <RatingList
+                labelMessageId="shredindex.ratinglist.RATINGS"
+                label="Ratings"
+                ratings={highlights}
+              />
+            )}
         </div>
         <ResortImageCarousel images={resort_images} />
       </div>
       <div className="resort-card__content-2 mb-2 d-flex">
         <div className="resort-card__sub-ratings-list me-2">
-          <RatingList
-            labelMessageId="shredindex.ratinglist.LOWLIGHTS"
-            label="Lowlights"
-            ratings={lowlights.slice().sort((a, b) => (a.value > b.value ? -1 : 1))}
-          />
+          {!isDifferentRatings(highlights, lowlights) && (
+            <RatingList
+              labelMessageId="shredindex.ratinglist.LOWLIGHTS"
+              label="Lowlights"
+              ratings={lowlights.slice().sort((a, b) => (a.value > b.value ? -1 : 1))}
+            />
+          )}
         </div>
         <ResortCardCommentCarousel comments={comments} />
       </div>
     </div>
-  </div>
+  </>
 );
 
 ResortCardBody.propTypes = {

@@ -15,11 +15,11 @@ const ResortCardCommentCarousel = ({ comments }) => {
 
   if (!comments.length > 0) {
     return (
-      <div className="resort-card__carousel__comment-wrap d-block w-50 ms-2">
-        <div className="resort-card__comment w-100 d-flex flex-column justify-content-between">
-          <span className="resort-card__comment-text small user-select-none">
+      <div className="resort-card__carousel-comment-wrap d-block w-50 ms-2">
+        <div className="carousel__comment--no-comments w-100 d-flex flex-column justify-content-between">
+          <span className="resort-card__small-label d-block mb-4 user-select-none">
             <FormattedMessage
-              id="shredindex.commentcard.NO_COMMENTS_SAVAILABLE"
+              id="shredindex.commentcard.NO_COMMENTS_AVAILABLE"
               defaultMessage="No Comments Available"
             />
           </span>
@@ -30,7 +30,7 @@ const ResortCardCommentCarousel = ({ comments }) => {
 
   return (
     <div className="resort-card__carousel-comment-wrap d-block w-50 ms-2 border-radius-medium">
-      <CImage className="resort-card__carousel-comment-background position-absolute w-100" src={resortCardMountains} />
+      <CImage className="carousel__comment-background position-absolute w-100" src={resortCardMountains} />
       <Flickity
         className="carousel w-100 h-100"
         elementType="div"
@@ -43,12 +43,12 @@ const ResortCardCommentCarousel = ({ comments }) => {
           id, comment, author,
         }) => (
           <div key={id} className="carousel__comment w-100 d-flex flex-column justify-content-between">
-            <span className="resort-card__comment-text small user-select-none">
+            <span className="carousel__comment-text small user-select-none">
               &ldquo;
               {comment}
               &rdquo;
             </span>
-            <span className="author font-italic user-select-none">
+            <span className="carousel__author font-italic user-select-none">
               &#8226;
               &ensp;
               {author}
