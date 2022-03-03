@@ -15,12 +15,12 @@ const ResortCardCommentCarousel = ({ comments }) => {
 
   if (!comments.length > 0) {
     return (
-      <div className="resort-card__carousel-comment-wrap d-block w-50 ms-2">
+      <div className="resort-card__comment-carousel d-block w-50 ms-2">
         <div className="carousel__comment--no-comments w-100 d-flex flex-column justify-content-between">
           <span className="resort-card__small-label d-block mb-4 user-select-none">
             <FormattedMessage
-              id="shredindex.commentcard.NO_COMMENTS_AVAILABLE"
-              defaultMessage="No Comments Available"
+              id="shredindex.commentcard.RESORT_HAS_NO_COMMENTS"
+              defaultMessage="Resort has no comments"
             />
           </span>
         </div>
@@ -29,7 +29,7 @@ const ResortCardCommentCarousel = ({ comments }) => {
   }
 
   return (
-    <div className="resort-card__carousel-comment-wrap d-block w-50 ms-2 border-radius-medium">
+    <div className="resort-card__comment-carousel d-block w-50 ms-2 border-radius-medium">
       <CImage className="carousel__comment-background position-absolute w-100" src={resortCardMountains} />
       <Flickity
         className="carousel w-100 h-100"

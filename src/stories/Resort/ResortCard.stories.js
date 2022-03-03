@@ -93,17 +93,17 @@ export const ResortCard = (args) => {
               {
                 id: '2',
                 title: 'Family Vacation Score',
-                value: 33,
+                value: 42,
               },
               {
                 id: '4',
                 title: 'Cannabis Friendly',
-                value: 0,
+                value: 21.6,
               },
               {
                 id: '5',
                 title: 'Co-working Spaces',
-                value: 42,
+                value: 7.9,
               },
             ],
             resort_images: [
@@ -244,7 +244,7 @@ export const ResortCard = (args) => {
   };
 
   if (cardState === 'Loading') {
-    return (<ResortCardSkeleton />);
+    return <ResortCardSkeleton />;
   }
 
   if (cardState === 'Minimal Data') {

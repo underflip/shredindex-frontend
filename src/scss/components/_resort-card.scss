@@ -170,14 +170,15 @@
     }
   }
 
-  &__carousel-wrap {
+  &__image-carousel {
+    height: 8.25rem;
+  }
+
+  &__comment-carousel {
     display: flex;
     max-width: 13.563rem;
     height: 7.1875rem;
     overflow: hidden;
-  }
-
-  &__carousel-comment-wrap {
     height: -webkit-fill-available;
     position: relative;
     overflow: hidden;

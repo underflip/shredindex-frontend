@@ -76,9 +76,7 @@ function ResortCard({ resortId, urlSegment }) {
   );
 
   if (loading) {
-    return (
-      <ResortCardSkeleton />
-    );
+    return <ResortCardSkeleton />;
   }
 
   const {

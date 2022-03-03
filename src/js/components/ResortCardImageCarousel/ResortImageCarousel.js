@@ -13,7 +13,7 @@ const ResortImageCarousel = ({ images }) => {
   };
 
   return (
-    <div className="resort-card__carousel__image-wrap w-50 ms-2 mb-2">
+    <div className="resort-card__image-carousel w-50 ms-2 mb-2">
       <Flickity
         className="carousel w-100 h-100 gray-300-bg border-radius-medium"
         elementType="div"

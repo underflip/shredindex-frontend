@@ -38,13 +38,9 @@ const ResortCardError = ({
 
 export default ResortCardError;
 
-ResortCardError.defaultProps = {
-  help: '',
-};
-
 ResortCardError.propTypes = {
   title: PropTypes.string.isRequired,
-  help: PropTypes.string,
+  help: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
   errorInfo: PropTypes.string.isRequired,
 };

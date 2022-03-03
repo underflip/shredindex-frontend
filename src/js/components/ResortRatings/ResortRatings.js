@@ -25,8 +25,7 @@ const ResortRatings = ({ ratings }) => (
             <div className="progress-group-header">
               <span className="resort-rating__label">{title}</span>
               <span className="ms-auto fw-semibold">
-                {value}
-                %
+                {`${value}%`}
               </span>
             </div>
             <div className="rating__value progress-group-bars">

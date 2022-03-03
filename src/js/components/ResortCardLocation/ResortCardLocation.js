@@ -53,7 +53,7 @@ const ResortCardLocation = ({ location }) => {
         )}
         {!city && !state && !data.country.name && (
           <div className="resort-card__small-label lh-lg">
-            <FormattedMessage id="shredindex.resort.NO_LOCATION_AVAILABLE" defaultMessage="No Location Available" />
+            <FormattedMessage id="shredindex.resort.LOCATION_UNKNOWN" defaultMessage="Location unknown" />
           </div>
         )}
       </div>

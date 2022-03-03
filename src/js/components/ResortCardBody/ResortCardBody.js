@@ -7,9 +7,7 @@ import ResortCardCommentCarousel from '../ResortCardCommentCarousel/ResortCardCo
 import ResortImageCarousel from '../ResortCardImageCarousel/ResortImageCarousel';
 import ResortCardLocation from '../ResortCardLocation/ResortCardLocation';
 
-function isDifferentRatings(a, b) {
-  return a.every(({ id }) => b.find((i) => i.id === id));
-}
+const isDifferentRatings = (a, b) => a.every(({ id }) => b.find((i) => i.id === id));
 
 const ResortCardBody = ({
   resort: {
@@ -22,7 +20,7 @@ const ResortCardBody = ({
   },
 }) => (
 
-  <>
+  <div className="resort-card__body">
     <div className="resort-card__content-0 mb-2 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">
         <div className="resort-card__location text-left d-inline-flex user-select-none">
@@ -73,7 +71,7 @@ const ResortCardBody = ({
         <ResortCardCommentCarousel comments={comments} />
       </div>
     </div>
-  </>
+  </div>
 );
 
 ResortCardBody.propTypes = {

@@ -22,17 +22,17 @@ const dataProvider = {
       {
         id: '2',
         title: 'Family Vacation Score',
-        value: 33,
+        value: 42,
       },
       {
         id: '4',
         title: 'Cannabis Friendly',
-        value: 0,
+        value: 21.6,
       },
       {
         id: '5',
         title: 'Co-working Spaces',
-        value: 42,
+        value: 7.9,
       },
     ],
     resort_images: [
@@ -120,81 +120,70 @@ describe('Resort Card Full Expanded', () => {
 
   it('Card Expands', () => {
     cy.get('.card').then(($card) => {
-      if ($card.hasClass('collapsed')) {
-        cy.get('.resort-card__expand').click();
-        cy.get('.full-expanded').should('exist');
-      } else {
-        cy.get('.resort-card__expand').click();
-        cy.get('.card.collapsed').should('exist');
-      }
+      cy.get('.full-expanded').should('not.exist');
+      cy.get('.resort-card__expand').click();
+      cy.get('.full-expanded').should('exist');
     });
   });
 
   it('Card Collapses', () => {
     cy.get('.card').then(($card) => {
-      if ($card.hasClass('full-expanded')) {
-        cy.get('.resort-card__expand').click();
-        cy.get('.card.collapsed').should('exist');
-      } else {
-        cy.get('.resort-card__expand').click();
-        cy.get('.card.full-expanded').should('exist');
-      }
+      cy.get('.card.collapsed').should('exist');
+      cy.get('.resort-card__expand').click();
+      cy.get('.card.collapsed').should('not.exist');
+      cy.get('.resort-card__expand').click();
+      cy.get('.card.collapsed').should('exist');
     });
   });
 
-  dataProvider.resortByUrlSegment.highlights.forEach((data) => {
+  dataProvider.resortByUrlSegment.highlights.forEach((data, i) => {
     const { title, value } = data;
+    const nth = i + 1;
 
-    it('Has a card title', () => {
-      cy.get('.rating__title').should('contain.text', 'Tokyo Megaplex');
-    });
-
-    it('Has a total rating', () => {
-      cy.get('.rating--total-rating').within(($totalRating) => {
-        cy.get('.rating__number-big').should('contain.text', '96');
-        cy.get('.rating__number-small').should('contain.text', '.7');
-      });
-    });
-
-    it('Has a resort flag', () => {
-      cy.get('.resort-card__country-flag-image').should('have.attr', 'src', 'https://flagcdn.com/jp.svg');
-    });
-
-    it('Has a location', () => {
-      cy.get('.resort-card__location-title').within(($location) => {
-        cy.get('span').should('contain.text', 'Tokyo,');
-        cy.get('span').next().should('contain.text', 'KW,');
-        cy.get('span').next().next().should('contain.text', 'Japan');
-      });
-    });
-
-    it('Has a description', () => {
-      cy.get('.resort-card__description').should('contain.text', 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.');
-    });
-
-    it('Has a share button', () => {
-      cy.get('.resort-card__share-wrap').should('exist');
-    });
-
-    it(`Should render highlight "${title}"`, () => {
-      cy.get('.rating__title')
-        .contains(`${title}`).next()
-        .within(($subRating) => {
-          cy.get('.rating__bar').should('have.attr', 'style', `width: ${value}%;`);
-        });
+    it(`Should render highlights "${title}"`, () => {
+      cy.get(`.rating-list__rating:nth-child(${nth}) .rating__title`).should('contain.text', `${title}`);
+      cy.get(`.rating-list__rating:nth-child(${nth}) .rating__bar`).should('have.attr', 'style', `width: ${value}%;`);
     });
   });
 
-  dataProvider.resortByUrlSegment.lowlights.forEach((data) => {
+  dataProvider.resortByUrlSegment.lowlights.forEach((data, i) => {
     const { title, value } = data;
+    const nth = i + 1;
 
     it(`Should render lowlight "${title}"`, () => {
-      cy.get('.rating__title')
-        .contains(`${title}`).next()
-        .within(($subRating) => {
-          cy.get('.rating__bar').should('have.attr', 'style', `width: ${value}%;`);
-        });
+      cy.get(`.resort-card__content-2 .rating-list__rating:nth-child(${nth}) .rating__title`).should('contain.text', `${title}`);
+      cy.get(`.resort-card__content-2 .rating-list__rating:nth-child(${nth}) .rating__bar`).should('have.attr', 'style', `width: ${value}%;`);
     });
+  });
+
+  it('Has a card title', () => {
+    cy.get('.rating__title').should('contain.text', 'Tokyo Megaplex');
+  });
+
+  it('Has a total rating', () => {
+    cy.get('.rating--total-rating').within(($totalRating) => {
+      cy.get('.rating__number-big').should('contain.text', '96');
+      cy.get('.rating__number-small').should('contain.text', '.7');
+    });
+  });
+
+  it('Has a resort flag', () => {
+    cy.get('.resort-card__country-flag-image').should('have.attr', 'src', 'https://flagcdn.com/jp.svg');
+  });
+
+  it('Has a location', () => {
+    cy.get('.resort-card__location-title')
+      .should('contain.text', 'Tokyo,')
+      .should('contain.text', 'KW,')
+      .should('contain.text', 'Japan');
+  });
+
+  it('Has a description', () => {
+    cy.get('.resort-card__description').should('contain.text', 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.');
+  });
+
+  it('Has a share button', () => {
+    cy.get('.resort-card__share-wrap').should('exist');
   });
 
   dataProvider.resortByUrlSegment.resort_images.forEach((data) => {
@@ -209,7 +198,8 @@ describe('Resort Card Full Expanded', () => {
     const { comment, author } = data;
 
     it(`Should render carousel comment by "${author}"`, () => {
-      cy.get('.carousel__author').contains(`${author}`).prev().contains(`${comment}`);
+      cy.get('.carousel__comment-text').contains(`${comment}`);
+      cy.get('.carousel__author').contains(`${author}`);
     });
   });
 
@@ -247,15 +237,13 @@ describe('Resort Card Minimal Data', () => {
     cy.get('.resort-card__sub-ratings-list .resort-card__small-label').should('contain.text', 'Ratings');
   });
 
-  mocksMinimalData.resortByUrlSegment.highlights.forEach((data) => {
+  mocksMinimalData.resortByUrlSegment.highlights.forEach((data, i) => {
     const { title, value } = data;
+    const nth = i + 1;
 
     it(`Should render rating "${title}"`, () => {
-      cy.get('.rating__title')
-        .contains(`${title}`).next()
-        .within(($subRating) => {
-          cy.get('.rating__bar').should('have.attr', 'style', `width: ${value}%;`);
-        });
+      cy.get(`.rating-list__rating:nth-child(${nth}) .rating__title`).should('contain.text', `${title}`);
+      cy.get(`.rating-list__rating:nth-child(${nth}) .rating__bar`).should('have.attr', 'style', `width: ${value}%;`);
     });
   });
 
@@ -264,7 +252,7 @@ describe('Resort Card Minimal Data', () => {
   });
 
   it('Has a No Location Available prompt', () => {
-    cy.get('.resort-card__location-title .resort-card__small-label').should('contain.text', 'No Location Available');
+    cy.get('.resort-card__location-title .resort-card__small-label').should('contain.text', 'Location unknown');
   });
 });
 
@@ -284,10 +272,10 @@ describe('Resort Card No Data', () => {
   });
 
   it('Has a No Location Available prompt', () => {
-    cy.get('.resort-card__location-title .resort-card__small-label').should('contain.text', 'No Location Available');
+    cy.get('.resort-card__location-title .resort-card__small-label').should('contain.text', 'Location unknown');
   });
 
   it('Has a unrated resort Prompt', () => {
-    cy.get('.resort-card__small-label').should('contain.text', 'Resort Is Unrated');
+    cy.get('.resort-card__sub-ratings-list .resort-card__small-label').should('contain.text', 'Resort is unrated');
   });
 });

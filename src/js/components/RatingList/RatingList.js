@@ -8,7 +8,7 @@ const RatingList = ({ ratings, label, labelMessageId }) => {
   if (ratings.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
-        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="Resort Is Unrated" />
+        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="Resort is unrated" />
       </div>
     );
   }
@@ -21,7 +21,7 @@ const RatingList = ({ ratings, label, labelMessageId }) => {
       <div className="rating-list__list-scroll">
         {ratings
           .map(({ id, title, value }) => (
-            <div key={id} className="mb-3 me-1">
+            <div key={id} className="rating-list__rating mb-3 me-1">
               <Rating title={title} rating={value} />
             </div>
           ))}

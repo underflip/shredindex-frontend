@@ -16,7 +16,6 @@ const ResortCardFooter = ({ url, collapsed }) => (
           {collapsed ? null : (
             <FormattedMessage id="shredindex.resortcard.GO_TO_RESORT" defaultMessage="Go to Resort" />
           )}
-
         </span>
         <CIcon icon={cilArrowRight} />
       </div>
