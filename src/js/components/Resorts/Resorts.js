@@ -5,7 +5,12 @@ import ResortCard from '../ResortCard/ResortCard';
 
 export const QUERY_RESORTS = gql`
   {
-    resorts {
+    resorts(
+      orderBy: {
+        type_name: "total_score",
+        direction: "desc"
+      }
+    ) {
       data {
         id
         title
