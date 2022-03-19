@@ -29,11 +29,9 @@
   ],
   "rules": {
     "react/jsx-props-no-spreading": 0,
-    "react/function-component-definition": [0],
-    "react/jsx-no-useless-fragment": 0,
-    "react/jsx-no-constructed-context-values": 0,
+    "react/function-component-definition": [1, { "namedComponents": "arrow-function" }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "camelcase": [0]
   }
 }
