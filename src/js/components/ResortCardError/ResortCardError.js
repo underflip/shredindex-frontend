@@ -1,37 +1,38 @@
 import {
-  CCard, CCardBody, CCardHeader,
+  CCard, CCardBody, CCardHeader, CImage,
 } from '@coreui/react';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
+import GnarlyCrash from '../../../images/GnarlyCrash.svg';
 
 const ResortCardError = ({
-  title, help, error, errorInfo,
+  title, titleId, help, helpId, error, errorInfo, errorStack,
 }) => (
   <div className="resort-card resort-card--error d-flex justify-content-center fade-in">
     <CCard className="resort-card__wrap collapsed">
       <CCardHeader className="resort-card__header-wrap pb-0">
-        <div className="total-rating">
-          <span className="ps-0 rating__title display-5 text-left mb-2 user-select-none mb-4" color="secondary">
-            {title}
-          </span>
-        </div>
+        <h1 className="fw-bold fs-3">
+          <FormattedMessage id={titleId} defaultMessage={title} />
+        </h1>
         <div className="mb-4 error-help">
-          {help && <span>{help}</span>}
+          {help && <p><FormattedMessage id={helpId} defaultMessage={help} /></p>}
         </div>
       </CCardHeader>
       <CCardBody className="resort-card__body-wrap pt-0 pb-0 mb-3">
         <div className="resort-card__error-details-wrap d-flex mb-2 ps-4 pe-4">
           <div className="resort-card__error-details">
             <div className="resort-card__error-details-title mt-2 mb-2">
-              <div className="fw-bold">{error}</div>
-              <br />
+              <h3 className="fs-5 text-break">{error}</h3>
+              <p className="fs-6 fw-light text-break">{errorInfo}</p>
               <details style={{ whiteSpace: 'pre-wrap' }}>
-                {errorInfo}
+                <p className="fs-6 fw-lighter text-break">{errorStack}</p>
               </details>
             </div>
           </div>
         </div>
       </CCardBody>
+      <CImage className="resort-card__error-image" src={GnarlyCrash} />
     </CCard>
   </div>
 );

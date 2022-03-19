@@ -91,3 +91,32 @@ button {
 .sidebar {
   background-color: $gray-200;
 }
+
+//Pagination
+.page-item {
+  &:not(.disabled){
+    cursor: pointer;
+  }
+
+  user-select: none;
+
+    &.disabled .page-link {
+      opacity: .7;
+      border-color: $gray-300;
+      color: $gray-700;
+  }
+
+  &.active .page-link {
+    color: $gray-300;
+  }
+}
+
+img.resorts__background-image {
+  position: fixed;
+  top: 25%;
+  z-index: -10;
+  width: 100%;
+  left: 0;
+  opacity: .15;
+  transform: translateZ(-1px) scale(1.5);
+}

@@ -5,7 +5,7 @@ import React from 'react';
 import routingConfig from '../config/routing-config';
 
 const FooterNav = () => (
-  <CRow>
+  <CRow className="footer-nav">
     <CCol xs="12">
       <div className="p-4 border-0">
         <CNav className="justify-content-center">

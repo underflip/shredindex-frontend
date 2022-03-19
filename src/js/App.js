@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { QueryParamProvider } from 'use-query-params';
 import Footer from './components/Footer/Footer';
 import FooterNav from './components/FooterNav/FooterNav';
 import Header from './components/Header/Header';
@@ -29,6 +30,7 @@ const App = ({ suspenseQuery }) => {
 
   return (
     <BrowserRouter>
+      <QueryParamProvider ReactRouterRoute={Route}>
       <IntlProvider locale={locale} message={t[locale]}>
         <div className="c-app c-default-layout">
           <ViewContext.Provider value={viewData}>
@@ -53,6 +55,7 @@ const App = ({ suspenseQuery }) => {
           </ViewContext.Provider>
         </div>
       </IntlProvider>
+      </QueryParamProvider>
     </BrowserRouter>
   );
 };

@@ -11,5 +11,7 @@
     "shredindex.commentcard.RESORT_HAS_NO_COMMENTS": "Resort has no comments",
     "shredindex.resortcard.GO_TO_RESORT": "Go To Resort",
     "shredindex.ratings.RATINGS": "Ratings",
+    "shredindex.resortcarderror.TITLE": "Woah!!... Gnarly Crash",
+    "shredindex.resortcarderror.HELP": "Looks like we french fried instead of pizza'd",
     "shredindex.statistics.STATISTICS": "Statistics"
 }
