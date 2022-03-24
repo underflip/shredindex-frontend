@@ -41,7 +41,10 @@ export default ResortCardError;
 
 ResortCardError.propTypes = {
   title: PropTypes.string.isRequired,
+  titleId: PropTypes.number.isRequired,
   help: PropTypes.string.isRequired,
+  helpId: PropTypes.number.isRequired,
   error: PropTypes.string.isRequired,
   errorInfo: PropTypes.string.isRequired,
+  errorStack: PropTypes.string.isRequired,
 };

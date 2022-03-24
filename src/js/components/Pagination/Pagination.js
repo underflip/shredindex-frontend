@@ -14,7 +14,7 @@ const Pagination = ({
   const currentPageIndex = currentPage || query.page;
 
   const pageList = [];
-  for (let i = 1; i <= lastPage; i++) {
+  for (let i = 1; i <= lastPage; i += 1) {
     pageList.push(i);
   }
 
@@ -91,15 +91,19 @@ const Pagination = ({
 
 Pagination.defaultProps = {
   paginationTabLimit: 3,
+  currentPage: 1,
+  size: 'sm',
 };
 
 Pagination.propTypes = {
   query: PropTypes.shape({
     page: PropTypes.number,
   }).isRequired,
+  setQuery: PropTypes.func.isRequired,
   lastPage: PropTypes.number.isRequired,
   currentPage: PropTypes.number,
   paginationTabLimit: PropTypes.number,
+  size: PropTypes.string,
 };
 
 export default withQueryParams({

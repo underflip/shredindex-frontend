@@ -5,6 +5,7 @@ import {
   withQueryParams,
   NumberParam,
 } from 'use-query-params';
+import PropTypes from 'prop-types';
 import ResortCard from '../ResortCard/ResortCard';
 import Pagination from '../Pagination/Pagination';
 import ResortCardError from '../ResortCardError/ResortCardError';
@@ -25,10 +26,55 @@ query Resorts($first: Int! $page: Int!){
       id
       title
       url_segment
+      url
+      affiliate_url
+      description
+      location {
+        id
+        city
+        country {
+          id
+          code
+          name
+        }
+        state {
+          id
+          code
+          name
+        }
+      }
+      total_score {
+        value
+      }
+      highlights {
+        id
+        title
+        value
+      }
+      lowlights {
+        id
+        title
+        value
+      }
+      resort_images {
+        id
+        name
+        alt
+        sort_order
+        image {
+          path
+          content_type
+        }
+      }
+      comments {
+        id
+        comment
+        author
+      }
     }
-  paginatorInfo {
-    currentPage
-    lastPage
+    paginatorInfo {
+      currentPage
+        lastPage
     }
   }
 }
@@ -37,14 +83,15 @@ query Resorts($first: Int! $page: Int!){
 const RankedResortList = ({ query }) => {
   const { page: num } = query;
   const cardLimit = 5;
+  const lastPageStore = 10;
 
   const skeletonList = [];
-  for (let i = 1; i <= cardLimit; i++) {
+  for (let i = 1; i <= cardLimit; i += 1) {
     skeletonList.push(i);
   }
 
-  const getQueryVariables = (num) => {
-    const pageNumber = num || 1;
+  const getQueryVariables = (page) => {
+    const pageNumber = page || 1;
     return pageNumber;
   };
 
@@ -75,12 +122,15 @@ const RankedResortList = ({ query }) => {
   if (loading) {
     return (
       <>
-        <div className="col-lg-3 col-sm-12" />
-        <div className="col-lg-7 col-sm-12">
+        <div className="col-sm-12">
           {skeletonList.map((index) => (
             <ResortCardSkeleton key={index} />
           ))}
         </div>
+        <Pagination
+          currentPage={num}
+          lastPage={lastPageStore}
+        />
       </>
     );
   }
@@ -89,12 +139,12 @@ const RankedResortList = ({ query }) => {
 
   return (
     <>
-      <div className="ranked-resorts__filters-wrap col-lg-3 col-sm-12">
+      <div className="ranked-resort-list__filters-wrap col-sm-12">
         <FilterResorts />
       </div>
-      <div className="ranked-resorts__resort-card-list-wrap col-lg-7 col-sm-12">
-        {resorts.map(({ id, url_segment }) => (
-          <ResortCard key={id} resortId={id} urlSegment={url_segment} />
+      <div className="ranked-resort-list__resort-card-list-wrap col-sm-12">
+        {resorts.map((resort) => (
+          <ResortCard key={resort.id} resortData={resort} />
         ))}
       </div>
       <Pagination
@@ -103,6 +153,12 @@ const RankedResortList = ({ query }) => {
       />
     </>
   );
+};
+
+RankedResortList.propTypes = {
+  query: PropTypes.shape({
+    page: PropTypes.number,
+  }).isRequired,
 };
 
 export default withQueryParams({

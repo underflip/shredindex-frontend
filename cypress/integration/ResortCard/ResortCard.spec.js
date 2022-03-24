@@ -186,6 +186,10 @@ describe('Resort Card Full Expanded', () => {
     cy.get('.resort-card__share-wrap').should('exist');
   });
 
+  it('Has an affiliate link', () => {
+    cy.get('a.resort-card__affiliate-link').should('have.attr', 'href').and('contain', 'https://www.shredindex/resorts/tokyo-megaplex');
+  });
+
   dataProvider.resortByUrlSegment.resort_images.forEach((data) => {
     const { alt, image: { path } } = data;
 
@@ -211,7 +215,7 @@ describe('Resort Card Full Expanded', () => {
 });
 
 describe('Resort Card Loading', () => {
-  beforeEach(() => {
+  before(() => {
     context('Loading', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:Loading');
     });
@@ -227,7 +231,7 @@ describe('Resort Card Loading', () => {
 });
 
 describe('Resort Card Minimal Data', () => {
-  beforeEach(() => {
+  before(() => {
     context('Minimal Data', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:Minimal+Data');
     });
@@ -257,7 +261,7 @@ describe('Resort Card Minimal Data', () => {
 });
 
 describe('Resort Card No Data', () => {
-  beforeEach(() => {
+  before(() => {
     context('No Data', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:No+Data');
     });

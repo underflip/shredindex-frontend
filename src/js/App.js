@@ -31,30 +31,30 @@ const App = ({ suspenseQuery }) => {
   return (
     <BrowserRouter>
       <QueryParamProvider ReactRouterRoute={Route}>
-      <IntlProvider locale={locale} message={t[locale]}>
-        <div className="c-app c-default-layout">
-          <ViewContext.Provider value={viewData}>
-            <SidebarNav />
-            <div className="wrapper d-flex flex-column min-vh-100">
-              <Header />
-              <div className="body flex-grow-1 px-3">
-                <main className="c-main">
-                  <CContainer>
-                    <Switch>
-                      <Route exact path="/" component={Home} />
-                      <Route exact path="/resorts/:urlSegment" component={Resort} />
-                      <Route exact path="/resorts" component={Resorts} />
-                    </Switch>
-                  </CContainer>
-                </main>
+        <IntlProvider locale={locale} message={t[locale]}>
+          <div className="c-app c-default-layout">
+            <ViewContext.Provider value={viewData}>
+              <SidebarNav />
+              <div className="wrapper d-flex flex-column min-vh-100">
+                <Header />
+                <div className="body flex-grow-1 px-3">
+                  <main className="c-main">
+                    <CContainer>
+                      <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/resorts/:urlSegment" component={Resort} />
+                        <Route exact path="/resorts" component={Resorts} />
+                      </Switch>
+                    </CContainer>
+                  </main>
+                </div>
+                <SupportBanner />
+                <Footer />
+                <FooterNav />
               </div>
-              <SupportBanner />
-              <Footer />
-              <FooterNav />
-            </div>
-          </ViewContext.Provider>
-        </div>
-      </IntlProvider>
+            </ViewContext.Provider>
+          </div>
+        </IntlProvider>
       </QueryParamProvider>
     </BrowserRouter>
   );

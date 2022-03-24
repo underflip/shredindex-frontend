@@ -9,6 +9,14 @@ input {
   border-style: hidden;
 }
 
+// Links
+.link-unstyled,
+.link-unstyled:link,
+.link-unstyled:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 // Backgrounds
 .gray-300-bg {
   background-color: $gray-300;
@@ -92,31 +100,21 @@ button {
   background-color: $gray-200;
 }
 
-//Pagination
+// Pagination
 .page-item {
-  &:not(.disabled){
+  &:not(.disabled) {
     cursor: pointer;
   }
 
   user-select: none;
 
-    &.disabled .page-link {
-      opacity: .7;
-      border-color: $gray-300;
-      color: $gray-700;
+  &.disabled .page-link {
+    opacity: 0.7;
+    border-color: $gray-300;
+    color: $gray-700;
   }
 
   &.active .page-link {
     color: $gray-300;
   }
-}
-
-img.resorts__background-image {
-  position: fixed;
-  top: 25%;
-  z-index: -10;
-  width: 100%;
-  left: 0;
-  opacity: .15;
-  transform: translateZ(-1px) scale(1.5);
 }

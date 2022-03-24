@@ -1,9 +1,8 @@
-import { MockedProvider } from '@apollo/react-testing';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
-import ResortCardComponent, { QUERY_RESORTCARD } from '../../js/components/ResortCard/ResortCard';
+import ResortCardComponent from '../../js/components/ResortCard/ResortCard';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 import langEn from '../../js/lang/en.json';
 
@@ -16,7 +15,7 @@ export default {
       options: ['Full', 'Loading', 'Minimal Data', 'No Data'],
       control: { type: 'select' },
     },
-    resortId: {
+    resortData: {
       table: {
         disable: true,
       },
@@ -34,12 +33,6 @@ export const ResortCard = (args) => {
 
   const mocks = {
     resortByUrlSegment: {
-      request: {
-        query: QUERY_RESORTCARD,
-        variables: {
-          url_segment: 'tokyo-megaplex',
-        },
-      },
       result: {
         data: {
           resortByUrlSegment: {
@@ -47,6 +40,7 @@ export const ResortCard = (args) => {
             title: 'Tokyo Megaplex',
             url_segment: 'tokyo-megaplex',
             url: 'resorts/tokyo-megaplex',
+            affiliate_url: 'https://www.shredindex/resorts/tokyo-megaplex',
             description: 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.',
             location: {
               id: '1',
@@ -165,12 +159,6 @@ export const ResortCard = (args) => {
 
   const mocksNoData = {
     resortByUrlSegment: {
-      request: {
-        query: QUERY_RESORTCARD,
-        variables: {
-          url_segment: 'tokyo-megaplex',
-        },
-      },
       result: {
         data: {
           resortByUrlSegment: {
@@ -195,12 +183,6 @@ export const ResortCard = (args) => {
 
   const mocksMinimalData = {
     resortByUrlSegment: {
-      request: {
-        query: QUERY_RESORTCARD,
-        variables: {
-          url_segment: 'tokyo-megaplex',
-        },
-      },
       result: {
         data: {
           resortByUrlSegment: {
@@ -252,12 +234,9 @@ export const ResortCard = (args) => {
       <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
         <IntlProvider locale="en" message={langEn}>
           <Route exact path="resorts/:urlSegment">
-            <MockedProvider mocks={[mocksMinimalData.resortByUrlSegment]} addTypename={false}>
-              <ResortCardComponent
-                resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
-                urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
-              />
-            </MockedProvider>
+            <ResortCardComponent
+              resortData={mocksMinimalData.resortByUrlSegment.result.data.resortByUrlSegment}
+            />
           </Route>
         </IntlProvider>
       </MemoryRouter>
@@ -269,12 +248,9 @@ export const ResortCard = (args) => {
       <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
         <IntlProvider locale="en" message={langEn}>
           <Route exact path="resorts/:urlSegment">
-            <MockedProvider mocks={[mocksNoData.resortByUrlSegment]} addTypename={false}>
-              <ResortCardComponent
-                resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
-                urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
-              />
-            </MockedProvider>
+            <ResortCardComponent
+              resortData={mocksNoData.resortByUrlSegment.result.data.resortByUrlSegment}
+            />
           </Route>
         </IntlProvider>
       </MemoryRouter>
@@ -285,12 +261,9 @@ export const ResortCard = (args) => {
     <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
       <IntlProvider locale="en" message={langEn}>
         <Route exact path="resorts/:urlSegment">
-          <MockedProvider mocks={[mocks.resortByUrlSegment]} addTypename={false}>
-            <ResortCardComponent
-              resortId={mocks.resortByUrlSegment.result.data.resortByUrlSegment.id}
-              urlSegment={mocks.resortByUrlSegment.request.variables.url_segment}
-            />
-          </MockedProvider>
+          <ResortCardComponent
+            resortData={mocks.resortByUrlSegment.result.data.resortByUrlSegment}
+          />
         </Route>
       </IntlProvider>
     </MemoryRouter>

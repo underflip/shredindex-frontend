@@ -172,11 +172,14 @@
 
   &__image-carousel {
     height: 8.25rem;
+
+    .flickity-viewport {
+      height: 100%
+    }
   }
 
   &__comment-carousel {
     display: flex;
-    max-width: 13.563rem;
     height: 7.1875rem;
     overflow: hidden;
     height: -webkit-fill-available;

@@ -1,0 +1,11 @@
+.resorts {
+  &__background-image {
+    position: fixed;
+    z-index: -10;
+    width: 100%;
+    left: 0;
+    opacity: .15;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

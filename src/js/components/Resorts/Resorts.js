@@ -1,7 +1,6 @@
 import React from 'react';
 import { CImage } from '@coreui/react';
 import RankedResortList from '../RankedResortList/RankedResortList';
-import FilterResorts from '../FilterResorts/FilterResorts';
 import RankedResortsImage from '../../../images/RankedResortsBackground.svg';
 
 const Resorts = () => (
@@ -10,7 +9,6 @@ const Resorts = () => (
       <RankedResortList />
     </div>
     <CImage src={RankedResortsImage} className="resorts__background-image" />
-
   </>
 );
 
