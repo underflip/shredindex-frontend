@@ -1,6 +1,5 @@
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from '@apollo/client';
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import {
   withQueryParams,
   NumberParam,
@@ -10,85 +9,11 @@ import ResortCard from '../ResortCard/ResortCard';
 import Pagination from '../Pagination/Pagination';
 import ResortCardError from '../ResortCardError/ResortCardError';
 import ResortCardSkeleton from '../SkeletonState/ResortCardSkeleton';
-import FilterResorts from '../FilterResorts/FilterResorts';
+import FilterMenu from '../FilterMenu/FilterMenu';
+import { QUERY_RESORTS } from '../../hooks/useQueryResorts';
 
-export const QUERY_RESORTS = gql`
-query Resorts($first: Int! $page: Int!){
-  resorts(
-    first: $first
-    page: $page
-    orderBy: {
-      type_name: "total_score",
-      direction: "desc"
-    }
-  ) {
-    data {
-      id
-      title
-      url_segment
-      url
-      affiliate_url
-      description
-      location {
-        id
-        city
-        country {
-          id
-          code
-          name
-        }
-        state {
-          id
-          code
-          name
-        }
-      }
-      total_score {
-        value
-      }
-      highlights {
-        id
-        title
-        value
-      }
-      lowlights {
-        id
-        title
-        value
-      }
-      resort_images {
-        id
-        name
-        alt
-        sort_order
-        image {
-          path
-          content_type
-        }
-      }
-      comments {
-        id
-        comment
-        author
-      }
-    }
-    paginatorInfo {
-      currentPage
-        lastPage
-    }
-  }
-}
-`;
-
-const RankedResortList = ({ query }) => {
+const RankedResortList = ({ query, cardLimit, maxPages }) => {
   const { page: num } = query;
-  const cardLimit = 5;
-  const lastPageStore = 10;
-
-  const skeletonList = [];
-  for (let i = 1; i <= cardLimit; i += 1) {
-    skeletonList.push(i);
-  }
 
   const getQueryVariables = (page) => {
     const pageNumber = page || 1;
@@ -112,9 +37,7 @@ const RankedResortList = ({ query }) => {
         help="Looks like we french fried instead of pizza'd."
         titleId="shredindex.resortcarderror.TITLE"
         title="Woah!!... Gnarly Crash"
-        errorStack={error.stack}
-        errorInfo={error.message}
-        error={error.name}
+        error={error}
       />
     );
   }
@@ -123,13 +46,13 @@ const RankedResortList = ({ query }) => {
     return (
       <>
         <div className="col-sm-12">
-          {skeletonList.map((index) => (
+          {Array.from({ length: cardLimit }, (x, i) => i).map((index) => (
             <ResortCardSkeleton key={index} />
           ))}
         </div>
         <Pagination
           currentPage={num}
-          lastPage={lastPageStore}
+          lastPage={maxPages}
         />
       </>
     );
@@ -140,7 +63,7 @@ const RankedResortList = ({ query }) => {
   return (
     <>
       <div className="ranked-resort-list__filters-wrap col-sm-12">
-        <FilterResorts />
+        <FilterMenu />
       </div>
       <div className="ranked-resort-list__resort-card-list-wrap col-sm-12">
         {resorts.map((resort) => (
@@ -150,6 +73,7 @@ const RankedResortList = ({ query }) => {
       <Pagination
         currentPage={currentPage}
         lastPage={lastPage}
+        size="lg"
       />
     </>
   );
@@ -159,6 +83,8 @@ RankedResortList.propTypes = {
   query: PropTypes.shape({
     page: PropTypes.number,
   }).isRequired,
+  cardLimit: PropTypes.number.isRequired,
+  maxPages: PropTypes.number.isRequired,
 };
 
 export default withQueryParams({

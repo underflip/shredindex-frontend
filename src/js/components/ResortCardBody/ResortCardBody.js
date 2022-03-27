@@ -26,13 +26,13 @@ const ResortCardBody = ({
     <div className="resort-card__content-0 mb-2 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">
         <div className="resort-card__location text-left d-inline-flex user-select-none">
-          <CLink className="resort-card__affiliate-link link-unstyled" href={affiliate_url}>
+          <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" href={affiliate_url}>
             <ResortCardLocation location={location} />
           </CLink>
         </div>
         {description && (
           <div className="resort-card__description mb-2 me-2 user-select-none">
-            <CLink className="resort-card__affiliate-link link-unstyled" href={affiliate_url}>
+            <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" href={affiliate_url}>
               <span className="m-0">
                 {description}
               </span>
@@ -53,14 +53,14 @@ const ResortCardBody = ({
                 labelMessageId="shredindex.ratinglist.HIGHLIGHTS"
                 label="Highlights"
                 ratings={highlights.slice(0, 3)}
-                affiliate_url={affiliate_url}
+                affiliateUrl={affiliate_url}
               />
             ) : (
               <RatingList
                 labelMessageId="shredindex.ratinglist.RATINGS"
                 label="Ratings"
                 ratings={highlights}
-                affiliate_url={affiliate_url}
+                affiliateUrl={affiliate_url}
               />
             )}
         </div>
@@ -73,7 +73,7 @@ const ResortCardBody = ({
               labelMessageId="shredindex.ratinglist.LOWLIGHTS"
               label="Lowlights"
               ratings={lowlights.slice().sort((a, b) => (a.value > b.value ? -1 : 1))}
-              affiliate_url={affiliate_url}
+              affiliateUrl={affiliate_url}
             />
           )}
         </div>

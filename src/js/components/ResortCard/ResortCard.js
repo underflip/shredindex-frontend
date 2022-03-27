@@ -23,7 +23,7 @@ const ResortCard = ({ resortData }) => {
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${!collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <CLink className="resort-card__affiliate-link link-unstyled" href={affiliate_url}>
+          <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" href={affiliate_url}>
             <ResortCardHeader title={title} totalScore={total_score} />
           </CLink>
         </CCardHeader>
@@ -31,7 +31,7 @@ const ResortCard = ({ resortData }) => {
           <ResortCardBody resort={resortData} collapsed={!collapsed} />
         </CCardBody>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <CCardFooter className="resort-card__footer-wrap pointer-event" onClick={() => setToggled(!collapsed)}>
+        <CCardFooter className="resort-card__footer-wrap pointer-event" onClick={() => setToggled(!affiliate_url)}>
           <ResortCardFooter url={url} collapsed={!collapsed} />
         </CCardFooter>
       </CCard>

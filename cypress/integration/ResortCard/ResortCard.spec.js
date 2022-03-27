@@ -112,27 +112,27 @@ const mocksMinimalData = {
 };
 
 describe('Resort Card Full Expanded', () => {
-  beforeEach(() => {
+  before(() => {
     context('Full Expanded', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card');
     });
   });
 
-  it('Card Expands', () => {
+  it('Card Expands or Collapses', () => {
     cy.get('.card').then(($card) => {
-      cy.get('.full-expanded').should('not.exist');
-      cy.get('.resort-card__expand').click();
-      cy.get('.full-expanded').should('exist');
+      if ($card.find('.full-expanded')) {
+        cy.get('.resort-card__expand').click();
+        cy.get('.card.collapsed').should('exist');
+      } else {
+        cy.get('.resort-card__expand').click();
+        cy.get('.full-expanded').should('exist');
+      }
     });
   });
 
   it('Card Collapses', () => {
     cy.get('.card').then(($card) => {
-      cy.get('.card.collapsed').should('exist');
-      cy.get('.resort-card__expand').click();
-      cy.get('.card.collapsed').should('not.exist');
-      cy.get('.resort-card__expand').click();
-      cy.get('.card.collapsed').should('exist');
+
     });
   });
 

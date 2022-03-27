@@ -109,9 +109,9 @@ button {
   user-select: none;
 
   &.disabled .page-link {
-    opacity: 0.7;
-    border-color: $gray-300;
-    color: $gray-700;
+    border-color: #263b45;
+    background-color: #2b414d;
+    color: #636d7c;
   }
 
   &.active .page-link {

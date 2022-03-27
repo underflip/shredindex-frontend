@@ -5,86 +5,84 @@ import PropTypes from 'prop-types';
 
 const Pagination = ({
   lastPage,
-  currentPage,
   paginationTabLimit,
   size,
   query,
   setQuery,
+  currentPage,
 }) => {
-  const currentPageIndex = currentPage || query.page;
+  const currentPageIndex = query.page || currentPage;
 
-  const pageList = [];
-  for (let i = 1; i <= lastPage; i += 1) {
-    pageList.push(i);
+  const floor = Math.min(Math.max(1, currentPageIndex - Math.floor(
+    paginationTabLimit / 2,
+  )), lastPage - paginationTabLimit + 1);
+  const pageSeq = Array.from({ length: paginationTabLimit }, (x, i) => i + floor);
+
+  const paginationData = [
+    {
+      name: '«',
+      ariaLabel: 'First',
+      disabled: currentPageIndex === 1,
+      setPageTo: 1,
+    },
+    {
+      name: '‹',
+      ariaLabel: 'Previous',
+      disabled: currentPageIndex === 1,
+      setPageTo: 1,
+    },
+    {
+      name: '›',
+      ariaLabel: 'Next',
+      disabled: lastPage === currentPageIndex,
+      setPageTo: currentPageIndex + 1,
+    },
+    {
+      name: '»',
+      ariaLabel: 'Last',
+      disabled: lastPage === currentPageIndex,
+      setPageTo: lastPage,
+    },
+  ];
+
+  pageSeq.map((x, index) => (
+    paginationData.splice(2 + index, 0, {
+      name: x,
+      ariaLabel: x,
+      active: currentPageIndex === x,
+      setPageTo: x,
+    })
+  ));
+
+  const morePages = {
+    name: '...',
+    ariaLabel: '...',
+    disabled: true,
+    setPageTo: null,
+  };
+
+  if (currentPageIndex > 2 && lastPage > 3) {
+    paginationData.splice(2, 0, morePages);
   }
 
-  const showPageList = () => {
-    if (currentPageIndex === 1) {
-      return pageList.splice(currentPageIndex - 1, paginationTabLimit);
-    }
-    if (currentPageIndex === lastPage) {
-      return pageList.splice(currentPageIndex - 3, paginationTabLimit);
-    }
-    return pageList.splice(currentPageIndex - 2, paginationTabLimit);
-  };
+  if (currentPageIndex < lastPage - 1 && lastPage > 3) {
+    paginationData.splice(-2, 0, morePages);
+  }
 
   return (
     <CPagination align="center" size={size} aria-label="Page navigation">
-      <CPaginationItem
-        aria-label="First"
-        disabled={currentPageIndex === 1}
-        onClick={() => setQuery({ page: 1 })}
-      >
-        &laquo;
-      </CPaginationItem>
-      <CPaginationItem
-        aria-label="Previous"
-        disabled={currentPageIndex === 1}
-        onClick={() => setQuery({ page: currentPageIndex - 1 })}
-      >
-        ‹
-      </CPaginationItem>
-      {currentPageIndex > 2
-    && (
-      <CPaginationItem
-        disabled
-        onClick={() => setQuery({ page: currentPageIndex - 1 })}
-      >
-        …
-      </CPaginationItem>
-    )}
-      {showPageList().map((number) => (
+      {paginationData.map((x) => (
         <CPaginationItem
-          key={number}
-          active={number === currentPageIndex}
-          onClick={() => setQuery({ page: number })}
+          key={x.ariaLabel}
+          aria-label={x.ariaLabel}
+          disabled={x.disabled}
+          active={x.active}
+          onClick={() => setQuery({ page: x.setPageTo })}
         >
-          {number}
+          {x.name}
         </CPaginationItem>
       ))}
-      {currentPageIndex < lastPage - 1
-    && (
-      <CPaginationItem
-        disabled
-        onClick={() => setQuery({ page: currentPageIndex - 1 })}
-      >
-        …
-      </CPaginationItem>
-    )}
-      <CPaginationItem
-        aria-label="Next"
-        disabled={lastPage === currentPageIndex}
-        onClick={() => setQuery({ page: currentPageIndex + 1 })}
-      >
-        ›
-      </CPaginationItem>
-      <CPaginationItem
-        aria-label="Last"
-        disabled={currentPageIndex === lastPage}
-        onClick={() => setQuery({ page: lastPage })}
-      >
-        &raquo;
-      </CPaginationItem>
+
     </CPagination>
   );
 };

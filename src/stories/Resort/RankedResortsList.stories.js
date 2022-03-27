@@ -6,9 +6,10 @@ import { Route } from 'react-router-dom';
 import {
   QueryParamProvider,
 } from 'use-query-params';
-import RankedResortsListComponent, { QUERY_RESORTS } from '../../js/components/RankedResortList/RankedResortList';
+import RankedResortsListComponent from '../../js/components/RankedResortList/RankedResortList';
 import langEn from '../../js/lang/en.json';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
+import { QUERY_RESORTS } from '../../js/hooks/useQueryResorts';
 
 export default {
   title: 'Shred index/components',
@@ -24,6 +25,8 @@ export default {
 
 export const RankedResortsList = (args) => {
   const { listState } = args;
+  const cardLimit = 5;
+  const maxPages = 10;
 
   const mocks = {
     resortsPage1: {
@@ -1531,7 +1534,7 @@ export const RankedResortsList = (args) => {
       request: {
         query: QUERY_RESORTS,
         variables: {
-          first: 5,
+          first: 0,
           page: 5,
         },
       },
@@ -1804,17 +1807,12 @@ export const RankedResortsList = (args) => {
     },
   };
 
-  const skeletonList = [];
-  for (let i = 1; i <= 5; i += 1) {
-    skeletonList.push(i);
-  }
-
   if (listState === 'Loading') {
     return (
       <>
         <div className="col-sm-12" />
         <div className="col-lg-7 col-sm-12">
-          {skeletonList.map((index) => (
+          {Array.from({ length: cardLimit }, (x, i) => i).map((index) => (
             <ResortCardSkeleton key={index} />
           ))}
         </div>
@@ -1830,7 +1828,7 @@ export const RankedResortsList = (args) => {
             mocks={[mocks.resortsError]}
             addTypename={false}
           >
-            <RankedResortsListComponent />
+            <RankedResortsListComponent cardLimit={cardLimit} maxPages={maxPages} />
           </MockedProvider>
         </QueryParamProvider>
       </IntlProvider>
@@ -1850,7 +1848,7 @@ export const RankedResortsList = (args) => {
             addTypename={false}
           >
             <QueryParamProvider ReactRouterRoute={Route}>
-              <RankedResortsListComponent />
+              <RankedResortsListComponent cardLimit={cardLimit} maxPages={maxPages} />
             </QueryParamProvider>
           </MockedProvider>
         </QueryParamProvider>
