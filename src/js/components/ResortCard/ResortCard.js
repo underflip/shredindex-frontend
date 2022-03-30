@@ -23,7 +23,7 @@ const ResortCard = ({ resortData }) => {
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${!collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" href={affiliate_url}>
+          <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" target="_blank" href={affiliate_url}>
             <ResortCardHeader title={title} totalScore={total_score} />
           </CLink>
         </CCardHeader>

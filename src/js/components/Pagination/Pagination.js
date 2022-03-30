@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CPagination, CPaginationItem } from '@coreui/react';
 import { NumberParam, withQueryParams } from 'use-query-params';
 import PropTypes from 'prop-types';
@@ -13,12 +13,31 @@ const Pagination = ({
 }) => {
   const currentPageIndex = query.page || currentPage;
 
-  const floor = Math.min(Math.max(1, currentPageIndex - Math.floor(
-    paginationTabLimit / 2,
-  )), lastPage - paginationTabLimit + 1);
-  const pageSeq = Array.from({ length: paginationTabLimit }, (x, i) => i + floor);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPageIndex]);
 
-  const paginationData = [
+  const floor = Math.min(
+    Math.max(
+      1,
+      currentPageIndex - Math.floor(paginationTabLimit / 2),
+    ),
+    lastPage - paginationTabLimit + 1,
+  );
+  const pageSeq = Array.from(
+    { length: paginationTabLimit },
+    (x, i) => i + floor,
+  );
+
+  const ellipsis = {
+    name: '...',
+    ariaLabel: '...',
+    disabled: true,
+    setPageTo: null,
+  };
+
+  // Left hand pagination controls
+  const receding = [
     {
       name: '«',
       ariaLabel: 'First',
@@ -29,8 +48,17 @@ const Pagination = ({
       name: '‹',
       ariaLabel: 'Previous',
       disabled: currentPageIndex === 1,
-      setPageTo: 1,
+      setPageTo: currentPage - 1,
     },
+  ];
+
+  if (Math.min(...pageSeq) > 1) {
+    // Indication that the pagination is off the floor
+    receding.push(ellipsis);
+  }
+
+  // Right hand pagination controls
+  const proceeding = [
     {
       name: '›',
       ariaLabel: 'Next',
@@ -45,29 +73,21 @@ const Pagination = ({
     },
   ];
 
-  pageSeq.map((x, index) => (
-    paginationData.splice(2 + index, 0, {
+  if (Math.max(...pageSeq) < lastPage) {
+    // Indication that the pagination hasn't reached the ceiling
+    proceeding.unshift(ellipsis);
+  }
+  // Combined pagination controls
+  const paginationData = [
+    ...receding,
+    ...pageSeq.map((x) => ({
       name: x,
       ariaLabel: x,
       active: currentPageIndex === x,
       setPageTo: x,
-    })
-  ));
-
-  const morePages = {
-    name: '...',
-    ariaLabel: '...',
-    disabled: true,
-    setPageTo: null,
-  };
-
-  if (currentPageIndex > 2 && lastPage > 3) {
-    paginationData.splice(2, 0, morePages);
-  }
-
-  if (currentPageIndex < lastPage - 1 && lastPage > 3) {
-    paginationData.splice(-2, 0, morePages);
-  }
+    })),
+    ...proceeding,
+  ];
 
   return (
     <CPagination align="center" size={size} aria-label="Page navigation">
@@ -82,7 +102,6 @@ const Pagination = ({
           {x.name}
         </CPaginationItem>
       ))}
-
     </CPagination>
   );
 };

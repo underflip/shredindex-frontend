@@ -26,13 +26,13 @@ const ResortCardBody = ({
     <div className="resort-card__content-0 mb-2 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">
         <div className="resort-card__location text-left d-inline-flex user-select-none">
-          <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" href={affiliate_url}>
+          <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" target="_blank" href={affiliate_url}>
             <ResortCardLocation location={location} />
           </CLink>
         </div>
         {description && (
           <div className="resort-card__description mb-2 me-2 user-select-none">
-            <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" href={affiliate_url}>
+            <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" target="_blank" href={affiliate_url}>
               <span className="m-0">
                 {description}
               </span>

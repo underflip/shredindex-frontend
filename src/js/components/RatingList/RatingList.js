@@ -18,7 +18,7 @@ const RatingList = ({
 
   return (
     <div className="rating-list">
-      <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" href={affiliateUrl}>
+      <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" target="_blank" href={affiliateUrl}>
         <div className="resort-card__small-label user-select-none">
           <FormattedMessage id={labelMessageId} defaultMessage={label} />
         </div>

@@ -5,7 +5,7 @@ import RankedResortsImage from '../../../images/RankedResortsBackground.svg';
 
 const Resorts = () => (
   <div className="resorts">
-    <div className="row">
+    <div className="ranked-resort-list row">
       <RankedResortList cardLimit="5" maxPages="10" />
     </div>
     <CImage src={RankedResortsImage} className="resorts__background-image" />

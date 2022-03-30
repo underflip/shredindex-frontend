@@ -37,7 +37,11 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
         help="Looks like we french fried instead of pizza'd."
         titleId="shredindex.resortcarderror.TITLE"
         title="Woah!!... Gnarly Crash"
-        error={error}
+        errorName={error.name}
+        errorMessageId="shredindex.resortcarderror.ERRORMESSAGE"
+        errorMessage="There was an error loading the list of resorts."
+        suggestionId="shredindex.resortcarderror.SUGGESTION"
+        suggestion="Maybe try resetting the filters..."
       />
     );
   }
@@ -51,6 +55,7 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
           ))}
         </div>
         <Pagination
+          size="sm"
           currentPage={num}
           lastPage={maxPages}
         />
@@ -73,7 +78,7 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
       <Pagination
         currentPage={currentPage}
         lastPage={lastPage}
-        size="lg"
+        size="sm"
       />
     </>
   );

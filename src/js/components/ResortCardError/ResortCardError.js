@@ -1,4 +1,5 @@
 import {
+  CButton,
   CCard, CCardBody, CCardHeader, CImage,
 } from '@coreui/react';
 import React from 'react';
@@ -7,7 +8,7 @@ import { FormattedMessage } from 'react-intl';
 import GnarlyCrash from '../../../images/GnarlyCrash.svg';
 
 const ResortCardError = ({
-  title, titleId, help, helpId, error: { stack, message, name },
+  title, titleId, help, helpId, errorName, errorMessage, errorMessageId, suggestion, suggestionId,
 }) => (
   <div className="resort-card resort-card--error d-flex justify-content-center fade-in">
     <CCard className="resort-card__wrap collapsed">
@@ -23,13 +24,19 @@ const ResortCardError = ({
         <div className="resort-card__error-details-wrap d-flex mb-2 ps-4 pe-4">
           <div className="resort-card__error-details">
             <div className="resort-card__error-details-title mt-2 mb-2">
-              <h3 className="fs-5 text-break">{name}</h3>
-              <p className="fs-6 fw-light text-break">{message}</p>
-              <details style={{ whiteSpace: 'pre-wrap' }}>
-                <p className="fs-6 fw-lighter text-break">{stack}</p>
-              </details>
+              <h3 className="fs-5 text-break mt-3">{errorName}</h3>
+              <p className="fs-6 fw-light text-break">
+                <FormattedMessage id={errorMessageId} defaultMessage={errorMessage} />
+              </p>
             </div>
           </div>
+        </div>
+        <div className="resort-card__suggestion text-center mt-5">
+          <p className="fst-italic text-break">
+            <FormattedMessage id={suggestionId} defaultMessage={suggestion} />
+          </p>
+          <CButton href="/" className="me-2">Go To Home</CButton>
+          <CButton href="resorts" color="warning">Reset Filters</CButton>
         </div>
       </CCardBody>
       <CImage className="resort-card__error-image" src={GnarlyCrash} />
@@ -44,9 +51,9 @@ ResortCardError.propTypes = {
   titleId: PropTypes.string.isRequired,
   help: PropTypes.string.isRequired,
   helpId: PropTypes.string.isRequired,
-  error: PropTypes.shape({
-    stack: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-  }).isRequired,
+  errorName: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  errorMessageId: PropTypes.string.isRequired,
+  suggestion: PropTypes.string.isRequired,
+  suggestionId: PropTypes.string.isRequired,
 };
