@@ -7,8 +7,8 @@ const SecondaryHeader = () => {
   const currentLocation = useLocation().pathname;
 
   const getRouteName = (pathname, routes) => {
-    const currentRoute = routes.find((route) => route.path === pathname);
-    return currentRoute.name;
+    const { name } = routes.find((route) => route.path === pathname) || {};
+    return name;
   };
 
   const getBreadcrumbs = (location) => {

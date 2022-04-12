@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { useQuery } from '@apollo/react-hooks';
 
 export const QUERY_RESORTS = gql`
 query Resorts($first: Int! $page: Int!){
@@ -61,11 +62,22 @@ query Resorts($first: Int! $page: Int!){
       }
     }
     paginatorInfo {
+      total
       currentPage
-        lastPage
+      lastPage
     }
   }
 }
 `;
 
-export default QUERY_RESORTS;
+const useQueryResorts = (first, page) => useQuery(
+  QUERY_RESORTS,
+  {
+    variables: {
+      first,
+      page,
+    },
+  },
+);
+
+export default useQueryResorts;

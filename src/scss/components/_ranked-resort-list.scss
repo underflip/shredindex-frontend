@@ -1,5 +1,18 @@
 .ranked-resort-list {
   &__filters-wrap {
+    width: 100%;
+  }
+
+  &__results-text {
+    color: $gray-800;
+  }
+
+  &__filter-resorts {
+    width: 36rem;
+    margin: auto;
+  }
+
+  &__list-info {
     width: 36rem;
     margin: auto;
   }

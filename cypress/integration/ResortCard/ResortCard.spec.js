@@ -120,12 +120,14 @@ describe('Resort Card Full Expanded', () => {
 
   it('Card Expands or Collapses', () => {
     cy.get('.card').then(($card) => {
-      if ($card.find('.full-expanded')) {
+      if ($card.find('.collapsed')) {
         cy.get('.resort-card__expand').click();
-        cy.get('.card.collapsed').should('exist');
+        cy.wait(500);
+        cy.get('.card.full-expanded').should('exist');
       } else {
         cy.get('.resort-card__expand').click();
-        cy.get('.full-expanded').should('exist');
+        cy.wait(500);
+        cy.get('.collapsed').should('exist');
       }
     });
   });

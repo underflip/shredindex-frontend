@@ -1,5 +1,4 @@
 import React from 'react';
-import { MockedProvider } from '@apollo/react-testing';
 import {
   QueryParamProvider,
 } from 'use-query-params';
@@ -20,15 +19,13 @@ export const Pagination = () => {
 
   return (
     <MemoryRouter initialEntries={['?page=2']}>
-      <MockedProvider addTypename={false}>
-        <QueryParamProvider ReactRouterRoute={Route}>
-          <PaginationComponent
-            paginationTabLimit={mocks.paginationTabLimit}
-            size={mocks.size}
-            lastPage={mocks.lastPage}
-          />
-        </QueryParamProvider>
-      </MockedProvider>
+      <QueryParamProvider ReactRouterRoute={Route}>
+        <PaginationComponent
+          paginationTabLimit={mocks.paginationTabLimit}
+          size={mocks.size}
+          lastPage={mocks.lastPage}
+        />
+      </QueryParamProvider>
     </MemoryRouter>
   );
 };

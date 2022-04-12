@@ -35,8 +35,10 @@ const ResortCardError = ({
           <p className="fst-italic text-break">
             <FormattedMessage id={suggestionId} defaultMessage={suggestion} />
           </p>
-          <CButton href="/" className="me-2">Go To Home</CButton>
-          <CButton href="resorts" color="warning">Reset Filters</CButton>
+          <div className="d-flex flex-row">
+            <CButton href="/" className="me-2 w-100">Go To Home</CButton>
+            <CButton href="resorts" color="warning" className="w-100">Reset Filters</CButton>
+          </div>
         </div>
       </CCardBody>
       <CImage className="resort-card__error-image" src={GnarlyCrash} />

@@ -1,10 +1,15 @@
 import React from 'react';
 import { CButton } from '@coreui/react';
+import CIcon from '@coreui/icons-react';
+import { cilSettings } from '@coreui/icons';
 
 const FilterMenu = () => (
-  <div className="filter-resorts mb-4 d-flex flex-column">
-    <CButton color="primary" className="m-2">Lifestyles</CButton>
-    <CButton color="dark" className="m-2">Filters</CButton>
+  <div className="filter-resorts mb-4 d-flex flex-row">
+    <CButton color="primary" className="m-2 w-100">Lifestyles</CButton>
+    <CButton color="light" className="m-2 w-100">
+      <CIcon icon={cilSettings} />
+      &nbsp; Filters
+    </CButton>
   </div>
 );
 
