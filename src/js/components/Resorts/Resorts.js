@@ -26,7 +26,7 @@ const Resorts = () => {
   return (
     <div className="resorts">
       <div className="ranked-resort-list row">
-        <RankedResortList cardLimit={5} maxPages={10} />
+        <RankedResortList cardLimit={5} />
       </div>
       <div className="resorts__parallax">
         <div className="resorts__background-image--filter" />

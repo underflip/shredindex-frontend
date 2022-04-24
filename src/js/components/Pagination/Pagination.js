@@ -36,7 +36,7 @@ const Pagination = ({
     setPageTo: null,
   };
 
-  // Left hand pagination controls
+  // Left-hand pagination controls
   const receding = [
     {
       name: '«',
@@ -57,7 +57,7 @@ const Pagination = ({
     receding.push(ellipsis);
   }
 
-  // Right hand pagination controls
+  // Right-hand pagination controls
   const proceeding = [
     {
       name: '›',

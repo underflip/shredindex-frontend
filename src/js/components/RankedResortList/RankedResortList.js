@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   withQueryParams,
   NumberParam,
@@ -12,17 +12,18 @@ import FilterMenu from '../FilterMenu/FilterMenu';
 import useQueryResorts from '../../hooks/useQueryResorts';
 import useWindowDimensions from '../../hooks/getWindowDimensions';
 
-const RankedResortList = ({ query, cardLimit, maxPages }) => {
+const RankedResortList = ({ query, cardLimit }) => {
   const { page: num } = query;
-
   const { width } = useWindowDimensions();
+  const { loading, data, error } = useQueryResorts(cardLimit, Number(num) || 1);
+  const [maxPageState] = useState({ key: '', maxPages: 0 });
+  const key = [cardLimit].join('-');
 
-  const getQueryVariables = (page) => {
-    const pageNumber = Number(page) || 1;
-    return pageNumber;
-  };
-
-  const { loading, data, error } = useQueryResorts(cardLimit, getQueryVariables(num));
+  if (maxPageState.key !== key) {
+    // Update state without re-render
+    maxPageState.key = key;
+    maxPageState.maxPages = 0;
+  }
 
   if (error) {
     return (
@@ -50,7 +51,7 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
         </div>
         <Pagination
           currentPage={num}
-          lastPage={maxPages}
+          lastPage={maxPageState.maxPages}
           size={width > 590 ? 'lg' : 'sm'}
         />
       </>
@@ -58,6 +59,13 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
   }
 
   const { resorts: { data: resorts, paginatorInfo: { currentPage, lastPage, total } } } = data;
+
+  if (maxPageState.maxPages !== lastPage) {
+    // Capture max pages for state
+    // (also updates if lastPage has changed behind the scenes)
+    // Update state without re-render
+    maxPageState.maxPages = lastPage;
+  }
 
   return (
     <>
@@ -89,7 +97,7 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
       </div>
       <Pagination
         currentPage={currentPage}
-        lastPage={lastPage}
+        lastPage={maxPageState.maxPages}
         size={width > 590 ? 'lg' : 'sm'}
       />
     </>
@@ -101,7 +109,6 @@ RankedResortList.propTypes = {
     page: PropTypes.number,
   }).isRequired,
   cardLimit: PropTypes.number.isRequired,
-  maxPages: PropTypes.number.isRequired,
 };
 
 export default withQueryParams({
