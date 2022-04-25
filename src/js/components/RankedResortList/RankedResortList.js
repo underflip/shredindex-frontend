@@ -1,28 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   withQueryParams,
   NumberParam,
 } from 'use-query-params';
 import PropTypes from 'prop-types';
 import ResortCard from '../ResortCard/ResortCard';
-import Pagination from '../Pagination/Pagination';
+import Pagination, { paginationSize } from '../Pagination/Pagination';
 import ResortCardError from '../ResortCardError/ResortCardError';
 import ResortCardSkeleton from '../SkeletonState/ResortCardSkeleton';
 import FilterMenu from '../FilterMenu/FilterMenu';
 import useQueryResorts from '../../hooks/useQueryResorts';
 import useWindowDimensions from '../../hooks/getWindowDimensions';
+import RankedResortResultCount from '../RankedResortResultCount/RankedResortResultCount';
+import breakpoints from '../config/breakpoints';
 
-const RankedResortList = ({ query, cardLimit, maxPages }) => {
+const RankedResortList = ({ query, cardLimit }) => {
   const { page: num } = query;
-
   const { width } = useWindowDimensions();
+  const { loading, data, error } = useQueryResorts(cardLimit, Number(num) || 1);
+  const [maxPageState] = useState({ key: '', maxPages: 0 });
+  const key = [cardLimit].join('-');
 
-  const getQueryVariables = (page) => {
-    const pageNumber = Number(page) || 1;
-    return pageNumber;
-  };
-
-  const { loading, data, error } = useQueryResorts(cardLimit, getQueryVariables(num));
+  if (maxPageState.key !== key) {
+    // Update state without re-render
+    maxPageState.key = key;
+    maxPageState.maxPages = 0;
+  }
 
   if (error) {
     return (
@@ -50,8 +53,8 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
         </div>
         <Pagination
           currentPage={num}
-          lastPage={maxPages}
-          size={width > 590 ? 'lg' : 'sm'}
+          lastPage={maxPageState.maxPages}
+          size={width > breakpoints.sm ? paginationSize.lg : paginationSize.sm}
         />
       </>
     );
@@ -59,28 +62,20 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
 
   const { resorts: { data: resorts, paginatorInfo: { currentPage, lastPage, total } } } = data;
 
+  if (maxPageState.maxPages !== lastPage) {
+    // Capture max pages for state
+    // (also updates if lastPage has changed behind the scenes)
+    // Update state without re-render
+    maxPageState.maxPages = lastPage;
+  }
+
   return (
-    <>
-      <div className="ranked-resort-list ranked-resort-list__filters-wrap col-sm-12">
+    <div className="ranked-resort-list">
+      <div className="ranked-resort-list__filters-wrap col-sm-12 w-100">
         <FilterMenu />
       </div>
-      <div className="ranked-resort-list ranked-resort-list__list-info col-sm-12 ">
-        <div className="d-flex flex-column">
-          <p className="ranked-resort-list__results-text me-auto">
-            {total}
-            {' '}
-            results
-          </p>
-          <p className="ranked-resort-list__page-info-text me-auto">
-            Page
-            {' '}
-            {currentPage}
-            {' '}
-            of
-            {' '}
-            {lastPage}
-          </p>
-        </div>
+      <div className="ranked-resort-list__result-count-wrap col-sm-12 w-100">
+        <RankedResortResultCount total={total} currentPage={currentPage} lastPage={lastPage} />
       </div>
       <div className="ranked-resort-list ranked-resort-list__resort-card-list-wrap col-sm-12">
         {resorts.map((resort) => (
@@ -89,10 +84,10 @@ const RankedResortList = ({ query, cardLimit, maxPages }) => {
       </div>
       <Pagination
         currentPage={currentPage}
-        lastPage={lastPage}
-        size={width > 590 ? 'lg' : 'sm'}
+        lastPage={maxPageState.maxPages}
+        size={width > breakpoints.sm ? paginationSize.lg : paginationSize.sm}
       />
-    </>
+    </div>
   );
 };
 
@@ -101,7 +96,6 @@ RankedResortList.propTypes = {
     page: PropTypes.number,
   }).isRequired,
   cardLimit: PropTypes.number.isRequired,
-  maxPages: PropTypes.number.isRequired,
 };
 
 export default withQueryParams({

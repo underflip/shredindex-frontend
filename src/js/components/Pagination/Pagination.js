@@ -36,7 +36,7 @@ const Pagination = ({
     setPageTo: null,
   };
 
-  // Left hand pagination controls
+  // Left-hand pagination controls
   const receding = [
     {
       name: '«',
@@ -57,7 +57,7 @@ const Pagination = ({
     receding.push(ellipsis);
   }
 
-  // Right hand pagination controls
+  // Right-hand pagination controls
   const proceeding = [
     {
       name: '›',
@@ -106,10 +106,15 @@ const Pagination = ({
   );
 };
 
+export const paginationSize = {
+  sm: 'sm',
+  lg: 'lg',
+};
+
 Pagination.defaultProps = {
   paginationTabLimit: 3,
   currentPage: 1,
-  size: 'sm',
+  size: paginationSize.sm,
 };
 
 Pagination.propTypes = {
@@ -120,7 +125,7 @@ Pagination.propTypes = {
   lastPage: PropTypes.number.isRequired,
   currentPage: PropTypes.number,
   paginationTabLimit: PropTypes.number,
-  size: PropTypes.string,
+  size: PropTypes.oneOf([paginationSize.sm, paginationSize.lg]),
 };
 
 export default withQueryParams({
