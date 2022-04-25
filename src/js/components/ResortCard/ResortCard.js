@@ -16,7 +16,7 @@ const ResortCard = ({ resortData }) => {
   }
 
   const {
-    title, url, total_score, affiliate_url,
+    title, url, url_segment, total_score, affiliate_url,
   } = resortData;
 
   return (
@@ -32,7 +32,7 @@ const ResortCard = ({ resortData }) => {
         </CCardBody>
         {/* eslint-disable-next-line react/jsx-no-bind */}
         <CCardFooter className="resort-card__footer-wrap pointer-event" onClick={() => setToggled(!collapsed)}>
-          <ResortCardFooter url={url} collapsed={!collapsed} />
+          <ResortCardFooter url={url} urlSegment={url_segment} collapsed={!collapsed} />
         </CCardFooter>
       </CCard>
     </div>

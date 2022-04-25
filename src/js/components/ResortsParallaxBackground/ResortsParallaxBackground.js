@@ -22,7 +22,7 @@ const ResortsParallaxBackground = () => {
       class: 'resorts-parallax-background__image--1',
       name: BGL1,
       speed: 20,
-      top: 60,
+      top: 62,
       position: 0,
 
     },

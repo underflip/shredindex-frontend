@@ -4,6 +4,8 @@ import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
 import ResortCardComponent from '../../js/components/ResortCard/ResortCard';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
+import NoCacheMockedProvider
+  from '../../js/components/tests/NoCacheMockedProvider/NoCacheMockedProvider';
 import langEn from '../../js/lang/en.json';
 
 export default {

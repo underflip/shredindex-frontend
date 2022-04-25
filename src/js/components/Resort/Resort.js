@@ -51,16 +51,18 @@ query ResortByURLSegment($url_segment: String!) {
 `;
 
 const Resort = () => {
-  const { urlSegment } = useParams();
+  console.log('yo');
+  const { url_segment } = useParams();
+  console.log('query resort', url_segment);
 
-  const { loading, data } = useQuery(
+  const { loading, error, data } = useQuery(
     QUERY_RESORT,
     {
-      variables: { url_segment: urlSegment },
+      variables: { url_segment },
     },
   );
 
-  if (loading) {
+  if (loading || error) {
     return (
       <ResortSkeleton />
     );
