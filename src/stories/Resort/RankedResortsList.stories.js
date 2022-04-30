@@ -7,6 +7,8 @@ import {
   QueryParamProvider,
 } from 'use-query-params';
 import RankedResortsListComponent from '../../js/components/RankedResortList/RankedResortList';
+import ResortsParallaxBackground
+  from '../../js/components/ResortsParallaxBackground/ResortsParallaxBackground';
 import langEn from '../../js/lang/en.json';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 import { QUERY_RESORTS } from '../../js/hooks/useQueryResorts';
@@ -1851,6 +1853,7 @@ export const RankedResortsList = (args) => {
             addTypename={false}
           >
             <QueryParamProvider ReactRouterRoute={Route}>
+              <ResortsParallaxBackground />
               <RankedResortsListComponent cardLimit={cardLimit} maxPages={maxPages} />
             </QueryParamProvider>
           </MockedProvider>

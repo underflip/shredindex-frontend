@@ -1,37 +1,20 @@
 .resorts-parallax-background {
+  z-index: -1;
+
   &__image {
-    &--filter {
-      opacity: .5;
-      background-color: $gray-300;
-      width: -webkit-fill-available;
-      height: 100%;
-      position: fixed;
-      margin: auto;
-      top: 0;
-      left: 0;
-      z-index: -10;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.5;
+  }
 
-    & img {
-      position: fixed;
-      margin: auto;
-      width: -webkit-fill-available;
-      top: 0;
-      left: 0;
-    }
+  svg path {
+    transform: translateY(calc(var(--scrollPos, 0) * var(--offset, 0)));
+    transition: transform 0.125s;
 
-    &--1 {
-      z-index: -11;
-    }
-    &--2 {
-      z-index: -12;
-    }
-    &--3 {
-      z-index: -13;
-    }
-    &--4 {
-      z-index: -14;
-      transform: translateY(-50%);
+    @media (prefers-reduced-motion: reduce) {
+      transform: translateY(0);
     }
   }
 }
