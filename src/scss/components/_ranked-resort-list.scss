@@ -17,4 +17,24 @@
     margin-top: 5rem;
     margin-bottom: 5rem;
   }
+
+  &--loading {
+    .resort-card--skeleton {
+      &:nth-child(2) {
+        opacity: 0.80;
+      }
+
+      &:nth-child(3) {
+        opacity: 0.60;
+      }
+
+      &:nth-child(4) {
+        opacity: 0.40;
+      }
+
+      &:nth-child(5) {
+        opacity: 0.20;
+      }
+    }
+  }
 }

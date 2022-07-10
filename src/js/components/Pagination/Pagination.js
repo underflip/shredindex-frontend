@@ -22,8 +22,12 @@ const Pagination = ({
       1,
       currentPageIndex - Math.floor(paginationTabLimit / 2),
     ),
-    lastPage - paginationTabLimit + 1,
+    Math.max(
+      1,
+      lastPage - paginationTabLimit + 1,
+    ),
   );
+
   const pageSeq = Array.from(
     { length: paginationTabLimit },
     (x, i) => i + floor,

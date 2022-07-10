@@ -1,12 +1,10 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import { MemoryRouter } from 'react-router';
-import { Route } from 'react-router-dom';
 import ResortCardComponent from '../../js/components/ResortCard/ResortCard';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
-import NoCacheMockedProvider
-  from '../../js/components/tests/NoCacheMockedProvider/NoCacheMockedProvider';
+import { QUERY_RESORTS } from '../../js/hooks/useQueryResorts';
 import langEn from '../../js/lang/en.json';
+import NoCacheMockedProvider from '../../js/components/tests/NoCacheMockedProvider/NoCacheMockedProvider';
 
 export default {
   title: 'Shred index/components',
@@ -22,207 +20,185 @@ export default {
         disable: true,
       },
     },
-    urlSegment: {
-      table: {
-        disable: true,
-      },
-    },
   },
 };
 
 export const ResortCard = (args) => {
   const { cardState } = args;
-
   const mocks = {
-    resortByUrlSegment: {
-      result: {
-        data: {
-          resortByUrlSegment: {
-            id: '1',
-            title: 'Tokyo Megaplex',
-            url_segment: 'tokyo-megaplex',
-            url: 'resorts/tokyo-megaplex',
-            affiliate_url: 'https://www.shredindex/resorts/tokyo-megaplex',
-            description: 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.',
-            location: {
-              id: '1',
-              city: 'Tokyo',
-              country: {
-                id: '114',
-                code: 'JP',
-                name: 'Japan',
-              },
-              state: {
-                id: '114',
-                code: 'KW',
-                name: 'Japan',
-              },
-            },
-            ratings: [
-              {
-                id: '1',
-                title: 'Total Shred Score',
-                value: 77,
-              },
-            ],
-            total_score: {
-              value: '96.7',
-            },
-            highlights: [
-              {
-                id: '1',
-                title: 'Drum n Bass',
-                value: 88,
-              },
-              {
-                id: '6',
-                title: 'Snow Quality',
-                value: 69,
-              },
-              {
-                id: '7',
-                title: 'Sexy Bitches',
-                value: 55.3,
-              },
-            ],
-            lowlights: [
-              {
-                id: '2',
-                title: 'Family Vacation Score',
-                value: 42,
-              },
-              {
-                id: '4',
-                title: 'Cannabis Friendly',
-                value: 21.6,
-              },
-              {
-                id: '5',
-                title: 'Co-working Spaces',
-                value: 7.9,
-              },
-            ],
-            resort_images: [
-              {
-                id: '1',
-                name: 'Fernie Bowls',
-                alt: 'fernie-bowls',
-                sort_order: 1,
-                image: {
-                  path: 'https://www.snowseasoncentral.com/wp-content/uploads/2020/01/fernie-bowls.jpg',
-                  content_type: 'image/jpeg',
-                },
-              },
-              {
-                id: '2',
-                name: 'Tokyo Elevator',
-                alt: 'tokyo-elevator',
-                sort_order: 1,
-                image: {
-                  path: 'https://www.merqurycity.com/ssximages/tokyoinelevator.jpg',
-                  content_type: 'image/jpeg',
-                },
-              },
-              {
-                id: '3',
-                name: 'Lots of Air',
-                alt: 'lots-of-air',
-                sort_order: 1,
-                image: {
-                  path: 'https://www.mobygames.com/images/shots/l/109138-ssx-tricky-gamecube-screenshot-you-can-get-a-lot-of-air-at.png',
-                  content_type: 'image/jpeg',
-                },
-              },
-            ],
-            comments: [
-              {
-                id: '1',
-                comment: 'Welcome back to Tokyo, where the manmade mammoth, Megaplex, has undergone a massive overhaul. Past challengers of the SSX World Circuit may recognize the locale, but the layout, paths, and jumps have been completely reworked at the staggering cost of 1.3 billion dollars. Getting to the suspended top level is going to be hard, staying there will be even harder.',
-                author: 'SSX Narrator',
-              },
-              {
-                id: '2',
-                comment: 'I is get flickety wickety wicky whack slap joel on her back, this indoor slopestyle mayhem could pin an elephant to a doorknob, check it homeslice!',
-                author: 'Slippery G Nasty',
-              },
-            ],
-            __typename: 'Resort',
-          },
-        },
+    resortCard: {
+      request: {
+        query: QUERY_RESORTS,
       },
-    },
-    errorState: {
-      title: 'Woah... Gnarly Crash!!!',
-      help: 'check it out',
-      error: 'Error 69 biaaatch',
-      errorInfo: 'its cuz your muma dont know how good you are',
+      data:
+        {
+          id: '2',
+          title: 'Tokyo Megaplex',
+          url_segment: 'tokyo-megaplex',
+          url: 'resorts/tokyo-megaplex',
+          affiliate_url: 'https://www.shredindex/resorts/tokyo-megaplex',
+          description: 'Tokyo Megaplex is a track from SSX. It is themed to a pinball machine, as you press many buttons, hit many blocks, and even pass through a pinball goal.',
+          location: {
+            id: '1',
+            city: 'Tokyo',
+            country: {
+              id: '114',
+              code: 'JP',
+              name: 'Japan',
+            },
+            state: {
+              id: '114',
+              code: 'KW',
+              name: 'Japan',
+            },
+          },
+          total_score: {
+            id: '1',
+            title: 'Total Score',
+            value: 76.8,
+          },
+          highlights: [
+            {
+              id: '1',
+              title: 'Drum n Bass',
+              value: 88,
+            },
+            {
+              id: '6',
+              title: 'Snow Quality',
+              value: 69,
+            },
+            {
+              id: '7',
+              title: 'Sexy Bitches',
+              value: 55.3,
+            },
+          ],
+          lowlights: [
+            {
+              id: '2',
+              title: 'Family Vacation Score',
+              value: 42,
+            },
+            {
+              id: '4',
+              title: 'Cannabis Friendly',
+              value: 21.6,
+            },
+            {
+              id: '5',
+              title: 'Co-working Spaces',
+              value: 7.9,
+            },
+          ],
+          resort_images: [
+            {
+              id: '1',
+              name: 'Fernie Bowls',
+              alt: 'fernie-bowls',
+              sort_order: 1,
+              image: {
+                path: 'https://www.snowseasoncentral.com/wp-content/uploads/2020/01/fernie-bowls.jpg',
+                content_type: 'image/jpeg',
+              },
+            },
+            {
+              id: '2',
+              name: 'Tokyo Elevator',
+              alt: 'tokyo-elevator',
+              sort_order: 1,
+              image: {
+                path: 'https://www.merqurycity.com/ssximages/tokyoinelevator.jpg',
+                content_type: 'image/jpeg',
+              },
+            },
+            {
+              id: '3',
+              name: 'Lots of Air',
+              alt: 'lots-of-air',
+              sort_order: 1,
+              image: {
+                path: 'https://www.mobygames.com/images/shots/l/109138-ssx-tricky-gamecube-screenshot-you-can-get-a-lot-of-air-at.png',
+                content_type: 'image/jpeg',
+              },
+            },
+          ],
+          comments: [
+            {
+              id: '1',
+              comment: 'Welcome back to Tokyo, where the manmade mammoth, Megaplex, has undergone a massive overhaul. Past challengers of the SSX World Circuit may recognize the locale, but the layout, paths, and jumps have been completely reworked at the staggering cost of 1.3 billion dollars. Getting to the suspended top level is going to be hard, staying there will be even harder.',
+              author: 'SSX Narrator',
+            },
+            {
+              id: '2',
+              comment: 'I is get flickety wickety wicky whack slap joel on her back, this indoor slopestyle mayhem could pin an elephant to a doorknob, check it homeslice!',
+              author: 'Slippery G Nasty',
+            },
+          ],
+        },
     },
   };
 
   const mocksNoData = {
-    resortByUrlSegment: {
-      result: {
-        data: {
-          resortByUrlSegment: {
-            id: '1',
-            title: 'Tokyo Megaplex',
-            url_segment: 'tokyo-megaplex',
-            url: 'resorts/tokyo-megaplex',
-            highlights: [
-            ],
-            lowlights: [
-            ],
-            resort_images: [
-            ],
-            comments: [
-            ],
-            __typename: 'Resort',
-          },
-        },
+    resortCard: {
+      request: {
+        query: QUERY_RESORTS,
+      },
+      data: {
+        id: '2',
+        title: 'Tokyo Megaplex',
+        url_segment: 'tokyo-megaplex',
+        url: 'resorts/tokyo-megaplex',
+        highlights: [
+        ],
+        lowlights: [
+        ],
+        resort_images: [
+        ],
+        comments: [
+        ],
       },
     },
   };
 
   const mocksMinimalData = {
-    resortByUrlSegment: {
-      result: {
-        data: {
-          resortByUrlSegment: {
+    resortCard: {
+      request: {
+        query: QUERY_RESORTS,
+      },
+      data: {
+        id: '4',
+        title: 'Tokyo Megaplex',
+        url_segment: 'tokyo-megaplex',
+        url: 'resorts/tokyo-megaplex',
+        highlights: [
+          {
             id: '1',
-            title: 'Tokyo Megaplex',
-            url_segment: 'tokyo-megaplex',
-            url: 'resorts/tokyo-megaplex',
-            highlights: [
-              {
-                id: '1',
-                title: 'Drum n Bass',
-                value: 88,
-              },
-              {
-                id: '6',
-                title: 'Snow Quality',
-                value: 69,
-              },
-            ],
-            lowlights: [
-              {
-                id: '1',
-                title: 'Drum n Bass',
-                value: 88,
-              },
-              {
-                id: '6',
-                title: 'Snow Quality',
-                value: 69,
-              },
-            ],
-            resort_images: [
-            ],
-            comments: [
-            ],
-            __typename: 'Resort',
+            title: 'Drum n Bass',
+            value: 88,
           },
-        },
+          {
+            id: '6',
+            title: 'Snow Quality',
+            value: 69,
+          },
+        ],
+        lowlights: [
+          {
+            id: '1',
+            title: 'Drum n Bass',
+            value: 88,
+          },
+          {
+            id: '6',
+            title: 'Snow Quality',
+            value: 69,
+          },
+        ],
+        resort_images: [
+        ],
+        comments: [
+        ],
       },
     },
   };
@@ -231,43 +207,33 @@ export const ResortCard = (args) => {
     return <ResortCardSkeleton />;
   }
 
-  if (cardState === 'Minimal Data') {
-    return (
-      <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
-        <IntlProvider locale="en" message={langEn}>
-          <Route exact path="resorts/:urlSegment">
-            <ResortCardComponent
-              resortData={mocksMinimalData.resortByUrlSegment.result.data.resortByUrlSegment}
-            />
-          </Route>
-        </IntlProvider>
-      </MemoryRouter>
-    );
-  }
+  let mock;
 
-  if (cardState === 'No Data') {
-    return (
-      <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
-        <IntlProvider locale="en" message={langEn}>
-          <Route exact path="resorts/:urlSegment">
-            <ResortCardComponent
-              resortData={mocksNoData.resortByUrlSegment.result.data.resortByUrlSegment}
-            />
-          </Route>
-        </IntlProvider>
-      </MemoryRouter>
-    );
+  switch (cardState) {
+    case 'Minimal Data':
+      mock = mocksMinimalData.resortCard;
+      break;
+    case 'No Data':
+      mock = mocksNoData.resortCard;
+      break;
+    default:
+      mock = mocks.resortCard;
+      break;
   }
 
   return (
-    <MemoryRouter initialEntries={['resorts/tokyo-megaplex']}>
-      <IntlProvider locale="en" message={langEn}>
-        <Route exact path="resorts/:urlSegment">
-          <ResortCardComponent
-            resortData={mocks.resortByUrlSegment.result.data.resortByUrlSegment}
-          />
-        </Route>
-      </IntlProvider>
-    </MemoryRouter>
+    <IntlProvider locale="en" message={langEn}>
+      <NoCacheMockedProvider mocks={[
+        mocks.resortCard,
+        mocksNoData.resortCard,
+        mocksMinimalData.resortCard,
+      ]}
+      >
+        <ResortCardComponent
+          resortData={mock.data}
+        />
+      </NoCacheMockedProvider>
+    </IntlProvider>
+
   );
 };

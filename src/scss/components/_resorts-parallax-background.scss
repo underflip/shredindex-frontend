@@ -3,10 +3,10 @@
 
   &__image {
     position: fixed;
-    top: 0;
+    top: 50%;
     left: 0;
     width: 100%;
-    transform: translateY(-10%);
+    transform: translateY(-50%);
   }
 
   svg path {

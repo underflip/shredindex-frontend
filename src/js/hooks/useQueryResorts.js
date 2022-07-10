@@ -33,6 +33,8 @@ query Resorts($first: Int! $page: Int!){
         }
       }
       total_score {
+        id
+        title
         value
       }
       highlights {

@@ -18,7 +18,7 @@ export const Pagination = () => {
   };
 
   return (
-    <MemoryRouter initialEntries={['?page=2']}>
+    <MemoryRouter initialEntries={['?page=1']}>
       <QueryParamProvider ReactRouterRoute={Route}>
         <PaginationComponent
           paginationTabLimit={mocks.paginationTabLimit}

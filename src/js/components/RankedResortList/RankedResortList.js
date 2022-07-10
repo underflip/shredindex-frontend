@@ -13,6 +13,8 @@ import useQueryResorts from '../../hooks/useQueryResorts';
 import useWindowDimensions from '../../hooks/getWindowDimensions';
 import RankedResortResultCount from '../RankedResortResultCount/RankedResortResultCount';
 import breakpoints from '../config/breakpoints';
+import FilterMenuSkeleton from '../FilterMenu/FilterMenuSkeleton';
+import RankedResortResultCountSkeleton from '../RankedResortResultCount/RankedResortResultCountSkeleton';
 
 const RankedResortList = ({ query, cardLimit }) => {
   const { page: num } = query;
@@ -45,8 +47,14 @@ const RankedResortList = ({ query, cardLimit }) => {
 
   if (loading) {
     return (
-      <>
-        <div className="ranked-resort-list ranked-resort-list--loading col-sm-12">
+      <div className="ranked-resort-list">
+        <div className="ranked-resort-list__filters-wrap col-sm-12 w-100">
+          <FilterMenuSkeleton />
+        </div>
+        <div className="ranked-resort-list__result-count-wrap col-sm-12 w-100">
+          <RankedResortResultCountSkeleton />
+        </div>
+        <div className="ranked-resort-list--loading col-sm-12">
           {Array.from({ length: cardLimit }, (x, i) => i).map((index) => (
             <ResortCardSkeleton key={index} />
           ))}
@@ -56,7 +64,7 @@ const RankedResortList = ({ query, cardLimit }) => {
           lastPage={maxPageState.maxPages}
           size={width > breakpoints.sm ? paginationSize.lg : paginationSize.sm}
         />
-      </>
+      </div>
     );
   }
 
@@ -77,7 +85,7 @@ const RankedResortList = ({ query, cardLimit }) => {
       <div className="ranked-resort-list__result-count-wrap col-sm-12 w-100">
         <RankedResortResultCount total={total} currentPage={currentPage} lastPage={lastPage} />
       </div>
-      <div className="ranked-resort-list ranked-resort-list__resort-card-list-wrap col-sm-12">
+      <div className="ranked-resort-list__resort-card-list-wrap col-sm-12">
         {resorts.map((resort) => (
           <ResortCard key={resort.id} resortData={resort} />
         ))}

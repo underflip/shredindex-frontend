@@ -6,7 +6,7 @@ const Resorts = () => (
   <div className="resorts">
     <div className="ranked-resort-list row">
       <ResortsParallaxBackground />
-      <RankedResortList cardLimit={5} maxPages={10} />
+      <RankedResortList cardLimit={5} />
     </div>
   </div>
 );

@@ -13,6 +13,10 @@
     background-color: $gray-500;
   }
 
+  .error-help {
+    max-width: 300px;
+  }
+
   &__wrap{
     max-width: 67.5rem;
     width: 36rem;
@@ -222,22 +226,6 @@
   }
 
   &--skeleton {
-    &:nth-child(2) {
-      opacity: 0.80;
-    }
-
-    &:nth-child(3) {
-      opacity: 0.60;
-    }
-
-    &:nth-child(4) {
-      opacity: 0.40;
-    }
-
-    &:nth-child(5) {
-      opacity: 0.20;
-    }
-
     .skeleton-card__header {
       .skeleton-rating-header {
         height: 2.1875rem;
@@ -412,12 +400,6 @@
     &__expand .icon {
       transform: rotateZ(-180deg);
     }
-  }
-}
-
-.resort-card {
-  .error-help {
-    max-width: 300px;
   }
 }
 

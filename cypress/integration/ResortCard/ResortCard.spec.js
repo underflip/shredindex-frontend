@@ -134,7 +134,6 @@ describe('Resort Card Full Expanded', () => {
 
   it('Card Collapses', () => {
     cy.get('.card').then(($card) => {
-
     });
   });
 
@@ -162,10 +161,17 @@ describe('Resort Card Full Expanded', () => {
     cy.get('.rating__title').should('contain.text', 'Tokyo Megaplex');
   });
 
+  it('Navigates to a an affiliate link when clicked', () => {
+    cy.get('.resort-card__affiliate-link')
+      .should('have.attr', 'href', 'https://www.shredindex/resorts/tokyo-megaplex')
+      .should('have.attr', 'target', '_blank')
+      .should('have.attr', 'rel', 'noreferrer noopener');
+  });
+
   it('Has a total rating', () => {
     cy.get('.rating--total-rating').within(($totalRating) => {
-      cy.get('.rating__number-big').should('contain.text', '96');
-      cy.get('.rating__number-small').should('contain.text', '.7');
+      cy.get('.rating__number-big').should('contain.text', '76');
+      cy.get('.rating__number-small').should('contain.text', '.8');
     });
   });
 

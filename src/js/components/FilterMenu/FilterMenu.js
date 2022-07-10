@@ -5,8 +5,8 @@ import { cilSettings } from '@coreui/icons';
 
 const FilterMenu = () => (
   <div className="filter-resorts mb-4 d-flex flex-row">
-    <CButton color="primary" className="m-2 w-100">Lifestyles</CButton>
-    <CButton color="light" className="m-2 w-100">
+    <CButton color="primary" className="me-2 w-100">Lifestyles</CButton>
+    <CButton color="light" className="ms-2 w-100">
       <CIcon icon={cilSettings} />
       &nbsp; Filters
     </CButton>

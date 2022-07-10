@@ -51,9 +51,7 @@ query ResortByURLSegment($url_segment: String!) {
 `;
 
 const Resort = () => {
-  console.log('yo');
   const { url_segment } = useParams();
-  console.log('query resort', url_segment);
 
   const { loading, error, data } = useQuery(
     QUERY_RESORT,
