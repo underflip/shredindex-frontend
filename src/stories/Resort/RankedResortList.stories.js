@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import { MockedProvider } from '@apollo/react-testing';
 import { IntlProvider } from 'react-intl';
 import { MemoryRouter } from 'react-router';
@@ -162,14 +163,16 @@ export const RankedResortList = (args) => {
   if (listState === 'Error') {
     return (
       <IntlProvider locale="en" message={langEn}>
-        <QueryParamProvider ReactRouterRoute={Route}>
-          <MockedProvider
-            mocks={[mocks.resortsError]}
-            addTypename={false}
-          >
-            <RankedResortListComponent cardLimit={cardLimit} maxPages={maxPages} />
-          </MockedProvider>
-        </QueryParamProvider>
+        <RecoilRoot>
+          <QueryParamProvider ReactRouterRoute={Route}>
+            <MockedProvider
+              mocks={[mocks.resortsError]}
+              addTypename={false}
+            >
+              <RankedResortListComponent cardLimit={cardLimit} maxPages={maxPages} />
+            </MockedProvider>
+          </QueryParamProvider>
+        </RecoilRoot>
       </IntlProvider>
     );
   }
@@ -177,21 +180,23 @@ export const RankedResortList = (args) => {
   return (
     <MemoryRouter initialEntries={['?first=2', '?page=1']}>
       <IntlProvider locale="en" message={langEn}>
-        <QueryParamProvider ReactRouterRoute={Route}>
-          <MockedProvider
-            mocks={[
-              mocks.resortsPage1,
-              mocks.resortsPage2,
-              mocks.resortsPage3,
-            ]}
-            addTypename={false}
-          >
-            <QueryParamProvider ReactRouterRoute={Route}>
-              <ResortsParallaxBackground />
-              <RankedResortListComponent cardLimit={cardLimit} maxPages={maxPages} />
-            </QueryParamProvider>
-          </MockedProvider>
-        </QueryParamProvider>
+        <RecoilRoot>
+          <QueryParamProvider ReactRouterRoute={Route}>
+            <MockedProvider
+              mocks={[
+                mocks.resortsPage1,
+                mocks.resortsPage2,
+                mocks.resortsPage3,
+              ]}
+              addTypename={false}
+            >
+              <QueryParamProvider ReactRouterRoute={Route}>
+                <ResortsParallaxBackground />
+                <RankedResortListComponent cardLimit={cardLimit} maxPages={maxPages} />
+              </QueryParamProvider>
+            </MockedProvider>
+          </QueryParamProvider>
+        </RecoilRoot>
       </IntlProvider>
     </MemoryRouter>
   );

@@ -1,46 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSetRecoilState } from 'recoil';
 import { CButton } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { cilSettings } from '@coreui/icons';
 import { FormattedMessage } from 'react-intl';
-import FilterTray from '../FilterTray/FilterTray';
-import LifeStyleTray from '../LifeStyleTray/LifeStyleTray';
+import FilterTray, { showFilterTrayState } from '../FilterTray/FilterTray';
+import LifeStyleTray, { showLifestyleTrayState } from '../LifeStyleTray/LifeStyleTray';
 
 const FilterMenu = () => {
-  const [showFilterTray, setShowFilterTray] = useState(false);
-  const [showLifeStyleTray, setShowLifeStyleTray] = useState(false);
-
-  const handleClose = () => {
-    setShowFilterTray(false);
-    setShowLifeStyleTray(false);
-  };
+  const setShowFilterTray = useSetRecoilState(showFilterTrayState);
+  const setShowLifestyleTray = useSetRecoilState(showLifestyleTrayState);
 
   return (
-    <div className="filter-menu mb-4 d-flex flex-row">
-      <FilterTray
-        showFilterTray={showFilterTray}
-        handleClose={handleClose}
-      />
-      <LifeStyleTray
-        showLifeStyleTray={showLifeStyleTray}
-        handleClose={handleClose}
-      />
-      <CButton
-        color="primary"
-        aria-roledescription={(
-          <FormattedMessage
-            id="shredindex.filter.SHOW_LIFESTYLES_TRAY"
-            defaultMessage="Show lifestyles tray"
-          />
-        )}
-        className="me-2 w-100 filter-menu__show-lifestyles-tray"
-        onClick={() => setShowLifeStyleTray(true)}
-      >
-        <FormattedMessage
-          id="shredindex.filter.LIFESTYLES"
-          defaultMessage="Lifestyles"
-        />
-      </CButton>
+    <div className="filter-menu mb-4 d-flex flex-row gap-4">
       <CButton
         color="light"
         aria-roledescription={(
@@ -53,12 +25,30 @@ const FilterMenu = () => {
         onClick={() => setShowFilterTray(true)}
       >
         <CIcon icon={cilSettings} />
-      &nbsp;
+        &nbsp;
         <FormattedMessage
           id="shredindex.filter.FILTERS"
           defaultMessage="Filters"
         />
       </CButton>
+      <CButton
+        color="primary"
+        aria-roledescription={(
+          <FormattedMessage
+            id="shredindex.filter.SHOW_LIFESTYLES_TRAY"
+            defaultMessage="Show lifestyles tray"
+          />
+        )}
+        className="me-2 w-100 filter-menu__show-lifestyles-tray"
+        onClick={() => setShowLifestyleTray(true)}
+      >
+        <FormattedMessage
+          id="shredindex.filter.LIFESTYLES"
+          defaultMessage="Lifestyles"
+        />
+      </CButton>
+      <FilterTray />
+      <LifeStyleTray />
     </div>
   );
 };

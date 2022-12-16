@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import { IntlProvider } from 'react-intl';
 import FilterMenuComponent from '../../js/components/FilterMenu/FilterMenu';
 import langEn from '../../js/lang/en.json';
@@ -10,6 +11,8 @@ export default {
 
 export const FilterTray = () => (
   <IntlProvider locale="en" message={langEn}>
-    <FilterMenuComponent />
+    <RecoilRoot>
+      <FilterMenuComponent />
+    </RecoilRoot>
   </IntlProvider>
 );

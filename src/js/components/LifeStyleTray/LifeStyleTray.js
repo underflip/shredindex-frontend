@@ -1,27 +1,35 @@
 import {
   CModal, CModalHeader, CModalTitle, CModalBody,
 } from '@coreui/react';
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { atom, useRecoilState } from 'recoil';
 
-const LifeStyleTray = ({ showLifeStyleTray, handleClose }) => {
-  const [visible, setVisible] = useState(showLifeStyleTray);
+export const showLifestyleTrayState = atom({
+  key: 'showLifestyleTrayState',
+  default: false,
+});
 
-  useEffect(() => {
-    setVisible(showLifeStyleTray);
-  }, [showLifeStyleTray]);
+const LifeStyleTray = () => {
+  const [visible, setVisible] = useRecoilState(showLifestyleTrayState);
+
+  const handleClose = () => {
+    setVisible(false);
+  };
+
+  if (!visible) {
+    return null;
+  }
 
   return (
-
     <CModal
       className="lifestyle-tray"
       fullscreen="lg"
       scrollable
       visible={visible}
-      onClose={() => { setVisible(false); handleClose(); }}
+      onClose={() => handleClose()}
     >
-      <CModalHeader onClose={() => { setVisible(false); handleClose(); }}>
+      <CModalHeader>
         <CModalTitle className="h4 text-center mx-auto w-100 fw-bold">
           <FormattedMessage
             id="shredindex.filter.LIFESTYLES"
@@ -32,11 +40,6 @@ const LifeStyleTray = ({ showLifeStyleTray, handleClose }) => {
       <CModalBody />
     </CModal>
   );
-};
-
-LifeStyleTray.propTypes = {
-  showLifeStyleTray: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func.isRequired,
 };
 
 export default LifeStyleTray;
