@@ -87,8 +87,12 @@
   input[type='range'] {
     position: absolute;
     appearance: none;
-    pointer-events: none;
     border: none;
+  }
+
+  .input-wrap {
+    display: block;
+    position: relative;
   }
 }
 

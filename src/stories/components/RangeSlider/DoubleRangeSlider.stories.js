@@ -11,9 +11,17 @@ import { QUERY_RESORTS } from '../../../js/hooks/useQueryResorts';
 export default {
   title: 'Shred index/components',
   component: DoubleRangeSliderComponent,
+  argTypes: {
+    sliderState: {
+      name: 'sliderState',
+      options: ['withGraph', 'withoutGraph'],
+      control: { type: 'select' },
+    },
+  },
 };
 
-export const DoubleRangeSlider = () => {
+export const DoubleRangeSlider = (args) => {
+  const { sliderState } = args;
   const mocks = {
     doubleRangeSlider: {
       request: {
@@ -169,6 +177,37 @@ export const DoubleRangeSlider = () => {
       },
     },
   };
+
+  if (sliderState === 'withoutGraph') {
+    return (
+      <IntlProvider locale="en" message={langEn}>
+        <MockedProvider mocks={[mocks.doubleRangeSlider]} addTypename={false}>
+          <CRow>
+            <CCol>
+              <CCard>
+                <CCardHeader>
+                  <strong>Range Sliders</strong>
+                </CCardHeader>
+                <CCardBody>
+                  <CRow>
+                    <CCol>
+                      <p className="text-medium-emphasis small">Double range slider with rheostat graph</p>
+                      <DoubleRangeSliderComponent
+                        resortList={mocks.doubleRangeSlider.result.data.resorts.data}
+                        scoreType="Snow Quality"
+                        sliderMin={50}
+                        sliderMax={500}
+                      />
+                    </CCol>
+                  </CRow>
+                </CCardBody>
+              </CCard>
+            </CCol>
+          </CRow>
+        </MockedProvider>
+      </IntlProvider>
+    );
+  }
 
   return (
     <IntlProvider locale="en" message={langEn}>

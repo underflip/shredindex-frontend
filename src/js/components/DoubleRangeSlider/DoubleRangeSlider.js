@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import RangeRheostatGraph from '../Rheostat/RangeRheostatGraph';
 
 const DoubleRangeSlider = ({
-  resortList, sliderMin, sliderMax, scoreType, useGraph, tickerQuantity,
+  resortList, sliderMin, sliderMax, scoreType, useGraph, tickerQuantity, className,
 }) => {
   const [lowerValue, setLowerValue] = useState(50);
   const [upperValue, setUpperValue] = useState(500);
@@ -18,39 +18,59 @@ const DoubleRangeSlider = ({
   const rightPosition = (upperValue - sliderMin) * widthSpanPercent;
   const rangeWidth = (rightPosition + sliderMin) - (leftPosition + sliderMin);
 
-  if (lowerValue > upperValue - 8) {
-    if (lowerValue < sliderMax - 8) {
-      setUpperValue(lowerValue + 8);
-      setUpperFieldValue(lowerValue + 8);
-    }
-
-    if (upperValue === sliderMax) {
-      setLowerValue(parseInt(sliderMax, 10) - 8);
-      setLowerFieldValue(parseInt(sliderMax, 10) - 8);
+  function setLowerSlider(targetUpperValue) {
+    if ((lowerValue > targetUpperValue - 8) || (targetUpperValue < lowerValue + 8)) {
+      if (targetUpperValue >= sliderMax) {
+        setLowerValue(parseInt(sliderMax, 10) - 8);
+        setLowerFieldValue(parseInt(sliderMax, 10) - 8);
+      }
+      setLowerValue(Math.max(targetUpperValue - 8, sliderMin));
+      setLowerFieldValue(Math.max(targetUpperValue - 8, sliderMin));
+      if (targetUpperValue <= sliderMin + 8) {
+        setUpperValue(sliderMin + 8);
+        setUpperFieldValue(sliderMin + 8);
+      }
     }
   }
 
-  if (upperValue < lowerValue + 8) {
-    if (lowerValue <= sliderMin) {
-      setUpperValue(lowerValue + 8);
-      setUpperFieldValue(lowerValue + 8);
-    } else {
-      setLowerValue(Math.max(upperValue - 8, sliderMin));
-      setLowerFieldValue(Math.max(upperValue - 8, sliderMin));
+  function setUpperSlider(targetLowerValue) {
+    if ((targetLowerValue > upperValue - 8) || (upperValue < targetLowerValue + 8)) {
+      if (targetLowerValue < sliderMax - 8) {
+        setUpperValue(targetLowerValue + 8);
+        setUpperFieldValue(targetLowerValue + 8);
+      }
+      setUpperValue(Math.min(targetLowerValue + 8, sliderMax));
+      setUpperFieldValue(Math.min(targetLowerValue + 8, sliderMax));
+      if (targetLowerValue >= sliderMax - 8) {
+        setLowerValue(sliderMax - 8);
+        setLowerFieldValue(sliderMax - 8);
+      }
     }
   }
 
   function limitInput(target) {
     if (target > sliderMax) {
-      return sliderMax;
+      return parseInt(sliderMax, 10);
     } if (target < sliderMin) {
-      return sliderMin;
+      return parseInt(sliderMin, 10);
     }
-    return target;
+    return parseInt(target, 10);
+  }
+
+  function handleLowerRangeSliderChange(target) {
+    setLowerValue(limitInput(target));
+    setLowerFieldValue(limitInput(target));
+    setUpperSlider(parseInt(target, 10));
+  }
+
+  function handleRangeSliderUpperChange(target) {
+    setUpperValue(limitInput(target));
+    setUpperFieldValue(limitInput(target));
+    setLowerSlider(parseInt(target, 10));
   }
 
   return (
-    <div className="double-range-slider">
+    <div className={`double-range-slider ${className}`}>
       {useGraph
         && (
         <RangeRheostatGraph
@@ -70,75 +90,68 @@ const DoubleRangeSlider = ({
       </div>
       <CFormRange
         id="lower"
-        className="range-slider"
+        className="range-slider range-slider-lower"
         steps={1}
         min={sliderMin}
         max={sliderMax}
-        onChange={(e) => {
-          setLowerValue(parseInt(limitInput(e.target.value), 10));
-          setLowerFieldValue(parseInt(limitInput(e.target.value), 10));
-        }}
+        onChange={(e) => handleLowerRangeSliderChange(e.target.value)}
         value={lowerValue}
       />
       <CFormRange
         id="upper"
-        className="range-slider"
+        className="range-slider range-slider-upper"
         steps={1}
         min={sliderMin}
         max={sliderMax}
-        onChange={(e) => {
-          setUpperValue(parseInt(limitInput(e.target.value), 10));
-          setUpperFieldValue(parseInt(limitInput(e.target.value), 10));
-        }}
+        onChange={(e) => handleRangeSliderUpperChange(e.target.value)}
         value={upperValue}
       />
       <CRow className="mt-5 d-flex justify-content-between p-3">
         <CCol xl={5} lg={5} xs={5}>
-          <CFormLabel htmlFor="lowerInput" className="w-100 label-inside-input resort-card__small-label">
-            Min
-          </CFormLabel>
-          <CFormInput
-            className="label-inside-input-padding"
-            type="number"
-            id="lowerInput"
-            label="Min"
-            placeholder="0"
-            min={sliderMin}
-            max={sliderMax}
-            onBlur={
-              (e) => {
-                setLowerValue(parseInt(limitInput(e.target.value), 10));
-                setLowerFieldValue(parseInt(limitInput(e.target.value), 10));
-              }
+          <div className="input-wrap">
+
+            <CFormLabel htmlFor="lowerInput" className="w-100 label-inside-input resort-card__small-label">
+              Min
+            </CFormLabel>
+            <CFormInput
+              className="lower-input label-inside-input-padding"
+              type="number"
+              id="lowerInput"
+              label="Min"
+              placeholder="0"
+              min={sliderMin}
+              max={sliderMax}
+              onBlur={
+              (e) => handleLowerRangeSliderChange(e.target.value)
             }
-            onChange={(e) => setLowerFieldValue(parseInt(e.target.value, 10))}
-            value={lowerFieldValue}
-          />
+              onChange={(e) => setLowerFieldValue(parseInt(e.target.value, 10))}
+              value={lowerFieldValue}
+            />
+          </div>
         </CCol>
         <CCol xl={2} lg={2} xs={2} className="d-flex justify-content-center align-items-center">
           -
         </CCol>
         <CCol xl={5} lg={5} xs={5}>
-          <CFormLabel htmlFor="maxInput" className="w-100 label-inside-input resort-card__small-label">
-            Max
-          </CFormLabel>
-          <CFormInput
-            className="label-inside-input-padding"
-            type="number"
-            id="maxInput"
-            label="Max"
-            placeholder="0"
-            min={sliderMin}
-            max={sliderMax}
-            onBlur={
-              (e) => {
-                setUpperFieldValue(parseInt(limitInput(e.target.value), 10));
-                setUpperValue(parseInt(limitInput(e.target.value), 10));
-              }
+          <div className="input-wrap">
+            <CFormLabel htmlFor="upperInput" className="w-100 label-inside-input resort-card__small-label">
+              Max
+            </CFormLabel>
+            <CFormInput
+              className="upper-input label-inside-input-padding"
+              type="number"
+              id="upperInput"
+              label="Max"
+              placeholder="0"
+              min={sliderMin}
+              max={sliderMax}
+              onBlur={
+              (e) => handleRangeSliderUpperChange(e.target.value)
             }
-            onChange={(e) => setUpperFieldValue(parseInt(e.target.value, 10))}
-            value={upperFieldValue}
-          />
+              onChange={(e) => setUpperFieldValue(parseInt(e.target.value, 10))}
+              value={upperFieldValue}
+            />
+          </div>
         </CCol>
       </CRow>
     </div>
@@ -149,8 +162,9 @@ DoubleRangeSlider.defaultProps = {
   resortList: [],
   sliderMin: 0,
   sliderMax: 100,
-  useGraph: true,
+  useGraph: false,
   tickerQuantity: 20,
+  className: '',
 };
 
 DoubleRangeSlider.propTypes = {
@@ -160,6 +174,7 @@ DoubleRangeSlider.propTypes = {
   useGraph: PropTypes.bool,
   tickerQuantity: PropTypes.number,
   scoreType: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export default DoubleRangeSlider;
