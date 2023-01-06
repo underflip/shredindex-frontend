@@ -1,3 +1,126 @@
+const dataProviderTickers = [
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 25,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 25,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 25,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 25,
+    backgroundColor: 'light',
+  },
+  {
+    height: 50,
+    backgroundColor: 'light',
+  },
+  {
+    height: 25,
+    backgroundColor: 'light',
+  },
+  {
+    height: 100,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 5,
+    backgroundColor: 'light',
+  },
+  {
+    height: 75,
+    backgroundColor: 'light',
+  },
+  {
+    height: 25,
+    backgroundColor: 'light',
+  },
+];
+
 describe('Double Range Slider', () => {
   beforeEach(() => {
     cy.visit('/iframe.html?id=shred-index-components--double-range-slider&args=sliderState:withGraph');
@@ -58,7 +181,8 @@ describe('Double Range Slider', () => {
     it('should update ticker color based on slider position above the lower slider', () => {
       cy.get('#lower').should('have.value', '50');
       cy.get('.range-rheostat-graph__ticker:first-of-type')
-        .should('have.css', 'background-color', 'rgb(77, 197, 179)');
+        .should('have.css', 'background-color', 'rgb(77, 197, 179)')
+        .should('have.class', 'range-rheostat-graph__ticker--light');
       cy.get('#lower').focus({
         force: true,
       });
@@ -66,13 +190,15 @@ describe('Double Range Slider', () => {
       cy.get('#lower').should('have.value', '100');
       cy.get('#lowerInput').should('have.value', '100');
       cy.get('.range-rheostat-graph__ticker:first-of-type')
-        .should('have.css', 'background-color', 'rgb(52, 74, 89)');
+        .should('have.css', 'background-color', 'rgb(52, 74, 89)')
+        .should('have.class', 'range-rheostat-graph__ticker--dark');
     });
 
     it('should update ticker color based on slider position above the upper slider', () => {
       cy.get('#upper').should('have.value', '500');
       cy.get('.range-rheostat-graph__ticker:last-of-type')
-        .should('have.css', 'background-color', 'rgb(77, 197, 179)');
+        .should('have.css', 'background-color', 'rgb(77, 197, 179)')
+        .should('have.class', 'range-rheostat-graph__ticker--light');
       cy.get('#upper').focus({
         force: true,
       });
@@ -80,7 +206,22 @@ describe('Double Range Slider', () => {
       cy.get('#upper').should('have.value', '450');
       cy.get('#upperInput').should('have.value', '450');
       cy.get('.range-rheostat-graph__ticker:last-of-type')
-        .should('have.css', 'background-color', 'rgb(52, 74, 89)');
+        .should('have.css', 'background-color', 'rgb(52, 74, 89)')
+        .should('have.class', 'range-rheostat-graph__ticker--dark');
+    });
+
+    it('should have the correct ticker quantity', () => {
+      cy.get('.range-rheostat-graph').find('.range-rheostat-graph__ticker').should('have.length', 30);
+    });
+
+    it('should render the tickers height and color correctly', () => {
+      cy.get('.range-rheostat-graph').find('.range-rheostat-graph__ticker').should('have.length', 30);
+      dataProviderTickers.forEach((tick, i) => {
+        const { height, backgroundColor } = tick;
+        const nth = i + 1;
+        cy.get(`.range-rheostat-graph__ticker:nth-child(${nth})`).should('have.css', 'height', `${height}px`);
+        cy.get(`.range-rheostat-graph__ticker:nth-child(${nth})`).should('have.class', `range-rheostat-graph__ticker--${backgroundColor}`);
+      });
     });
   });
 });
