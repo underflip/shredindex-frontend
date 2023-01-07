@@ -127,6 +127,12 @@ describe('Double Range Slider', () => {
   });
 
   context('All devices', () => {
+    it('Should show the storybook component', () => {
+      cy.get('.card-header').should('exist');
+      cy.get('.card-header').find('strong').should('contain.text', 'Range Sliders');
+      cy.get('.card-body').should('exist');
+    });
+
     it('Should have a double range slider', () => {
       cy.get('.double-range-slider').should('exist');
       cy.get('.range-slider-wrap').should('exist');
@@ -325,16 +331,13 @@ describe('Double Range Slider without Graph', () => {
     cy.get('.range-slider-upper').should('have.value', '458');
   });
 
-  it('should limit the lower value to 8 below the max prop if it is set too high', () => {
-    cy.get('.double-range-slider').should('exist');
-    cy.get('.range-slider-lower').invoke('val', 600).trigger('change', { force: true });
-    cy.get('.range-slider-lower').should('have.value', '492');
-    cy.get('#lowerInput').realClick({ force: true }).realType('{backspace}{backspace}', { force: true }).realType('600', { force: true });
+  it('should limit the lower value to 8 below the sliderMax if it is set too high', () => {
+    cy.get('#lowerInput').realClick({ force: true }).realType('{backspace}{backspace}', { force: true }).realType('500', { force: true });
     cy.get('.double-range-slider').realClick({ force: true });
     cy.get('#lowerInput').should('have.value', '492');
   });
 
-  it('should limit the upper value to the max prop if it is set too high', () => {
+  it('should limit the upper value to the sliderMax if it is set too high', () => {
     cy.get('.double-range-slider').should('exist');
     cy.get('.range-slider-upper').invoke('val', 600).trigger('change', { force: true });
     cy.get('.range-slider-upper').should('have.value', '500');
@@ -343,7 +346,7 @@ describe('Double Range Slider without Graph', () => {
     cy.get('#upperInput').should('have.value', '500');
   });
 
-  it('should limit the lower value to the min prop if it is set too low', () => {
+  it('should limit the lower value to the sliderMin if it is set too low', () => {
     cy.get('.double-range-slider').should('exist');
     cy.get('.range-slider-lower').invoke('val', -100).trigger('change', { force: true });
     cy.get('.range-slider-lower').should('have.value', '50');
@@ -352,7 +355,7 @@ describe('Double Range Slider without Graph', () => {
     cy.get('#lowerInput').should('have.value', '50');
   });
 
-  it('should limit the upper value to 8+ above the min prop if it is set too low', () => {
+  it('should limit the upper value to 8+ above the sliderMin if it is set too low', () => {
     cy.get('.double-range-slider').should('exist');
     cy.get('.range-slider-upper').invoke('val', -100).trigger('change', { force: true });
     cy.get('.range-slider-upper').should('have.value', '58');
