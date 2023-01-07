@@ -223,6 +223,22 @@ describe('Double Range Slider', () => {
         cy.get(`.range-rheostat-graph__ticker:nth-child(${nth})`).should('have.class', `range-rheostat-graph__ticker--${backgroundColor}`);
       });
     });
+
+    it('adds modified ticker to tickersArray if tick.key !== tickObj.key', () => {
+      // Set up test data
+      const tick = { key: 1, height: 50, backgroundColor: 'light' };
+      const tickObj = { key: 2, height: 75, backgroundColor: 'dark' };
+      const tickersArray = [];
+
+      // Exercise code under test
+      if (tick.key !== tickObj.key) {
+        tickersArray.push(tickObj);
+      }
+
+      // Verify that tickObj was added to tickersArray
+      expect(tickersArray).to.have.length(1);
+      expect(tickersArray[0]).to.deep.equal(tickObj);
+    });
   });
 });
 

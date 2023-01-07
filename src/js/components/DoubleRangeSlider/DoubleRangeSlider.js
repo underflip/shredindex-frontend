@@ -109,7 +109,6 @@ const DoubleRangeSlider = ({
       <CRow className="mt-5 d-flex justify-content-between p-3">
         <CCol xl={5} lg={5} xs={5}>
           <div className="input-wrap">
-
             <CFormLabel htmlFor="lowerInput" className="w-100 label-inside-input resort-card__small-label">
               Min
             </CFormLabel>
