@@ -4,10 +4,10 @@ import { CButton } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { cilSettings } from '@coreui/icons';
 import { FormattedMessage } from 'react-intl';
-import FilterTray, { showFilterTrayState } from '../FilterTray/FilterTray';
-import LifeStyleTray, { showLifestyleTrayState } from '../LifeStyleTray/LifeStyleTray';
+import RankedResortFilterTray, { showFilterTrayState } from '../RankedResortFilterTray/RankedResortFilterTray';
+import RankedResortLifeStyleTray, { showLifestyleTrayState } from '../RankedResortLifeStyleTray/RankedResortLifeStyleTray';
 
-const FilterMenu = () => {
+const RankedResortFilterMenu = () => {
   const setShowFilterTray = useSetRecoilState(showFilterTrayState);
   const setShowLifestyleTray = useSetRecoilState(showLifestyleTrayState);
 
@@ -28,7 +28,7 @@ const FilterMenu = () => {
         &nbsp;
         <FormattedMessage
           id="shredindex.filter.FILTERS"
-          defaultMessage="Filters"
+          defaultMessage="RankedResortFilters"
         />
       </CButton>
       <CButton
@@ -47,10 +47,10 @@ const FilterMenu = () => {
           defaultMessage="Lifestyles"
         />
       </CButton>
-      <FilterTray />
-      <LifeStyleTray />
+      <RankedResortFilterTray />
+      <RankedResortLifeStyleTray />
     </div>
   );
 };
 
-export default FilterMenu;
+export default RankedResortFilterMenu;

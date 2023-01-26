@@ -10,7 +10,7 @@ export const showLifestyleTrayState = atom({
   default: false,
 });
 
-const LifeStyleTray = () => {
+const RankedResortLifeStyleTray = () => {
   const [visible, setVisible] = useRecoilState(showLifestyleTrayState);
 
   const handleClose = () => {
@@ -42,4 +42,4 @@ const LifeStyleTray = () => {
   );
 };
 
-export default LifeStyleTray;
+export default RankedResortLifeStyleTray;

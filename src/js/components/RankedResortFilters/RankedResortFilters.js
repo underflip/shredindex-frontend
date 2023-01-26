@@ -6,7 +6,7 @@ import {
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-const Filters = () => (
+const RankedResortFilters = () => (
   <CForm>
     <CFormLabel className="form-label">
       <FormattedMessage
@@ -46,4 +46,4 @@ const Filters = () => (
   </CForm>
 );
 
-export default Filters;
+export default RankedResortFilters;

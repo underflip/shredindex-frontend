@@ -1,4 +1,4 @@
-describe('Filter Tray', () => {
+describe('RankedResortFilter Tray', () => {
   beforeEach(() => {
     cy.visit('/iframe.html?id=shred-index-components-filter--filter-tray');
   });

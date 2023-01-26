@@ -1,10 +1,10 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import FiltersComponent from '../../js/components/Filters/Filters';
+import FiltersComponent from '../../js/components/RankedResortFilters/RankedResortFilters';
 import langEn from '../../js/lang/en.json';
 
 export default {
-  title: 'Shred index/components/Filter',
+  title: 'Shred index/components/RankedResortFilter',
   component: FiltersComponent,
 };
 

@@ -13,7 +13,7 @@ import ResortsParallaxBackground
 import langEn from '../../js/lang/en.json';
 import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
 import { QUERY_RESORTS } from '../../js/hooks/useQueryResorts';
-import FilterMenuSkeleton from '../../js/components/FilterMenu/FilterMenuSkeleton';
+import RankedResortFilterMenuSkeleton from '../../js/components/RankedResortFilterMenu/RankedResortFilterMenuSkeleton';
 import RankedResortResultCountSkeleton
   from '../../js/components/RankedResortResultCount/RankedResortResultCountSkeleton';
 import resortOne from '../../../cypress/integration/RankedResortList/dummyResortOne';
@@ -146,7 +146,7 @@ export const RankedResortList = (args) => {
     return (
       <div className="ranked-resort-list">
         <div className="ranked-resort-list__filters-wrap col-sm-12 w-100">
-          <FilterMenuSkeleton />
+          <RankedResortFilterMenuSkeleton />
         </div>
         <div className="ranked-resort-list__result-count-wrap col-sm-12 w-100">
           <RankedResortResultCountSkeleton />

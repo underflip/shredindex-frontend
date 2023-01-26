@@ -8,14 +8,14 @@ import {
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { atom, useRecoilState } from 'recoil';
-import Filters from '../Filters/Filters';
+import RankedResortFilters from '../RankedResortFilters/RankedResortFilters';
 
 export const showFilterTrayState = atom({
   key: 'showFilterTrayState',
   default: false,
 });
 
-const FilterTray = () => {
+const RankedResortFilterTray = () => {
   const [visible, setVisible] = useRecoilState(showFilterTrayState);
 
   const handleClose = () => {
@@ -38,16 +38,16 @@ const FilterTray = () => {
         <CModalTitle className="h4 text-center mx-auto w-100 fw-bold">
           <FormattedMessage
             id="shredindex.filter.FILTERS"
-            defaultMessage="Filters"
+            defaultMessage="RankedResortFilters"
           />
         </CModalTitle>
       </CModalHeader>
       <CModalBody>
-        <Filters />
+        <RankedResortFilters />
       </CModalBody>
       <CModalFooter className="justify-content-between" />
     </CModal>
   );
 };
 
-export default FilterTray;
+export default RankedResortFilterTray;
