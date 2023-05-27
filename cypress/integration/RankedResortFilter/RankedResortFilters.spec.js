@@ -1,6 +1,6 @@
 describe('Filters', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=shred-index-components-filter--filters');
+    cy.visit('/iframe.html?id=shred-index-components-rankedresortfilter--filters');
   });
 
   context('All devices', () => {

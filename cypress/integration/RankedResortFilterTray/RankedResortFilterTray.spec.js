@@ -1,6 +1,6 @@
 describe('RankedResortFilter Tray', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=shred-index-components-filter--filter-tray');
+    cy.visit('/iframe.html?id=shred-index-components-rankedresortfilter--filter-tray');
   });
 
   context('All devices', () => {
