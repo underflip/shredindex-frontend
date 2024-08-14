@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import privateKeys from '../../../../../privateKeys';
+import mapboxStyles from '../../config/mapboxStyles';
+
+const MAPBOX_API_KEY = process?.env?.REACT_APP_MAPBOX_API_KEY;
 
 const containerStyle = {
   width: '100%',
@@ -10,7 +12,7 @@ const containerStyle = {
   position: 'relative',
 };
 
-mapboxgl.accessToken = privateKeys.mapboxAccessToken;
+mapboxgl.accessToken = MAPBOX_API_KEY;
 
 const ResortMap = ({ longitude, latitude }) => {
   const mapContainerRef = useRef(null);
@@ -65,7 +67,7 @@ const ResortMap = ({ longitude, latitude }) => {
     if (mapContainerRef.current) {
       mapRef.current = new mapboxgl.Map({
         container: mapContainerRef.current,
-        style: privateKeys.mapboxStyle,
+        style: mapboxStyles.darkSnowV1,
         center: [longitude, latitude],
         zoom: 13,
         pitch: 60,
