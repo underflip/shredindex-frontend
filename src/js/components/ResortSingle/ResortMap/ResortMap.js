@@ -6,6 +6,10 @@ import mapboxStyles from '../../config/mapboxStyles';
 
 const MAPBOX_API_KEY = process?.env?.REACT_APP_MAPBOX_API_KEY;
 
+if (!MAPBOX_API_KEY) {
+  console.error('REACT_APP_MAPBOX_API_KEY is not set. Map functionality will be disabled.');
+}
+
 const containerStyle = {
   width: '100%',
   height: '400px',
