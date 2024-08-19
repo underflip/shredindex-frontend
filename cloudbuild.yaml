@@ -1,0 +1,44 @@
+steps:
+  # Create .env file
+  - name: 'ubuntu'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "REACT_APP_MAPBOX_API_KEY=${_MAPBOX_API_KEY}" > .env
+
+  # Build frontend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t', 'us-central1-docker.pkg.dev/shred-index-social-login/shredindex-repo/frontend:$BUILD_ID',
+      '--build-arg', 'REACT_APP_MAPBOX_API_KEY=${_MAPBOX_API_KEY}',
+      '.'
+    ]
+
+  # Push frontend image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/shred-index-social-login/shredindex-repo/frontend:$BUILD_ID']
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'frontend'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/shred-index-social-login/shredindex-repo/frontend:$BUILD_ID'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--set-env-vars'
+      - 'REACT_APP_MAPBOX_API_KEY=${_MAPBOX_API_KEY}'
+
+images:
+  - 'us-central1-docker.pkg.dev/shred-index-social-login/shredindex-repo/frontend:$BUILD_ID'
+
+substitutions:
+  _MAPBOX_API_KEY: 'pk.eyJ1Ijoia3JhbmszbiIsImEiOiJjam9hNjZpNmYwaDE4M3JsY2hsaDBkdnRvIn0.Xfi0W6hZTxWA0vYnQPUeFA'  # Default value, override in Cloud Build trigger

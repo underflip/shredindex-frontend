@@ -4,19 +4,19 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxStyles from '../../config/mapboxStyles';
 
-const MAPBOX_API_KEY = process?.env?.REACT_APP_MAPBOX_API_KEY;
+const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
 
 if (!MAPBOX_API_KEY) {
   console.error('REACT_APP_MAPBOX_API_KEY is not set. Map functionality will be disabled.');
 }
+
+mapboxgl.accessToken = MAPBOX_API_KEY;
 
 const containerStyle = {
   width: '100%',
   height: '400px',
   position: 'relative',
 };
-
-mapboxgl.accessToken = MAPBOX_API_KEY;
 
 const ResortMap = ({ longitude, latitude }) => {
   const mapContainerRef = useRef(null);

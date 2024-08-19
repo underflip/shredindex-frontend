@@ -20,6 +20,9 @@ WORKDIR /shredindex-frontend/public
 
 RUN npm install -g serve
 
+# Copy built assets from build stage
+COPY --from=build /shredindex-frontend/public ./
+
 # Use PORT environment variable, default to 3000 if not set
 ENV PORT=${PORT:-3000}
 
