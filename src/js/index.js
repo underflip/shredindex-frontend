@@ -21,7 +21,7 @@ const client = new ApolloClient({
 });
 
 // eslint-disable-next-line
-const App = lazy(() => import('./App')); // Lazy load the bulk of the app
+const App = lazy(() => import('../../pages/_app')); // Lazy load the bulk of the app
 
 const Index = () => {
   // Load the critical application data simultaneously with the app.

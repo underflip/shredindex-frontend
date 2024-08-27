@@ -2,7 +2,7 @@ import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
 import { IntlProvider } from 'react-intl';
 import { withRouter } from 'storybook-addon-react-router-v6';
-import HomeHero from '../../../js/components/HomeHero/HomeHero';
+import HomeHero from '../../../../components/HomeHero/HomeHero';
 import langEn from '../../../js/lang/en.json';
 
 export default {

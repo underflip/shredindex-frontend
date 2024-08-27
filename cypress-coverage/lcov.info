@@ -49,7 +49,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/js/components/Debug/Debug.js
+SF:src/js/components/Debug/Debug.tsx
 FN:10,(anonymous_0)
 FN:29,(anonymous_1)
 FNF:2
@@ -78,7 +78,7 @@ BRF:6
 BRH:5
 end_of_record
 TN:
-SF:src/js/components/DynamicLayout/DynamicLayout.js
+SF:src/js/components/DynamicLayout/DynamicLayout.tsx
 FN:15,(anonymous_0)
 FNF:1
 FNH:1
@@ -106,7 +106,7 @@ BRF:5
 BRH:5
 end_of_record
 TN:
-SF:src/js/components/DynamicLink/DynamicLink.js
+SF:src/js/components/DynamicLink/DynamicLink.tsx
 FN:10,(anonymous_0)
 FN:17,(anonymous_1)
 FNF:2
@@ -124,7 +124,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/js/components/DynamicSwitch/DynamicSwitch.js
+SF:src/js/components/DynamicSwitch/DynamicSwitch.tsx
 FN:12,(anonymous_0)
 FN:15,(anonymous_1)
 FN:35,(anonymous_2)
@@ -205,7 +205,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/js/hooks/useStaticMenu.js
+SF:src/js/hooks/useStaticMenu.tsx
 FN:21,(anonymous_0)
 FN:29,(anonymous_1)
 FN:40,(anonymous_2)

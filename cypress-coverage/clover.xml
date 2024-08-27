@@ -31,7 +31,7 @@
     </package>
     <package name="src.js.components.Debug">
       <metrics statements="10" coveredstatements="9" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
-      <file name="Debug.js" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/components/Debug/Debug.js">
+      <file name="Debug.tsx" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/components/Debug/Debug.tsx">
         <metrics statements="10" coveredstatements="9" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
         <line num="4" count="30" type="stmt"/>
         <line num="10" count="30" type="stmt"/>
@@ -47,7 +47,7 @@
     </package>
     <package name="src.js.components.DynamicLayout">
       <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
-      <file name="DynamicLayout.js" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/components/DynamicLayout/DynamicLayout.js">
+      <file name="DynamicLayout.tsx" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/components/DynamicLayout/DynamicLayout.tsx">
         <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="15" count="30" type="stmt"/>
         <line num="16" count="150" type="stmt"/>
@@ -65,7 +65,7 @@
     </package>
     <package name="src.js.components.DynamicLink">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="DynamicLink.js" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/components/DynamicLink/DynamicLink.js">
+      <file name="DynamicLink.tsx" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/components/DynamicLink/DynamicLink.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="10" count="15" type="stmt"/>
         <line num="11" count="15" type="stmt"/>
@@ -76,7 +76,7 @@
     </package>
     <package name="src.js.components.DynamicSwitch">
       <metrics statements="14" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="6" coveredmethods="6"/>
-      <file name="DynamicSwitch.js" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/components/DynamicSwitch/DynamicSwitch.js">
+      <file name="DynamicSwitch.tsx" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/components/DynamicSwitch/DynamicSwitch.tsx">
         <metrics statements="14" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="6" coveredmethods="6"/>
         <line num="12" count="15" type="stmt"/>
         <line num="13" count="30" type="stmt"/>
@@ -119,7 +119,7 @@
         <line num="4" count="86" type="stmt"/>
         <line num="75" count="91" type="stmt"/>
       </file>
-      <file name="useStaticMenu.js" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/hooks/useStaticMenu.js">
+      <file name="useStaticMenu.tsx" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/hooks/useStaticMenu.tsx">
         <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="6" count="36" type="stmt"/>
         <line num="21" count="114" type="stmt"/>

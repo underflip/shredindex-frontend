@@ -4,11 +4,22 @@
     "es2021": true,
     "jest": true
   },
+  "import/extensions": [
+    "error",
+    "ignorePackages",
+    {
+      "js": "never",
+      "jsx": "never",
+      "ts": "never",
+      "tsx": "never"
+    }
+  ],
   "extends": [
     "plugin:react/recommended",
     "plugin:cypress/recommended",
     "airbnb",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:@next/next/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -41,7 +52,10 @@
       {
         "extensions": [
           ".js",
-          ".jsx"
+          ".jsx",
+          ".ts",
+          ".tsx",
+          ".svg"
         ]
       }
     ],
