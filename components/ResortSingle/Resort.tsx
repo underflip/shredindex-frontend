@@ -19,6 +19,7 @@ import ResortNumericsSkeleton from '@/ResortSingle/ResortNumerics/ResortNumerics
 import ResortRatingsSkeleton from '@/ResortSingle/ResortRatings/ResortRatingsSkeleton';
 import ResortMapSkeleton from '@/ResortSingle/ResortMap/ResortMapSkeleton';
 import ColumbiaBanner from '@/Advertisers/ColumbiaBanner/ColumbiaBanner';
+import ResortGenerics from "@/ResortSingle/ResortGenerics/ResortGenerics";
 
 interface ResortData {
   id: string;
@@ -182,6 +183,7 @@ const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
     resort_images,
     ratingScores: ratings,
     numerics,
+    generics,
     location,
     comments,
   } = resortData;
@@ -211,6 +213,7 @@ const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
             <ResortHeader resort={resortData} />
             <ResortImageCarousel images={resort_images} />
             <ResortNumerics numerics={numerics} />
+            <ResortGenerics generics={generics} />
             <ResortRatings ratings={ratings} />
             <ResortComments comments={comments} />
           </CCol>
