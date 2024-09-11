@@ -8,15 +8,15 @@ import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 import {
   QueryParamProvider,
 } from 'use-query-params';
-import RankedResortListComponent from '../../js/components/RankedResortList/RankedResortList';
+import RankedResortListComponent from '../../../components/RankedResortList/RankedResortList';
 import ResortsParallaxBackground
-  from '../../js/components/ResortsParallaxBackground/ResortsParallaxBackground';
-import langEn from '../../js/lang/en.json';
-import ResortCardSkeleton from '../../js/components/SkeletonState/ResortCardSkeleton';
-import { QUERY_RESORTS } from '../../js/hooks/useQueryResorts';
-import RankedResortFilterMenuSkeleton from '../../js/components/RankedResortFilterMenu/RankedResortFilterMenuSkeleton';
+  from '../../../components/ResortsParallaxBackground/ResortsParallaxBackground';
+import langEn from '../../../lang/en.json';
+import ResortCardSkeleton from '../../../components/SkeletonState/ResortCardSkeleton';
+import { QUERY_RESORTS } from '../../../hooks/useQueryResorts';
+import RankedResortFilterMenuSkeleton from '../../../components/RankedResortFilterMenu/RankedResortFilterMenuSkeleton';
 import RankedResortResultCountSkeleton
-  from '../../js/components/RankedResortResultCount/RankedResortResultCountSkeleton';
+  from '../../../components/RankedResortResultCount/RankedResortResultCountSkeleton';
 import resortOne from '../../../cypress/e2e/RankedResortList/dummyResortOne';
 import resortTwo from '../../../cypress/e2e/RankedResortList/dummyResortTwo';
 

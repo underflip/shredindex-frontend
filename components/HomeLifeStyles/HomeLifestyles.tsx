@@ -3,7 +3,13 @@ import { FormattedMessage } from 'react-intl';
 import HomeRankedResortList from '../RankedResortList/HomeRankedResortList';
 import HomeLifeStylesFilterButtons from '../RankedResortList/HomeLifeStylesFilterButtons';
 
-type Lifestyle = 'Family' | 'Beginner' | 'Advanced' | 'Powder' | 'Nightlife'; // Add other lifestyle options as needed
+type Lifestyle = 'Family' | 'Beginner' | 'Advanced' | 'Powder' | 'Nightlife';
+
+// Define a type for the props we want to pass to HomeRankedResortList
+type HomeRankedResortListProps = {
+  cardLimit: number;
+  lifestyle: Lifestyle;
+};
 
 const HomeLifeStyles: React.FC = () => {
   const [selectedLifestyle, setSelectedLifestyle] = useState<Lifestyle>('Family');
@@ -11,6 +17,9 @@ const HomeLifeStyles: React.FC = () => {
   const handleSetLifeStyle = (lifestyle: Lifestyle) => {
     setSelectedLifestyle(lifestyle);
   };
+
+  // Use a type assertion to tell TypeScript that HomeRankedResortList accepts these props
+  const TypedHomeRankedResortList = HomeRankedResortList as React.ComponentType<HomeRankedResortListProps>;
 
   return (
     <div className="home-lifestyles mb-4">
@@ -26,7 +35,10 @@ const HomeLifeStyles: React.FC = () => {
         <HomeLifeStylesFilterButtons setLifeStyle={handleSetLifeStyle} />
       </div>
       <div className="home-lifestyles-cards">
-        <HomeRankedResortList lifestyle={selectedLifestyle} cardLimit={3} />
+        <TypedHomeRankedResortList
+          cardLimit={3}
+          lifestyle={selectedLifestyle}
+        />
       </div>
     </div>
   );

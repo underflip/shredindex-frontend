@@ -114,7 +114,7 @@
     </package>
     <package name="src.js.hooks">
       <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
-      <file name="useQueryResorts.js" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/hooks/useQueryResorts.js">
+      <file name="useQueryResorts.ts" path="/Users/hansen/Documents/GitHub/shredindex-frontend/src/js/hooks/useQueryResorts.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="86" type="stmt"/>
         <line num="75" count="91" type="stmt"/>

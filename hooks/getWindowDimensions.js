@@ -13,23 +13,27 @@ const debounce = (func, ms) => {
 };
 
 function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height,
-  };
+  if (typeof window !== 'undefined') {
+    const { innerWidth: width, innerHeight: height } = window;
+    return { width, height };
+  } else {
+    // Return default values or a placeholder during SSR
+    return { width: 0, height: 0 };
+  }
 }
 
 export default function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
   useEffect(() => {
-    const debouncedHandleResize = debounce(() => {
-      setWindowDimensions(getWindowDimensions());
-    }, 1000);
+    if (typeof window !== 'undefined') {
+      const debouncedHandleResize = debounce(() => {
+        setWindowDimensions(getWindowDimensions());
+      }, 1000);
 
-    window.addEventListener('resize', debouncedHandleResize);
-    return () => window.removeEventListener('resize', debouncedHandleResize);
+      window.addEventListener('resize', debouncedHandleResize);
+      return () => window.removeEventListener('resize', debouncedHandleResize);
+    }
   }, []);
 
   return windowDimensions;

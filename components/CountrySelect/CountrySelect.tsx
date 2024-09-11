@@ -4,29 +4,11 @@ import countryList from 'react-select-country-list';
 import { useRecoilState } from 'recoil';
 import { currentFilterState } from '../../hooks/useQueryTypes';
 import { getContinent } from '../../hooks/getContinent';
+import { FormData } from '../../types/filterTypes';
 
 interface Country {
   label: string;
   value: string;
-}
-
-interface FilterGroup {
-  label: string;
-  filterToggleButtonID: string;
-  toggleOn: boolean;
-  filters: Array<{
-    type_name: string;
-    operator: string;
-    value: string;
-  }>;
-}
-
-interface FormData {
-  groupedType: FilterGroup[];
-  locationType: {
-    continentId?: (string | number)[];
-    countryId?: string[];
-  };
 }
 
 const CountrySelect: React.FC = () => {

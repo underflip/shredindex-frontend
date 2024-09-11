@@ -3,17 +3,7 @@ import { CTooltip } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { cilX } from '@coreui/icons';
 import getTypeIcon from '../../hooks/getTypeIcon';
-
-interface FilterToggleButtonProps {
-  id: string;
-  label: string;
-  name: string;
-  tooltip: React.ReactNode;
-  children?: React.ReactNode | ((id: string, toggleOn: boolean) => React.ReactNode);
-  className?: string;
-  updateForm: (id: string, value: boolean) => Promise<void>;
-  toggle: boolean;
-}
+import {FilterToggleButtonProps} from "../../types/filterTypes";
 
 const FilterToggleButton: React.FC<FilterToggleButtonProps> = ({
                                                                  id,

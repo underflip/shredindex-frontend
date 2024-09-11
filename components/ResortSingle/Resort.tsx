@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useRouter } from 'next/router';
 import { FormattedMessage } from 'react-intl';
 import {
@@ -13,7 +13,6 @@ import ResortsParallaxBackground from '@/ResortsParallaxBackground/ResortsParall
 import ResortMap from '@/ResortSingle/ResortMap/ResortMap';
 import ResortComments from '@/ResortSingle/ResortComments/ResortComments';
 import ResortImageCarousel from '@/ResortSingle/ResortImageCarousel/ResortImageCarousel';
-import ResortCardError from '@/ResortCard/ResortCardError/ResortCardError';
 import ResortHeaderSkeleton from '@/ResortSingle/ResortHeader/ResortHeaderSkeleton';
 import ResortImageCarouselSkeleton from '@/ResortSingle/ResortImageCarousel/ResortImageCarouselSkeleton';
 import ResortNumericsSkeleton from '@/ResortSingle/ResortNumerics/ResortNumericsSkeleton';
@@ -99,10 +98,33 @@ interface ResortProps {
 
 const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
   const router = useRouter();
+  const [previousUrl, setPreviousUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Store the previous URL with query parameters
+    const handleRouteChange = (url: string) => {
+      setPreviousUrl(router.asPath); // Capture the current URL before navigating away
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router.asPath, router.events]);
 
   const handleBackClick = () => {
-    router.back(-1);
+    if (previousUrl) {
+      router.push(previousUrl).then(() => {
+        // Force a reload in case the router push doesn't work as expected
+        window.location.href = previousUrl;
+      });
+    } else {
+      router.back();
+    }
   };
+
+
 
   if (loading) {
     return (
@@ -128,10 +150,10 @@ const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
             </CCol>
             <CCol lg={4}>
               <h3 className="resort__description-title h6">
-                {/*<FormattedMessage*/}
-                {/*  id="shredindex.resort.Map"*/}
-                {/*  defaultMessage="Map"*/}
-                {/*/>*/}
+                <FormattedMessage
+                  id="shredindex.resort.Map"
+                  defaultMessage="Map"
+                />
               </h3>
               <CCard className="resort__map-card mb-4">
                 <CCardBody>
@@ -150,7 +172,7 @@ const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
       <CContainer>
         <ResortsParallaxBackground />
         <div className="resort resort-single mt-4">
-          {/*<ResortCardError />*/}
+          {/* <ResortCardError /> */}
         </div>
       </CContainer>
     );
@@ -194,10 +216,10 @@ const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
           </CCol>
           <CCol lg={4}>
             <h3 className="resort__description-title h6">
-              {/*<FormattedMessage*/}
-              {/*  id="shredindex.resort.Map"*/}
-              {/*  defaultMessage="Map"*/}
-              {/*/>*/}
+              <FormattedMessage
+                id="shredindex.resort.Map"
+                defaultMessage="Map"
+              />
             </h3>
             <CCard className="resort__map-card mb-4">
               <CCardBody>

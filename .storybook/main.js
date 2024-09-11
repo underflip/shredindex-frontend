@@ -3,11 +3,10 @@ const path = require('path');
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "storybook-addon-react-router-v6",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions',
   ],
   framework: {
     name: "@storybook/react-webpack5",
@@ -23,16 +22,20 @@ const config = {
     autodocs: "tag",
   },
   async webpackFinal(config) {
-
-    const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
+    // SVG handling
+    const fileLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = /\.svg$/;
 
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack", "file-loader"],
+      use: ["@svgr/webpack"],
+      issuer: {
+        and: [/\.(js|ts)x?$/]
+      }
     });
 
-    config.module.rules.push(      {
+    // Existing configurations
+    config.module.rules.push({
       test: /\.(ts|tsx|js|jsx)$/,
       exclude: /node_modules/,
       use: [
@@ -41,7 +44,8 @@ const config = {
         },
       ],
     });
-    config.module.rules.push(            {
+
+    config.module.rules.push({
       test: /\.mjs$/,
       include: /node_modules/,
       type: 'javascript/auto',
@@ -52,7 +56,24 @@ const config = {
       use: ['style-loader', 'css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../'),
     });
+
+    // Node.js core modules fallback
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      zlib: require.resolve('browserify-zlib'),
+      stream: require.resolve('stream-browserify'),
+      util: require.resolve('util/'),
+      buffer: require.resolve('buffer/'),
+    };
+
+    // Aliases
+    config.resolve.alias['@'] = path.resolve(__dirname, '../components');
+    config.resolve.alias['next/router'] = require.resolve('next/router');
+    config.resolve.alias['next/dist/shared/lib/utils'] = require.resolve('next/dist/shared/lib/utils');
+    config.resolve.alias['next/dist/compiled/react-is'] = require.resolve('next/dist/compiled/react-is');
+
     return config;
   },
 };
+
 export default config;

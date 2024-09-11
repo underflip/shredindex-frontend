@@ -4,7 +4,7 @@ import {
 } from 'use-query-params';
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 import { withRouter } from 'storybook-addon-react-router-v6';
-import PaginationComponent from '../../js/components/Pagination/Pagination';
+import PaginationComponent from '../../../components/Pagination/Pagination';
 
 export default {
   title: 'Shred index/components',

@@ -1,42 +1,37 @@
-import {
-  CFormRange,
-} from '@coreui/react';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { CFormRange } from '@coreui/react';
 
-const RangeSlider = ({
-  id, min, max, steps, value, onChange, label, tooltip,
-}) => (
+interface RangeSliderProps {
+  id: string;
+  min: number;
+  max: number;
+  steps?: number;
+  value: number;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
+}
+
+const RangeSlider: React.FC<RangeSliderProps> = ({
+                                                   id,
+                                                   min,
+                                                   max,
+                                                   steps = 1,
+                                                   value,
+                                                   onChange,
+                                                   label = '',
+                                                 }) => (
   <>
     <CFormRange
       id={id}
       min={min}
       max={max}
-      steps={steps}
+      step={steps}
       value={value}
       onChange={onChange}
       label={label}
-      tooltip={tooltip}
     />
     {value}
   </>
 );
-
-RangeSlider.propTypes = {
-  id: PropTypes.string.isRequired,
-  min: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired,
-  steps: PropTypes.number,
-  value: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
-  label: PropTypes.string,
-  tooltip: PropTypes.string,
-};
-
-RangeSlider.defaultProps = {
-  steps: 1,
-  label: '',
-  tooltip: '',
-};
 
 export default RangeSlider;

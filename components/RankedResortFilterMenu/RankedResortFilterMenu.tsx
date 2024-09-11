@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useSetRecoilState } from 'recoil';
 import { CBadge, CButton } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
@@ -11,7 +10,11 @@ import RankedResortLocationTray, {
   showLocationTrayState,
 } from '../RankedResortLocationTray/RankedResortLocationTray';
 
-const RankedResortFilterMenu = ({ filterQuantity }) => {
+interface RankedResortFilterMenuProps {
+  filterQuantity: number;
+}
+
+const RankedResortFilterMenu: React.FC<RankedResortFilterMenuProps> = ({ filterQuantity }) => {
   const setShowFilterTray = useSetRecoilState(showFilterTrayState);
   const setShowLifestyleTray = useSetRecoilState(showLifestyleTrayState);
   const setShowLocationTray = useSetRecoilState(showLocationTrayState);
@@ -25,7 +28,7 @@ const RankedResortFilterMenu = ({ filterQuantity }) => {
             id="shredindex.filter.SHOW_LIFESTYLES_TRAY"
             defaultMessage="Show Location tray"
           />
-        )}
+        ).toString()}
         className="me-2 w-100 filter-menu__show-location-tray"
         onClick={() => setShowLocationTray(true)}
       >
@@ -41,7 +44,7 @@ const RankedResortFilterMenu = ({ filterQuantity }) => {
             id="shredindex.filter.SHOW_LIFESTYLES_TRAY"
             defaultMessage="Show lifestyles tray"
           />
-        )}
+        ).toString()}
         className="me-2 w-100 filter-menu__show-lifestyles-tray"
         onClick={() => setShowLifestyleTray(true)}
       >
@@ -57,7 +60,7 @@ const RankedResortFilterMenu = ({ filterQuantity }) => {
             id="shredindex.filter.SHOW_FILTERS_TRAY"
             defaultMessage="Show filters tray"
           />
-        )}
+        ).toString()}
         className="ms-2 w-100 filter-menu__show-filters-tray position-relative"
         onClick={() => setShowFilterTray(true)}
       >
@@ -78,10 +81,6 @@ const RankedResortFilterMenu = ({ filterQuantity }) => {
       <RankedResortLifeStyleTray />
     </div>
   );
-};
-
-RankedResortFilterMenu.propTypes = {
-  filterQuantity: PropTypes.number.isRequired,
 };
 
 export default RankedResortFilterMenu;

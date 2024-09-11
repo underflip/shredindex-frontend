@@ -2,7 +2,7 @@ import React from 'react';
 import {
   CCardHeader, CCol, CRow, CCard, CCardBody, CFormRange, CInputGroup, CFormInput, CFormLabel,
 } from '@coreui/react';
-import FilterToggleButtonComponent from '../../../js/components/FilterToggleButton/FilterToggleButton';
+import FilterToggleButtonComponent from '../../../../components/FilterToggleButton/FilterToggleButton';
 
 export default {
   title: 'Shred index/components/Filter Toggle Button',

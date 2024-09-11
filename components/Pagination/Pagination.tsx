@@ -1,20 +1,43 @@
 import React, { useEffect } from 'react';
 import { CPagination, CPaginationItem } from '@coreui/react';
-import { NumberParam, withQueryParams } from 'use-query-params';
-import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 
-const Pagination = ({
-  lastPage,
-  paginationTabLimit,
-  size,
-  query,
-  setQuery,
-  currentPage,
-}) => {
-  const currentPageIndex = query.page || currentPage;
+export const paginationSize = {
+  sm: 'sm',
+  lg: 'lg',
+} as const;
+
+type PaginationSize = typeof paginationSize[keyof typeof paginationSize];
+
+interface PaginationProps {
+  lastPage: number;
+  paginationTabLimit?: number;
+  size?: PaginationSize;
+  currentPage?: number;
+}
+
+interface PaginationItem {
+  name: string | number;
+  ariaLabel: string;
+  disabled?: boolean;
+  active?: boolean;
+  setPageTo: number | null;
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+                                                 lastPage,
+                                                 paginationTabLimit = 3,
+                                                 size = paginationSize.sm,
+                                                 currentPage = 1,
+                                               }) => {
+  const router = useRouter();
+  const currentPageIndex = parseInt(router.query.page as string, 10) || currentPage;
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }, [currentPageIndex]);
 
   const floor = Math.min(
@@ -23,20 +46,19 @@ const Pagination = ({
   );
 
   const sequenceLength = Math.min(paginationTabLimit, lastPage - floor + 1);
-  // This prevents the generation of extra page numbers
 
   const pageSeq = lastPage > 1
-    ? Array.from({ length: sequenceLength }, (x, i) => i + floor)
+    ? Array.from({ length: sequenceLength }, (_, i) => i + floor)
     : [1];
 
-  const ellipsis = {
+  const ellipsis: PaginationItem = {
     name: '...',
     ariaLabel: '...',
     disabled: true,
     setPageTo: null,
   };
 
-  const receding = [
+  const receding: PaginationItem[] = [
     {
       name: '«',
       ariaLabel: 'First',
@@ -47,11 +69,11 @@ const Pagination = ({
       name: '‹',
       ariaLabel: 'Previous',
       disabled: currentPageIndex === 1,
-      setPageTo: currentPage - 1,
+      setPageTo: currentPageIndex - 1,
     },
   ];
 
-  const proceeding = [
+  const proceeding: PaginationItem[] = [
     {
       name: '›',
       ariaLabel: 'Next',
@@ -69,16 +91,30 @@ const Pagination = ({
   if (lastPage > 1 && Math.min(...pageSeq) > 1) receding.push(ellipsis);
   if (lastPage > 1 && Math.max(...pageSeq) < lastPage) proceeding.unshift(ellipsis);
 
-  const paginationData = [
+  const paginationData: PaginationItem[] = [
     ...receding,
     ...pageSeq.map((x) => ({
       name: x,
-      ariaLabel: `${'Page '}${x}`,
+      ariaLabel: `Page ${x}`,
       active: currentPageIndex === x,
       setPageTo: x,
     })),
     ...proceeding,
   ];
+
+  const handlePageChange = (newPage: number | null) => {
+    if (newPage !== null) {
+      const updatedQuery = {
+        ...router.query,
+        page: newPage.toString(),
+      };
+
+      router.push({
+        pathname: router.pathname,
+        query: updatedQuery,
+      }, undefined, { scroll: false });
+    }
+  };
 
   return (
     <CPagination align="center" size={size} aria-label="Page navigation">
@@ -88,7 +124,7 @@ const Pagination = ({
           aria-label={x.ariaLabel}
           disabled={x.disabled}
           active={x.active}
-          onClick={() => setQuery({ page: x.setPageTo })}
+          onClick={() => handlePageChange(x.setPageTo)}
         >
           {x.name}
         </CPaginationItem>
@@ -97,28 +133,4 @@ const Pagination = ({
   );
 };
 
-export const paginationSize = {
-  sm: 'sm',
-  lg: 'lg',
-};
-
-Pagination.defaultProps = {
-  paginationTabLimit: 3,
-  currentPage: 1,
-  size: paginationSize.sm,
-};
-
-Pagination.propTypes = {
-  query: PropTypes.shape({
-    page: PropTypes.number,
-  }).isRequired,
-  setQuery: PropTypes.func.isRequired,
-  lastPage: PropTypes.number.isRequired,
-  currentPage: PropTypes.number,
-  paginationTabLimit: PropTypes.number,
-  size: PropTypes.oneOf([paginationSize.sm, paginationSize.lg]),
-};
-
-export default withQueryParams({
-  page: NumberParam,
-}, Pagination);
+export default Pagination;

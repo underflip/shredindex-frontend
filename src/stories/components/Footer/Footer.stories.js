@@ -4,10 +4,10 @@ import { withRouter } from 'storybook-addon-react-router-v6';
 import FooterComponent, {
   QUERY_SETTINGS,
   QUERY_TEAM_MEMBERS,
-} from '../../../js/components/Footer/Footer';
+} from '../../../../components/Footer/Footer';
 import NoCacheMockedProvider
-  from '../../../js/components/tests/NoCacheMockedProvider/NoCacheMockedProvider';
-import langEn from '../../../js/lang/en.json';
+  from '../../../../components/tests/NoCacheMockedProvider/NoCacheMockedProvider';
+import langEn from '../../../../lang/en.json';
 
 export default {
   title: 'Shred index/components/Footer',

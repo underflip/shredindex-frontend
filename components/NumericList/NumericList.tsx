@@ -1,17 +1,36 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Flickity from 'react-flickity-component';
-import { resortAttributeType } from '../../types/types';
 import Statistic from '../Statistic/Statistic';
 import flickityOptions from '../../src/js/components/config/flickity-options';
 import getUnit from '../../hooks/getUnit';
 import breakpoints from '../../src/js/components/config/breakpoints';
 import useWindowDimensions from '../../hooks/getWindowDimensions';
 
-const NumericList = ({
-  isMini, numerics, label, labelMessageId,
-}) => {
+interface NumericType {
+  id: string;
+  title: string;
+  name: string;
+  value: number;
+  type: {
+    max_value: number;
+    unit: string;
+  };
+}
+
+interface NumericListProps {
+  isMini?: boolean;
+  numerics: NumericType[];
+  label: string;
+  labelMessageId: string;
+}
+
+const NumericList: React.FC<NumericListProps> = ({
+                                                   isMini = false,
+                                                   numerics,
+                                                   label,
+                                                   labelMessageId,
+                                                 }) => {
   if (numerics?.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
@@ -44,12 +63,12 @@ const NumericList = ({
           static
         >
           {numerics.map(({
-            id,
-            title,
-            name,
-            value,
-            type,
-          }) => (
+                           id,
+                           title,
+                           name,
+                           value,
+                           type,
+                         }) => (
             <div key={id} className="numeric-list__numeric mb-3 me-3">
               <Statistic
                 title={title}
@@ -64,17 +83,6 @@ const NumericList = ({
       </div>
     </div>
   );
-};
-
-NumericList.defaultProps = {
-  isMini: false,
-};
-
-NumericList.propTypes = {
-  isMini: PropTypes.bool,
-  numerics: PropTypes.arrayOf(resortAttributeType).isRequired,
-  label: PropTypes.string.isRequired,
-  labelMessageId: PropTypes.string.isRequired,
 };
 
 export default NumericList;

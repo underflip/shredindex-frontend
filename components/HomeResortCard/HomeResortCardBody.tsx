@@ -1,26 +1,72 @@
 import React from 'react';
 import { CLink } from '@coreui/react';
-import { resortType } from '../../types/types';
 import RatingList from '../RatingList/RatingList';
 import ResortCardLocation from '../ResortCard/ResortCardLocation/ResortCardLocation';
 import NumericList from '../NumericList/NumericList';
 import ShareButton from '../ShareButton/ShareButton';
 
-const isDifferentRatings = (a, b) => a.every(({ id }) => b.find((i) => i.id === id));
+interface Rating {
+  id: string;
+  name: string;
+  title: string;
+  value: number;
+}
 
-const HomeResortCardBody = ({
-  resort: {
-    title,
-    url,
-    affiliate_url,
-    location,
-    description,
-    numerics,
-    highlights,
-    lowlights,
-  },
-}) => (
+interface Numeric {
+  id: string;
+  title: string;
+  name: string;
+  value: number;
+  type: {
+    max_value: number;
+    unit: string;
+  };
+}
 
+interface LocationType {
+  city: string | null;
+  country: {
+    name: string | null;
+    code: string | null;
+  };
+  state: {
+    name: string | null;
+    code: string | null;
+  } | null;
+}
+
+interface ResortData {
+  title: string;
+  url: string;
+  affiliate_url: string;
+  location: LocationType;
+  description?: string;
+  numerics: Numeric[];
+  highlights: Rating[];
+  lowlights: Rating[];
+}
+
+interface HomeResortCardBodyProps {
+  resort: ResortData;
+  collapsed: boolean;
+}
+
+const isDifferentRatings = (a: Rating[], b: Rating[]): boolean =>
+  a.every(({ id }) => b.find((i) => i.id === id));
+
+const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
+                                                                 resort: {
+                                                                   title,
+                                                                   url,
+                                                                   affiliate_url,
+                                                                   location,
+                                                                   description,
+                                                                   numerics,
+                                                                   highlights,
+                                                                   lowlights,
+                                                                 },
+                                                                 collapsed,
+                                                               }) => (
   <div className="resort-card__body">
     <div className="resort-card__content-0 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">
@@ -83,20 +129,16 @@ const HomeResortCardBody = ({
           />
         )}
       {!isDifferentRatings(highlights, lowlights) && (
-      <RatingList
-        labelMessageId="shredindex.ratinglist.LOWLIGHTS"
-        label="Lowlights"
-        ratings={lowlights.slice()
-          .sort((a, b) => (a.value > b.value ? -1 : 1))}
-        affiliateUrl={affiliate_url}
-      />
+        <RatingList
+          labelMessageId="shredindex.ratinglist.LOWLIGHTS"
+          label="Lowlights"
+          ratings={lowlights.slice()
+            .sort((a, b) => (a.value > b.value ? -1 : 1))}
+          affiliateUrl={affiliate_url}
+        />
       )}
     </div>
   </div>
 );
-
-HomeResortCardBody.propTypes = {
-  resort: resortType.isRequired,
-};
 
 export default HomeResortCardBody;

@@ -1,68 +1,192 @@
-import React from 'react';
-import { useRecoilState, atom } from 'recoil';
+import React, { useCallback, useState, useEffect } from 'react';
+import { useRecoilState, useResetRecoilState, atom } from 'recoil';
 import {
   CModal,
   CModalHeader,
   CModalTitle,
   CModalFooter,
-  CModalBody, CButton,
+  CModalBody,
+  CButton,
 } from '@coreui/react';
 import { FormattedMessage } from 'react-intl';
-import { NumberParam, withQueryParams } from 'use-query-params';
-import { JsonParam } from 'serialize-query-params';
-import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import RankedResortFilters from '../RankedResortFilters/RankedResortFilters';
 import { currentFilterState } from '../../hooks/useQueryTypes';
+import { FormData, FilterGroup, FilterType } from '../../types/filterTypes';
 
 export const showFilterTrayState = atom({
   key: 'showFilterTrayState',
   default: false,
 });
 
-const RankedResortFilterTray = ({
-  setQuery,
-}) => {
+function isEqual(obj1: any, obj2: any): boolean {
+  if (obj1 === obj2) return true;
+  if (typeof obj1 !== 'object' || obj1 === null || typeof obj2 !== 'object' || obj2 === null) return false;
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+  if (keys1.length !== keys2.length) return false;
+  for (const key of keys1) {
+    if (!keys2.includes(key) || !isEqual(obj1[key], obj2[key])) return false;
+  }
+  return true;
+}
+
+const RankedResortFilterTray: React.FC = () => {
   const [visible, setVisible] = useRecoilState(showFilterTrayState);
-  const [formData, setFormData] = useRecoilState(currentFilterState);
+  const [formData, setFormData] = useRecoilState<FormData>(currentFilterState);
+  const resetFilterState = useResetRecoilState(currentFilterState);
+  const [filterKey, setFilterKey] = useState<number>(0);
+  const router = useRouter();
 
-  const handleClose = () => setVisible(false);
+  const handleClose = useCallback(() => setVisible(false), [setVisible]);
 
-  const onSubmit = () => {
-    const activeFilters = formData.groupedType.filter(
-      (item) => item.toggleOn,
-    ).map((item) => item.filters.map((filter) => ({
-      ...filter,
-      value: String(filter.value), // Convert value to string
-    }))).flat();
-    setQuery({
-      filters: {
-        groupedType: activeFilters,
+  // Effect to sync toggle states with current filters
+  // useEffect(() => {
+  //   if (visible) {
+  //     const currentFilters = router.query.filters ? JSON.parse(router.query.filters as string) : { groupedType: [], locationType: {} };
+  //     setFormData(prevFormData => ({
+  //       ...prevFormData,
+  //       groupedType: prevFormData.groupedType.map(group => ({
+  //         ...group,
+  //         toggleOn: currentFilters.groupedType.some((filter: FilterType) =>
+  //           filter.type_name === group.filters[0].type_name
+  //         ),
+  //       })),
+  //     }));
+  //   }
+  // }, [visible, router.query.filters, setFormData]);
+
+  const onSubmit = useCallback(() => {
+    const transformFilters = (groupedType: FormData['groupedType']): FilterType[] => {
+      return groupedType
+        .filter(group => group.toggleOn)
+        .flatMap(group => {
+          if (group.filters.length === 1 && (group.filters[0].operator === '=' || group.filters[0].value === 'yes' || group.filters[0].value === 'no')) {
+            // Handle boolean filters
+            return [{
+              type_name: group.filters[0].type_name,
+              operator: '=',
+              value: group.filters[0].value === 'yes' ? 'yes' : 'no'
+            }];
+          } else if (group.filters.length === 2) {
+            // Handle double range sliders (numeric and rating filters)
+            return group.filters.map(filter => ({
+              type_name: filter.type_name,
+              operator: filter.operator,
+              value: String(filter.value)
+            })).filter(filter => filter.value !== '0' && filter.value !== '100');
+          }
+          return [];
+        });
+    };
+
+    // Use the current formData to create activeFilters
+    const activeFilters = transformFilters(formData.groupedType);
+
+    // Create a map of active filters for easy lookup and update
+    const activeFilterMap = new Map(
+      activeFilters.map(filter => [`${filter.type_name}:${filter.operator}`, filter])
+    );
+
+    // Prepare the updated query
+    const updatedQuery = {
+      ...router.query,
+      filters: JSON.stringify({
+        groupedType: Array.from(activeFilterMap.values()),
         locationType: formData.locationType,
-      },
-      page: 1,
-    });
+      }),
+      page: '1', // Reset to first page when filters change
+    };
+
+    // Update the router with the new query parameters
+    router.push({
+      pathname: router.pathname,
+      query: updatedQuery,
+    }, undefined, { scroll: false });
+
+    // The formData is already up-to-date, so we don't need to update it here
+
     handleClose();
-  };
+  }, [formData, router, handleClose]);
 
-  const resetFilters = () => {
-    const noFilters = [];
-    setQuery({ filters: { groupedType: noFilters, locationType: null }, page: 1 });
-    setFormData({ groupedType: noFilters, locationType: null });
-  };
+  // Effect to synchronize form state with URL on component mount and URL changes
+  useEffect(() => {
+    const syncFormWithURL = () => {
+      const currentFilters = router.query.filters ? JSON.parse(router.query.filters as string) : { groupedType: [], locationType: {} };
 
-  const handleScroll = (event) => {
-    localStorage.setItem('filterTrayScroll', event.target.scrollTop);
-  };
+      setFormData(prevState => {
+        const updatedGroupedType = prevState.groupedType.map(group => {
+          const activeFiltersForGroup = currentFilters.groupedType.filter((filter: FilterType) => filter.type_name === group.filters[0].type_name);
+          if (activeFiltersForGroup.length > 0) {
+            return {
+              ...group,
+              toggleOn: true,
+              filters: group.filters.map(filter => {
+                const matchingFilter = activeFiltersForGroup.find((af: FilterType) => af.operator === filter.operator);
+                return matchingFilter ? { ...filter, value: matchingFilter.value } : filter;
+              }),
+            };
+          }
+          return { ...group, toggleOn: false };
+        });
 
-  const setInitialScroll = (ref) => {
+        return {
+          ...prevState,
+          groupedType: updatedGroupedType,
+          locationType: currentFilters.locationType,
+        };
+      });
+    };
+
+    syncFormWithURL();
+  }, [router.query.filters, setFormData]);
+
+
+  const resetFilters = useCallback(() => {
+    resetFilterState();
+    setFilterKey((prevKey) => prevKey + 1);
+    localStorage.removeItem('currentFilterState');
+
+    const resetGroupedType: FilterGroup[] = formData.groupedType.map((group) => ({
+      ...group,
+      toggleOn: false,
+      filters: group.filters.map((filter) => ({
+        ...filter,
+        value: filter.operator === '>' ? '0' : filter.operator === '<' ? '100' : 'no',
+      })),
+    }));
+
+    const resetFormData: FormData = {
+      groupedType: resetGroupedType,
+      locationType: {},  // Reset locationType only
+    };
+
+    setFormData(resetFormData);
+
+    const updatedQuery = {
+      ...router.query,
+      filters: JSON.stringify({ groupedType: [], locationType: {} }),
+      page: '1',
+    };
+
+    router.push({
+      pathname: router.pathname,
+      query: updatedQuery,
+    }, undefined, { scroll: false });
+  }, [formData, setFormData, resetFilterState, router]);
+
+  const handleScroll = useCallback((event: React.UIEvent<HTMLDivElement>) => {
+    localStorage.setItem('filterTrayScroll', event.currentTarget.scrollTop.toString());
+  }, []);
+
+  const setInitialScroll = useCallback((ref: HTMLDivElement | null) => {
     if (ref) {
       const savedPosition = localStorage.getItem('filterTrayScroll');
       if (savedPosition) {
-        // eslint-disable-next-line no-param-reassign
         ref.scrollTop = parseInt(savedPosition, 10);
       }
     }
-  };
+  }, []);
 
   if (!visible) return null;
 
@@ -82,27 +206,19 @@ const RankedResortFilterTray = ({
           />
         </CModalTitle>
       </CModalHeader>
-      <CModalBody
-        onScroll={handleScroll}
-        ref={setInitialScroll}
-      >
-        <RankedResortFilters />
+      <CModalBody onScroll={handleScroll} ref={setInitialScroll}>
+        <RankedResortFilters key={filterKey} />
       </CModalBody>
       <CModalFooter className="justify-content-between">
-        <CButton className="text-white" shape="rounded-pill" color="secondary" onClick={() => { resetFilters(); }}>
+        <CButton className="text-white" shape="rounded-pill" color="secondary" onClick={resetFilters}>
           Clear All
         </CButton>
-        <CButton className="text-white" shape="rounded-pill" color="warning" onClick={() => { onSubmit(); }}>View</CButton>
+        <CButton className="text-white" shape="rounded-pill" color="warning" onClick={onSubmit}>
+          View
+        </CButton>
       </CModalFooter>
     </CModal>
   );
 };
 
-RankedResortFilterTray.propTypes = {
-  setQuery: PropTypes.func.isRequired,
-};
-
-export default withQueryParams({
-  filters: JsonParam,
-  page: NumberParam,
-}, RankedResortFilterTray);
+export default RankedResortFilterTray;

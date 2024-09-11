@@ -3,7 +3,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import { IntlProvider } from 'react-intl';
 import { withRouter } from 'storybook-addon-react-router-v6';
 import HomeHero from '../../../../components/HomeHero/HomeHero';
-import langEn from '../../../js/lang/en.json';
+import langEn from '../../../../lang/en.json';
 
 export default {
   title: 'Shred index/components/HomeHero',
