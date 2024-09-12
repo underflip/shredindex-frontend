@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import CIcon from '@coreui/icons-react';
 import { cilCheck, cilX } from '@coreui/icons';
 import Flickity from 'react-flickity-component';
-import flickityOptions from "@/js/components/config/flickity-options";
+import flickityOptions from "../../../src/js/components/config/flickity-options";
 
 const options = {
   ...flickityOptions,
