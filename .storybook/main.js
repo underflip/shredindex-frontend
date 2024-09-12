@@ -9,7 +9,7 @@ const config = {
     '@storybook/addon-interactions',
   ],
   framework: {
-    name: "@storybook/react-webpack5",
+    name: '@storybook/nextjs',
     options: {
       fsCache: true,
       lazyCompilation: true,
@@ -33,44 +33,6 @@ const config = {
         and: [/\.(js|ts)x?$/]
       }
     });
-
-    // Existing configurations
-    config.module.rules.push({
-      test: /\.(ts|tsx|js|jsx)$/,
-      exclude: /node_modules/,
-      use: [
-        {
-          loader: 'babel-loader',
-        },
-      ],
-    });
-
-    config.module.rules.push({
-      test: /\.mjs$/,
-      include: /node_modules/,
-      type: 'javascript/auto',
-    });
-
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
-    });
-
-    // Node.js core modules fallback
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      zlib: require.resolve('browserify-zlib'),
-      stream: require.resolve('stream-browserify'),
-      util: require.resolve('util/'),
-      buffer: require.resolve('buffer/'),
-    };
-
-    // Aliases
-    config.resolve.alias['@'] = path.resolve(__dirname, '../components');
-    config.resolve.alias['next/router'] = require.resolve('next/router');
-    config.resolve.alias['next/dist/shared/lib/utils'] = require.resolve('next/dist/shared/lib/utils');
-    config.resolve.alias['next/dist/compiled/react-is'] = require.resolve('next/dist/compiled/react-is');
 
     return config;
   },
