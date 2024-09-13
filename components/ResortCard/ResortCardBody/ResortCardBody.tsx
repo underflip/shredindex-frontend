@@ -1,6 +1,6 @@
 import React from 'react';
 import { CLink } from '@coreui/react';
-import { resortType } from '../../../types/types';
+import { Resort, Score } from '../../../types/resortTypes';
 import RatingList from '../../RatingList/RatingList';
 import ResortCardCommentCarousel from '../ResortCardCommentCarousel/ResortCardCommentCarousel';
 import ResortCardImageCarousel from '../ResortCardImageCarousel/ResortCardImageCarousel';
@@ -8,23 +8,27 @@ import ResortCardLocation from '../ResortCardLocation/ResortCardLocation';
 import NumericList from '../../NumericList/NumericList';
 import ShareButton from '../../ShareButton/ShareButton';
 
-const isDifferentRatings = (a, b) => a.every(({ id }) => b.find((i) => i.id === id));
+const isDifferentRatings = (a: Score[], b: Score[]): boolean =>
+  a.every(({ id }) => b.find((i) => i.id === id));
 
-const ResortCardBody = ({
-  resort: {
-    url,
-    title,
-    affiliate_url,
-    location,
-    description,
-    numerics,
-    highlights,
-    lowlights,
-    resort_images,
-    comments,
-  },
-}) => (
+interface ResortCardBodyProps {
+  resort: Resort;
+}
 
+const ResortCardBody: React.FC<ResortCardBodyProps> = ({
+                                                         resort: {
+                                                           url,
+                                                           title,
+                                                           affiliate_url,
+                                                           location,
+                                                           description,
+                                                           numerics,
+                                                           highlights,
+                                                           lowlights,
+                                                           resort_images,
+                                                           comments,
+                                                         },
+                                                       }) => (
   <div className="resort-card__body">
     <div className="resort-card__content-0 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">
@@ -95,9 +99,5 @@ const ResortCardBody = ({
     </div>
   </div>
 );
-
-ResortCardBody.propTypes = {
-  resort: resortType.isRequired,
-};
 
 export default ResortCardBody;

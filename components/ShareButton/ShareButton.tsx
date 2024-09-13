@@ -7,13 +7,17 @@ import {
   cilCopy, cilShareAlt, cibFacebook, cibLinkedin, cibWhatsapp, cilX,
 } from '@coreui/icons';
 import { useSetRecoilState } from 'recoil';
-import PropTypes from 'prop-types';
-import { toastState } from '../GlobalToast/GlobalToast';
+import { toastState } from '@/GlobalToast/GlobalToast';
 
-const ShareButton = ({ title, resortUrl }) => {
+interface ShareButtonProps {
+  title: string;
+  resortUrl?: string | null;
+}
+
+const ShareButton: React.FC<ShareButtonProps> = ({ title, resortUrl = null }) => {
   const setToast = useSetRecoilState(toastState);
 
-  const handleShareClick = (platform) => {
+  const handleShareClick = (platform: 'twitter' | 'facebook' | 'linkedin' | 'whatsapp') => {
     const shareUrl = resortUrl ? `${window.location.origin}/${resortUrl}` : `${window.location.href}`;
     const text = `Check out this resort: ${title}`;
     let url = '';
@@ -31,8 +35,6 @@ const ShareButton = ({ title, resortUrl }) => {
       case 'whatsapp':
         url = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text} ${shareUrl}`)}`;
         break;
-      default:
-        return;
     }
 
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -76,15 +78,6 @@ const ShareButton = ({ title, resortUrl }) => {
       </CDropdownMenu>
     </CDropdown>
   );
-};
-
-ShareButton.propTypes = {
-  title: PropTypes.string.isRequired,
-  resortUrl: PropTypes.string,
-};
-
-ShareButton.defaultProps = {
-  resortUrl: null,
 };
 
 export default ShareButton;

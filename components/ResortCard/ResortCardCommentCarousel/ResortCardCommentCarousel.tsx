@@ -1,20 +1,22 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
 import { FormattedMessage } from 'react-intl';
-import { CImage } from '@coreui/react';
-import { arrayOf } from 'prop-types';
-import { commentType } from '../../../types/types';
+import { Comment } from '../../../types/types';
 import ResortCardMountains from '../../../images/resort-card-comment-background.svg';
 import flickityOptions from '../../../src/js/components/config/flickity-options';
 
-const ResortCardCommentCarousel = ({ comments }) => {
+interface ResortCardCommentCarouselProps {
+  comments: Comment[];
+}
+
+const ResortCardCommentCarousel: React.FC<ResortCardCommentCarouselProps> = ({ comments }) => {
   const options = {
     ...flickityOptions,
     prevNextButtons: comments.length > 1,
     pageDots: comments.length > 1,
   };
 
-  if (!comments.length > 0) {
+  if (comments.length === 0) {
     return (
       <div className="resort-card__comment-carousel d-block w-50 ms-2">
         <div className="carousel__comment--no-comments w-100 d-flex flex-column justify-content-between">
@@ -41,8 +43,8 @@ const ResortCardCommentCarousel = ({ comments }) => {
         static
       >
         {comments.map(({
-          id, comment, author,
-        }) => (
+                         id, comment, author,
+                       }) => (
           <div key={id} className="carousel__comment w-100 d-flex flex-column justify-content-between">
             <span className="carousel__comment-text small user-select-none">
               &ldquo;
@@ -59,10 +61,6 @@ const ResortCardCommentCarousel = ({ comments }) => {
       </Flickity>
     </div>
   );
-};
-
-ResortCardCommentCarousel.propTypes = {
-  comments: arrayOf(commentType.isRequired).isRequired,
 };
 
 export default ResortCardCommentCarousel;

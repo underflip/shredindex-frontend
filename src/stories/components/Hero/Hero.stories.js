@@ -1,7 +1,7 @@
 import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
 import { IntlProvider } from 'react-intl';
-import { withRouter } from 'storybook-addon-react-router-v6';
+import { withRouter } from 'storybook-addon-remix-react-router';
 import HomeHero from '../../../../components/HomeHero/HomeHero';
 import langEn from '../../../../lang/en.json';
 

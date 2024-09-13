@@ -1,6 +1,6 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
-import { reactRouterParameters } from 'storybook-addon-react-router-v6';
+import { reactRouterParameters } from 'storybook-addon-remix-react-router';
 import { MockedProvider } from '@apollo/react-testing';
 import { IntlProvider } from 'react-intl';
 import { MemoryRouter } from 'react-router';

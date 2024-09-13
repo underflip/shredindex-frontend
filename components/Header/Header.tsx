@@ -1,7 +1,7 @@
 import { cilMenu } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import {
-  CContainer, CHeader, CHeaderToggler, CImage,
+  CContainer, CHeader, CHeaderToggler,
 } from '@coreui/react';
 import React, { useContext } from 'react';
 import Link from 'next/link';

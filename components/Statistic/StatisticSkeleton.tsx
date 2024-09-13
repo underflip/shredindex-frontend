@@ -1,7 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const StatisticSkeleton = ({ statisticType }) => (
+interface StatisticSkeletonProps {
+  statisticType?: string;
+}
+
+const StatisticSkeleton: React.FC<StatisticSkeletonProps> = ({ statisticType = 'sub-statistic' }) => (
   <>
     <span className="statistic__title display-5 text-left user-select-none skeleton skeleton-text">
         &nbsp;
@@ -16,11 +19,11 @@ const StatisticSkeleton = ({ statisticType }) => (
         <div className="d-flex align-items-end">
           <span className="statistic__number-big display-5 text-left user-select-none skeleton skeleton-text me-1">
               &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
           </span>
           <span className="statistic__small-label user-select-none skeleton skeleton-text">
               &nbsp;&nbsp;
-              &nbsp;&nbsp;
+            &nbsp;&nbsp;
           </span>
         </div>
       </div>
@@ -34,13 +37,5 @@ const StatisticSkeleton = ({ statisticType }) => (
     </div>
   </>
 );
-
-StatisticSkeleton.propTypes = {
-  statisticType: PropTypes.string,
-};
-
-StatisticSkeleton.defaultProps = {
-  statisticType: 'sub-statistic',
-};
 
 export default StatisticSkeleton;

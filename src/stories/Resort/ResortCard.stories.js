@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import { withRouter } from 'storybook-addon-react-router-v6';
+import { withRouter } from 'storybook-addon-remix-react-router';
 import ResortCardComponent from '../../../components/ResortCard/ResortCard';
 import ResortCardSkeleton from '../../../components/SkeletonState/ResortCardSkeleton';
 import { QUERY_RESORTS } from '../../../hooks/useQueryResorts';

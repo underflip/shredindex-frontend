@@ -1,14 +1,27 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import CIcon from '@coreui/icons-react';
 import getTypeIcon from '../../hooks/getTypeIcon';
 
-const Statistic = ({
-  title, name, statistic, statisticType, unit, maxValue,
-}) => {
+interface StatisticProps {
+  title: string;
+  name: string;
+  statistic: number | string;
+  statisticType?: string;
+  unit?: string;
+  maxValue: number;
+}
+
+const Statistic: React.FC<StatisticProps> = ({
+                                               title,
+                                               name,
+                                               statistic,
+                                               statisticType = 'sub-statistic',
+                                               unit = '',
+                                               maxValue,
+                                             }) => {
   const [statisticInt, statisticDecimal] = statistic.toString().split('.');
-  const isMax = statistic >= 100 || statistic === 'n/a';
-  const barWidth = `${(statistic / maxValue) * 100}%`;
+  const isMax = Number(statistic) >= 100 || statistic === 'n/a';
+  const barWidth = `${(Number(statistic) / maxValue) * 100}%`;
 
   return (
     <>
@@ -51,26 +64,6 @@ const Statistic = ({
       </div>
     </>
   );
-};
-
-Statistic.defaultProps = {
-  statistic: 0,
-  statisticType: 'sub-statistic',
-};
-
-Statistic.propTypes = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  statistic: PropTypes.number,
-  statisticType: PropTypes.string,
-  unit: PropTypes.string,
-  maxValue: PropTypes.number.isRequired,
-};
-
-Statistic.defaultProps = {
-  statistic: 0,
-  statisticType: 'sub-statistic',
-  unit: '',
 };
 
 export default Statistic;

@@ -1,13 +1,15 @@
-import { arrayOf } from 'prop-types';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Flickity from 'react-flickity-component';
-import { CImage } from '@coreui/react';
-import { commentType } from '../../../types/types';
+import { Comment } from '../../../types/types';
 import flickityOptions from '../../../src/js/components/config/flickity-options';
 import ResortCardMountains from '../../../images/resort-card-comment-background.svg';
 
-const ResortComments = ({ comments }) => {
+interface ResortCommentsProps {
+  comments?: Comment[];
+}
+
+const ResortComments: React.FC<ResortCommentsProps> = ({ comments }) => {
   if (comments?.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
@@ -38,8 +40,8 @@ const ResortComments = ({ comments }) => {
         reloadOnUpdate
       >
         {comments?.map(({
-          id, author, comment,
-        }) => (
+                          id, author, comment,
+                        }) => (
           <div key={id} className="resort-comments__card card p-2 d-block border-radius-medium">
             <ResortCardMountains
               className="carousel__comment-background position-absolute w-100"
@@ -54,7 +56,7 @@ const ResortComments = ({ comments }) => {
               </span>
               <span className="carousel__author font-italic user-select-none">
                 &#8226;
-                  &ensp;
+                &ensp;
                 {author}
               </span>
             </div>
@@ -63,10 +65,6 @@ const ResortComments = ({ comments }) => {
       </Flickity>
     </div>
   );
-};
-
-ResortComments.propTypes = {
-  comments: arrayOf(commentType.isRequired).isRequired,
 };
 
 export default ResortComments;

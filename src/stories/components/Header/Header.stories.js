@@ -1,6 +1,6 @@
 import { MockedProvider } from '@apollo/react-testing';
 import React, { useMemo, useState } from 'react';
-import { withRouter } from 'storybook-addon-react-router-v6';
+import { withRouter } from 'storybook-addon-remix-react-router';
 import { IntlProvider } from 'react-intl';
 import HeaderComponent from '../../../../components/Header/Header';
 import { menuCode as headerMenuCode } from '../../../../components/HeaderMenuMain/HeaderMenuMain';
