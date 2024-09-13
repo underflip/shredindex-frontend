@@ -17,19 +17,36 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  webpack(config) {
+  webpack(config, { isServer }) {
     config.resolve.alias['@coreui/coreui'] = path.join(__dirname, 'node_modules', '@coreui/coreui');
+
     config.module.rules.push({
       test: /\.svg$/,
       use: [
-        '@svgr/webpack',
-        ],
+        {
+          loader: '@svgr/webpack',
+        },
+      ],
     });
+
     return config;
   },
   images: {
-    disableStaticImages: false,  // Changed this to false
-    domains: ['localhost', 'source.unsplash.com'],
+    disableStaticImages: false,  // Next.js Image component updates
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'source.unsplash.com',
+      },
+    ],
+  },
+  experimental: {
+    appDir: true,  // Optional: Next.js 14 app directory structure
+    typedRoutes: true,  // New experimental feature in Next.js 14 for typed routes in TypeScript
   },
 };
 
