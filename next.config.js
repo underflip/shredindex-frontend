@@ -29,7 +29,7 @@ const nextConfig = {
   },
   images: {
     disableStaticImages: false,  // Changed this to false
-    domains: ['localhost', 'source.unsplash.com'],
+    remotePatterns: ['localhost', 'source.unsplash.com'],
   },
 };
 
