@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-intl';
 import HeaderComponent from '../../../../components/Header/Header';
 import { menuCode as headerMenuCode } from '../../../../components/HeaderMenuMain/HeaderMenuMain';
 import SidebarNav from '../../../../components/SidebarNav/SidebarNav';
-import ViewContext from '../../../../components/ViewContext/ViewContext';
+import ViewContext from '../../../../atoms/SidebarAtoms';
 import { QUERY_STATIC_MENU } from '../../../../hooks/useStaticMenu';
 import langEn from '../../../../lang/en.json';
 

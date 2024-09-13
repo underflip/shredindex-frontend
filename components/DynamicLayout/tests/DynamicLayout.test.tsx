@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import wait from 'waait';
 import queryCMSPage from '../../../utility/query-cms-page';
 import NoCacheMockedProvider from '../../tests/NoCacheMockedProvider/NoCacheMockedProvider';
-import ViewContext from '../../ViewContext/ViewContext';
+import ViewContext from '../../../atoms/SidebarAtoms';
 import DynamicLayout from '../DynamicLayout';
 
 const mocks = {

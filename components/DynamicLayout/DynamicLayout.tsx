@@ -1,8 +1,9 @@
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import React, { useContext } from 'react';
+import { useRecoilValue } from 'recoil';
 import { Helmet } from 'react-helmet';
 import queryCMSPage from '../../utility/query-cms-page';
-import ViewContext from '../ViewContext/ViewContext';
+import { layoutsAtom, LayoutsType } from '../../atoms/ViewAtoms';
 
 interface DynamicLayoutProps {
   url: string;
@@ -18,13 +19,13 @@ interface CMSPageData {
 
 /**
  * A layout renderer that fetches metadata and layout data from the CMS, to
- * render the corresponding React elements (based on the `layouts` map in this
- * file)
+ * render the corresponding React elements (based on the `layouts` map in the
+ * layoutsAtom)
  *
  * @param url e.g /url-segment/:url_parameter
  */
 const DynamicLayout: React.FC<DynamicLayoutProps> = ({ url }) => {
-  const { layouts } = useContext(ViewContext);
+  const layouts = useRecoilValue<LayoutsType>(layoutsAtom);
   const { query, variables } = queryCMSPage(url);
   const { loading, error, data } = useQuery<CMSPageData>(
     query,
@@ -49,6 +50,11 @@ const DynamicLayout: React.FC<DynamicLayoutProps> = ({ url }) => {
   const { layout, meta_title, meta_description } = cmsPage;
 
   const Component = layouts[layout]; // React will warn us if this isn't a valid component
+
+  if (!Component) {
+    console.warn(`Layout "${layout}" not found`);
+    return null;
+  }
 
   return (
     <>

@@ -1,14 +1,14 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot, useSetRecoilState } from 'recoil';
 import { IntlProvider } from 'react-intl';
 import dynamic from 'next/dynamic';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import SidebarNav from '../components/SidebarNav/SidebarNav';
 import SupportBanner from '../components/SupportBanner/SupportBanner';
-import ViewContext from '../components/ViewContext/ViewContext';
+import { layoutsAtom } from '../atoms/ViewAtoms';
 import langEn from '../lang/en.json';
 import GlobalToast from '../components/GlobalToast/GlobalToast';
 import { useApollo } from "../lib/apollo-client";
@@ -31,30 +31,37 @@ const layouts = {
   terms: dynamic(() => import('./terms-and-conditions')),
 };
 
+function InitializeRecoilState() {
+  const setLayouts = useSetRecoilState(layoutsAtom);
+
+  React.useEffect(() => {
+    setLayouts(layouts);
+  }, [setLayouts]);
+
+  return null;
+}
+
 function MyApp({ Component, pageProps, router }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState);
-  const [showSidebar, setShowSidebar] = useState(false);
-  const viewData = useMemo(() => ({ showSidebar, setShowSidebar, layouts }), [showSidebar]);
 
   return (
     <ApolloProvider client={apolloClient}>
       <IntlProvider locale={locale} messages={t[locale]}>
         <RecoilRoot>
+          <InitializeRecoilState />
           <div className="c-app c-default-layout">
-            <ViewContext.Provider value={viewData}>
-              <SidebarNav />
-              <div className="wrapper d-flex flex-column min-vh-100">
-                <Header />
-                <div className="body flex-grow-1 min-vh-100">
-                  <GlobalToast />
-                  <main className="c-main">
-                    <Component {...pageProps} />
-                  </main>
-                </div>
-                <SupportBanner />
-                <Footer />
+            <SidebarNav />
+            <div className="wrapper d-flex flex-column min-vh-100">
+              <Header />
+              <div className="body flex-grow-1 min-vh-100">
+                <GlobalToast />
+                <main className="c-main">
+                  <Component {...pageProps} />
+                </main>
               </div>
-            </ViewContext.Provider>
+              <SupportBanner />
+              <Footer />
+            </div>
           </div>
         </RecoilRoot>
       </IntlProvider>

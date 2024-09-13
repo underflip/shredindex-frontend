@@ -1,14 +1,15 @@
+import React from 'react';
+import { useRecoilState } from 'recoil';
 import {
   CImage, CSidebar, CSidebarBrand, CSidebarNav,
 } from '@coreui/react';
-import React, { useContext } from 'react';
 import Logo from '../../images/logo.svg';
 import DynamicLink from '../DynamicLink/DynamicLink';
 import SidebarMenuMain from '../SidebarMenuMain/SidebarMenuMain';
-import ViewContext from '../ViewContext/ViewContext';
+import { showSidebarAtom } from '../../atoms/SidebarAtoms';
 
-const SidebarNav = () => {
-  const { showSidebar, setShowSidebar } = useContext(ViewContext);
+const SidebarNav: React.FC = () => {
+  const [showSidebar, setShowSidebar] = useRecoilState(showSidebarAtom);
 
   return (
     <CSidebar
@@ -19,7 +20,7 @@ const SidebarNav = () => {
       <CSidebarNav className="sidebar-nav">
         <CSidebarBrand className="sidebar-nav__logo mx-auto d-lg-none">
           <DynamicLink className="sidebar-nav__logo-link" to="/">
-            <Logo className="sidebar-nav__logo-img" name="logo" height="28" alt="Logo" />
+            <Logo className="sidebar-nav__logo-img" name="logo" height={28} alt="Logo" />
           </DynamicLink>
         </CSidebarBrand>
         <SidebarMenuMain />

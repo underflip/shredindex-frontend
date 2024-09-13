@@ -8,7 +8,7 @@ import DynamicSwitch, { QUERY_CMS_PAGES } from '../DynamicSwitch';
 import queryCMSPage from '../../../utility/query-cms-page';
 import DynamicLayout from '../../DynamicLayout/DynamicLayout';
 import NoCacheMockedProvider from '../../tests/NoCacheMockedProvider/NoCacheMockedProvider';
-import ViewContext from '../../ViewContext/ViewContext';
+import ViewContext from '../../../atoms/SidebarAtoms';
 
 const mocks = {
   cmsPagesEmpty: {
