@@ -29,7 +29,20 @@ const nextConfig = {
   },
   images: {
     disableStaticImages: false,  // Changed this to false
-    remotePatterns: ['localhost', 'source.unsplash.com'],
+    remotePatterns: [
+      {
+      protocol: 'https',
+      hostname: 'localhost',
+      port: '',
+      pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'source.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
