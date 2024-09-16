@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CPagination, CPaginationItem } from '@coreui/react';
 import { useRouter } from 'next/router';
 
@@ -25,20 +25,22 @@ interface PaginationItem {
 }
 
 const Pagination: React.FC<PaginationProps> = ({
-  lastPage,
-  paginationTabLimit = 3,
-  size = paginationSize.sm,
-  currentPage = 1,
-}) => {
+                                                 lastPage,
+                                                 paginationTabLimit = 3,
+                                                 size: initialSize = paginationSize.sm,
+                                                 currentPage = 1,
+                                               }) => {
   const router = useRouter();
+  const [size, setSize] = useState<PaginationSize | null>(null);
   const currentPageIndex = parseInt(router.query.page as string, 10) || currentPage;
 
   useEffect(() => {
+    setSize(initialSize);
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
-  }, [currentPageIndex]);
+  }, [currentPageIndex, initialSize]);
 
   const floor = Math.min(
     Math.max(1, currentPageIndex - Math.floor(paginationTabLimit / 2)),
@@ -104,17 +106,17 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const handlePageChange = (newPage: number | null) => {
     if (newPage !== null) {
-      const updatedQuery = {
-        ...router.query,
-        page: newPage.toString(),
-      };
-
       router.push({
         pathname: router.pathname,
-        query: updatedQuery,
+        query: { ...router.query, page: newPage.toString() },
       }, undefined, { scroll: false });
     }
   };
+
+  if (size === null) {
+    // Return null or a loading state while waiting for client-side hydration
+    return null;
+  }
 
   return (
     <CPagination align="center" size={size} aria-label="Page navigation">

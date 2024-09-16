@@ -81,7 +81,7 @@ describe('Test <DynamicSwitch />', () => {
     render(
       <AllTheProviders mocks={[mocks.cmsPages, mocks.cmsPageFoo]} initialEntries={['/foo']}>
         <DynamicSwitch />
-      </AllTheProviders>
+      </AllTheProviders>,
     );
 
     await waitFor(() => {
@@ -93,7 +93,7 @@ describe('Test <DynamicSwitch />', () => {
     render(
       <AllTheProviders mocks={[mocks.cmsPages, mocks.cmsPageFooBar]} initialEntries={['/foo/bar']}>
         <DynamicSwitch />
-      </AllTheProviders>
+      </AllTheProviders>,
     );
 
     await waitFor(() => {

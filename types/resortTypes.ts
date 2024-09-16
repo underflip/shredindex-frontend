@@ -72,7 +72,7 @@ export interface Resort {
   title: string;
   url_segment: string;
   url: string;
-  affiliate_url: AffiliateUrl;
+  affiliate_url: string;
   description: string;
   location: Location;
   total_score: Score;

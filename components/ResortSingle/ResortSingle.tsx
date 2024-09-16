@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import {
   CCard, CCardBody, CCol, CContainer, CRow,
 } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import { cilArrowLeft } from '@coreui/icons';
 import ResortHeader from '@/ResortSingle/ResortHeader/ResortHeader';
 import ResortRatings from '@/ResortSingle/ResortRatings/ResortRatings';
@@ -113,7 +113,7 @@ const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => 
   }
 
   const {
-    resort_images,
+    resortImages,
     affiliate_url,
     ratingScores,
     numerics,
@@ -145,7 +145,7 @@ const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => 
         <CRow>
           <CCol lg={8}>
             <ResortHeader resort={resortData} />
-            <ResortImageCarousel images={resort_images} />
+            <ResortImageCarousel images={resortImages} />
             <ResortNumerics numerics={numerics} />
             <ResortGenerics generics={generics} />
             <ResortRatings ratings={ratingScores} />

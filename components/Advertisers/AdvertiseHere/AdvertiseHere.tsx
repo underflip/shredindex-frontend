@@ -2,7 +2,7 @@ import React from 'react';
 import { CCard, CCardBody } from '@coreui/react';
 import { FormattedMessage } from 'react-intl';
 import { AffiliateUrl } from '../../../types/resortTypes';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const AdvertiseHere: React.FC <AffiliateUrl> = ({ affiliateUrl }) => {
   return (

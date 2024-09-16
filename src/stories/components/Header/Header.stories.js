@@ -6,7 +6,7 @@ import { RecoilRoot } from 'recoil';
 import HeaderComponent from '../../../../components/Header/Header';
 import { menuCode as headerMenuCode } from '../../../../components/HeaderMenuMain/HeaderMenuMain';
 import SidebarNav from '../../../../components/SidebarNav/SidebarNav';
-import { showSidebarAtom } from '../../../../atoms/ViewAtoms';
+import { showSidebarAtom } from '../../../../atoms/SidebarAtoms';
 import { QUERY_STATIC_MENU } from '../../../../hooks/useStaticMenu';
 import langEn from '../../../../lang/en.json';
 

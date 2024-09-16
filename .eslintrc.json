@@ -36,6 +36,25 @@
     "cypress"
   ],
   "rules": {
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE", "snake_case"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      },
+      {
+        "selector": "property",
+        "format": null
+      }
+    ],
     "react/jsx-props-no-spreading": 0,
     "react/function-component-definition": [
       1,
@@ -86,5 +105,6 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
+
   }
 }

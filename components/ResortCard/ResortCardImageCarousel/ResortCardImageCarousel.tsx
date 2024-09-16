@@ -27,23 +27,31 @@ const ResortCardImageCarousel: React.FC<ResortCardImageCarouselProps> = ({ showO
     pageDots: !showOneImage && imagesToShow.length > 1,
   };
 
+  const renderImage = (image: ImageType) => (
+    <div key={image.id} className="carousel__image-wrapper w-100 h-100">
+      <Image
+        className="carousel__image"
+        layout="fill"
+        src={image.image.path}
+        alt={image.alt}
+      />
+    </div>
+  );
+
+  const renderPlaceholder = () => (
+    <div key="placeholder" className="carousel__image-wrapper w-100 h-100">
+      <ResortImagePlaceholder
+        className="carousel__image--no-images"
+        alt="shred-index-resort-placeholder"
+      />
+    </div>
+  );
+
   if (showOneImage || imagesToShow.length === 1) {
     return (
       <div className="resort-card__image-carousel">
         <div className="single-image-container w-100 h-100 gray-300-bg border-radius-medium">
-          {imagesToShow.length > 0 ? (
-            <Image
-              className="carousel__image position-relative"
-              layout="fill"
-              src={imagesToShow[0].image.path}
-              alt={imagesToShow[0].alt}
-            />
-          ) : (
-            <ResortImagePlaceholder
-              className="carousel__image single-image--no-images"
-              alt="shred-index-resort-placeholder"
-            />
-          )}
+          {imagesToShow.length > 0 ? renderImage(imagesToShow[0]) : renderPlaceholder()}
         </div>
       </div>
     );
@@ -59,20 +67,9 @@ const ResortCardImageCarousel: React.FC<ResortCardImageCarouselProps> = ({ showO
         reloadOnUpdate
         static
       >
-        {imagesToShow.length > 0 ? imagesToShow.map(({ id, alt, image }) => (
-          <Image
-            key={id}
-            className="carousel__image"
-            src={image.path}
-            alt={alt}
-            layout="fill"
-          />
-        )) : (
-          <ResortImagePlaceholder
-            className="carousel__image--no-images"
-            alt="shred-index-resort-placeholder"
-          />
-        )}
+        {imagesToShow.length > 0
+          ? imagesToShow.map(renderImage)
+          : [renderPlaceholder()]}
       </Flickity>
     </div>
   );

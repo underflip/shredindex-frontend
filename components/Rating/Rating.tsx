@@ -1,5 +1,5 @@
 import React from 'react';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import getTypeIcon from '../../hooks/getTypeIcon';
 import isNumber from '../../utility/helperFunctions';
 
@@ -11,11 +11,11 @@ interface RatingProps {
 }
 
 const Rating: React.FC<RatingProps> = ({
-                                         name = null,
-                                         title,
-                                         rating = 0,
-                                         ratingType = 'sub-rating',
-                                       }) => {
+  name = null,
+  title,
+  rating = 0,
+  ratingType = 'sub-rating',
+}) => {
   let ratingInt: string = '0';
   let ratingDecimal: string = '0';
 

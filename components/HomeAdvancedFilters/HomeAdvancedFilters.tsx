@@ -1,5 +1,5 @@
 import React from 'react';
-import { CButton, CImage } from '@coreui/react';
+import { CButton } from '@coreui/react';
 import Link from 'next/link';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';

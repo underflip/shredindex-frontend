@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { CImage } from '@coreui/react';
 import { useRecoilState } from 'recoil';
 import { currentFilterState } from '../../hooks/useQueryTypes';
 import { getContinent } from '../../hooks/getContinent';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import ResortSingle from '@/ResortSingle/ResortSingle'; // Adjust this path if needed
-import langEn from '../../../lang/en.json'; // Adjust this path if needed
+import ResortSingle from '@/ResortSingle/ResortSingle';
+import langEn from '../../../lang/en.json';
 
 export default {
   title: 'Shred index/components/ResortSingle',
@@ -257,7 +257,7 @@ export const MaxDataStory = () => {
     comments: Array(50).fill().map((_, index) => ({ // 50 comments
       id: `${index + 1}`,
       author: `Super Enthusiastic Reviewer ${index + 1}`,
-      comment: `This is an incredibly detailed and long comment about the Super Ultra Mega Resort Extreme. The commenter goes into great depth about their experience, discussing every aspect of their stay in minute detail. They rave about the facilities, the staff, the ski conditions, and everything else they encountered during their visit. The comment goes on for several paragraphs, covering topics such as the quality of the snow, the variety of runs, the efficiency of the lifts, the deliciousness of the food, the comfort of the accommodations, and the overall atmosphere of the resort. It's a thorough and enthusiastic review that leaves no stone unturned in its praise of the Super Ultra Mega Resort Extreme.`.repeat(2), // Repeated to make it extra long
+      comment: 'This is an incredibly detailed and long comment about the Super Ultra Mega Resort Extreme. The commenter goes into great depth about their experience, discussing every aspect of their stay in minute detail. They rave about the facilities, the staff, the ski conditions, and everything else they encountered during their visit. The comment goes on for several paragraphs, covering topics such as the quality of the snow, the variety of runs, the efficiency of the lifts, the deliciousness of the food, the comfort of the accommodations, and the overall atmosphere of the resort. It\'s a thorough and enthusiastic review that leaves no stone unturned in its praise of the Super Ultra Mega Resort Extreme.'.repeat(2), // Repeated to make it extra long
     })),
   };
 

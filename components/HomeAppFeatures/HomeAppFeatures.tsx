@@ -103,12 +103,12 @@ const features: FeatureRowProps[] = [
 
 const Vibe: React.FC = () => (
   <span className="text-warning">
-    '
+    &apos;
     <FormattedMessage
       id="shredindex.homeFeatures.VIBE"
       defaultMessage="vibe"
     />
-    '
+    &apos;
   </span>
 );
 

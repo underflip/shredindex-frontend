@@ -15,18 +15,18 @@ const isDifferentRatings = (a: Score[], b: Score[]): boolean =>
   !a.every(({ id }) => b.some((i) => i.id === id));
 
 const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
-                                                                 resort: {
-                                                                   title,
-                                                                   url,
-                                                                   affiliate_url,
-                                                                   location,
-                                                                   description,
-                                                                   numerics,
-                                                                   highlights,
-                                                                   lowlights,
-                                                                 },
-                                                                 collapsed,
-                                                               }) => (
+  resort: {
+    title,
+    url,
+    affiliate_url,
+    location,
+    description,
+    numerics,
+    highlights,
+    lowlights,
+  },
+  collapsed,
+}) => (
   <div className="resort-card__body">
     <div className="resort-card__content-0 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">
@@ -35,7 +35,7 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
             className="resort-card__affiliate-link link-unstyled"
             rel="noreferrer noopener"
             target="_blank"
-            href={affiliate_url.affiliateUrl}
+            href={affiliate_url}
           >
             <ResortCardLocation location={location} />
           </Link>
@@ -46,7 +46,7 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
               className="resort-card__affiliate-link link-unstyled"
               rel="noreferrer noopener"
               target="_blank"
-              href={affiliate_url.affiliateUrl}
+              href={affiliate_url}
             >
               <span className="m-0">
                 {description}
@@ -77,7 +77,7 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
             labelMessageId="shredindex.ratinglist.HIGHLIGHTS"
             label="Highlights"
             ratings={highlights.slice(0, 3)}
-            affiliateUrl={affiliate_url.affiliateUrl}
+            affiliateUrl={affiliate_url}
           />
         ) : (
           <RatingList
@@ -85,7 +85,7 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
             labelMessageId="shredindex.ratinglist.RATINGS"
             label="Ratings"
             ratings={highlights}
-            affiliateUrl={affiliate_url.affiliateUrl}
+            affiliateUrl={affiliate_url}
           />
         )}
       {isDifferentRatings(highlights, lowlights) && (
@@ -94,7 +94,7 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
           label="Lowlights"
           ratings={lowlights.slice()
             .sort((a, b) => (a.value > b.value ? -1 : 1))}
-          affiliateUrl={affiliate_url.affiliateUrl}
+          affiliateUrl={affiliate_url}
         />
       )}
     </div>

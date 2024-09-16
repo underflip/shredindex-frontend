@@ -17,14 +17,6 @@ export const QUERY_SUPPORTERS = gql`
   }
 `;
 
-const SupportBanner: React.FC = () => (
-  <div className="support-banner">
-    <div className="container p-4 d-flex align-items-center flex-wrap">
-      <Supporters />
-    </div>
-  </div>
-);
-
 const Supporters = () => {
   const { loading, data } = useQuery(QUERY_SUPPORTERS);
 
@@ -32,7 +24,6 @@ const Supporters = () => {
     return <SupportersLoadingState />;
   }
 
-  // We want to sort, but we can't mutate the data directly, so let's make a clone
   const supporters = [...data.supporters];
 
   return supporters
@@ -57,5 +48,13 @@ const Supporters = () => {
       );
     });
 };
+
+const SupportBanner: React.FC = () => (
+  <div className="support-banner">
+    <div className="container p-4 d-flex align-items-center flex-wrap">
+      <Supporters />
+    </div>
+  </div>
+);
 
 export default SupportBanner;

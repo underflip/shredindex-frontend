@@ -18,12 +18,12 @@ interface RatingListProps {
 }
 
 const RatingList: React.FC<RatingListProps> = ({
-                                                 className,
-                                                 ratings,
-                                                 label,
-                                                 labelMessageId,
-                                                 affiliateUrl,
-                                               }) => {
+  className,
+  ratings,
+  label,
+  labelMessageId,
+  affiliateUrl,
+}) => {
   if (ratings.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
@@ -40,11 +40,11 @@ const RatingList: React.FC<RatingListProps> = ({
         </div>
         <div className="rating-list__list-scroll">
           {ratings.map(({
-                          id,
-                          name,
-                          title,
-                          value,
-                        }) => (
+            id,
+            name,
+            title,
+            value,
+          }) => (
             <div key={id} className="rating-list__rating mb-3 me-1">
               <Rating name={name} title={title} rating={value} />
             </div>

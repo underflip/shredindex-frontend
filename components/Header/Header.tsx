@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { cilMenu } from '@coreui/icons';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import {
   CContainer, CHeader, CHeaderToggler,
 } from '@coreui/react';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 import Logo from '../../images/logo.svg';
 import MobileLogo from '../../images/s-i-logo-small-png.svg';
 import HeaderMenuMain from '../HeaderMenuMain/HeaderMenuMain';
-import { showSidebarAtom } from '../../atoms/ViewAtoms';
+import { showSidebarAtom } from '../../atoms/SidebarAtoms';
 import ResortSearchAutosuggest from '../ResortSearchAutoSuggest/ResortSearchAutoSuggest';
 
 const Header: React.FC = () => {

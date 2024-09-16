@@ -1,18 +1,23 @@
-import {
-  CCard, CCardBody, CCardFooter, CCardHeader, CLink,
-} from '@coreui/react';
-import PropTypes from 'prop-types';
 import React from 'react';
+import {
+  CCard, CCardBody, CCardFooter, CCardHeader,
+} from '@coreui/react';
 import useLocalStorageDrivenBooleanState from '../../hooks/useLocalStorageDrivenBooleanState';
 import ResortCardFooter from './ResortCardFooter/ResortCardFooter';
 import ResortCardBody from './ResortCardBody/ResortCardBody';
 import ResortCardHeader from './ResortCardHeader/ResortCardHeader';
+import { Resort } from '../../types/resortTypes';
+import Link from 'next/link';
 
-const ResortCard = ({ resortData }) => {
+interface ResortCardProps {
+  resortData: Resort;
+}
+
+const ResortCard: React.FC<ResortCardProps> = ({ resortData }) => {
   const [collapsed, setCollapsed] = useLocalStorageDrivenBooleanState('resortCollapsed', resortData.id);
   const onCollapse = () => {
     setCollapsed(!collapsed);
-  }
+  };
 
   if (!resortData) {
     throw new Error('ResortSingle failed to load');
@@ -26,14 +31,17 @@ const ResortCard = ({ resortData }) => {
     <div className="resort-card d-flex justify-content-center">
       <CCard className={`${!collapsed ? 'collapsed' : 'full-expanded'} resort-card__wrap`}>
         <CCardHeader className="resort-card__header-wrap pb-0">
-          <CLink className="resort-card__affiliate-link link-unstyled" rel="noreferrer noopener" target="_blank" href={affiliate_url}>
+          <Link
+            className="resort-card__affiliate-link link-unstyled"
+            rel="noreferrer noopener"
+            target="_blank"
+            href={affiliate_url}>
             <ResortCardHeader title={title} totalScore={total_score} />
-          </CLink>
+          </Link>
         </CCardHeader>
         <CCardBody className="resort-card__body-wrap pt-0 pb-0">
           <ResortCardBody resort={resortData} collapsed={!collapsed} />
         </CCardBody>
-        {/* eslint-disable-next-line react/jsx-no-bind */}
         <CCardFooter className="resort-card__footer-wrap pointer-event">
           <ResortCardFooter url={url} urlSegment={url_segment} collapsed={!collapsed} setCollapsed={onCollapse} />
         </CCardFooter>
@@ -42,16 +50,4 @@ const ResortCard = ({ resortData }) => {
   );
 };
 
-ResortCard.propTypes = {
-  resortData: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    url_segment: PropTypes.string.isRequired,
-    total_score: PropTypes.shape({
-      value: PropTypes.number.isRequired, // Assuming total_score.value is a number
-    }).isRequired,
-    affiliate_url: PropTypes.string.isRequired,
-  }).isRequired,
-};
 export default ResortCard;

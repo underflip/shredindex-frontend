@@ -6,87 +6,36 @@ import ResortCardHeader from '../ResortCard/ResortCardHeader/ResortCardHeader';
 import ResortImageCarousel from '../ResortCard/ResortCardImageCarousel/ResortCardImageCarousel';
 import ResortCardFooter from '../ResortCard/ResortCardFooter/ResortCardFooter';
 import HomeResortCardBody from './HomeResortCardBody';
-
-interface ImageType {
-  id: string;
-  alt: string;
-  image: {
-    path: string;
-  };
-}
-
-interface Rating {
-  id: string;
-  title: string;
-  name: string;
-  value: number;
-}
-
-interface Numeric {
-  id: string;
-  title: string;
-  name: string;
-  value: number;
-  type: {
-    max_value: number;
-    unit: string;
-  };
-}
-
-interface LocationType {
-  city: string | null;
-  country: {
-    name: string | null;
-    code: string | null;
-  };
-  state: {
-    name: string | null;
-    code: string | null;
-  } | null;
-}
-
-interface ResortData {
-  id: string;
-  title: string;
-  url: string;
-  url_segment: string;
-  resort_images: Array<{ url: string; alt: string }>;
-  total_score: {
-    value: number;
-  };
-  affiliate_url: string;
-  location: LocationType;
-  description?: string;
-  numerics: Numeric[];
-  highlights: Rating[];
-  lowlights: Rating[];
-}
+import { Resort, Image, Score } from '../../types/resortTypes';
 
 interface HomeResortCardProps {
-  resortData: ResortData;
+  resortData: Resort;
 }
 
 const HomeResortCard: React.FC<HomeResortCardProps> = ({ resortData }) => {
-
   if (!resortData) {
     throw new Error('ResortSingle failed to load');
   }
 
   const {
-    id, title, total_score, url, url_segment, affiliate_url, resort_images,
+    id, title, total_score, url_segment, affiliate_url, resort_images,
   } = resortData;
 
-  const transformedImages: ImageType[] = resort_images.map((img, index) => ({
+  const transformedImages: Image[] = resort_images.map((img, index) => ({
     id: `${index}`,
+    name: '',  // Add a default value if not available
     alt: img.alt,
+    sort_order: index,
     image: {
       path: img.url,
+      content_type: 'image/jpeg',  // Add a default value if not available
     },
   }));
 
   // Create a proper totalScore object for ResortCardHeader
-  const totalScoreForHeader = {
+  const totalScoreForHeader: Score = {
     id: `${id}-total-score`,
+    name: 'Total Score',
     title: 'Total Score',
     value: total_score.value,
   };

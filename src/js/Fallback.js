@@ -1,11 +1,11 @@
 import { cilMenu } from '@coreui/icons';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import {
   CContainer, CHeader, CImage,
 } from '@coreui/react';
 import React from 'react';
-import Logo from '../images/logo.svg';
-import mobileLogo from '../images/s-i-logo-small-png.svg';
+import Logo from '../../images/logo.svg';
+import mobileLogo from '../../images/s-i-logo-small-png.svg';
 import ResortSearchAutosuggestSkeleton
   from '../../components/ResortSearchAutoSuggest/ResortSearchAutoSuggestSkeleton';
 

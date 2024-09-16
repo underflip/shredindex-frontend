@@ -2,7 +2,7 @@ import React from 'react';
 import {
   CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle,
 } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import {
   cilCopy, cilShareAlt, cibFacebook, cibLinkedin, cibWhatsapp, cilX,
 } from '@coreui/icons';

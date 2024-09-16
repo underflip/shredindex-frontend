@@ -8,8 +8,3 @@ export const layoutsAtom = atom<LayoutsType>({
   key: 'layoutsAtom',
   default: {},
 });
-
-export const showSidebarAtom = atom<boolean>({
-  key: 'showSidebarAtom',
-  default: false,
-});

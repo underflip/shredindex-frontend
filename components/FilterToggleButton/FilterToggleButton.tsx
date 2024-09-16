@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import { CBadge, CTooltip } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import { cilX, cilLockLocked } from '@coreui/icons';
 import getTypeIcon from '../../hooks/getTypeIcon';
 import { FilterToggleButtonProps } from '../../types/filterTypes';
@@ -30,8 +30,8 @@ const FilterToggleButton: React.FC<FilterToggleButtonProps> = ({
     await updateForm(id, false);
   };
 
-  const isFunction = (value: unknown): value is Function => {
-    return typeof value === 'function';
+  const isReactNode = (value: unknown): value is ReactNode => {
+    return React.isValidElement(value) || typeof value === 'string' || typeof value === 'number' || Array.isArray(value);
   };
 
   return (
@@ -81,7 +81,7 @@ const FilterToggleButton: React.FC<FilterToggleButtonProps> = ({
         </div>
         {toggleOn && children && (
           <div className="filter-toggle-button__frame-body p-4 bg-dark">
-            {isFunction(children) ? children(id, toggleOn) : children}
+            {typeof children === 'function' ? children(id, toggleOn) : isReactNode(children) ? children : null}
           </div>
         )}
       </div>
