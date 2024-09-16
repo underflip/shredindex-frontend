@@ -2,12 +2,23 @@ version: 2.1
 
 orbs:
   codecov: codecov/codecov@3.3.0
+
 jobs:
   build-and-test:
     docker:
-      - image: cypress/included:12.3.0
+      - image: cypress/included:13.6.0
+        environment:
+          NODE_VERSION: 18.17.0
     steps:
       - checkout
+      - run:
+          name: Install Node.js
+          command: |
+            curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+      - run:
+          name: Check Node.js version
+          command: node --version
       - restore_cache:
           keys:
             - v2-npm-{{ checksum "package-lock.json" }}
