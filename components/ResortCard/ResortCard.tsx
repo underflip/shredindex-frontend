@@ -15,7 +15,7 @@ const ResortCard = ({ resortData }) => {
   }
 
   if (!resortData) {
-    throw new Error('Resort failed to load');
+    throw new Error('ResortSingle failed to load');
   }
 
   const {

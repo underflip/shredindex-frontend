@@ -1,14 +1,42 @@
 import React from 'react';
 import {
-  CCard, CCardBody, CCardHeader, CLink,
+  CCard, CCardBody, CCardHeader,
 } from '@coreui/react';
 import Link from "next/link";
-import PropTypes from 'prop-types';
 import ResortCardHeader from '../../ResortCard/ResortCardHeader/ResortCardHeader';
 import ResortCardLocation from '../../ResortCard/ResortCardLocation/ResortCardLocation';
 import ShareButton from '../../ShareButton/ShareButton';
+import {ResortAttribute} from "../../../types/types";
+import ResortDescription from "@/ResortSingle/ResortHeader/ResortDescription/ResortDescription";
 
-const ResortHeader = ({ resort }) => {
+interface Country {
+  name: string;
+  code: string;
+}
+
+interface State {
+  name: string;
+  code: string;
+}
+
+interface Location {
+  country: Country;
+  state: State;
+}
+
+interface Resort {
+  title: string;
+  affiliate_url: string;
+  total_score: ResortAttribute;
+  location: Location;
+  description?: string;
+}
+
+interface ResortHeaderProps {
+  resort: Resort;
+}
+
+const ResortHeader: React.FC<ResortHeaderProps> = ({ resort }) => {
   const {
     title,
     affiliate_url,
@@ -42,45 +70,18 @@ const ResortHeader = ({ resort }) => {
                 <ResortCardLocation location={location} />
               </Link>
             </div>
-            {description && (
-              <div className="resort-card__description-single-resort mb-3 me-2 user-select-none">
-                <Link
-                  className="resort-card__affiliate-link link-unstyled"
-                  rel="noreferrer noopener"
-                  target="_blank"
-                  href={affiliate_url ? affiliate_url : ''}
-                >
-                  <span className="m-0">
-                    {description}
-                  </span>
-                </Link>
-              </div>
-            )}
+            <ResortDescription
+              description={description}
+              affiliateUrl={affiliate_url}
+            />
           </div>
-          <ShareButton title={title} />
+          <div className="share-button-wrap">
+            <ShareButton title={title} />
+          </div>
         </div>
       </CCardBody>
     </CCard>
   );
-};
-
-ResortHeader.propTypes = {
-  resort: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    affiliate_url: PropTypes.string.isRequired,
-    total_score: PropTypes.number.isRequired,
-    location: PropTypes.shape({
-      country: PropTypes.shape({
-        name: PropTypes.string,
-        code: PropTypes.string,
-      }),
-      state: PropTypes.shape({
-        name: PropTypes.string,
-        code: PropTypes.string,
-      }),
-    }).isRequired,
-    description: PropTypes.string,
-  }).isRequired,
 };
 
 export default ResortHeader;

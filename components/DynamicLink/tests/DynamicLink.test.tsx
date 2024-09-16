@@ -1,8 +1,8 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import { MemoryRouter } from 'react-router';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { MockedProvider } from '@apollo/client/testing';
 import queryCMSPage from '../../../utility/query-cms-page';
-import NoCacheMockedProvider from '../../tests/NoCacheMockedProvider/NoCacheMockedProvider';
 import DynamicLink from '../DynamicLink';
 
 const mocks = {
@@ -14,19 +14,29 @@ const mocks = {
   },
 };
 
+const AllProviders = ({ children }) => (
+  <MockedProvider mocks={[mocks.cmsPage]} addTypename={false}>
+    <MemoryRouter>
+      {children}
+    </MemoryRouter>
+  </MockedProvider>
+);
+
 describe('Test <DynamicLink />', () => {
   it('Prefetches page data when hovered', async () => {
-    const wrapper = mount(
-      <NoCacheMockedProvider mocks={[mocks.cmsPage]}>
-        <MemoryRouter>
-          <DynamicLink to="/foo" className="target">
-            <p>Foo link</p>
-          </DynamicLink>
-        </MemoryRouter>
-      </NoCacheMockedProvider>,
+    render(
+      <AllProviders>
+        <DynamicLink to="/foo" className="target">
+          <p>Foo link</p>
+        </DynamicLink>
+      </AllProviders>
     );
 
-    expect(wrapper.html()).toContain('Foo link');
-    wrapper.simulate('mouseover'); // Added for coverage
+    const link = screen.getByText('Foo link');
+    expect(link).toBeInTheDocument();
+
+    fireEvent.mouseOver(link);
+    // Note: We can't directly test if the prefetch happened, as it's an implementation detail.
+    // Instead, we're just checking if the mouseover event doesn't cause any errors.
   });
 });

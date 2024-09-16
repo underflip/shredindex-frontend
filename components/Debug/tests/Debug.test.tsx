@@ -1,8 +1,6 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import wait from 'waait';
-import NoCacheMockedProvider from '../../tests/NoCacheMockedProvider/NoCacheMockedProvider';
+import { render, screen, waitFor } from '@testing-library/react';
+import { MockedProvider } from '@apollo/client/testing';
 import Debug, { QUERY_HEALTH_CHECK } from '../Debug';
 
 const mocks = {
@@ -30,32 +28,28 @@ const mocks = {
 
 describe('Test <Debug />', () => {
   it('succeeds a graphql healthcheck', async () => {
-    const wrapper = mount(
-      <NoCacheMockedProvider mocks={[mocks.healthCheckSuccess]}>
+    render(
+      <MockedProvider mocks={[mocks.healthCheckSuccess]} addTypename={false}>
         <Debug />
-      </NoCacheMockedProvider>,
+      </MockedProvider>
     );
 
-    expect(wrapper.html()).toContain('Loading...');
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
 
-    // Warning: An update to Debug inside a test was not wrapped in act(...).
-    await act(wait);
-
-    wrapper.update();
-    expect(wrapper.html()).toContain('Graphql server health check succeeded');
+    await waitFor(() => {
+      expect(screen.getByText('Graphql server health check succeeded')).toBeInTheDocument();
+    });
   });
 
   it('fails a graphql healthcheck', async () => {
-    const wrapper = mount(
-      <NoCacheMockedProvider mocks={[mocks.healthCheckFailed]}>
+    render(
+      <MockedProvider mocks={[mocks.healthCheckFailed]} addTypename={false}>
         <Debug />
-      </NoCacheMockedProvider>,
+      </MockedProvider>
     );
 
-    // Warning: An update to Debug inside a test was not wrapped in act(...).
-    await act(wait);
-
-    wrapper.update();
-    expect(wrapper.html()).toContain('Graphql server health check failed');
+    await waitFor(() => {
+      expect(screen.getByText('Graphql server health check failed')).toBeInTheDocument();
+    });
   });
 });

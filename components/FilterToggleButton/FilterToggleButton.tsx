@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { CTooltip } from '@coreui/react';
+import {CBadge, CTooltip} from '@coreui/react';
 import CIcon from '@coreui/icons-react';
-import { cilX } from '@coreui/icons';
+import { cilX, cilLockLocked } from '@coreui/icons';
 import getTypeIcon from '../../hooks/getTypeIcon';
 import {FilterToggleButtonProps} from "../../types/filterTypes";
 
@@ -14,11 +14,12 @@ const FilterToggleButton: React.FC<FilterToggleButtonProps> = ({
                                                                  className,
                                                                  updateForm,
                                                                  toggle,
+                                                                 isLocked,
                                                                }) => {
   const [toggleOn, setToggleOn] = useState(toggle);
 
   const handleToggle = async () => {
-    if (!toggleOn) {
+    if (!toggleOn && !isLocked) {
       setToggleOn(true);
       await updateForm(id, true);
     }
@@ -48,6 +49,11 @@ const FilterToggleButton: React.FC<FilterToggleButtonProps> = ({
             <CIcon size="lg" className="statistic__icon" icon={getTypeIcon(name)} />
             {' '}
             <div className="filter-toggle-button__frame-header-title">
+              {isLocked && (
+                <CBadge id="filterQuanitity" position="top-end" shape="rounded-pill" color="secondary">
+                  <CIcon icon={cilLockLocked} size="sm" />
+                </CBadge>
+              )}
               {label}
             </div>
             {toggleOn && (

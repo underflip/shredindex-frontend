@@ -51,6 +51,7 @@ export interface FilterToggleButtonProps {
   updateForm: (id: string, value: boolean) => Promise<void>;
   onChange?: () => Promise<void>;
   toggle: boolean;
+  isLocked?: boolean;
 }
 
 // This type alias makes it clear that FormData and CurrentFilterState are the same

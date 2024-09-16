@@ -27,7 +27,7 @@ const RatingList: React.FC<RatingListProps> = ({
   if (ratings.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
-        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="Resort is unrated" />
+        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="ResortSingle is unrated" />
       </div>
     );
   }

@@ -6,18 +6,20 @@ import Rating from '../../Rating/Rating';
 
 const ResortRatings = ({ ratings }) => {
   const groupedRatings = useMemo(() => {
-    const sortedRatings = [...ratings].sort((a, b) => (
-      a.type.type_group?.id || 0) - (b.type.type_group?.id || 0
-    ));
+    if (ratings?.length >= 1) {
+      const sortedRatings = [...ratings].sort((a, b) => (
+        a.type.type_group?.id || 0) - (b.type.type_group?.id || 0
+      ));
 
-    return sortedRatings.reduce((acc, rating) => {
-      const category = rating.type.type_group?.title || 'Uncategorized';
-      if (!acc[category]) {
-        acc[category] = [];
-      }
-      acc[category].push(rating);
-      return acc;
-    }, {});
+      return sortedRatings.reduce((acc, rating) => {
+        const category = rating.type.type_group?.title || 'Uncategorized';
+        if (!acc[category]) {
+          acc[category] = [];
+        }
+        acc[category].push(rating);
+        return acc;
+      }, {});
+    }
   }, [ratings]);
 
   const renderCategoryRatings = (category, index) => {
@@ -40,14 +42,28 @@ const ResortRatings = ({ ratings }) => {
     );
   };
 
+  if (!ratings) {
+    return (
+      <CCard className="ratings-card">
+        <CCardBody>
+          <CListGroup>
+            <p className="ratings caption-text">
+              No available ratings
+            </p>
+          </CListGroup>
+        </CCardBody>
+      </CCard>
+    )
+  }
+
   return (
-    <div className="resort-ratings">
-      <h2 className="ratings-title h6">
+    <div className="resort-ratings mb-4">
+      <h3 className="resort-single-card-heading user-select-none mb-2">
         <FormattedMessage
           id="shredindex.rating.RATINGS"
           defaultMessage="Ratings"
         />
-      </h2>
+      </h3>
       <CCard className="ratings-card">
         <CCardBody>
           <CListGroup>

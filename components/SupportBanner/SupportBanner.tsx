@@ -17,7 +17,7 @@ export const QUERY_SUPPORTERS = gql`
   }
 `;
 
-const SupportBanner = () => (
+const SupportBanner: React.FC = () => (
   <div className="support-banner">
     <div className="container p-4 d-flex align-items-center flex-wrap">
       <Supporters />

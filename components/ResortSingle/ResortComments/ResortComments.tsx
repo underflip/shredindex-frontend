@@ -13,7 +13,7 @@ const ResortComments: React.FC<ResortCommentsProps> = ({ comments }) => {
   if (comments?.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
-        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="Resort has no statistics" />
+        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="ResortSingle has no statistics" />
       </div>
     );
   }
@@ -29,9 +29,9 @@ const ResortComments: React.FC<ResortCommentsProps> = ({ comments }) => {
 
   return (
     <div className="resort-comments">
-      <div className="h6 user-select-none mb-2">
+      <h3 className="resort-single-card-heading user-select-none mb-2">
         <FormattedMessage id="shredindex.commentcard.COMMENTS" defaultMessage="Comments" />
-      </div>
+      </h3>
       <Flickity
         className="carousel w-100 h-100"
         elementType="div"
@@ -39,7 +39,7 @@ const ResortComments: React.FC<ResortCommentsProps> = ({ comments }) => {
         disableImagesLoaded
         reloadOnUpdate
       >
-        {comments?.map(({
+        {comments && comments?.length >= 1 ? comments?.map(({
                           id, author, comment,
                         }) => (
           <div key={id} className="resort-comments__card card p-2 d-block border-radius-medium">
@@ -61,7 +61,20 @@ const ResortComments: React.FC<ResortCommentsProps> = ({ comments }) => {
               </span>
             </div>
           </div>
-        ))}
+        )) : (
+          <div className="resort-comments__card card p-2 d-block border-radius-medium">
+            <ResortCardMountains
+              className="carousel__comment-background position-absolute w-100"
+            />
+            <div
+              className="carousel__comment w-100 d-flex flex-column justify-content-between"
+            >
+              <span className="carousel__comment-text small user-select-none">
+                {'No comments available'}
+              </span>
+            </div>
+          </div>
+        )}
       </Flickity>
     </div>
   );

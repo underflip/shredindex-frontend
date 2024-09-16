@@ -111,7 +111,7 @@ const mocksMinimalData = {
   },
 };
 
-describe('Resort Card Full Expanded', () => {
+describe('ResortSingle Card Full Expanded', () => {
   beforeEach(() => {
     context('Full Expanded', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card');
@@ -215,14 +215,14 @@ describe('Resort Card Full Expanded', () => {
     });
   });
 
-  it('Has a Go to Resort Button', () => {
+  it('Has a Go to ResortSingle Button', () => {
     cy.get('.resort-card__resort-link').should('have.attr', 'href').then((href) => {
       expect(href.endsWith('tokyo-megaplex')).to.be.true;
     });
   });
 });
 
-describe('Resort Card Loading', () => {
+describe('ResortSingle Card Loading', () => {
   before(() => {
     context('Loading', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:Loading');
@@ -238,7 +238,7 @@ describe('Resort Card Loading', () => {
   });
 });
 
-describe('Resort Card Minimal Data', () => {
+describe('ResortSingle Card Minimal Data', () => {
   before(() => {
     context('Minimal Data', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:Minimal+Data');
@@ -268,7 +268,7 @@ describe('Resort Card Minimal Data', () => {
   });
 });
 
-describe('Resort Card No Data', () => {
+describe('ResortSingle Card No Data', () => {
   before(() => {
     context('No Data', () => {
       cy.visit('/iframe.html?id=shred-index-components--resort-card&args=cardState:No+Data');
@@ -288,6 +288,6 @@ describe('Resort Card No Data', () => {
   });
 
   it('Has a unrated resort Prompt', () => {
-    cy.get('.resort-card__sub-ratings-list .resort-card__small-label').should('contain.text', 'Resort is unrated');
+    cy.get('.resort-card__sub-ratings-list .resort-card__small-label').should('contain.text', 'ResortSingle is unrated');
   });
 });

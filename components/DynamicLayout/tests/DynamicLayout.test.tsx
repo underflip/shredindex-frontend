@@ -1,11 +1,10 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import wait from 'waait';
+import { render, screen, waitFor } from '@testing-library/react';
+import { MockedProvider } from '@apollo/client/testing';
+import { RecoilRoot } from 'recoil';
 import queryCMSPage from '../../../utility/query-cms-page';
-import NoCacheMockedProvider from '../../tests/NoCacheMockedProvider/NoCacheMockedProvider';
-import ViewContext from '../../../atoms/SidebarAtoms';
 import DynamicLayout from '../DynamicLayout';
+import { layoutsAtom } from '../../../atoms/ViewAtoms';
 
 const mocks = {
   cmsPageFailure: {
@@ -34,59 +33,53 @@ const mocks = {
   },
 };
 
-const contextData = {
-  layouts: {
-    foo: () => <h1>Foo layout</h1>,
-    fooBar: () => <h1>FooBar layout</h1>,
-  },
+const layouts = {
+  foo: () => <h1>Foo layout</h1>,
+  fooBar: () => <h1>FooBar layout</h1>,
 };
+
+const AllTheProviders = ({ children, mocks }) => (
+  <RecoilRoot initializeState={({ set }) => set(layoutsAtom, layouts)}>
+    <MockedProvider mocks={mocks} addTypename={false}>
+      {children}
+    </MockedProvider>
+  </RecoilRoot>
+);
 
 describe('Test <DynamicLayout />', () => {
   it('Fails when the CMS does not provide data for the current url', async () => {
-    const wrapper = mount(
-      <NoCacheMockedProvider mocks={[mocks.cmsPageFailure]}>
-        <ViewContext.Provider value={contextData}>
-          <DynamicLayout url="/foo" />
-        </ViewContext.Provider>
-      </NoCacheMockedProvider>,
+    render(
+      <AllTheProviders mocks={[mocks.cmsPageFailure]}>
+        <DynamicLayout url="/foo" />
+      </AllTheProviders>
     );
 
-    // Warning: An update to Debug inside a test was not wrapped in act(...).
-    await act(async () => wait(100));
-
-    wrapper.update();
-    expect(wrapper.html()).toBe('');
+    await waitFor(() => {
+      expect(screen.queryByRole('heading')).not.toBeInTheDocument();
+    });
   });
 
   it('Renders layout for /foo', async () => {
-    const wrapper = mount(
-      <NoCacheMockedProvider mocks={[mocks.cmsPageFoo]}>
-        <ViewContext.Provider value={contextData}>
-          <DynamicLayout url="/foo" />
-        </ViewContext.Provider>
-      </NoCacheMockedProvider>,
+    render(
+      <AllTheProviders mocks={[mocks.cmsPageFoo]}>
+        <DynamicLayout url="/foo" />
+      </AllTheProviders>
     );
 
-    // Warning: An update to Debug inside a test was not wrapped in act(...).
-    await act(async () => wait(100));
-
-    wrapper.update();
-    expect(wrapper.html()).toContain('Foo layout');
+    await waitFor(() => {
+      expect(screen.getByText('Foo layout')).toBeInTheDocument();
+    });
   });
 
   it('Renders layout for /foo/:bar', async () => {
-    const wrapper = mount(
-      <NoCacheMockedProvider mocks={[mocks.cmsPageFooBar]}>
-        <ViewContext.Provider value={contextData}>
-          <DynamicLayout url="/foo/:bar" />
-        </ViewContext.Provider>
-      </NoCacheMockedProvider>,
+    render(
+      <AllTheProviders mocks={[mocks.cmsPageFooBar]}>
+        <DynamicLayout url="/foo/:bar" />
+      </AllTheProviders>
     );
 
-    // Warning: An update to Debug inside a test was not wrapped in act(...).
-    await act(async () => wait(100));
-
-    wrapper.update();
-    expect(wrapper.html()).toContain('FooBar layout');
+    await waitFor(() => {
+      expect(screen.getByText('FooBar layout')).toBeInTheDocument();
+    });
   });
 });

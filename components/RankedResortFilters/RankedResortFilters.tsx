@@ -234,7 +234,7 @@ const RankedResortFilters: React.FC = () => {
                     parseInt(
                       getFormValue(id, item.filters[0].type_name, item.filters[0].operator),
                       10,
-                    )
+                    ) || 0
                   }
                   initialUpperVal={
                     parseInt(

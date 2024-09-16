@@ -27,11 +27,23 @@ export const QUERY_TEAM_MEMBERS = gql`
   }
 `;
 
-const Footer = () => {
+export const FooterLoading: React.FC = () => {
+  return (
+    <CFooter className="footer p-4 h-auto d-block">
+      <div className="footer__copyright d-flex justify-content-center">
+        <ReactMarkdown>loadings</ReactMarkdown>
+      </div>
+      <div className="footer__team-members d-flex flex-wrap">
+      </div>
+    </CFooter>
+  )
+};
+
+const Footer: React.FC = () => {
   const { loading, data } = useQuery(QUERY_SETTINGS);
 
   if (loading) {
-    return null;
+    return <FooterLoading />
   }
 
   const { settings: { copyright_message } } = data;
@@ -49,7 +61,7 @@ const Footer = () => {
   );
 };
 
-const TeamMembers = () => {
+const TeamMembers: React.FC = () => {
   const { loading, data } = useQuery(QUERY_TEAM_MEMBERS);
 
   if (loading) {

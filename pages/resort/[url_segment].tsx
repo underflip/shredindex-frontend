@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { gql } from '@apollo/client';
 import { initializeApollo } from '../../lib/apollo-client'; // Adjust the import path as needed
-import Resort from '../../components/ResortSingle/Resort';
+import ResortSingle from '@/ResortSingle/ResortSingle';
 
 // GraphQL query to fetch all resort URL segments
 const QUERY_ALL_RESORTS = gql`
@@ -21,6 +21,7 @@ const QUERY_RESORT = gql`
       id
       title
       url_segment
+      affiliate_url
       description
       resort_images {
         id
@@ -148,10 +149,10 @@ const ResortPage = ({ resortData, error }) => {
 
   // Show loading state if the page is being generated
   if (router.isFallback) {
-    return <Resort loading={true} resortData={null} />;
+    return <ResortSingle loading={true} resortData={null} />;
   }
 
-  return <Resort resortData={resortData} error={error} />;
+  return <ResortSingle resortData={resortData} error={error} />;
 };
 
 export default ResortPage;

@@ -34,7 +34,7 @@ const NumericList: React.FC<NumericListProps> = ({
   if (numerics?.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
-        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="Resort has no statistics" />
+        <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="ResortSingle has no statistics" />
       </div>
     );
   }

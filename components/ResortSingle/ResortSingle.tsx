@@ -10,21 +10,24 @@ import ResortHeader from '@/ResortSingle/ResortHeader/ResortHeader';
 import ResortRatings from '@/ResortSingle/ResortRatings/ResortRatings';
 import ResortNumerics from '@/ResortSingle/ResortNumerics/ResortNumerics';
 import ResortsParallaxBackground from '@/ResortsParallaxBackground/ResortsParallaxBackground';
-import ResortMap from '@/ResortSingle/ResortMap/ResortMap';
 import ResortComments from '@/ResortSingle/ResortComments/ResortComments';
 import ResortImageCarousel from '@/ResortSingle/ResortImageCarousel/ResortImageCarousel';
 import ResortHeaderSkeleton from '@/ResortSingle/ResortHeader/ResortHeaderSkeleton';
 import ResortImageCarouselSkeleton from '@/ResortSingle/ResortImageCarousel/ResortImageCarouselSkeleton';
 import ResortNumericsSkeleton from '@/ResortSingle/ResortNumerics/ResortNumericsSkeleton';
 import ResortRatingsSkeleton from '@/ResortSingle/ResortRatings/ResortRatingsSkeleton';
-import ResortMapSkeleton from '@/ResortSingle/ResortMap/ResortMapSkeleton';
-import ColumbiaBanner from '@/Advertisers/ColumbiaBanner/ColumbiaBanner';
+import ResortMapSkeleton from '@/ResortSingle/ResortMapCard/ResortMap/ResortMapSkeleton';
+import Gear from '@/Advertisers/Gear/Gear';
 import ResortGenerics from "@/ResortSingle/ResortGenerics/ResortGenerics";
+import Accomodation from "@/Advertisers/Accomodation/Accomodation";
+import AdvertiseHere from "@/Advertisers/AdvertiseHere/AdvertiseHere";
+import ResortMapCard from "@/ResortSingle/ResortMapCard/ResortMapCard";
 
 interface ResortData {
   id: string;
   title: string;
   url_segment: string;
+  affiliate_url: string;
   description: string;
   resort_images: {
     id: string;
@@ -97,7 +100,7 @@ interface ResortProps {
   loading?: boolean;
 }
 
-const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
+const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => {
   const router = useRouter();
   const [previousUrl, setPreviousUrl] = useState<string | null>(null);
 
@@ -218,22 +221,11 @@ const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
             <ResortComments comments={comments} />
           </CCol>
           <CCol lg={4}>
-            <h3 className="resort__description-title h6">
-              <FormattedMessage
-                id="shredindex.resort.Map"
-                defaultMessage="Map"
-              />
-            </h3>
-            <CCard className="resort__map-card mb-4">
-              <CCardBody>
-                <ResortMap longitude={location.longitude} latitude={location.latitude} />
-              </CCardBody>
-            </CCard>
-            <CCard className="resort__map-card mb-4">
-              <CCardBody>
-                <ColumbiaBanner />
-              </CCardBody>
-            </CCard>
+            <Accomodation affiliateUrl={resortData.affiliate_url} />
+            <AdvertiseHere />
+            <Gear />
+            {/* Members Only Toggle */}
+            <ResortMapCard location={resortData?.location}/>
           </CCol>
         </CRow>
       </div>
@@ -241,4 +233,4 @@ const Resort: React.FC<ResortProps> = ({ resortData, error, loading }) => {
   );
 };
 
-export default Resort;
+export default ResortSingle;

@@ -63,5 +63,41 @@ export const FilterToggleButton = () => (
         </CCard>
       </CCol>
     </CRow>
+    <CRow>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <p>
+              Filter Toggle Button Locked
+              <span className="small">&nbsp; with Children</span>
+            </p>
+          </CCardHeader>
+          <CCardBody>
+            <p className="text-medium-emphasis small">
+              Filter button toggle can be locked.
+            </p>
+            <FilterToggleButtonComponent
+              id="2"
+              label="Snow Quality"
+              isLocked={true}
+              tooltip={(
+                <div>
+                  <h4>Snow Quality</h4>
+                  <strong>The finest, temperature and persistence of the snow</strong>
+                </div>
+              )}
+              className="with-child"
+            >
+              <CFormLabel htmlFor="basic-url">Range Slider</CFormLabel>
+              <CFormRange steps={10} />
+              <CFormLabel htmlFor="basic-url">Text Input</CFormLabel>
+              <CInputGroup className="mb-3">
+                <CFormInput aria-label="Amount (to the nearest dollar)" />
+              </CInputGroup>
+            </FilterToggleButtonComponent>
+          </CCardBody>
+        </CCard>
+      </CCol>
+    </CRow>
   </>
 );

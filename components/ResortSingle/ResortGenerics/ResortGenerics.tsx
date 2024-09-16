@@ -15,14 +15,14 @@ const options = {
 };
 
 const ResortGenerics = ({ generics }) => (
-  <div className="generics numeric-list">
-    <h4 className="generics-title h6">
+  <div className="generics numeric-list mb-4">
+    <h3 className="resort-single-card-heading user-select-none mb-2">
       <FormattedMessage
         id="shredindex.generics.FEATURES"
         defaultMessage="Features"
       />
-    </h4>
-    <div className="numeric-list__list mb-2">
+    </h3>
+    <div className="numeric-list__list">
       <Flickity
         className="carousel w-100 h-100"
         elementType="div"

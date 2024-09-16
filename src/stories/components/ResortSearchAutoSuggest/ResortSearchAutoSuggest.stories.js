@@ -91,7 +91,7 @@ WithResults.parameters = {
               data: [
                 {
                   id: '1',
-                  title: 'Test Resort',
+                  title: 'Test ResortSingle',
                   url_segment: 'test-resort',
                   location: {
                     city: 'Test City',
@@ -101,7 +101,7 @@ WithResults.parameters = {
                 },
                 {
                   id: '2',
-                  title: 'Another Test Resort',
+                  title: 'Another Test ResortSingle',
                   url_segment: 'another-test-resort',
                   location: {
                     city: 'Another City',

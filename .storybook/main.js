@@ -7,17 +7,13 @@ const config = {
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
-    '@storybook/addon-a11y', // Added for accessibility
-    '@storybook/addon-themes', // Added for theme switching
   ],
   framework: {
     name: '@storybook/nextjs',
     options: {
-      fsCache: true,
+      builder: 'webpack5',
       lazyCompilation: true,
-      builder: {
-        useSWC: true, // SWC is still relevant for the latest Storybook
-      },
+      fsCache: true,
     },
   },
   docs: {

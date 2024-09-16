@@ -80,7 +80,7 @@ const ResortCardFooter: React.FC<ResortCardFooterProps> = ({ urlSegment, collaps
       <div className="resort-card__go-to-resort-button">
         <span className="resort-card__go-to-resort-text me-2 user-select-none">
           {collapsed ? null : (
-            <FormattedMessage id="shredindex.resortcard.GO_TO_RESORT" defaultMessage="Go to Resort" />
+            <FormattedMessage id="shredindex.resortcard.GO_TO_RESORT" defaultMessage="Go to ResortSingle" />
           )}
         </span>
         <CIcon icon={cilArrowRight} />

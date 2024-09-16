@@ -42,6 +42,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'source.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.ftjcfx.com',
+        pathname: '/*',
+      },
     ],
   },
   experimental: {

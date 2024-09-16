@@ -19,8 +19,8 @@ const ResortImageCarousel = ({ images }) => {
   };
 
   return (
-    <div className="resort-single resort-single__image-carousel mb-3">
-      <div className="h6 user-select-none mb-2">
+    <div className="resort-single resort-single__image-carousel mb-4">
+      <div className="resort-single-card-heading user-select-none mb-2">
         <FormattedMessage id="shredindex.resort.IMAGES" defaultMessage="Images" />
       </div>
       <Flickity
@@ -30,7 +30,7 @@ const ResortImageCarousel = ({ images }) => {
         disableImagesLoaded
         reloadOnUpdate
       >
-        {images.length > 0 ? (images.filter((img) => img.image?.path)
+        {images && images?.length > 0 ? (images.filter((img) => img.image?.path)
           .map(({
             image,
           }) => (

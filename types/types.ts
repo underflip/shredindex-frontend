@@ -1,6 +1,8 @@
 export interface ResortAttribute {
   id?: string;
+  name?: string;
   title: string;
+  type?: string;
   value: number | string | undefined;
 }
 

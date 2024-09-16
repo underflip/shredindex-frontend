@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import useResortFlagImage from '../../../hooks/useResortFlagImage';
 
 interface LocationType {
-  city: string | null;
+  city?: string | null;
   country: {
     name: string | null;
     code: string | null;
