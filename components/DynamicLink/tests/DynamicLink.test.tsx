@@ -29,7 +29,7 @@ describe('Test <DynamicLink />', () => {
         <DynamicLink to="/foo" className="target">
           <p>Foo link</p>
         </DynamicLink>
-      </AllProviders>
+      </AllProviders>,
     );
 
     const link = screen.getByText('Foo link');

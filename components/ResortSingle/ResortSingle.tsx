@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { FormattedMessage } from 'react-intl';
 import {
@@ -18,84 +18,14 @@ import ResortNumericsSkeleton from '@/ResortSingle/ResortNumerics/ResortNumerics
 import ResortRatingsSkeleton from '@/ResortSingle/ResortRatings/ResortRatingsSkeleton';
 import ResortMapSkeleton from '@/ResortSingle/ResortMapCard/ResortMap/ResortMapSkeleton';
 import Gear from '@/Advertisers/Gear/Gear';
-import ResortGenerics from "@/ResortSingle/ResortGenerics/ResortGenerics";
-import Accomodation from "@/Advertisers/Accomodation/Accomodation";
-import AdvertiseHere from "@/Advertisers/AdvertiseHere/AdvertiseHere";
-import ResortMapCard from "@/ResortSingle/ResortMapCard/ResortMapCard";
-
-interface ResortData {
-  id: string;
-  title: string;
-  url_segment: string;
-  affiliate_url: string;
-  description: string;
-  resort_images: {
-    id: string;
-    name: string;
-    alt: string;
-    sort_order: number;
-    image: {
-      path: string;
-      content_type: string;
-    };
-  }[];
-  total_score: {
-    title: string;
-    value: number;
-  };
-  location: {
-    id: string;
-    latitude: number;
-    longitude: number;
-    city: string;
-    country: {
-      id: string;
-      code: string;
-      name: string;
-    };
-    state: {
-      id: string;
-      code: string;
-      name: string;
-    };
-  };
-  ratingScores: {
-    id: string;
-    title: string;
-    value: number;
-    name: string;
-    type: {
-      type_group: {
-        id: string;
-        title: string;
-      };
-    };
-  }[];
-  numerics: {
-    id: string;
-    title: string;
-    value: number;
-    name: string;
-    type: {
-      unit: string;
-      max_value: number;
-    };
-  }[];
-  generics: {
-    id: string;
-    title: string;
-    value: string;
-    name: string;
-  }[];
-  comments: {
-    id: string;
-    author: string;
-    comment: string;
-  }[];
-}
+import ResortGenerics from '@/ResortSingle/ResortGenerics/ResortGenerics';
+import Accomodation from '@/Advertisers/Accomodation/Accomodation';
+import AdvertiseHere from '@/Advertisers/AdvertiseHere/AdvertiseHere';
+import ResortMapCard from '@/ResortSingle/ResortMapCard/ResortMapCard';
+import { Resort } from '../../types/resortTypes';
 
 interface ResortProps {
-  resortData: ResortData | null;
+  resortData: Resort | null;
   error?: Error | null;
   loading?: boolean;
 }
@@ -184,7 +114,8 @@ const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => 
 
   const {
     resort_images,
-    ratingScores: ratings,
+    affiliate_url,
+    ratingScores,
     numerics,
     generics,
     location,
@@ -217,15 +148,15 @@ const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => 
             <ResortImageCarousel images={resort_images} />
             <ResortNumerics numerics={numerics} />
             <ResortGenerics generics={generics} />
-            <ResortRatings ratings={ratings} />
+            <ResortRatings ratings={ratingScores} />
             <ResortComments comments={comments} />
           </CCol>
           <CCol lg={4}>
-            <Accomodation affiliateUrl={resortData.affiliate_url} />
-            <AdvertiseHere />
+            <Accomodation affiliateUrl={affiliate_url} />
+            <AdvertiseHere affiliateUrl={affiliate_url}/>
             <Gear />
             {/* Members Only Toggle */}
-            <ResortMapCard location={resortData?.location}/>
+            <ResortMapCard location={location}/>
           </CCol>
         </CRow>
       </div>

@@ -25,11 +25,11 @@ interface PaginationItem {
 }
 
 const Pagination: React.FC<PaginationProps> = ({
-                                                 lastPage,
-                                                 paginationTabLimit = 3,
-                                                 size = paginationSize.sm,
-                                                 currentPage = 1,
-                                               }) => {
+  lastPage,
+  paginationTabLimit = 3,
+  size = paginationSize.sm,
+  currentPage = 1,
+}) => {
   const router = useRouter();
   const currentPageIndex = parseInt(router.query.page as string, 10) || currentPage;
 

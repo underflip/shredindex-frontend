@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import {CBadge, CTooltip} from '@coreui/react';
+import { CBadge, CTooltip } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { cilX, cilLockLocked } from '@coreui/icons';
 import getTypeIcon from '../../hooks/getTypeIcon';
-import {FilterToggleButtonProps} from "../../types/filterTypes";
+import { FilterToggleButtonProps } from '../../types/filterTypes';
 
 const FilterToggleButton: React.FC<FilterToggleButtonProps> = ({
-                                                                 id,
-                                                                 label,
-                                                                 name,
-                                                                 tooltip,
-                                                                 children,
-                                                                 className,
-                                                                 updateForm,
-                                                                 toggle,
-                                                                 isLocked,
-                                                               }) => {
+  id,
+  label,
+  name,
+  tooltip,
+  children,
+  className,
+  updateForm,
+  toggle,
+  isLocked,
+}) => {
   const [toggleOn, setToggleOn] = useState(toggle);
 
   const handleToggle = async () => {

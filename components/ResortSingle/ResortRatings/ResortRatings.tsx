@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { CCard, CCardBody, CListGroup } from '@coreui/react';
 import { FormattedMessage } from 'react-intl';
 import Rating from '../../Rating/Rating';
+import { Score } from '../../../types/resortTypes';
 
-const ResortRatings = ({ ratings }) => {
+const ResortRatings: React.FC <Score[]> = ({ ratings }) => {
   const groupedRatings = useMemo(() => {
     if (ratings?.length >= 1) {
       const sortedRatings = [...ratings].sort((a, b) => (
@@ -53,7 +54,7 @@ const ResortRatings = ({ ratings }) => {
           </CListGroup>
         </CCardBody>
       </CCard>
-    )
+    );
   }
 
   return (

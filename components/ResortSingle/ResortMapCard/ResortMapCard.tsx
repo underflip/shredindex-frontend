@@ -1,12 +1,12 @@
 import React from 'react';
-import {CCard, CCardBody } from '@coreui/react';
-import {FormattedMessage} from "react-intl";
-import ResortMap from "@/ResortSingle/ResortMapCard/ResortMap/ResortMap";
-import NoUserAccess from "@/FeatureToggle/NoUserAccess";
-import MapDummy from "../../../images/map-dummy.png"
+import { CCard, CCardBody } from '@coreui/react';
+import { FormattedMessage } from 'react-intl';
+import ResortMap from '@/ResortSingle/ResortMapCard/ResortMap/ResortMap';
+import NoUserAccess from '@/FeatureToggle/NoUserAccess';
+import MapDummy from '../../../images/map-dummy.png';
+import { Location } from '../../../types/resortTypes';
 
-// @ts-ignore
-const ResortMapCard: React.FC = ({location}) => {
+const ResortMapCard: React.FC <Location> = ({ location }) => {
   return (
     <>
       <h3 className="resort-single-card-heading user-select-none mb-2">
@@ -26,7 +26,7 @@ const ResortMapCard: React.FC = ({location}) => {
         </CCardBody>
       </CCard>
     </>
-  )
+  );
 };
 
 export default ResortMapCard;

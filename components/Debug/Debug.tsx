@@ -10,6 +10,8 @@ export const QUERY_HEALTH_CHECK = gql`
 const Debug = () => {
   const { loading, error, data } = useQuery(QUERY_HEALTH_CHECK);
 
+  const Skeleton = () => <p>Loading...</p>;
+
   if (loading) {
     return <Skeleton />;
   }
@@ -25,7 +27,4 @@ const Debug = () => {
     ? <p>Graphql server health check succeeded</p>
     : <p>Graphql server health check failed</p>;
 };
-
-const Skeleton = () => <p>Loading...</p>;
-
 export default Debug;

@@ -1,5 +1,5 @@
 import {
-  CCard, CCardBody, CCardFooter, CCardHeader, CImage,
+  CCard, CCardBody, CCardFooter, CCardHeader,
 } from '@coreui/react';
 import React from 'react';
 import ResortImageLoading from '../../images/resort-image-placeholder-loading.svg';

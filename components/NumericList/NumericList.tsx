@@ -26,11 +26,11 @@ interface NumericListProps {
 }
 
 const NumericList: React.FC<NumericListProps> = ({
-                                                   isMini = false,
-                                                   numerics,
-                                                   label,
-                                                   labelMessageId,
-                                                 }) => {
+  isMini = false,
+  numerics,
+  label,
+  labelMessageId,
+}) => {
   if (numerics?.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
@@ -63,12 +63,12 @@ const NumericList: React.FC<NumericListProps> = ({
           static
         >
           {numerics.map(({
-                           id,
-                           title,
-                           name,
-                           value,
-                           type,
-                         }) => (
+            id,
+            title,
+            name,
+            value,
+            type,
+          }) => (
             <div key={id} className="numeric-list__numeric mb-3 me-3">
               <Statistic
                 title={title}

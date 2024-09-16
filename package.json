@@ -64,6 +64,8 @@
     "@types/react-helmet": "^6.1.11",
     "@types/react-select-country-list": "^2.2.3",
     "@types/testing-library__jest-dom": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.1.3",
     "babel-plugin-dynamic-import-node": "^2.3.3",
@@ -78,8 +80,10 @@
     "enzyme": "^3.0.0",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-cypress": "^2.15.1",
-    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
@@ -127,6 +131,7 @@
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
     "@swc/wasm": "^1.3.101",
     "@types/node": "^20.16.1",
+    "@typescript-eslint/typescript-estree": "^8.5.0",
     "apollo-boost": "^0.4.9",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
@@ -163,7 +168,9 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
@@ -174,7 +181,9 @@
       "^.+\\.svg$": "jest-svg-transformer",
       "\\.(css|scss)$": "identity-obj-proxy"
     },
-    "testPathIgnorePatterns": ["<rootDir>/cypress"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/cypress"
+    ],
     "coverageDirectory": "jest-coverage",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -182,7 +191,14 @@
       "!src/stories/**",
       "!src/index.js"
     ],
-    "moduleFileExtensions": ["js", "jsx", "ts", "tsx", "json", "node"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx",
+      "json",
+      "node"
+    ],
     "globals": {
       "ts-jest": {
         "tsconfig": "<rootDir>/tsconfig.json"

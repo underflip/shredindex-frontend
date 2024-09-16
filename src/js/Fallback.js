@@ -7,7 +7,7 @@ import React from 'react';
 import Logo from '../images/logo.svg';
 import mobileLogo from '../images/s-i-logo-small-png.svg';
 import ResortSearchAutosuggestSkeleton
-  from './components/ResortSearchAutoSuggest/ResortSearchAutoSuggestSkeleton';
+  from '../../components/ResortSearchAutoSuggest/ResortSearchAutoSuggestSkeleton';
 
 const Fallback = () => (
   <CHeader className="header">

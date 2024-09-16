@@ -14,12 +14,21 @@ export interface State {
 
 export interface Location {
   id: string;
-  city: string;
-  country: Country;
-  state: State | null;
+  city?: string | null;
+  country?: Country;
+  state?: State | null;
+  latitude?: string | null;
+  longitude?: string | null;
 }
 
 export interface Score {
+  id: string;
+  name: string;
+  title: string;
+  value: number;
+}
+
+export interface Generic {
   id: string;
   name: string;
   title: string;
@@ -63,14 +72,19 @@ export interface Resort {
   title: string;
   url_segment: string;
   url: string;
-  affiliate_url: string;
+  affiliate_url: AffiliateUrl;
   description: string;
   location: Location;
   total_score: Score;
   ratingScores: RatingScore[];
   numerics: Numeric[];
+  generics: Generic[];
   highlights: Score[];
   lowlights: Score[];
   resort_images: Image[];
   comments: Comment[];
+}
+
+export interface AffiliateUrl {
+  affiliateUrl: string;
 }

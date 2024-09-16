@@ -31,7 +31,7 @@ describe('Test <Debug />', () => {
     render(
       <MockedProvider mocks={[mocks.healthCheckSuccess]} addTypename={false}>
         <Debug />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -45,7 +45,7 @@ describe('Test <Debug />', () => {
     render(
       <MockedProvider mocks={[mocks.healthCheckFailed]} addTypename={false}>
         <Debug />
-      </MockedProvider>
+      </MockedProvider>,
     );
 
     await waitFor(() => {

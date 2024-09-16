@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-import Select, { StylesConfig, MultiValue, ActionMeta } from 'react-select';
+import Select, { StylesConfig, MultiValue } from 'react-select';
 import countryList from 'react-select-country-list';
 import { useRecoilState } from 'recoil';
 import { currentFilterState } from '../../hooks/useQueryTypes';
 import { getContinent } from '../../hooks/getContinent';
 import { FormData } from '../../types/filterTypes';
+import Image from 'next/image';
 
 interface Country {
   label: string;
@@ -28,7 +29,6 @@ const CountrySelect: React.FC = () => {
 
   const handleChange = (
     newValue: MultiValue<Country>,
-    actionMeta: ActionMeta<Country>
   ) => {
     const newSelectedCountries = newValue.map((option) => option.value);
     setFormData((prevData) => ({
@@ -122,7 +122,7 @@ const CountrySelect: React.FC = () => {
 
   const formatOptionLabel = ({ label, value }: Country) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <img
+      <Image
         src={`https://flagcdn.com/w20/${value.toLowerCase()}.png`}
         style={{ marginRight: '10px', width: '20px', height: '15px' }}
         alt={`${label} flag`}
@@ -137,7 +137,7 @@ const CountrySelect: React.FC = () => {
         isMulti
         options={availableCountries}
         value={availableCountries.filter(
-          (option) => formData.locationType?.countryId?.includes(option.value)
+          (option) => formData.locationType?.countryId?.includes(option.value),
         )}
         onChange={handleChange}
         styles={customStyles}

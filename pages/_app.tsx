@@ -11,7 +11,7 @@ import SupportBanner from '../components/SupportBanner/SupportBanner';
 import { layoutsAtom } from '../atoms/ViewAtoms';
 import langEn from '../lang/en.json';
 import GlobalToast from '../components/GlobalToast/GlobalToast';
-import { useApollo } from "../lib/apollo-client";
+import { useApollo } from '../lib/apollo-client';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../src/scss/style.scss';
 
@@ -30,7 +30,7 @@ const layouts = {
   terms: dynamic(() => import('./terms-and-conditions')),
 };
 
-function InitializeRecoilState() {
+const InitializeRecoilState = () => {
   const setLayouts = useSetRecoilState(layoutsAtom);
 
   React.useEffect(() => {
@@ -38,9 +38,9 @@ function InitializeRecoilState() {
   }, [setLayouts]);
 
   return null;
-}
+};
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (
@@ -66,6 +66,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </IntlProvider>
     </ApolloProvider>
   );
-}
+};
 
 export default MyApp;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import {
-  CImage, CSidebar, CSidebarBrand, CSidebarNav,
+  CSidebar, CSidebarBrand, CSidebarNav,
 } from '@coreui/react';
 import Logo from '../../images/logo.svg';
 import DynamicLink from '../DynamicLink/DynamicLink';

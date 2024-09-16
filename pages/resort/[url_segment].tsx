@@ -1,11 +1,11 @@
-import React from "react";
-import { GetStaticPaths, GetStaticProps } from 'next';
+import React from 'react';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
 import { useRouter } from 'next/router';
-import { gql } from '@apollo/client';
-import { initializeApollo } from '../../lib/apollo-client'; // Adjust the import path as needed
+import { gql, ApolloError } from '@apollo/client';
+import { initializeApollo } from '../../lib/apollo-client';
 import ResortSingle from '@/ResortSingle/ResortSingle';
+import { Resort } from '../../types/resortTypes';
 
-// GraphQL query to fetch all resort URL segments
 const QUERY_ALL_RESORTS = gql`
   query AllResorts {
     resorts {
@@ -14,7 +14,6 @@ const QUERY_ALL_RESORTS = gql`
   }
 `;
 
-// GraphQL query to fetch a specific resort by URL segment
 const QUERY_RESORT = gql`
   query ResortByURLSegment($url_segment: String!) {
     resortByUrlSegment(url_segment: $url_segment) {
@@ -90,7 +89,16 @@ const QUERY_RESORT = gql`
   }
 `;
 
-// GetStaticPaths function to generate all possible paths
+interface ErrorObject {
+  message: string;
+}
+
+interface ResortPageProps {
+  resortData: Resort | null;
+  error?: ErrorObject;
+  initialApolloState: any; // You might want to type this more specifically if possible
+}
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const apolloClient = initializeApollo();
 
@@ -108,8 +116,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
-// GetStaticProps function to fetch data for each resort
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<ResortPageProps> = async ({ params }) => {
   const apolloClient = initializeApollo();
 
   try {
@@ -131,11 +138,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   } catch (error) {
     console.error('Error fetching resort data:', error);
+    let errorMessage = 'An unknown error occurred';
+    if (error instanceof ApolloError || error instanceof Error) {
+      errorMessage = error.message;
+    }
     return {
       props: {
-        error: {
-          message: error.message,
-        },
+        error: { message: errorMessage },
         resortData: null,
         initialApolloState: apolloClient.cache.extract(),
       },
@@ -143,13 +152,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 };
 
-// The main page component
-const ResortPage = ({ resortData, error }) => {
+const ResortPage: React.FC<ResortPageProps> = ({ resortData, error }) => {
   const router = useRouter();
 
   // Show loading state if the page is being generated
   if (router.isFallback) {
-    return <ResortSingle loading={true} resortData={null} />;
+    return <ResortSingle loading resortData={null} />;
   }
 
   return <ResortSingle resortData={resortData} error={error} />;

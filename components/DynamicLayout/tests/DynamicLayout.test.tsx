@@ -51,7 +51,7 @@ describe('Test <DynamicLayout />', () => {
     render(
       <AllTheProviders mocks={[mocks.cmsPageFailure]}>
         <DynamicLayout url="/foo" />
-      </AllTheProviders>
+      </AllTheProviders>,
     );
 
     await waitFor(() => {
@@ -63,7 +63,7 @@ describe('Test <DynamicLayout />', () => {
     render(
       <AllTheProviders mocks={[mocks.cmsPageFoo]}>
         <DynamicLayout url="/foo" />
-      </AllTheProviders>
+      </AllTheProviders>,
     );
 
     await waitFor(() => {
@@ -75,7 +75,7 @@ describe('Test <DynamicLayout />', () => {
     render(
       <AllTheProviders mocks={[mocks.cmsPageFooBar]}>
         <DynamicLayout url="/foo/:bar" />
-      </AllTheProviders>
+      </AllTheProviders>,
     );
 
     await waitFor(() => {

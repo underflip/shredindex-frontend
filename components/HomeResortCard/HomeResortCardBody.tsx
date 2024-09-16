@@ -1,58 +1,18 @@
 import React from 'react';
-import { CLink } from '@coreui/react';
 import RatingList from '../RatingList/RatingList';
 import ResortCardLocation from '../ResortCard/ResortCardLocation/ResortCardLocation';
 import NumericList from '../NumericList/NumericList';
 import ShareButton from '../ShareButton/ShareButton';
-
-interface Rating {
-  id: string;
-  name: string;
-  title: string;
-  value: number;
-}
-
-interface Numeric {
-  id: string;
-  title: string;
-  name: string;
-  value: number;
-  type: {
-    max_value: number;
-    unit: string;
-  };
-}
-
-interface LocationType {
-  city: string | null;
-  country: {
-    name: string | null;
-    code: string | null;
-  };
-  state: {
-    name: string | null;
-    code: string | null;
-  } | null;
-}
-
-interface ResortData {
-  title: string;
-  url: string;
-  affiliate_url: string;
-  location: LocationType;
-  description?: string;
-  numerics: Numeric[];
-  highlights: Rating[];
-  lowlights: Rating[];
-}
+import Link from 'next/link';
+import { Resort, Score } from '../../types/resortTypes';
 
 interface HomeResortCardBodyProps {
-  resort: ResortData;
+  resort: Resort;
   collapsed: boolean;
 }
 
-const isDifferentRatings = (a: Rating[], b: Rating[]): boolean =>
-  a.every(({ id }) => b.find((i) => i.id === id));
+const isDifferentRatings = (a: Score[], b: Score[]): boolean =>
+  !a.every(({ id }) => b.some((i) => i.id === id));
 
 const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
                                                                  resort: {
@@ -71,27 +31,27 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
     <div className="resort-card__content-0 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">
         <div className="resort-card__location text-left d-inline-flex user-select-none">
-          <CLink
+          <Link
             className="resort-card__affiliate-link link-unstyled"
             rel="noreferrer noopener"
             target="_blank"
-            href={affiliate_url}
+            href={affiliate_url.affiliateUrl}
           >
             <ResortCardLocation location={location} />
-          </CLink>
+          </Link>
         </div>
         {description && (
           <div className="resort-card__description mb-3 me-2 user-select-none">
-            <CLink
+            <Link
               className="resort-card__affiliate-link link-unstyled"
               rel="noreferrer noopener"
               target="_blank"
-              href={affiliate_url}
+              href={affiliate_url.affiliateUrl}
             >
               <span className="m-0">
                 {description}
               </span>
-            </CLink>
+            </Link>
           </div>
         )}
       </div>
@@ -111,13 +71,13 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
       )}
     </div>
     <div className="resort-card__content-home mb-2 d-flex gap-2">
-      {!isDifferentRatings(highlights, lowlights)
+      {isDifferentRatings(highlights, lowlights)
         ? (
           <RatingList
             labelMessageId="shredindex.ratinglist.HIGHLIGHTS"
             label="Highlights"
             ratings={highlights.slice(0, 3)}
-            affiliateUrl={affiliate_url}
+            affiliateUrl={affiliate_url.affiliateUrl}
           />
         ) : (
           <RatingList
@@ -125,16 +85,16 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
             labelMessageId="shredindex.ratinglist.RATINGS"
             label="Ratings"
             ratings={highlights}
-            affiliateUrl={affiliate_url}
+            affiliateUrl={affiliate_url.affiliateUrl}
           />
         )}
-      {!isDifferentRatings(highlights, lowlights) && (
+      {isDifferentRatings(highlights, lowlights) && (
         <RatingList
           labelMessageId="shredindex.ratinglist.LOWLIGHTS"
           label="Lowlights"
           ratings={lowlights.slice()
             .sort((a, b) => (a.value > b.value ? -1 : 1))}
-          affiliateUrl={affiliate_url}
+          affiliateUrl={affiliate_url.affiliateUrl}
         />
       )}
     </div>

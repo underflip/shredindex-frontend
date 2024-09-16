@@ -22,19 +22,19 @@ interface DoubleRangeSliderProps {
 }
 
 const DoubleRangeSlider: React.FC<DoubleRangeSliderProps> = ({
-                                                               title = '',
-                                                               name = '',
-                                                               unit = '',
-                                                               sliderMin = 0,
-                                                               sliderMax = 100,
-                                                               initialLowerVal = 0,
-                                                               initialUpperVal = 100,
-                                                               sliderHandleGapPercentage = 2,
-                                                               className = '',
-                                                               onChangeLower = () => {},
-                                                               onChangeUpper = () => {},
-                                                               useGraph = false,
-                                                             }) => {
+  title = '',
+  name = '',
+  unit = '',
+  sliderMin = 0,
+  sliderMax = 100,
+  initialLowerVal = 0,
+  initialUpperVal = 100,
+  sliderHandleGapPercentage = 2,
+  className = '',
+  onChangeLower = () => {},
+  onChangeUpper = () => {},
+  useGraph = false,
+}) => {
   const [lowerValue, setLowerValue] = useState<number>(initialLowerVal);
   const [upperValue, setUpperValue] = useState<number>(initialUpperVal);
   const [lowerFieldValue, setLowerFieldValue] = useState<number>(lowerValue);
@@ -160,7 +160,9 @@ const DoubleRangeSlider: React.FC<DoubleRangeSliderProps> = ({
       <div className="range-slider-input-wrap mt-2 d-flex justify-content-between p-3">
         <div className="range-slider-input w-100 position-relative">
           <CFormLabel htmlFor={`${name}_lower_input`} className="w-100 label-inside-input label-inside-input-lower resort-card__small-label">
-            Min - {titleCase(title || '')}
+            Min -
+            {' '}
+            {titleCase(title || '')}
             {unit && getUnit({ unit }) ? ` (${getUnit({ unit })})` : ''}
           </CFormLabel>
           <CFormInput
@@ -180,7 +182,9 @@ const DoubleRangeSlider: React.FC<DoubleRangeSliderProps> = ({
         </div>
         <div className="range-slider-input w-100 position-relative">
           <CFormLabel htmlFor={`${name}_upper_input`} className="w-100 label-inside-input label-inside-input-upper resort-card__small-label">
-            Max - {titleCase(title || '')}
+            Max -
+            {' '}
+            {titleCase(title || '')}
             {unit && getUnit({ unit }) ? ` (${getUnit({ unit })})` : ''}
           </CFormLabel>
           <CFormInput

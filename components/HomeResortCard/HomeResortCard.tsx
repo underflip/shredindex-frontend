@@ -5,7 +5,6 @@ import {
 import ResortCardHeader from '../ResortCard/ResortCardHeader/ResortCardHeader';
 import ResortImageCarousel from '../ResortCard/ResortCardImageCarousel/ResortCardImageCarousel';
 import ResortCardFooter from '../ResortCard/ResortCardFooter/ResortCardFooter';
-import useLocalStorageDrivenBooleanState from '../../hooks/useLocalStorageDrivenBooleanState';
 import HomeResortCardBody from './HomeResortCardBody';
 
 interface ImageType {

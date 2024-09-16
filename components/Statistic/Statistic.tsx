@@ -12,13 +12,13 @@ interface StatisticProps {
 }
 
 const Statistic: React.FC<StatisticProps> = ({
-                                               title,
-                                               name,
-                                               statistic,
-                                               statisticType = 'sub-statistic',
-                                               unit = '',
-                                               maxValue,
-                                             }) => {
+  title,
+  name,
+  statistic,
+  statisticType = 'sub-statistic',
+  unit = '',
+  maxValue,
+}) => {
   const [statisticInt, statisticDecimal] = statistic.toString().split('.');
   const isMax = Number(statistic) >= 100 || statistic === 'n/a';
   const barWidth = `${(Number(statistic) / maxValue) * 100}%`;

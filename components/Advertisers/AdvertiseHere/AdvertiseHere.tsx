@@ -1,9 +1,10 @@
 import React from 'react';
-import {CCard, CCardBody, CLink } from '@coreui/react';
-import {FormattedMessage} from "react-intl";
+import { CCard, CCardBody } from '@coreui/react';
+import { FormattedMessage } from 'react-intl';
+import { AffiliateUrl } from '../../../types/resortTypes';
+import Link from 'next/link'
 
-// @ts-ignore
-const AdvertiseHere: React.FC = ({affiliateUrl}) => {
+const AdvertiseHere: React.FC <AffiliateUrl> = ({ affiliateUrl }) => {
   return (
   <>
     <div className="resort-single-card-heading user-select-none mb-2">
@@ -14,15 +15,15 @@ const AdvertiseHere: React.FC = ({affiliateUrl}) => {
         <p className="caption-text">
           Have a local business or a ski package to offer? &nbsp;
         </p>
+        <Link href={affiliateUrl} target="_blank">
         <p>
-          <CLink href={affiliateUrl} target="_blank">
             <p className="caption-text">Get in touch with us.</p>
-          </CLink>
         </p>
+        </Link>
       </CCardBody>
     </CCard>
   </>
-  )
+  );
 };
 
 export default AdvertiseHere;

@@ -6,8 +6,12 @@
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
     "plugin:cypress/recommended",
-    "airbnb",
+    "airbnb-typescript",
     "plugin:storybook/recommended",
     "plugin:@next/next/recommended"
   ],
@@ -15,17 +19,19 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "allowImportExportEverywhere": true
+    "project": "./tsconfig.json"
   },
   "plugins": [
     "react",
+    "@typescript-eslint",
+    "import",
     "jest",
     "cypress"
   ],
@@ -41,11 +47,10 @@
       1,
       {
         "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
           ".tsx",
-          ".svg"
+          ".ts",
+          ".jsx",
+          ".js"
         ]
       }
     ],
@@ -55,9 +60,7 @@
         "devDependencies": true
       }
     ],
-    "camelcase": [
-      0
-    ],
+    "camelcase": 0,
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -67,10 +70,18 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "react/require-default-props": 0,
+    "react/prop-types": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
+      "typescript": {},
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
