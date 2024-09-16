@@ -14,7 +14,6 @@ import GlobalToast from '../components/GlobalToast/GlobalToast';
 import { useApollo } from "../lib/apollo-client";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../src/scss/style.scss';
-import useScrollRestoration from "../hooks/nextScrollPosition";
 
 const t = {
   en: langEn,
@@ -41,7 +40,7 @@ function InitializeRecoilState() {
   return null;
 }
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (

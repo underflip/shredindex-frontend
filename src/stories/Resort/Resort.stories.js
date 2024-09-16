@@ -142,7 +142,7 @@ ResortStory.parameters = {
 export const MinimalDataStory = () => {
   const minimalResortData = {
     id: '1',
-    title: 'Minimal Resort',
+    title: 'Minimal ResortSingle',
     url_segment: 'minimal-resort',
     description: 'A resort with minimal data.',
     location: {
@@ -192,10 +192,10 @@ LoadingStory.parameters = {
 export const MaxDataStory = () => {
   const maxResortData = {
     id: '999',
-    title: 'Super Ultra Mega Resort Extreme',
+    title: 'Super Ultra Mega ResortSingle Extreme',
     url_segment: 'super-ultra-mega-resort-extreme',
     affiliate_url: 'https://www.example.com/super-ultra-mega-resort-extreme',
-    description: 'This is an extremely long description that goes on and on about the Super Ultra Mega Resort Extreme. It has everything you could possibly imagine, and then some. From the tallest peaks to the deepest powder, from luxury accommodations to extreme sports facilities, this resort has it all. Visitors can enjoy hundreds of ski runs, thousands of acres of backcountry, and endless amenities. The resort boasts world-class dining options, spa facilities, and entertainment venues. Whether youre a beginner or an expert, whether youre looking for relaxation or adrenaline, Super Ultra Mega Resort Extreme is the place to be. With state-of-the-art snowmaking equipment and expert grooming, perfect conditions are guaranteed year-round. The resort also offers summer activities including mountain biking, hiking, golf, and more. Come experience the ultimate in mountain resorts!'.repeat(3), // Repeated to make it extra long
+    description: 'This is an extremely long description that goes on and on about the Super Ultra Mega ResortSingle Extreme. It has everything you could possibly imagine, and then some. From the tallest peaks to the deepest powder, from luxury accommodations to extreme sports facilities, this resort has it all. Visitors can enjoy hundreds of ski runs, thousands of acres of backcountry, and endless amenities. The resort boasts world-class dining options, spa facilities, and entertainment venues. Whether youre a beginner or an expert, whether youre looking for relaxation or adrenaline, Super Ultra Mega ResortSingle Extreme is the place to be. With state-of-the-art snowmaking equipment and expert grooming, perfect conditions are guaranteed year-round. The resort also offers summer activities including mountain biking, hiking, golf, and more. Come experience the ultimate in mountain resorts!'.repeat(3), // Repeated to make it extra long
     resort_images: Array(20).fill().map((_, index) => ({ // 20 images
       id: `${index + 1}`,
       name: `Image ${index + 1}`,

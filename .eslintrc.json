@@ -4,16 +4,6 @@
     "es2021": true,
     "jest": true
   },
-  "import/extensions": [
-    "error",
-    "ignorePackages",
-    {
-      "js": "never",
-      "jsx": "never",
-      "ts": "never",
-      "tsx": "never"
-    }
-  ],
   "extends": [
     "plugin:react/recommended",
     "plugin:cypress/recommended",
@@ -67,6 +57,16 @@
     ],
     "camelcase": [
       0
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
     ]
   },
   "settings": {

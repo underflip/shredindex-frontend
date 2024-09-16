@@ -1,12 +1,12 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import { initializeApollo } from "../lib/apollo-client";
-import { QUERY_CMS_PAGES } from "../components/DynamicSwitch/DynamicSwitch";
-import { QUERY_SETTINGS, QUERY_TEAM_MEMBERS } from "../components/Footer/Footer";
+import { initializeApollo } from '../lib/apollo-client';
+import { QUERY_CMS_PAGES } from '../components/DynamicSwitch/DynamicSwitch';
+import { QUERY_SETTINGS, QUERY_TEAM_MEMBERS } from '../components/Footer/Footer';
 import { QUERY_STATIC_MENU } from '../hooks/useStaticMenu';
-import { menuCode as footerMenuCode } from "../components/FooterMenuMain/FooterMenuMain";
-import { menuCode as headerMenuCode } from "../components/HeaderMenuMain/HeaderMenuMain";
-import queryCMSPage from "../utility/query-cms-page";
+import { menuCode as footerMenuCode } from '../components/FooterMenuMain/FooterMenuMain';
+import { menuCode as headerMenuCode } from '../components/HeaderMenuMain/HeaderMenuMain';
+import queryCMSPage from '../utility/query-cms-page';
 import DynamicLayout from '../components/DynamicLayout/DynamicLayout';
 
 interface HomeProps {
@@ -35,10 +35,9 @@ export const getStaticProps: GetStaticProps = async () => {
     const [
       cmsPageData,
       ,
-      ,
-      ,
+      ,,
       { data: headerMenuData },
-      { data: footerMenuData }
+      { data: footerMenuData },
     ] = await Promise.all([
       apolloClient.query(queryCMSPage('/')),
       apolloClient.query({ query: QUERY_CMS_PAGES }),
@@ -46,12 +45,12 @@ export const getStaticProps: GetStaticProps = async () => {
       apolloClient.query({ query: QUERY_TEAM_MEMBERS }),
       apolloClient.query({
         query: QUERY_STATIC_MENU,
-        variables: { code: headerMenuCode }
+        variables: { code: headerMenuCode },
       }),
       apolloClient.query({
         query: QUERY_STATIC_MENU,
-        variables: { code: footerMenuCode }
-      })
+        variables: { code: footerMenuCode },
+      }),
     ]);
 
     return {
