@@ -62,9 +62,9 @@ const layouts = {
   fooBar: () => <h1>FooBar layout</h1>,
 };
 
-const AllTheProviders = ({ children, mocks, initialEntries }) => (
+const AllTheProviders = ({ children, testMocks, initialEntries }) => (
   <RecoilRoot initializeState={({ set }) => set(layoutsAtom, layouts)}>
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider mocks={testMocks} addTypename={false}>
       <MemoryRouter initialEntries={initialEntries}>
         {children}
       </MemoryRouter>
@@ -79,7 +79,7 @@ describe('Test <DynamicSwitch />', () => {
 
   it('Produces routes from CMS data for "/foo"', async () => {
     render(
-      <AllTheProviders mocks={[mocks.cmsPages, mocks.cmsPageFoo]} initialEntries={['/foo']}>
+      <AllTheProviders testMocks={[mocks.cmsPages, mocks.cmsPageFoo]} initialEntries={['/foo']}>
         <DynamicSwitch />
       </AllTheProviders>,
     );
@@ -91,7 +91,7 @@ describe('Test <DynamicSwitch />', () => {
 
   it('Produces routes from CMS data for "/foo/bar"', async () => {
     render(
-      <AllTheProviders mocks={[mocks.cmsPages, mocks.cmsPageFooBar]} initialEntries={['/foo/bar']}>
+      <AllTheProviders testMocks={[mocks.cmsPages, mocks.cmsPageFooBar]} initialEntries={['/foo/bar']}>
         <DynamicSwitch />
       </AllTheProviders>,
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSetRecoilState } from 'recoil';
 import { CBadge, CButton } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import { cilSettings } from '@coreui/icons';
 import { FormattedMessage } from 'react-intl';
 import RankedResortFilterTray, { showFilterTrayState } from '../RankedResortFilterTray/RankedResortFilterTray';

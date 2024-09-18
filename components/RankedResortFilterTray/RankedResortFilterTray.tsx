@@ -38,14 +38,14 @@ const RankedResortFilterTray: React.FC = () => {
             return [{
               type_name: group.filters[0].type_name,
               operator: '=',
-              value: group.filters[0].value === 'yes' ? 'yes' : 'no'
+              value: group.filters[0].value === 'yes' ? 'yes' : 'no',
             }];
           } else if (group.filters.length === 2) {
             // Handle double range sliders (numeric and rating filters)
             return group.filters.map(filter => ({
               type_name: filter.type_name,
               operator: filter.operator,
-              value: String(filter.value)
+              value: String(filter.value),
             })).filter(filter => filter.value !== '0' && filter.value !== '100');
           }
           return [];
@@ -57,7 +57,7 @@ const RankedResortFilterTray: React.FC = () => {
 
     // Create a map of active filters for easy lookup and update
     const activeFilterMap = new Map(
-      activeFilters.map(filter => [`${filter.type_name}:${filter.operator}`, filter])
+      activeFilters.map(filter => [`${filter.type_name}:${filter.operator}`, filter]),
     );
 
     // Prepare the updated query

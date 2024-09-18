@@ -144,6 +144,7 @@ export const MinimalDataStory = () => {
     id: '1',
     title: 'Minimal ResortSingle',
     url_segment: 'minimal-resort',
+    affiliate_url: 'minimal-resort',
     description: 'A resort with minimal data.',
     location: {
       city: 'Minimal City',
@@ -195,14 +196,23 @@ export const MaxDataStory = () => {
     title: 'Super Ultra Mega ResortSingle Extreme',
     url_segment: 'super-ultra-mega-resort-extreme',
     affiliate_url: 'https://www.example.com/super-ultra-mega-resort-extreme',
-    description: 'This is an extremely long description that goes on and on about the Super Ultra Mega ResortSingle Extreme. It has everything you could possibly imagine, and then some. From the tallest peaks to the deepest powder, from luxury accommodations to extreme sports facilities, this resort has it all. Visitors can enjoy hundreds of ski runs, thousands of acres of backcountry, and endless amenities. The resort boasts world-class dining options, spa facilities, and entertainment venues. Whether youre a beginner or an expert, whether youre looking for relaxation or adrenaline, Super Ultra Mega ResortSingle Extreme is the place to be. With state-of-the-art snowmaking equipment and expert grooming, perfect conditions are guaranteed year-round. The resort also offers summer activities including mountain biking, hiking, golf, and more. Come experience the ultimate in mountain resorts!'.repeat(3), // Repeated to make it extra long
+    description: 'The Latemar – Obereggen/ Pampeago/ Predazzo ski resort is a top-rated destination in the Dolomites, celebrated for its variety of ski slopes ranging from blue to black. It caters to all levels of skiers, including children and beginners, making it a family-friendly location. The ski area features numerous lifts, primarily cabins and multiple seats, ensuring fast and comfortable access to the slopes.\n' +
+      ' \n' +
+      '\n' +
+      ' The resort is particularly praised for its well-prepared slopes and the excellent condition of the black runs. The snow quality in specific areas such as Cermis or Pampeago is often described as perfect, enhancing the skiing experience. The resort also boasts over 100km of slopes including Alpe Lusia and the Predazzo area.\n' +
+      ' \n' +
+      '\n' +
+      ' Aside from skiing, the resort offers a variety of amenities including restaurants, bars, and hotels located conveniently next to the piste. The friendly atmosphere and the array of activities available ensure that guests never get bored. During the summer, the resort transforms into a hiking paradise.\n' +
+      ' \n' +
+      '\n' +
+      ' However, the resort can get crowded during weekends and the cost for a multi-day ski pass has increased over the years. In addition, the alpine coaster ride, though fun, is noted to be short and relatively expensive. Despite these minor drawbacks, the Latemar – Obereggen/ Pampeago/ Predazzo ski resort is highly recommended for its quality facilities, stunning views, and diverse range of slopes. It remains one of the best ski resorts in Trentino, providing an unforgettable experience for its visitors.', // Repeated to make it extra long
     resort_images: Array(20).fill().map((_, index) => ({ // 20 images
       id: `${index + 1}`,
       name: `Image ${index + 1}`,
       alt: `Detailed description of Image ${index + 1} showcasing various aspects of the Super Ultra Mega Resort Extreme`,
       sort_order: index + 1,
       image: {
-        path: `https://example.com/image${index + 1}.jpg`,
+        path: 'https://www.snowseasoncentral.com/wp-content/uploads/2020/01/fernie-bowls.jpg',
         content_type: 'image/jpeg',
       },
     })),

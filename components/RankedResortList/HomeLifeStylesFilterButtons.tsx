@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { CForm, CRow, CButton } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 import {

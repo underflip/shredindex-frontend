@@ -43,8 +43,8 @@ const ResortCardCommentCarousel: React.FC<ResortCardCommentCarouselProps> = ({ c
         static
       >
         {comments.map(({
-                         id, comment, author,
-                       }) => (
+          id, comment, author,
+        }) => (
           <div key={id} className="carousel__comment w-100 d-flex flex-column justify-content-between">
             <span className="carousel__comment-text small user-select-none">
               &ldquo;

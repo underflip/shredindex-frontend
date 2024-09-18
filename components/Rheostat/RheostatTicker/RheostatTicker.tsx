@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
-const RheostatTicker = ({ value, backgroundColor, isLoading }) => {
+interface RheostatTickerProps {
+  value: number;
+  backgroundColor: string;
+  isLoading?: boolean;
+}
+
+const RheostatTicker: React.FC<RheostatTickerProps> = ({ value, backgroundColor, isLoading = false }) => {
   const [count, setCount] = useState(value);
   const [increase, setIncrease] = useState(true);
 
@@ -26,16 +31,6 @@ const RheostatTicker = ({ value, backgroundColor, isLoading }) => {
       style={{ height: `${isLoading ? Math.floor(Math.random() * 70) + 1 : value}%` }}
     />
   );
-};
-
-RheostatTicker.defaultProps = {
-  isLoading: false,
-};
-
-RheostatTicker.propTypes = {
-  value: PropTypes.number.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool,
 };
 
 export default RheostatTicker;

@@ -36,7 +36,7 @@ const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => 
 
   useEffect(() => {
     // Store the previous URL with query parameters
-    const handleRouteChange = (url: string) => {
+    const handleRouteChange = () => {
       setPreviousUrl(router.asPath); // Capture the current URL before navigating away
     };
 
@@ -113,8 +113,8 @@ const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => 
   }
 
   const {
-    resortImages,
     affiliate_url,
+    resort_images,
     ratingScores,
     numerics,
     generics,
@@ -145,7 +145,7 @@ const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => 
         <CRow>
           <CCol lg={8}>
             <ResortHeader resort={resortData} />
-            <ResortImageCarousel images={resortImages} />
+            <ResortImageCarousel images={resort_images} />
             <ResortNumerics numerics={numerics} />
             <ResortGenerics generics={generics} />
             <ResortRatings ratings={ratingScores} />

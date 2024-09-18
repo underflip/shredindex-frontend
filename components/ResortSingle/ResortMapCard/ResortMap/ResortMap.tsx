@@ -24,6 +24,12 @@ const ResortMap: React.FC<ResortMapProps> = ({ longitude, latitude }) => {
   const isDraggingRef = useRef<boolean>(false);
   const timeRef = useRef<number>(0);
 
+  const stopRotation = () => {
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
+  };
   const startRotation = () => {
     if (animationRef.current || isDraggingRef.current) return;
 
@@ -56,13 +62,6 @@ const ResortMap: React.FC<ResortMapProps> = ({ longitude, latitude }) => {
     };
 
     animationRef.current = requestAnimationFrame(rotateCamera);
-  };
-
-  const stopRotation = () => {
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      animationRef.current = null;
-    }
   };
 
   useEffect(() => {

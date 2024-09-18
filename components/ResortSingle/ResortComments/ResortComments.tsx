@@ -10,7 +10,7 @@ interface ResortCommentsProps {
 }
 
 const ResortComments: React.FC<ResortCommentsProps> = ({ comments }) => {
-  if (comments?.length < 1) {
+  if (comments && comments?.length < 1) {
     return (
       <div className="resort-card__small-label user-select-none">
         <FormattedMessage id="shredindex.ratinglist.RESORT_IS_UNRATED" defaultMessage="ResortSingle has no statistics" />
@@ -24,7 +24,7 @@ const ResortComments: React.FC<ResortCommentsProps> = ({ comments }) => {
     prevNextButtons: false,
     pageDots: false,
     contain: true,
-    draggable: '>2',
+    draggable: comments && comments?.length > 2,
   };
 
   return (
@@ -40,8 +40,8 @@ const ResortComments: React.FC<ResortCommentsProps> = ({ comments }) => {
         reloadOnUpdate
       >
         {comments && comments?.length >= 1 ? comments?.map(({
-                          id, author, comment,
-                        }) => (
+          id, author, comment,
+        }) => (
           <div key={id} className="resort-comments__card card p-2 d-block border-radius-medium">
             <ResortCardMountains
               className="carousel__comment-background position-absolute w-100"

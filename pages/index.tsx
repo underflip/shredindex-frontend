@@ -10,9 +10,9 @@ import queryCMSPage from '../utility/query-cms-page';
 import DynamicLayout from '../components/DynamicLayout/DynamicLayout';
 
 interface HomeProps {
-  cmsPageData: any;
-  headerMenuItems: any[];
-  footerMenuItems: any[];
+  cmsPageData: unknown;
+  headerMenuItems: unknown[];
+  footerMenuItems: unknown[];
 }
 
 const Home: React.FC<HomeProps> = ({ cmsPageData, headerMenuItems, footerMenuItems }) => {

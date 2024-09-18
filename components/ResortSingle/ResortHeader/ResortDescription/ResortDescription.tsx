@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Link from "next/link";
-import {CButton} from "@coreui/react";
+import Link from 'next/link';
+import { CButton } from '@coreui/react';
 
 interface ResortDescriptionProps {
   description?: string;
@@ -10,7 +10,7 @@ interface ResortDescriptionProps {
 const textWithLineBreaks = ({ text }: { text: string }): string => {
   if (text) {
     return text.split('\n\n').map((paragraph) =>
-      `<p>${paragraph.replace(/\n/g, '<br />')}</p>`
+      `<p>${paragraph.replace(/\n/g, '<br />')}</p>`,
     ).join('');
   }
   return '';
@@ -36,7 +36,7 @@ const ResortDescription: React.FC<ResortDescriptionProps> = ({ affiliateUrl, des
       >
         <div
           dangerouslySetInnerHTML={{
-            __html: textWithLineBreaks({text: truncatedDescription})
+            __html: textWithLineBreaks({ text: truncatedDescription }),
           }}
         />
       </Link>
@@ -51,7 +51,7 @@ const ResortDescription: React.FC<ResortDescriptionProps> = ({ affiliateUrl, des
               {isExpanded ? 'Show less' : 'Show me more'}
             </CButton>
         </div>
-        )
+      )
       }
     </div>
   );

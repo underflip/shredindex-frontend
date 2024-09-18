@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useApolloClient, gql } from '@apollo/client';
 import { cilArrowRight, cilChevronBottom } from '@coreui/icons';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import { FormattedMessage } from 'react-intl';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -26,11 +26,11 @@ interface ResortFetchingLinkProps {
 }
 
 const ResortFetchingLink: React.FC<ResortFetchingLinkProps> = ({
-                                                                 to,
-                                                                 resortUrlSegment,
-                                                                 className,
-                                                                 children,
-                                                               }) => {
+  to,
+  resortUrlSegment,
+  className,
+  children,
+}) => {
   const client = useApolloClient();
   const router = useRouter();
 
@@ -59,13 +59,14 @@ const ResortFetchingLink: React.FC<ResortFetchingLinkProps> = ({
   );
 };
 
-interface ResortCardFooterProps {
+interface ResortCardFooterTypes {
   urlSegment: string;
   collapsed?: boolean;
+  setCollapsed?: (event: React.MouseEvent<HTMLDivElement>) => void;
   noCollapse?: boolean;
 }
 
-const ResortCardFooter: React.FC<ResortCardFooterProps> = ({ urlSegment, collapsed, noCollapse = false, setCollapsed }) => (
+const ResortCardFooter: React.FC<ResortCardFooterTypes> = ({ urlSegment, collapsed, noCollapse = false, setCollapsed }) => (
   <div className="resort-card__footer d-flex justify-content-between">
     <div className="resort-card__expand" onClick={setCollapsed}>
       {!noCollapse && (

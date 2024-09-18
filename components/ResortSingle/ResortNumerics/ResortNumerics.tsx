@@ -4,8 +4,8 @@ import Flickity from 'react-flickity-component';
 import Statistic from '../../Statistic/Statistic';
 import flickityOptions from '../../../src/js/components/config/flickity-options';
 import getUnit from '../../../hooks/getUnit';
-import { CCard, CCardBody, CListGroup } from "@coreui/react";
-import {Numeric} from "../../../types/resortTypes";
+import { CCard, CCardBody, CListGroup } from '@coreui/react';
+import { Numeric } from '../../../types/resortTypes';
 
 interface ResortNumericsProps {
   numerics: Numeric[];
@@ -43,15 +43,15 @@ const ResortNumerics: React.FC<ResortNumericsProps> = ({ numerics }) => {
             reloadOnUpdate
           >
             {numerics?.map(({
-                              id, title, name, value, type,
-                            }) => (
+              id, title, name, value, type,
+            }) => (
               <div key={id} className="numeric-list__numeric me-2">
                 <Statistic
                   title={title}
                   name={name}
                   statistic={value}
                   maxValue={type.max_value}
-                  unit={getUnit({unit: type.unit})}
+                  unit={getUnit({ unit: type.unit })}
                 />
               </div>
             ))}

@@ -16,19 +16,19 @@ interface ResortCardBodyProps {
 }
 
 const ResortCardBody: React.FC<ResortCardBodyProps> = ({
-                                                         resort: {
-                                                           url,
-                                                           title,
-                                                           affiliate_url,
-                                                           location,
-                                                           description,
-                                                           numerics,
-                                                           highlights,
-                                                           lowlights,
-                                                           resort_images,
-                                                           comments,
-                                                         },
-                                                       }) => (
+  resort: {
+    url,
+    title,
+    affiliate_url,
+    location,
+    description,
+    numerics,
+    highlights,
+    lowlights,
+    resort_images,
+    comments,
+  },
+}) => (
   <div className="resort-card__body">
     <div className="resort-card__content-0 w-100 d-inline-flex justify-content-between">
       <div className="resort-card__location-wrap">

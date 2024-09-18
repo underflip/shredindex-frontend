@@ -1,13 +1,16 @@
 import React from 'react';
 import Flickity from 'react-flickity-component';
-import PropTypes from 'prop-types';
-import Image from "next/image";
+import Image from 'next/image';
 import { FormattedMessage } from 'react-intl';
-import { imageType } from '../../../types/types';
+import { Image as ImageType } from '../../../types/types';
 import flickityOptions from '../../../src/js/components/config/flickity-options';
 import ResortImagePlaceholder from '../../../images/resort-image-placeholder.svg';
 
-const ResortImageCarousel = ({ images }) => {
+interface ResortImageCarouselProps {
+  images: ImageType[];
+}
+
+const ResortImageCarousel: React.FC<ResortImageCarouselProps> = ({ images = [] }) => {
   const options = {
     ...flickityOptions,
     isDraggable: true,
@@ -17,6 +20,34 @@ const ResortImageCarousel = ({ images }) => {
     imagesLoaded: true,
     cellAlign: 'left',
   };
+
+  const filteredImages = images.filter((img): img is NonNullable<typeof img> =>
+    img !== null && img !== undefined && img.image?.path !== undefined,
+  );
+
+  const renderImage = (image: ImageType) => (
+    <div key={image.id} className="resort-single__carousel-image-item-wrap gray-300-bg border-radius-medium">
+      <Image
+        className="carousel__image-item border-radius-medium position-relative"
+        src={image.image.path}
+        alt={image.name || ''}
+        layout='fill'
+        objectFit='cover'
+      />
+    </div>
+  );
+
+  const renderPlaceholder = () => (
+    <div
+      key="placeholder"
+      className="resort-single__carousel-image-item-wrap gray-300-bg border-radius-medium"
+    >
+      <ResortImagePlaceholder
+        className="carousel__image--no-images"
+        alt="shred-index-resort-placeholder"
+      />
+    </div>
+  );
 
   return (
     <div className="resort-single resort-single__image-carousel mb-4">
@@ -29,40 +60,14 @@ const ResortImageCarousel = ({ images }) => {
         options={options}
         disableImagesLoaded
         reloadOnUpdate
+        static
       >
-        {images && images?.length > 0 ? (images.filter((img) => img.image?.path)
-          .map(({
-            image,
-          }) => (
-            <div key={image.id} className="resort-single__carousel-image-item-wrap gray-300-bg border-radius-medium">
-              <Image
-                className="carousel__image-item border-radius-medium position-relative"
-                src={image?.path}
-                alt={image?.alt}
-                layout={'fill'}
-                objectFit={'fill'}
-              />
-            </div>
-          ))) : (
-          [
-            <div
-              key={1}
-              className="resort-single__carousel-image-item-wrap gray-300-bg border-radius-medium"
-            >
-              <ResortImagePlaceholder
-                className="carousel__image--no-images"
-                alt="shred-index-resort-placeholder"
-              />
-            </div>,
-          ]
-        )}
+        {filteredImages.length > 0
+          ? filteredImages.map(renderImage)
+          : [renderPlaceholder()]}
       </Flickity>
     </div>
   );
-};
-
-ResortImageCarousel.propTypes = {
-  images: PropTypes.arrayOf(imageType).isRequired,
 };
 
 export default ResortImageCarousel;

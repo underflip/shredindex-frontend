@@ -1,5 +1,5 @@
 import React from 'react';
-import { CCard, CCardBody, CLink } from '@coreui/react';
+import { CCard, CCardBody } from '@coreui/react';
 import { FormattedMessage } from 'react-intl';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -25,9 +25,9 @@ const Accomodation: React.FC <AffiliateUrl> = ({ affiliateUrl }) => (
           &nbsp;
         <p className="h6 user-select-none mb-2 caption-text">
           Find your ideal &nbsp;
-          <CLink href={affiliateUrl} target="_blank">
+          <Link href={affiliateUrl} target="_blank">
             accomodation..
-          </CLink>
+          </Link>
         </p>
       </CCardBody>
     </CCard>

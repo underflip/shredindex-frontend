@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { gql, ApolloError } from '@apollo/client';
 import { initializeApollo } from '../../lib/apollo-client';
@@ -96,7 +96,7 @@ interface ErrorObject {
 interface ResortPageProps {
   resortData: Resort | null;
   error?: ErrorObject;
-  initialApolloState: any; // You might want to type this more specifically if possible
+  initialApolloState: unknown; // You might want to type this more specifically if possible
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

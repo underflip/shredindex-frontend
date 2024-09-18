@@ -1,14 +1,31 @@
 import {
   CButton,
-  CCard, CCardBody, CCardHeader, CImage,
+  CCard, CCardBody, CCardHeader,
 } from '@coreui/react';
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import LostSnowboarder from '../../../images/snowboarder-lost.svg';
+import SnowBoarderLost from '../../../images/snowboarder-lost.svg';
 
-const ResortCardNoResults = ({
-  title, titleId, help, helpId, suggestion, suggestionId, errorMessage, errorMessageId,
+interface ResortCardNoResultsProps {
+  title: string;
+  titleId: string;
+  help: string;
+  helpId: string;
+  suggestion: string;
+  suggestionId: string;
+  errorMessage: string;
+  errorMessageId: string;
+}
+
+const ResortCardNoResults: React.FC<ResortCardNoResultsProps> = ({
+  title,
+  titleId,
+  help,
+  helpId,
+  suggestion,
+  suggestionId,
+  errorMessage,
+  errorMessageId,
 }) => (
   <div className="resort-card resort-card--error d-flex justify-content-center fade-in">
     <CCard className="resort-card__wrap collapsed">
@@ -24,7 +41,6 @@ const ResortCardNoResults = ({
         <div className="resort-card__error-details-wrap d-flex mb-2 ps-4 pe-4">
           <div className="resort-card__error-details">
             <div className="resort-card__error-details-title mt-2 mb-2">
-              {/* <h3 className="fs-5 text-break mt-3">{errorName}</h3> */}
               <p className="fs-6 fw-light text-break">
                 <FormattedMessage id={errorMessageId} defaultMessage={errorMessage} />
               </p>
@@ -41,20 +57,14 @@ const ResortCardNoResults = ({
           </div>
         </div>
       </CCardBody>
-      <CImage className="resort-card__error-image" src={LostSnowboarder} />
+      <SnowBoarderLost
+        className="resort-card__error-image"
+        src={SnowBoarderLost}
+        alt="Lost Snowboarder"
+        width="100%"
+      />
     </CCard>
   </div>
 );
 
 export default ResortCardNoResults;
-
-ResortCardNoResults.propTypes = {
-  title: PropTypes.string.isRequired,
-  titleId: PropTypes.string.isRequired,
-  help: PropTypes.string.isRequired,
-  helpId: PropTypes.string.isRequired,
-  errorMessage: PropTypes.string.isRequired,
-  errorMessageId: PropTypes.string.isRequired,
-  suggestion: PropTypes.string.isRequired,
-  suggestionId: PropTypes.string.isRequired,
-};

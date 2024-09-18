@@ -2,12 +2,12 @@ import React from 'react';
 import {
   CCard, CCardBody, CCardHeader,
 } from '@coreui/react';
-import Link from "next/link";
+import Link from 'next/link';
 import ResortCardHeader from '../../ResortCard/ResortCardHeader/ResortCardHeader';
 import ResortCardLocation from '../../ResortCard/ResortCardLocation/ResortCardLocation';
 import ShareButton from '../../ShareButton/ShareButton';
-import {ResortAttribute} from "../../../types/types";
-import ResortDescription from "@/ResortSingle/ResortHeader/ResortDescription/ResortDescription";
+import { ResortAttribute } from '../../../types/types';
+import ResortDescription from '@/ResortSingle/ResortHeader/ResortDescription/ResortDescription';
 
 interface Country {
   name: string;

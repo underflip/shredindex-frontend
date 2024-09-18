@@ -12,14 +12,14 @@ interface RangeSliderProps {
 }
 
 const RangeSlider: React.FC<RangeSliderProps> = ({
-                                                   id,
-                                                   min,
-                                                   max,
-                                                   steps = 1,
-                                                   value,
-                                                   onChange,
-                                                   label = '',
-                                                 }) => (
+  id,
+  min,
+  max,
+  steps = 1,
+  value,
+  onChange,
+  label = '',
+}) => (
   <>
     <CFormRange
       id={id}

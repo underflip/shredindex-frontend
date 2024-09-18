@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import {
   CFormInput, CListGroup, CListGroupItem,
 } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
+import { CIcon } from '@coreui/icons-react';
 import { cilLocationPin, cilMagnifyingGlass, cilHistory } from '@coreui/icons';
 import { gql, useLazyQuery } from '@apollo/client';
 import SnowboardBackflip from '../../images/snowboard-backflip.svg';

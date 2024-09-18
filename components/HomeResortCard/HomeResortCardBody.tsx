@@ -25,7 +25,6 @@ const HomeResortCardBody: React.FC<HomeResortCardBodyProps> = ({
     highlights,
     lowlights,
   },
-  collapsed,
 }) => (
   <div className="resort-card__body">
     <div className="resort-card__content-0 w-100 d-inline-flex justify-content-between">

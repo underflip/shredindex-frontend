@@ -29,7 +29,7 @@ const RankedResortLifeStyleTray: React.FC = () => {
     const orderByObject = activeSortby && activeSortby.type_name ? activeSortby : { type_name: 'total_score', direction: 'desc' };
 
     // Log the orderByObject to ensure it is correct
-    console.log("Submitting orderBy:", orderByObject);
+    console.log('Submitting orderBy:', orderByObject);
 
     // Update the query parameters using router.push
     router.push({

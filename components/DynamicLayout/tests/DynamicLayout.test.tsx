@@ -38,9 +38,9 @@ const layouts = {
   fooBar: () => <h1>FooBar layout</h1>,
 };
 
-const AllTheProviders = ({ children, mocks }) => (
+const AllTheProviders = ({ children, testMocks }) => (
   <RecoilRoot initializeState={({ set }) => set(layoutsAtom, layouts)}>
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider mocks={testMocks} addTypename={false}>
       {children}
     </MockedProvider>
   </RecoilRoot>
@@ -49,7 +49,7 @@ const AllTheProviders = ({ children, mocks }) => (
 describe('Test <DynamicLayout />', () => {
   it('Fails when the CMS does not provide data for the current url', async () => {
     render(
-      <AllTheProviders mocks={[mocks.cmsPageFailure]}>
+      <AllTheProviders testMocks={[mocks.cmsPageFailure]}>
         <DynamicLayout url="/foo" />
       </AllTheProviders>,
     );
@@ -61,7 +61,7 @@ describe('Test <DynamicLayout />', () => {
 
   it('Renders layout for /foo', async () => {
     render(
-      <AllTheProviders mocks={[mocks.cmsPageFoo]}>
+      <AllTheProviders testMocks={[mocks.cmsPageFoo]}>
         <DynamicLayout url="/foo" />
       </AllTheProviders>,
     );
@@ -73,7 +73,7 @@ describe('Test <DynamicLayout />', () => {
 
   it('Renders layout for /foo/:bar', async () => {
     render(
-      <AllTheProviders mocks={[mocks.cmsPageFooBar]}>
+      <AllTheProviders testMocks={[mocks.cmsPageFooBar]}>
         <DynamicLayout url="/foo/:bar" />
       </AllTheProviders>,
     );

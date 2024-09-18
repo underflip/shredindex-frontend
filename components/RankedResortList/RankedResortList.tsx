@@ -12,6 +12,7 @@ import breakpoints from '../../src/js/components/config/breakpoints';
 import RankedResortFilterMenuSkeleton from '../RankedResortFilterMenu/RankedResortFilterMenuSkeleton';
 import RankedResortResultCountSkeleton from '../RankedResortResultCount/RankedResortResultCountSkeleton';
 import ResortCardNoResults from '../ResortCard/ResortCardNoResults/ResortCardNoResults';
+import { Resort } from '../../types/resortTypes';
 
 interface QueryParams {
   page?: number;
@@ -114,7 +115,7 @@ const RankedResortList: React.FC<RankedResortListProps> = ({ cardLimit }) => {
       </div>
       <div className="ranked-resort-list__resort-card-list-wrap col-sm-12">
         {resorts && resorts.length >= 1 ? (
-          resorts.map((resort: any) => <ResortCard key={resort.id} resortData={resort} />)
+          resorts.map((resort: Resort) => <ResortCard key={resort.id} resortData={resort} />)
         ) : (
           <ResortCardNoResults
             helpId="shredindex.resortcardnoresorts.HELP"

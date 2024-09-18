@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import {
   CRow, CFormLabel, CForm, CButton,
 } from '@coreui/react';
@@ -82,7 +82,7 @@ const RankedResortFilters: React.FC = () => {
         groupedType: updatedGroupedType,
       }));
     },
-    [formData, setFormData]
+    [formData, setFormData],
   );
 
   const handleUpdateForm = useCallback((id: string, value: boolean): Promise<void> => {
@@ -192,7 +192,7 @@ const RankedResortFilters: React.FC = () => {
           <CButton
             id="showMoreRatings"
             className="mt-4 align-content-center "
-            onClick={() => setShowMoreRatings((prevState: any) => !prevState)}
+            onClick={() => setShowMoreRatings((prevState: unknown) => !prevState)}
             variant="outline"
             color="light"
             shape="rounded-pill"

@@ -6,7 +6,7 @@ import isNumber from '../../utility/helperFunctions';
 interface RatingProps {
   name?: string | null;
   title: string;
-  rating?: number | 'n/a';
+  rating?: string | number | 'n/a';
   ratingType?: 'sub-rating' | string;
 }
 

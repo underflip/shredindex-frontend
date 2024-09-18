@@ -1,6 +1,6 @@
 import {
   CButton,
-  CCard, CCardBody, CCardHeader, CImage,
+  CCard, CCardBody, CCardHeader,
 } from '@coreui/react';
 import React from 'react';
 import PropTypes from 'prop-types';
