@@ -9,11 +9,11 @@ import Link from 'next/link';
 import Logo from '../../images/logo.svg';
 import MobileLogo from '../../images/s-i-logo-small-png.svg';
 import HeaderMenuMain from '../HeaderMenuMain/HeaderMenuMain';
-import { showSidebar } from '../../atoms/showSidebar';
+import { showSidebar as showSidebarAtom } from '../../atoms/showSidebar';
 import ResortSearchAutosuggest from '../ResortSearchAutoSuggest/ResortSearchAutoSuggest';
 
 const Header: React.FC = () => {
-  const [showSidebar, setShowSidebar] = useRecoilState(showSidebar);
+  const [showSidebar, setShowSidebar] = useRecoilState(showSidebarAtom);
 
   return (
     <CHeader className="header">

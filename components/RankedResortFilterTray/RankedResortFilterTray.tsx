@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { useRecoilState, useResetRecoilState, atom } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import {
   CModal,
   CModalHeader,
@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import RankedResortFilters from '../RankedResortFilters/RankedResortFilters';
 import { currentFilterState } from '../../hooks/useQueryTypes';
 import { FormData, FilterGroup, FilterType } from '../../types/filterTypes';
-import { showFilterTrayState } from "../../atoms/showFilterTray";
+import { showFilterTrayState } from '../../atoms/showFilterTray';
 
 
 

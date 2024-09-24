@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { RecoilRoot } from 'recoil';
 import { reactRouterParameters } from 'storybook-addon-remix-react-router';
 import { MockedProvider } from '@apollo/react-testing';
@@ -46,7 +46,7 @@ export default {
         route: '/',
         asPath: '/',
         query: { page: currentPage },
-        push: (url, as, options) => {
+        push: (url) => {
           let newPage = '1';
           if (typeof url === 'object' && url.query && url.query.page) {
             newPage = url.query.page;

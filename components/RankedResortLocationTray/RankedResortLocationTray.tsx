@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { useRecoilState, atom } from 'recoil';
+import { useRecoilState } from 'recoil';
 import {
   CModal,
   CModalHeader,
@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 import { currentFilterState } from '../../hooks/useQueryTypes';
 import RegionSelect from '../RegionSelect/RegionSelect';
 import CountrySelect from '../CountrySelect/CountrySelect';
-import { showLocationTrayState } from "../../atoms/showLocationTray";
+import { showLocationTrayState } from '../../atoms/showLocationTray';
 
 
 

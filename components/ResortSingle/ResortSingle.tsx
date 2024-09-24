@@ -23,7 +23,7 @@ import Accomodation from '@/Advertisers/Accomodation/Accomodation';
 import AdvertiseHere from '@/Advertisers/AdvertiseHere/AdvertiseHere';
 import ResortMapCard from '@/ResortSingle/ResortMapCard/ResortMapCard';
 import { Resort } from '../../types/resortTypes';
-import ResortCardError from "../ResortCard/ResortCardError/ResortCardError";
+import ResortCardError from '../ResortCard/ResortCardError/ResortCardError';
 
 interface ResortProps {
   resortData: Resort | null;

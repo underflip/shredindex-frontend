@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import PaginationComponent from '../../../components/Pagination/Pagination';
 
@@ -7,7 +7,7 @@ export default {
   component: PaginationComponent,
   decorators: [
     (Story) => {
-      const [currentPage, setCurrentPage] = React.useState('1');
+      const [currentPage, setCurrentPage] = useState('1');
 
       const mockRouter = {
         basePath: '',
@@ -15,7 +15,7 @@ export default {
         route: '/',
         asPath: '/',
         query: { page: currentPage },
-        push: (url, as, options) => {
+        push: (url) => {
           let newPage = '1';
           if (typeof url === 'object' && url.query && url.query.page) {
             newPage = url.query.page;

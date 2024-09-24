@@ -7,7 +7,7 @@ import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 import RankedResortLifeStyles from './RankedResortLifeStyles/RankedResortLifeStyles';
 import { currentOrderByState } from '../../hooks/useQueryOrderBy';
-import { showLifestyleTrayState } from "../../atoms/showLifestyleTray";
+import { showLifestyleTrayState } from '../../atoms/showLifestyleTray';
 
 
 
