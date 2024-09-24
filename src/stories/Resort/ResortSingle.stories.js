@@ -282,3 +282,21 @@ MaxDataStory.parameters = {
     asPath: '/resorts/super-ultra-mega-resort-extreme',
   },
 };
+
+export const ErrorStory = () => {
+  const errorState = {
+    error: true,
+    errorMessage: 'An error occurred while fetching resort data. Please try again later.',
+  };
+
+  return <ResortSingle {...errorState} />;
+};
+
+ErrorStory.parameters = {
+  nextRouter: {
+    ...defaultNextRouter,
+    pathname: '/resorts/error',
+    query: { url_segment: 'error' },
+    asPath: '/resorts/error',
+  },
+};

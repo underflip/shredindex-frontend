@@ -19,7 +19,7 @@ const options = {
 };
 
 const ResortGenerics: React.FC<ResortGenericsProps> = ({ generics }) => (
-  <div className="generics numeric-list mb-4">
+  <div className="resort-single__generics generics numeric-list mb-4">
     <h3 className="resort-single-card-heading user-select-none mb-2">
       <FormattedMessage
         id="shredindex.generics.FEATURES"

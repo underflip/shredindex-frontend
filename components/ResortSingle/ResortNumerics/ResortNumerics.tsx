@@ -29,7 +29,7 @@ const ResortNumerics: React.FC<ResortNumericsProps> = ({ numerics }) => {
   };
 
   return (
-    <div className="numeric-list mb-4">
+    <div className="resort-single numeric-list mb-4">
       <h3 className="resort-single-card-heading user-select-none mb-2">
         <FormattedMessage id="shredindex.statistics.KEYINSIGHTS" defaultMessage="Key insights" />
       </h3>

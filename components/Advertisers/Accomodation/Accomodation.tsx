@@ -11,7 +11,7 @@ const Accomodation: React.FC <AffiliateUrl> = ({ affiliateUrl }) => (
     <h3 className="resort-single-card-heading user-select-none mb-2">
       <FormattedMessage id="shredindex.resort.ACCOMMODATION" defaultMessage="Accommodation" />
     </h3>
-    <CCard className="resort__accomodation-card mb-4">
+    <CCard className="resort-single__accomodation resort__accomodation-card mb-4">
       <CCardBody>
         <Link href={affiliateUrl || ''} target="_blank">
           <Image

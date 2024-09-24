@@ -13,11 +13,9 @@ import { useRouter } from 'next/router';
 import RankedResortFilters from '../RankedResortFilters/RankedResortFilters';
 import { currentFilterState } from '../../hooks/useQueryTypes';
 import { FormData, FilterGroup, FilterType } from '../../types/filterTypes';
+import { showFilterTrayState } from "../../atoms/showFilterTray";
 
-export const showFilterTrayState = atom({
-  key: 'showFilterTrayState',
-  default: false,
-});
+
 
 const RankedResortFilterTray: React.FC = () => {
   const [visible, setVisible] = useRecoilState(showFilterTrayState);

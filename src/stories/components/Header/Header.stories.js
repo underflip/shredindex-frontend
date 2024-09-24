@@ -6,7 +6,7 @@ import { RecoilRoot } from 'recoil';
 import HeaderComponent from '../../../../components/Header/Header';
 import { menuCode as headerMenuCode } from '../../../../components/HeaderMenuMain/HeaderMenuMain';
 import SidebarNav from '../../../../components/SidebarNav/SidebarNav';
-import { showSidebarAtom } from '../../../../atoms/SidebarAtoms';
+import { showSidebar } from '../../../../atoms/showSidebar';
 import { QUERY_STATIC_MENU } from '../../../../hooks/useStaticMenu';
 import langEn from '../../../../lang/en.json';
 
@@ -47,7 +47,7 @@ export const Header = () => {
   };
 
   return (
-    <RecoilRoot initializeState={({ set }) => set(showSidebarAtom, false)}>
+    <RecoilRoot initializeState={({ set }) => set(showSidebar, false)}>
       <IntlProvider locale="en" messages={langEn}>
         <MockedProvider mocks={[mocks.staticMenu]} addTypename={false}>
           <>

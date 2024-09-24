@@ -15,11 +15,9 @@ import { useRouter } from 'next/router';
 import { currentFilterState } from '../../hooks/useQueryTypes';
 import RegionSelect from '../RegionSelect/RegionSelect';
 import CountrySelect from '../CountrySelect/CountrySelect';
+import { showLocationTrayState } from "../../atoms/showLocationTray";
 
-export const showLocationTrayState = atom({
-  key: 'showLocationTrayState',
-  default: false,
-});
+
 
 const RankedResortLocationTray: React.FC = () => {
   const [visible, setVisible] = useRecoilState(showLocationTrayState);

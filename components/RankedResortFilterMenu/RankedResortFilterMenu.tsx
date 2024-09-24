@@ -4,11 +4,12 @@ import { CBadge, CButton } from '@coreui/react';
 import { CIcon } from '@coreui/icons-react';
 import { cilSettings } from '@coreui/icons';
 import { FormattedMessage } from 'react-intl';
-import RankedResortFilterTray, { showFilterTrayState } from '../RankedResortFilterTray/RankedResortFilterTray';
-import RankedResortLifeStyleTray, { showLifestyleTrayState } from '../RankedResortLifeStyleTray/RankedResortLifeStyleTray';
-import RankedResortLocationTray, {
-  showLocationTrayState,
-} from '../RankedResortLocationTray/RankedResortLocationTray';
+import RankedResortFilterTray from '../RankedResortFilterTray/RankedResortFilterTray';
+import {showFilterTrayState} from "../../atoms/showFilterTray";
+import RankedResortLifeStyleTray from '../RankedResortLifeStyleTray/RankedResortLifeStyleTray';
+import {showLifestyleTrayState} from "../../atoms/showLifestyleTray";
+import RankedResortLocationTray from '../RankedResortLocationTray/RankedResortLocationTray';
+import { showLocationTrayState } from "../../atoms/showLocationTray";
 
 interface RankedResortFilterMenuProps {
   filterQuantity: number;

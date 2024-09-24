@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useRecoilValue } from 'recoil';
 import { Helmet } from 'react-helmet';
 import queryCMSPage from '../../utility/query-cms-page';
-import { layoutsAtom, LayoutsType } from '../../atoms/ViewAtoms';
+import { layoutsAtom, LayoutsType } from '../../atoms/layoutsType';
 
 interface DynamicLayoutProps {
   url: string;

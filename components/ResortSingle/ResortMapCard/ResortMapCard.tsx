@@ -9,7 +9,7 @@ import { Location } from '../../../types/resortTypes';
 const ResortMapCard: React.FC <Location> = ({ location }) => {
   return (
     <>
-      <h3 className="resort-single-card-heading user-select-none mb-2">
+      <h3 className="resort-single__map resort-single-card-heading user-select-none mb-2">
         <FormattedMessage
           id="shredindex.resort.Map"
           defaultMessage="Map"

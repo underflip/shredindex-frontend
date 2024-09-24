@@ -8,7 +8,7 @@ const Gear: React.FC = () => (
     <h3 className="resort-single-card-heading user-select-none mb-2">
       <FormattedMessage id="shredindex.resort.GEAR" defaultMessage="Gear" />
     </h3>
-    <CCard className="resort__gear-card mb-4">
+    <CCard className="resort-single__gear resort__gear-card mb-4">
       <CCardBody>
         <CLink href="https://www.kqzyfj.com/pi105xdmjdl0212345849021839322" target="_blank">
           <div className="resort__gear-image p-5 position-relative border-2 w-50">

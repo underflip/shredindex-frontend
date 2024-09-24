@@ -12,7 +12,7 @@ const dataProvider = {
       },
     },
     {
-      data: [resortOne, resortTwo, resortOne, resortTwo, resortOne],
+      data: [resortTwo, resortOne, resortTwo, resortOne, resortTwo],
       paginatorInfo: {
         currentPage: 2,
         lastPage: 3,

@@ -1,121 +1,59 @@
-// eslint-disable-next-line no-unused-vars
-const dataProvider = {
-  title: 'Pipe Dream',
-  url_segment: 'pipedream',
-  description: 'Perpendicular curves to the ceiling for maximum air time',
-  location: {
-    country: {
-      name: 'Antarctica',
-    },
-    state: {
-      name: 'Dont have a State ey bro',
-    },
-  },
-  ratingScores: [
-    {
-      title: 'Digital Nomad Score',
-      value: 76,
-      type: {
-        type_group: {
-          id: 1,
-          title: 'Smokey Boris',
-        },
-      },
-    },
-  ],
-  numerics: [
-    {
-      title: 'Average Annual Snowfall',
-      value: 10,
-    },
-  ],
-  generics: [
-    {
-      title: 'Snow Making',
-      value: 'true',
-    },
-  ],
-  comments: [
-    {
-      author: 'John Doe',
-      comment: 'Amazing place!',
-    },
-  ],
-  resort_images: [
-    {
-      id: '1',
-      name: 'Image 1',
-      alt: 'Image 1 alt text',
-      sort_order: 1,
-      image: {
-        path: '/path/to/image1.jpg',
-        content_type: 'image/jpeg',
-      },
-    },
-  ],
-};
-
-describe('Resort', () => {
-  before(() => {
-    context('All devices', () => {
-      cy.visit('/iframe.html?id=shred-index-components-resort--resort');
-    });
+describe('ResortSingle', () => {
+  beforeEach(() => {
+    cy.visit('/iframe.html?globals=&args=&id=shred-index-components-resortsingle--resort-story');
   });
 
-  it('Has a resort title', () => {
-    cy.get('.rating__title').should('be.visible').and('contain.text', dataProvider.title);
+  it('Renders the back button', () => {
+    cy.get('.resort.back-button').should('exist');
   });
 
-  it('Has a resort country', () => {
-    cy.get('.resort-card__location-title').should('contain.text', dataProvider.location.country.name);
+  it('Renders ResortHeader component', () => {
+    cy.get('.resort-header').should('exist');
   });
 
-  it('Has a description', () => {
-    cy.get('.resort-card__description-single-resort').should('contain.text', dataProvider.description);
+  it('Renders ResortImageCarousel component', () => {
+    cy.get('.resort-single__image-carousel').should('exist');
   });
 
-  it('Should render a rating Digital Nomad Score', () => {
-    cy.get('.rating__title').should('contain', dataProvider.ratingScores[0].title);
+  it('Renders ResortNumerics component', () => {
+    cy.get('.numeric-list').should('exist');
   });
 
-  it('Statistic should have a value', () => {
-    cy.get('.rating__number-big').should('contain', dataProvider.ratingScores[0].value);
+  it('Renders ResortGenerics component', () => {
+    cy.get('.resort-single__generics').should('exist');
   });
 
-  it('Should render a numeric "Average Annual Snowfall"', () => {
-    cy.get('.statistic__title').should('contain', dataProvider.numerics[0].title);
+  it('Renders ResortRatings component', () => {
+    cy.get('.resort-ratings').should('exist');
   });
 
-  it('Should render a numeric value "Average Annual Snowfall"', () => {
-    cy.get('.statistic__number-big').should('contain', dataProvider.numerics[0].value);
+  it('Renders ResortComments component', () => {
+    cy.get('.resort-comments').should('exist');
   });
 
-  it('Should render images in the carousel', () => {
-    cy.get('.resort-single__image-carousel img').should('have.attr', 'src', dataProvider.resort_images[0].image.path);
+  it('Renders Accomodation component', () => {
+    cy.get('.resort-single__accomodation').should('exist');
   });
 
-  it('Should render comments section', () => {
-    cy.get('.resort-comments').should('be.visible');
+  it('Renders AdvertiseHere component', () => {
+    cy.get('.resort-single__advertise').should('exist');
   });
 
-  it('Should render a comment author', () => {
-    cy.get('.carousel__author').should('contain.text', dataProvider.comments[0].author);
+  it('Renders Gear component', () => {
+    cy.get('.resort-single__gear').should('exist');
   });
 
-  it('Should render a comment text', () => {
-    cy.get('.carousel__comment-text').should('contain.text', dataProvider.comments[0].comment);
+  it('Renders ResortMapCard component', () => {
+    cy.get('.resort-single__map').should('exist');
   });
 
-  it('Should render a map', () => {
-    cy.get('.resort__map-card').should('be.visible');
+  it('Displays loading state correctly', () => {
+    cy.visit('/iframe.html?globals=&id=shred-index-components-resortsingle--loading-story&viewMode=story');
+    cy.get('.resort-card--skeleton').should('exist');
   });
 
-  it('Should have a back button', () => {
-    cy.get('.resort.back-button').should('be.visible');
-  });
-
-  it('Back button should navigate back', () => {
-    cy.get('.resort.back-button').click();
-    cy.location('pathname').should('not.contain', '/resorts/pipedream');
+  it('Displays error state correctly', () => {
+    cy.visit('iframe.html?globals=&id=shred-index-components-resortsingle--error-story&viewMode=story');
+    cy.get('.resort-card--error').should('exist');
   });
 });

@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import SidebarNav from '../components/SidebarNav/SidebarNav';
 import SupportBanner from '../components/SupportBanner/SupportBanner';
-import { layoutsAtom } from '../atoms/ViewAtoms';
+import { layoutsAtom } from '../atoms/layoutsType';
 import langEn from '../lang/en.json';
 import GlobalToast from '../components/GlobalToast/GlobalToast';
 import { useApollo } from '../lib/apollo-client';

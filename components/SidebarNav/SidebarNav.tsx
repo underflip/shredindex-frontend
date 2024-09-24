@@ -6,10 +6,10 @@ import {
 import Logo from '../../images/logo.svg';
 import DynamicLink from '../DynamicLink/DynamicLink';
 import SidebarMenuMain from '../SidebarMenuMain/SidebarMenuMain';
-import { showSidebarAtom } from '../../atoms/SidebarAtoms';
+import { showSidebar } from '../../atoms/showSidebar';
 
 const SidebarNav: React.FC = () => {
-  const [showSidebar, setShowSidebar] = useRecoilState(showSidebarAtom);
+  const [showSidebar, setShowSidebar] = useRecoilState(showSidebar);
 
   return (
     <CSidebar

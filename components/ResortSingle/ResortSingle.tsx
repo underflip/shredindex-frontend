@@ -23,6 +23,7 @@ import Accomodation from '@/Advertisers/Accomodation/Accomodation';
 import AdvertiseHere from '@/Advertisers/AdvertiseHere/AdvertiseHere';
 import ResortMapCard from '@/ResortSingle/ResortMapCard/ResortMapCard';
 import { Resort } from '../../types/resortTypes';
+import ResortCardError from "../ResortCard/ResortCardError/ResortCardError";
 
 interface ResortProps {
   resortData: Resort | null;
@@ -106,7 +107,17 @@ const ResortSingle: React.FC<ResortProps> = ({ resortData, error, loading }) => 
       <CContainer>
         <ResortsParallaxBackground />
         <div className="resort resort-single mt-4">
-          {/* <ResortCardError /> */}
+          <ResortCardError
+            helpId="shredindex.resortcarderror.HELP"
+            help="Looks like we french fried instead of pizza'd."
+            titleId="shredindex.resortcarderror.TITLE"
+            title="Woah!!... Gnarly Crash"
+            errorName={'Gnarly Crash'}
+            errorMessageId="shredindex.resortcarderror.ERRORMESSAGE"
+            errorMessage="There was an error loading this resort."
+            suggestionId="shredindex.resortcarderror.SUGGESTION"
+            suggestion="Maybe try searching for something else..."
+          />
         </div>
       </CContainer>
     );

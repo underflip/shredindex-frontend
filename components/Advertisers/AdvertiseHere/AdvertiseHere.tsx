@@ -10,14 +10,14 @@ const AdvertiseHere: React.FC <AffiliateUrl> = ({ affiliateUrl }) => {
     <div className="resort-single-card-heading user-select-none mb-2">
       <FormattedMessage id="shredindex.resort.ADVERTISEHERE" defaultMessage="Advertise"/>
     </div>
-    <CCard className="resort__accomodation-card mb-4">
+    <CCard className="resort-single__advertise resort__advertise-card mb-4">
       <CCardBody>
         <p className="caption-text">
           Have a local business or a ski package to offer? &nbsp;
         </p>
         <Link href={affiliateUrl} target="_blank">
         <p>
-            <p className="caption-text">Get in touch with us.</p>
+            <span className="caption-text">Get in touch with us.</span>
         </p>
         </Link>
       </CCardBody>

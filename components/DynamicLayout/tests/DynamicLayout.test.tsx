@@ -4,7 +4,7 @@ import { MockedProvider } from '@apollo/client/testing';
 import { RecoilRoot } from 'recoil';
 import queryCMSPage from '../../../utility/query-cms-page';
 import DynamicLayout from '../DynamicLayout';
-import { layoutsAtom } from '../../../atoms/ViewAtoms';
+import { layoutsAtom } from '../../../atoms/layoutsType';
 
 const mocks = {
   cmsPageFailure: {

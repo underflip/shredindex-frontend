@@ -5,7 +5,7 @@ import { RecoilRoot } from 'recoil';
 import { MockedProvider } from '@apollo/client/testing';
 import DynamicSwitch, { QUERY_CMS_PAGES } from '../DynamicSwitch';
 import queryCMSPage from '../../../utility/query-cms-page';
-import { layoutsAtom } from '../../../atoms/ViewAtoms';
+import { layoutsAtom } from '../../../atoms/layoutsType';
 
 const mocks = {
   cmsPagesEmpty: {
