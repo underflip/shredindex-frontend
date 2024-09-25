@@ -13,9 +13,9 @@
     "storybook": "storybook dev -p 6006",
     "storybook:ci": "storybook dev -p 6006 --ci --quiet",
     "test:cypress": "cypress run",
-    "test:jest": "jest --coverage",
+    "test:jest": "jest --coverage --verbose",
     "test:e2e": "cross-env NODE_ENV=e2e && start-test storybook:ci http://localhost:6006 test:cypress",
-    "reports:copy": "mkdir reports || true && cp jest-coverage/coverage-final.json reports/coverage-jest.json && cp cypress-coverage/coverage-final.json reports/coverage-cypress.json",
+    "reports:copy": "mkdir -p reports && [ -f jest-coverage/coverage-final.json ] && cp jest-coverage/coverage-final.json reports/coverage-jest.json || echo 'Jest coverage file not found' && [ -f cypress-coverage/coverage-final.json ] && cp cypress-coverage/coverage-final.json reports/coverage-cypress.json || echo 'Cypress coverage file not found'",
     "reports:combine": "npx nyc merge reports && mkdir .nyc_output || true && mv coverage.json .nyc_output/out.json",
     "reports:coverage": "npx nyc report --reporter clover --reporter text --report-dir coverage",
     "coverage": "npm run reports:copy && npm run reports:combine && npm run reports:coverage",
@@ -191,6 +191,7 @@
       "!src/stories/**",
       "!src/index.js"
     ],
+    "coverageReporters": ["json", "lcov", "text", "clover"],
     "moduleFileExtensions": [
       "js",
       "jsx",
