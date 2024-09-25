@@ -124,7 +124,9 @@ const CountrySelect: React.FC = () => {
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <Image
         src={`https://flagcdn.com/w20/${value.toLowerCase()}.png`}
-        style={{ marginRight: '10px', width: '20px', height: '15px' }}
+        style={{ marginRight: '10px' }}
+        width={'20'}
+        height={'15'}
         alt={`${label} flag`}
       />
       {label}

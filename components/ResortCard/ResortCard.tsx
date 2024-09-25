@@ -35,7 +35,7 @@ const ResortCard: React.FC<ResortCardProps> = ({ resortData }) => {
             className="resort-card__affiliate-link link-unstyled"
             rel="noreferrer noopener"
             target="_blank"
-            href={affiliate_url}>
+            href={affiliate_url ? affiliate_url : ''}>
             <ResortCardHeader title={title} totalScore={total_score} />
           </Link>
         </CCardHeader>

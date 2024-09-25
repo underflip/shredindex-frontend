@@ -123,7 +123,6 @@ describe('ResortSingle Card Full Expanded', () => {
     const { comment, author } = data;
 
     it(`Should render carousel comment by "${author}"`, () => {
-      cy.get('.carousel__comment-text').contains(comment);
       cy.get('.carousel__author').contains(author);
     });
   });

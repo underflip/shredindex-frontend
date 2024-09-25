@@ -47,6 +47,10 @@ const nextConfig = {
         hostname: 'www.ftjcfx.com',
         pathname: '/*',
       },
+      {
+        protocol: 'https',
+        hostname: 'flagcdn.com',
+      },
     ],
   },
   experimental: {
