@@ -187,6 +187,7 @@
     "coverageDirectory": "jest-coverage",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
+      "components/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts",
       "!src/stories/**",
       "!src/index.js"
