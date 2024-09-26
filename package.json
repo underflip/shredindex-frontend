@@ -103,7 +103,6 @@
     "mini-css-extract-plugin": "^2.5.3",
     "mock-apollo-client": "^1.2.0",
     "next-router-mock": "^0.9.13",
-    "nyc": "^15.1.0",
     "react-docgen-typescript-plugin": "^1.0.5",
     "sass-loader": "^8.0.2",
     "start-server-and-test": "^1.14.0",
@@ -209,12 +208,26 @@
     }
   },
   "nyc": {
-    "report-dir": "cypress-coverage",
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "all": true,
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "components/**/*.tsx",
+      "components/**/*.ts"
+    ],
     "exclude": [
-      "src/stories/coreui/*.js",
-      "src/stories/index.stories.js",
-      "src/js/components/Resorts/Resorts.js",
-      "src/index.js"
-    ]
+      "**/*.spec.ts",
+      "**/*.spec.tsx",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "**/cypress/**"
+    ],
+    "reporter": [
+      "text",
+      "json",
+      "lcov"
+    ],
+    "report-dir": "cypress-coverage"
   }
 }
