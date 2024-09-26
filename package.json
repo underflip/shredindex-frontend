@@ -39,7 +39,7 @@
     "@babel/preset-typescript": "7.23.3",
     "@cfaester/enzyme-adapter-react-18": "^0.7.1",
     "@cypress/browserify-preprocessor": "^3.0.2",
-    "@cypress/code-coverage": "^3.12.15",
+    "@cypress/code-coverage": "^3.13.2",
     "@cypress/webpack-preprocessor": "^6.0.1",
     "@next/eslint-plugin-next": "^14.2.6",
     "@storybook/addon-essentials": "^8.2.9",
@@ -103,6 +103,7 @@
     "mini-css-extract-plugin": "^2.5.3",
     "mock-apollo-client": "^1.2.0",
     "next-router-mock": "^0.9.13",
+    "nyc": "^15.1.0",
     "react-docgen-typescript-plugin": "^1.0.5",
     "sass-loader": "^8.0.2",
     "start-server-and-test": "^1.14.0",
@@ -187,9 +188,16 @@
     "coverageDirectory": "jest-coverage",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
+      "components/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts",
       "!src/stories/**",
       "!src/index.js"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover"
     ],
     "moduleFileExtensions": [
       "js",
@@ -204,5 +212,28 @@
         "tsconfig": "<rootDir>/tsconfig.json"
       }
     }
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "all": true,
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "components/**/*.tsx",
+      "components/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.spec.ts",
+      "**/*.spec.tsx",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "**/cypress/**"
+    ],
+    "reporter": [
+      "text",
+      "json",
+      "lcov"
+    ],
+    "report-dir": "coverage"
   }
 }
