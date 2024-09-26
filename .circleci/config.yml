@@ -7,6 +7,8 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/node:18.17.0-browsers
+        environment:
+          CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
     steps:
       - checkout
       - run:
@@ -16,11 +18,17 @@ jobs:
           keys:
             - v2-npm-{{ checksum "package-lock.json" }}
       - run: npm install
+      - run:
+          name: Install Cypress
+          command: npx cypress install
+      - run:
+          name: Verify Cypress
+          command: npx cypress verify
       - save_cache:
           key: v2-npm-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-            - /root/.cache/Cypress
+            - ~/.cache/Cypress
       - run: npm run lint
       - run: npm run test:jest
       - run: npm run test:e2e
