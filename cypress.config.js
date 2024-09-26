@@ -1,12 +1,17 @@
 const { defineConfig } = require('cypress');
-import coverage from '@cypress/code-coverage/task'
+const codeCoverageTask = require('@cypress/code-coverage/task');
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // eslint-disable-next-line import/extensions,global-require
-      coverage(on, config);
-      return require('./cypress/plugins/index.js')(on, config);
+      // Existing setup
+      const existingSetup = require('./cypress/plugins/index.js')(on, config);
+
+      // Code coverage task
+      codeCoverageTask(on, config);
+
+      // Merge configurations
+      return { ...existingSetup, ...config };
     },
     baseUrl: 'http://localhost:6006',
     testIsolation: false,
@@ -14,7 +19,7 @@ module.exports = defineConfig({
 
   component: {
     devServer: {
-      framework: 'react',
+      framework: 'next',
       bundler: 'webpack',
     },
   },

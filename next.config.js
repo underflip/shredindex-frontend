@@ -17,7 +17,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  webpack(config, { isServer }) {
+  webpack(config, { dev, isServer }) {
     config.resolve.alias['@coreui/coreui'] = path.join(__dirname, 'node_modules', '@coreui/coreui');
 
     config.module.rules.push({
@@ -28,6 +28,22 @@ const nextConfig = {
         },
       ],
     });
+
+    // Add Istanbul babel plugin for code coverage
+    if (!isServer && !dev) {
+      config.module.rules.push({
+        test: /\.(js|jsx|ts|tsx)$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              plugins: ['istanbul'],
+            },
+          },
+        ],
+        exclude: [/node_modules/, /\.next/],
+      });
+    }
 
     return config;
   },
