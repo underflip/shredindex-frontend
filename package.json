@@ -214,26 +214,12 @@
     }
   },
   "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
-    "all": true,
-    "include": [
-      "src/**/*.ts",
-      "src/**/*.tsx",
-      "components/**/*.tsx",
-      "components/**/*.ts"
-    ],
+    "report-dir": "cypress-coverage",
     "exclude": [
-      "**/*.spec.ts",
-      "**/*.spec.tsx",
-      "**/*.test.ts",
-      "**/*.test.tsx",
-      "**/cypress/**"
-    ],
-    "reporter": [
-      "text",
-      "json",
-      "lcov"
-    ],
-    "report-dir": "coverage"
+      "src/stories/coreui/*.js",
+      "src/stories/index.stories.js",
+      "src/js/components/Resorts/Resorts.js",
+      "src/index.js"
+    ]
   }
 }
