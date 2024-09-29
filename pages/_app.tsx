@@ -21,13 +21,13 @@ const t = {
 
 const locale = 'en';
 
-const layouts = {
-  home: dynamic(() => import('./homepage')),
+export const layouts = {
   resorts: dynamic(() => import('./resorts')),
   resort: dynamic(() => import('@/ResortSingle/ResortSingle')),
   about: dynamic(() => import('./about')),
   privacy: dynamic(() => import('./privacy-policy')),
   terms: dynamic(() => import('./terms-and-conditions')),
+  home: dynamic(() => import('./../components/Home/home'))
 };
 
 const InitializeRecoilState = () => {

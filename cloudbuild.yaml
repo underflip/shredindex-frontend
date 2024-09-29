@@ -1,13 +1,4 @@
 steps:
-  # Use Node.js 18
-  - name: 'node:18'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        node -v
-        npm -v
-
   # Create .env.local file
   - name: 'ubuntu'
     entrypoint: 'bash'
@@ -28,16 +19,6 @@ steps:
         OCTOBERCMS_API_URL=${_OCTOBERCMS_API_URL}
         DATABASE_URL=${_DATABASE_URL}
         EOF
-
-  # Install dependencies
-  - name: 'node:18'
-    entrypoint: 'npm'
-    args: ['ci']
-
-  # Build the Next.js application
-  - name: 'node:18'
-    entrypoint: 'npm'
-    args: ['run', 'build']
 
   # Build frontend image
   - name: 'gcr.io/cloud-builders/docker'

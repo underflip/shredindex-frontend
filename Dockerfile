@@ -20,6 +20,9 @@ RUN npm ci
 # Copy the rest of the application code
 COPY . .
 
+# Copy .env.local if it exists
+COPY .env.local* ./
+
 # Build the Next.js application
 RUN npm run build
 
@@ -33,10 +36,10 @@ ENV NODE_ENV production
 
 # Copy necessary files from builder stage
 COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/.env.local* ./
 
 # Use a non-root user for better security
 RUN addgroup -g 1001 -S nodejs
