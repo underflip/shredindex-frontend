@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
 import { RecoilRoot, useSetRecoilState } from 'recoil';
@@ -14,6 +14,7 @@ import GlobalToast from '../components/GlobalToast/GlobalToast';
 import { useApollo } from '../lib/apollo-client';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../src/scss/style.scss';
+import {useLocation} from "react-router-dom";
 
 const t = {
   en: langEn,
@@ -28,6 +29,20 @@ export const layouts = {
   privacy: dynamic(() => import('./privacy-policy')),
   terms: dynamic(() => import('./terms-and-conditions')),
   home: dynamic(() => import('./../components/Home/home')),
+};
+
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant',
+    });
+  }, [pathname]);
+
+  return null;
 };
 
 const InitializeRecoilState = () => {
@@ -47,6 +62,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <ApolloProvider client={apolloClient}>
       <IntlProvider locale={locale} messages={t[locale]}>
         <RecoilRoot>
+          <ScrollToTop />
+
           <InitializeRecoilState />
           <div className="c-app c-default-layout">
             <SidebarNav />

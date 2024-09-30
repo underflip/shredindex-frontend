@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { layouts } from '@/_app';
+import { layouts } from '../../pages/_app';
 
 interface DynamicLayoutProps {
   url: string;
