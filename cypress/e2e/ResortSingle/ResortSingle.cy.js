@@ -1,6 +1,12 @@
 describe('ResortSingle', () => {
   beforeEach(() => {
     cy.visit('/iframe.html?globals=&args=&id=shred-index-components-resortsingle--resort-story');
+    jest.mock('mapbox-gl', () => ({
+      Map: jest.fn(() => ({
+        on: jest.fn(),
+        remove: jest.fn(),
+      })),
+    }));
   });
 
   it('Renders the back button', () => {
