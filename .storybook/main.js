@@ -2,6 +2,10 @@ const path = require('path');
 
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  env: (config) => ({
+    ...config,
+    REACT_APP_MAPBOX_ACCESS_TOKEN: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
+  }),
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
