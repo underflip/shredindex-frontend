@@ -42,7 +42,7 @@ export const parameters = {
 };
 
 export const globals = {
-  REACT_APP_MAPBOX_ACCESS_TOKEN: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
+  NEXT_PUBLIC_MAPBOX_API_KEY: process.env.NEXT_PUBLIC_MAPBOX_API_KEY,
 };
 
 export default {
