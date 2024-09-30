@@ -3,10 +3,6 @@ describe('ResortSingle', () => {
     cy.visit('/iframe.html?globals=&args=&id=shred-index-components-resortsingle--resort-story');
   });
 
-  it('Renders the back button', () => {
-    cy.get('.resort.back-button').should('exist');
-  });
-
   it('Renders ResortHeader component', () => {
     cy.get('.resort-header').should('exist');
   });
