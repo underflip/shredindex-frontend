@@ -1,12 +1,16 @@
 describe('ResortSingle', () => {
   beforeEach(() => {
+    cy.intercept('mapbox-gl', (req) => {
+      req.reply((res) => {
+        res.send({
+          Map: cy.stub().returns({
+            on: cy.stub(),
+            remove: cy.stub(),
+          }),
+        });
+      });
+    });
     cy.visit('/iframe.html?globals=&args=&id=shred-index-components-resortsingle--resort-story');
-    jest.mock('mapbox-gl', () => ({
-      Map: jest.fn(() => ({
-        on: jest.fn(),
-        remove: jest.fn(),
-      })),
-    }));
   });
 
   it('Renders the back button', () => {
