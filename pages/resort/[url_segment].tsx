@@ -5,7 +5,7 @@ import { gql, ApolloError } from '@apollo/client';
 import { initializeApollo } from '../../lib/apollo-client';
 import ResortSingle from '@/ResortSingle/ResortSingle';
 import { Resort } from '../../types/resortTypes';
-import {QUERY_RESORTS_URL} from "../../hooks/useQueryResortsUrl";
+import { QUERY_RESORTS_URL } from '../../hooks/useQueryResortsUrl';
 
 const QUERY_RESORT = gql`
   query ResortByURLSegment($url_segment: String!) {

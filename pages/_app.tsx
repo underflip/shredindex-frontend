@@ -27,7 +27,7 @@ export const layouts = {
   about: dynamic(() => import('./about')),
   privacy: dynamic(() => import('./privacy-policy')),
   terms: dynamic(() => import('./terms-and-conditions')),
-  home: dynamic(() => import('./../components/Home/home'))
+  home: dynamic(() => import('./../components/Home/home')),
 };
 
 const InitializeRecoilState = () => {

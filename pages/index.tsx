@@ -8,10 +8,10 @@ import { menuCode as footerMenuCode } from '../components/FooterMenuMain/FooterM
 import { menuCode as headerMenuCode } from '../components/HeaderMenuMain/HeaderMenuMain';
 import queryCMSPage from '../utility/query-cms-page';
 import DynamicLayout from '../components/DynamicLayout/DynamicLayout';
-import Home from "@/Home/home";
+import Home from '@/Home/home';
 
 interface HomeProps {
-  cmsPageData: any;
+  cmsPageData: unknown;
   headerMenuItems: unknown[];
   footerMenuItems: unknown[];
 }
@@ -39,8 +39,6 @@ export const getStaticProps: GetStaticProps = async () => {
     const [
       { data: cmsPageData },
       ,
-      { data: settingsData },
-      { data: teamMembersData },
       { data: headerMenuData },
       { data: footerMenuData },
     ] = await Promise.all([

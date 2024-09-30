@@ -8,7 +8,7 @@ const containerStyle: React.CSSProperties = {
   position: 'relative',
 };
 
-// @ts-ignore
+// @ts-expect-error it will error
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;
 
 interface ResortMapProps {

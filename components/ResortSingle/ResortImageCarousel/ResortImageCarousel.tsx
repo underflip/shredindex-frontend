@@ -6,8 +6,8 @@ import { Image as ImageType } from '../../../types/types';
 import flickityOptions from '../../../src/js/components/config/flickity-options';
 import ResortImagePlaceholder from '../../../images/resort-image-placeholder.svg';
 import ResortImageModal from './ResortImageModal';
-import {CIcon} from "@coreui/icons-react";
-import {cilFullscreen} from "@coreui/icons";
+import { CIcon } from '@coreui/icons-react';
+import { cilFullscreen } from '@coreui/icons';
 
 interface ResortImageCarouselProps {
   images: ImageType[];
