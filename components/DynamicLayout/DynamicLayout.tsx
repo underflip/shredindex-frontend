@@ -4,7 +4,7 @@ import { layouts } from '../../pages/_app';
 
 interface DynamicLayoutProps {
   url: string;
-  layout: string;
+  layout?: string;
   headerMenuItems?: unknown[];
   footerMenuItems?: unknown[];
 }

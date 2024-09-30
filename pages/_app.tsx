@@ -14,7 +14,7 @@ import GlobalToast from '../components/GlobalToast/GlobalToast';
 import { useApollo } from '../lib/apollo-client';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../src/scss/style.scss';
-import { useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const t = {
   en: langEn,
@@ -32,15 +32,21 @@ export const layouts = {
 };
 
 const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
+  const router = useRouter();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant',
-    });
-  }, [pathname]);
+    const handleRouteChange = () => {
+      window.scrollTo(0, 0);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   return null;
 };
@@ -63,7 +69,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <IntlProvider locale={locale} messages={t[locale]}>
         <RecoilRoot>
           <ScrollToTop />
-
           <InitializeRecoilState />
           <div className="c-app c-default-layout">
             <SidebarNav />
