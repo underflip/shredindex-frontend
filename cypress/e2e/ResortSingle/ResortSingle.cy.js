@@ -1,12 +1,20 @@
+import React from 'react';
+
+const ResortMapCardMock = ({ location }) => (
+  <div data-testid="mock-resort-map-card">
+    <h3>Mocked Resort Map Card</h3>
+    <p>Latitude: {location.latitude}</p>
+    <p>Longitude: {location.longitude}</p>
+  </div>
+);
+
 describe('ResortSingle', () => {
   beforeEach(() => {
-    cy.window().then((win) => {
-      cy.stub(win, 'mapboxgl').as('mapboxglStub').returns({
-        Map: cy.stub().returns({
-          on: cy.stub(),
-          remove: cy.stub(),
-        }),
-      });
+    cy.stub(Cypress.runtime.module, '_resolveFilename').callsFake((modulePath) => {
+      if (modulePath.includes('ResortMapCard')) {
+        return ResortMapCardMock;
+      }
+      return modulePath;
     });
     cy.visit('/iframe.html?globals=&args=&id=shred-index-components-resortsingle--resort-story');
   });
