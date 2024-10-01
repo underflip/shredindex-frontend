@@ -1,28 +1,5 @@
-import React from 'react';
-
-const ResortMapCardMock = ({ location }) => (
-  <div data-testid="mock-resort-map-card">
-    <h3>Mocked Resort Map Card</h3>
-    <p>Latitude: {location.latitude}</p>
-    <p>Longitude: {location.longitude}</p>
-  </div>
-);
-
-class MockMap {
-  constructor() {
-    this.on = cy.stub();
-    this.remove = cy.stub();
-  }
-}
-
 describe('ResortSingle', () => {
   beforeEach(() => {
-    cy.window().then((win) => {
-      win.mapboxgl = MockMap;
-    });
-    cy.window().then((win) => {
-      win.ResortMapCard = ResortMapCardMock;
-    });
     cy.visit('/iframe.html?globals=&args=&id=shred-index-components-resortsingle--resort-story');
   });
 
