@@ -8,8 +8,18 @@ const ResortMapCardMock = ({ location }) => (
   </div>
 );
 
+class MockMap {
+  constructor() {
+    this.on = cy.stub();
+    this.remove = cy.stub();
+  }
+}
+
 describe('ResortSingle', () => {
   beforeEach(() => {
+    cy.window().then((win) => {
+      win.mapboxgl = MockMap;
+    });
     cy.window().then((win) => {
       win.ResortMapCard = ResortMapCardMock;
     });
