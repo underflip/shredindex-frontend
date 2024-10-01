@@ -17,7 +17,7 @@
     "test:e2e": "cross-env NODE_ENV=e2e && start-test storybook:ci http://localhost:6006 test:cypress",
     "reports:copy": "mkdir -p reports && cp jest-coverage/coverage-final.json reports/coverage-jest.json && cp cypress-coverage/coverage-final.json reports/coverage-cypress.json",
     "reports:combine": "npx nyc merge reports && mkdir -p .nyc_output && mv coverage.json .nyc_output/out.json",
-    "reports:coverage": "npx nyc report --reporter lcov --reporter text --report-dir coverage",
+    "reports:coverage": "npx nyc report --reporter clover --reporter text --report-dir coverage",
     "coverage": "npm run reports:copy && npm run reports:combine && npm run reports:coverage",
     "tests": "npm run test:jest && npm run test:e2e && npm run coverage",
     "build-storybook": "storybook build"
@@ -190,7 +190,6 @@
     "coverageDirectory": "jest-coverage",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "components/**/*.{js,jsx,ts,tsx}",
       "!src/**/*.d.ts",
       "!src/stories/**",
       "!src/index.js"
