@@ -10,11 +10,8 @@ const ResortMapCardMock = ({ location }) => (
 
 describe('ResortSingle', () => {
   beforeEach(() => {
-    cy.stub(Cypress.runtime.module, '_resolveFilename').callsFake((modulePath) => {
-      if (modulePath.includes('ResortMapCard')) {
-        return ResortMapCardMock;
-      }
-      return modulePath;
+    cy.window().then((win) => {
+      win.ResortMapCard = ResortMapCardMock;
     });
     cy.visit('/iframe.html?globals=&args=&id=shred-index-components-resortsingle--resort-story');
   });
