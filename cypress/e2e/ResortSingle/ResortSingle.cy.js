@@ -1,13 +1,11 @@
 describe('ResortSingle', () => {
   beforeEach(() => {
-    cy.intercept('mapbox-gl', (req) => {
-      req.reply((res) => {
-        res.send({
-          Map: cy.stub().returns({
-            on: cy.stub(),
-            remove: cy.stub(),
-          }),
-        });
+    cy.window().then((win) => {
+      cy.stub(win, 'mapboxgl').as('mapboxglStub').returns({
+        Map: cy.stub().returns({
+          on: cy.stub(),
+          remove: cy.stub(),
+        }),
       });
     });
     cy.visit('/iframe.html?globals=&args=&id=shred-index-components-resortsingle--resort-story');
