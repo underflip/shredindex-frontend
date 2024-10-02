@@ -15,6 +15,7 @@ import { useApollo } from '../lib/apollo-client';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../src/scss/style.scss';
 import { useRouter } from 'next/router';
+import Login from "@/Login/Login";
 
 const t = {
   en: langEn,
@@ -76,6 +77,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
               <Header />
               <div className="body flex-grow-1 min-vh-100">
                 <GlobalToast />
+                <Login />
                 <main className="c-main">
                   <Component {...pageProps} />
                 </main>

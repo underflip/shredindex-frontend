@@ -13,8 +13,11 @@ import {
 } from '@coreui/react';
 import { showLogin } from '../../atoms/showLogin';
 import { useRecoilState } from 'recoil';
+import {loggedInUserName} from "../../atoms/userName";
 
 const LoginModal: React.FC = () => {
+  const [loggedInUsername, setLoggedInUserName] = useRecoilState(loggedInUserName); // Change this to test different scenarios
+
   const [visible, setVisible] = useRecoilState(showLogin);
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -66,11 +69,20 @@ const LoginModal: React.FC = () => {
 
   return (
     <>
-      <CModal alignment="center" visible={visible} onClose={() => setVisible(false)}>
+      <CModal fullscreen="lg" alignment="center" visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
           <CModalTitle>{isSigningUp ? 'Sign Up' : 'Login'}</CModalTitle>
         </CModalHeader>
         <CModalBody>
+          {/* Sign in fake user */}
+          <CButton
+            color="warning"
+            className="mb-2 w-100"
+            onClick={() => setLoggedInUserName('janedoe')}
+          >
+            Sign in fake user
+          </CButton>
+
           {/* OAuth Buttons */}
           <CButton
             color="warning"

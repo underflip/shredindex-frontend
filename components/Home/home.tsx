@@ -10,7 +10,6 @@ import Login from "@/Login/Login";
 
 const Home: React.FC = () => (
   <div className="views__home">
-    <Login />
     <HomeHero />
     <CContainer>
       <HomeLifestyles />
