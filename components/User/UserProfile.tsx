@@ -65,7 +65,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
         <div className="user-profile-card-wrap">
           <CCard className="user-profile-card">
             <CCardBody>
-              <h1>formState.username</h1>
+              <h1>{formState.username}</h1>
               <CForm onSubmit={handleSubmit}>
                 {/* Member Tier */}
                 <CFormSelect
