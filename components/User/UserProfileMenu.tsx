@@ -44,13 +44,10 @@ const UserProfileMenu: React.FC = () => {
     <>
       <CDropdown variant="nav-item">
         <CDropdownToggle caret={false}>
-          Account
-        </CDropdownToggle>
-        <CDropdownMenu placement="bottom-end">
-          <CDropdownItem onClick={() => setShowLoginState(true)}>
+          <div onClick={() => setShowLoginState(true)}>
             Login
-          </CDropdownItem>
-        </CDropdownMenu>
+          </div>
+        </CDropdownToggle>
       </CDropdown>
     </>
     );

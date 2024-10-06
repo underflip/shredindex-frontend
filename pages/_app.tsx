@@ -69,13 +69,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <ApolloProvider client={apolloClient}>
       <IntlProvider locale={locale} messages={t[locale]}>
         <RecoilRoot>
-          <ScrollToTop />
           <InitializeRecoilState />
           <div className="c-app c-default-layout">
             <SidebarNav />
             <div className="wrapper d-flex flex-column min-vh-100">
               <Header />
               <div className="body flex-grow-1 min-vh-100">
+                <ScrollToTop />
                 <GlobalToast />
                 <Login />
                 <main className="c-main">

@@ -4,21 +4,29 @@ import React, { useState } from 'react';
 import {
   CModal,
   CModalHeader,
-  CModalTitle,
   CModalBody,
-  CModalFooter,
   CButton,
   CForm,
-  CFormInput,
+  CFormInput, CCollapse, CNav, CNavItem, CNavLink,
 } from '@coreui/react';
 import { showLogin } from '../../atoms/showLogin';
 import { useRecoilState } from 'recoil';
-import {loggedInUserName} from "../../atoms/userName";
+import { loggedInUserName } from '../../atoms/userName';
+import { CIcon } from '@coreui/icons-react';
+import {
+  cibFacebookF,
+  cilChevronBottom,
+} from '@coreui/icons';
+import useWindowDimensions from "../../hooks/getWindowDimensions";
+import breakpoints from "@/js/components/config/breakpoints";
+import {googleIcon, xLogo} from "../../icons/awesomeIcons";
 
 const LoginModal: React.FC = () => {
+  const { width } = useWindowDimensions();
   const [loggedInUsername, setLoggedInUserName] = useRecoilState(loggedInUserName); // Change this to test different scenarios
 
   const [visible, setVisible] = useRecoilState(showLogin);
+  const [visibleEmail, setVisibleEmail] = useState(false);
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -69,89 +77,124 @@ const LoginModal: React.FC = () => {
 
   return (
     <>
-      <CModal fullscreen="lg" alignment="center" visible={visible} onClose={() => setVisible(false)}>
-        <CModalHeader>
-          <CModalTitle>{isSigningUp ? 'Sign Up' : 'Login'}</CModalTitle>
+      <CModal className="login" fullscreen="xl" alignment="center" visible={visible} onClose={() => setVisible(false)}>
+        {width < breakpoints.md && (
+          <CModalHeader>
+          <h5>
+            {isSigningUp ? 'Sign Up' : 'Login'}
+          </h5>
         </CModalHeader>
+        )}
         <CModalBody>
-          {/* Sign in fake user */}
-          <CButton
-            color="warning"
-            className="mb-2 w-100"
-            onClick={() => setLoggedInUserName('janedoe')}
-          >
-            Sign in fake user
-          </CButton>
+          <div className="login-body-wrap">
+              <div className="login-email-button-wrap">
+                <CNav className="justify-content-evenly mb-4" variant="underline" onClick={() => setIsSigningUp(!isSigningUp)}>
+                  <CNavItem>
+                    <CNavLink href="#" active={!isSigningUp}>
+                      <span className={'tab-underline'}>
+                          Login
+                        </span>
+                    </CNavLink>
+                  </CNavItem>
+                  <CNavItem>
+                    <CNavLink href="#" active={isSigningUp}>
+                      <span className={'tab-underline'}>
+                          Sign up
+                        </span>
+                    </CNavLink>
+                  </CNavItem>
+                </CNav>
+                <div className="login-button-group-wrap">
+                  {/* Sign in fake user */}
+                  <CButton
+                    color="warning"
+                    className="mb-2 w-100"
+                    onClick={() => setLoggedInUserName('janedoe')}
+                  >
+                    Sign in fake user
+                  </CButton>
 
-          {/* OAuth Buttons */}
-          <CButton
-            color="warning"
-            className="mb-2 w-100"
-            onClick={() => handleOAuthSignIn('google')}
-          >
-            Continue with Google
-          </CButton>
-          <CButton
-            color="info"
-            className="mb-2 w-100"
-            onClick={() => handleOAuthSignIn('facebook')}
-          >
-            Continue with Facebook
-          </CButton>
-          <CButton
-            color="secondary"
-            className="mb-4 w-100"
-            onClick={() => handleOAuthSignIn('facebook')}
-          >
-            Continue with X
-          </CButton>
+                  {/* OAuth Buttons */}
+                  <CButton
+                    color="light"
+                    className="mb-2 w-100"
+                    onClick={() => handleOAuthSignIn('google')}
+                  >
+                    <CIcon icon={googleIcon} className="me-2"/>
+                    Continue with Google
+                  </CButton>
+                  <CButton
+                    color="dark"
+                    className="facebook mb-2 w-100"
+                    onClick={() => handleOAuthSignIn('facebook')}
+                  >
+                    <CIcon icon={cibFacebookF} className="me-2"/>
+                    Continue with Facebook
+                  </CButton>
+                  <CButton
+                    color="dark"
+                    className="x-logo mb-4 w-100"
+                    onClick={() => handleOAuthSignIn('x')}
+                  >
+                    <CIcon icon={xLogo} className={'me-2'}/>
+                    Continue with X
+                  </CButton>
+                </div>
 
-          {/* Display error messages */}
-          {errorMessage && <div style={{ color: 'red', marginBottom: '1rem' }}>{errorMessage}</div>}
+                {/* Display error messages */}
+                {errorMessage && <div style={{ color: 'red', marginBottom: '1rem' }}>{errorMessage}</div>}
 
-          {/* Email Authentication Form */}
-          <CForm onSubmit={handleEmailAuth}>
-            {isSigningUp && (
-              <CFormInput
-                type="name"
-                name="name"
-                placeholder="Name"
-                className="mb-3"
-                required
-              />
-            )}
-            <CFormInput
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="mb-3"
-              required
-            />
-            <CFormInput
-              type="password"
-              name="password"
-              placeholder="Password"
-              className="mb-3"
-              required
-            />
-            <CButton type="submit" color="success" className="w-100">
-              {isSigningUp ? 'Sign Up' : 'Login'}
-            </CButton>
-          </CForm>
+                <CButton
+                  className="mb-3"
+                  color="link"
+                  onClick={() => setVisibleEmail(!visibleEmail)}
+                  aria-expanded={visibleEmail}
+                  aria-controls="collapseWidthExample"
+                >
+                  <CIcon icon={cilChevronBottom} className={`me-2 icon-chevron ${visibleEmail && 'rotate-up' }`}/>
+                  {!visibleEmail ?
+                    'Or via email...' :
+                    'show less'
+                  }
+                </CButton>
+                <CCollapse id="collapseWidthExample" visible={visibleEmail}>
+                  <hr/>
+                  <div className="login-email-wrap">
+
+                    {/* Email Authentication Form */}
+                    <CForm onSubmit={handleEmailAuth}>
+                      {isSigningUp && (
+                        <CFormInput
+                          type="name"
+                          name="name"
+                          placeholder="Name"
+                          className="mb-3"
+                          required
+                        />
+                      )}
+                      <CFormInput
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        className="mb-3"
+                        required
+                      />
+                      <CFormInput
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        className="mb-3"
+                        required
+                      />
+                      <CButton type="submit" color="success" className="w-100">
+                        {isSigningUp ? 'Sign Up' : 'Login'}
+                      </CButton>
+                    </CForm>
+                  </div>
+                </CCollapse>
+              </div>
+          </div>
         </CModalBody>
-        <CModalFooter>
-          <CButton
-            color="link"
-            onClick={() => setIsSigningUp(!isSigningUp)}
-          >
-            {isSigningUp
-              ? 'Already have an account? Login'
-              : "Don't have an account? Sign Up"}
-          </CButton>
-          <CButton color="secondary" onClick={() => setVisible(false)}>
-            Close
-          </CButton>
-        </CModalFooter>
       </CModal>
     </>
   );
