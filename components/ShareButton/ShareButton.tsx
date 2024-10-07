@@ -8,7 +8,7 @@ import {
 } from '@coreui/icons';
 import { useSetRecoilState } from 'recoil';
 import { toastState } from '@/GlobalToast/GlobalToast';
-import {xLogo} from "../../icons/awesomeIcons";
+import { xLogo } from '../../icons/awesomeIcons';
 
 interface ShareButtonProps {
   title: string;

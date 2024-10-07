@@ -4,13 +4,13 @@ import {
   CDropdown,
   CDropdownMenu,
   CDropdownItem,
-  CDropdownToggle
+  CDropdownToggle,
 } from '@coreui/react';
 import { gql } from '@apollo/client';
-import { useRouter } from "next/router";
-import {useRecoilState} from "recoil";
-import {loggedInUserName} from "../../atoms/userName";
-import {showLogin} from "../../atoms/showLogin";
+import { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { loggedInUserName } from '../../atoms/userName';
+import { showLogin } from '../../atoms/showLogin';
 
 export const GET_USER_PROFILE = gql`
   query GetUserProfile {
@@ -25,9 +25,9 @@ export const GET_USER_PROFILE = gql`
 
 const UserProfileMenu: React.FC = () => {
   const [loggedInUsername, setLoggedInUserName] = useRecoilState(loggedInUserName); // Change this to test different scenarios
-  const [showLoginState, setShowLoginState] = useRecoilState(showLogin); // Change this to test different scenarios
+  const [, setShowLoginState] = useRecoilState(showLogin); // Change this to test different scenarios
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleViewProfile = () => {
     router.push(`/profile/${loggedInUsername}`);
@@ -58,7 +58,7 @@ const UserProfileMenu: React.FC = () => {
         <CDropdownToggle caret={false}>
           <CAvatar src={profilePicture} size="md" />
         </CDropdownToggle>
-        <CDropdownMenu placement="bottom-end">
+        <CDropdownMenu>
           <CDropdownItem onClick={handleViewProfile}>
             View Profile
           </CDropdownItem>

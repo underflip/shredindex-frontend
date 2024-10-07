@@ -5,8 +5,8 @@ import Link from 'next/link';
 import HeroDesktop from '../../images/homepage/hero-desktop.svg';
 import HeroTablet from '../../images/homepage/hero-tablet.svg';
 import HeroMobile from '../../images/homepage/hero-mobile.svg';
-import {useRecoilState} from "recoil";
-import {showLogin} from "../../atoms/showLogin";
+import { useRecoilState } from 'recoil';
+import { showLogin } from '../../atoms/showLogin';
 
 const HomeHero = () => {
   const [loginVisible, setLoginVisible] = useRecoilState(showLogin);

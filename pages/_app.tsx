@@ -15,7 +15,7 @@ import { useApollo } from '../lib/apollo-client';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../src/scss/style.scss';
 import { useRouter } from 'next/router';
-import Login from "@/Login/Login";
+import Login from '@/Login/Login';
 
 const t = {
   en: langEn,

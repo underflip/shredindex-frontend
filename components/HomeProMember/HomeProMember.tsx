@@ -1,7 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { CButton, CContainer } from '@coreui/react';
-import Link from 'next/link';
 import HomeMidSection from '../../images/homepage/second-hero-mid-mountain-desktop.svg';
 import HeroTablet from '../../images/homepage/second-hero-mid-mountain-tablet.svg';
 import HeroMobile from '../../images/homepage/second-hero-mid-mountain-mobile.svg';

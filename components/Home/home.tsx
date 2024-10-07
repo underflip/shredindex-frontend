@@ -6,7 +6,6 @@ import HomeLifestyles from '../HomeLifeStyles/HomeLifestyles';
 import HomeProMember from '../HomeProMember/HomeProMember';
 import HomeAppFeatures from '../HomeAppFeatures/HomeAppFeatures';
 import HomeAdvancedFilters from '../HomeAdvancedFilters/HomeAdvancedFilters';
-import Login from "@/Login/Login";
 
 const Home: React.FC = () => (
   <div className="views__home">

@@ -322,7 +322,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
         <div className="user-profile-card-wrap">
           <CCard className="user-profile-card">
             <CCardBody>
-              <h1>{userProfileData.username}'s Profile</h1>
+              <h1>{userProfileData.username}&apos;s Profile</h1>
               {/* Display profile data in read-only mode */}
               <p>
                 <strong>Member Tier:</strong> {userProfileData.member_tier}

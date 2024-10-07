@@ -20,14 +20,14 @@ import {
   cibFacebookF,
   cilChevronBottom,
 } from '@coreui/icons';
-import useWindowDimensions from "../../hooks/getWindowDimensions";
-import breakpoints from "@/js/components/config/breakpoints";
-import {googleIcon, xLogo} from "../../icons/awesomeIcons";
-import Link from "next/link"
+import useWindowDimensions from '../../hooks/getWindowDimensions';
+import breakpoints from '@/js/components/config/breakpoints';
+import { googleIcon, xLogo } from '../../icons/awesomeIcons';
+import Link from 'next/link';
 
 const LoginModal: React.FC = () => {
   const { width } = useWindowDimensions();
-  const [loggedInUsername, setLoggedInUserName] = useRecoilState(loggedInUserName);
+  const [, setLoggedInUserName] = useRecoilState(loggedInUserName);
 
   const [visible, setVisible] = useRecoilState(showLogin);
   const [visibleEmail, setVisibleEmail] = useState(false);
@@ -40,12 +40,34 @@ const LoginModal: React.FC = () => {
 
   const TermsConditionsLabel = () => (
     <span>
-      I've read the <Link href="/terms-and-conditions">Terms and Conditions</Link>, I agree, now let me ski!
+      I&apos;ve read the <Link href="/terms-and-conditions">Terms and Conditions</Link>, I agree, now let me ski!
     </span>
   );
 
-  const handleOAuthSignIn = (provider: string) => {
-    window.location.href = `${backendBaseUrl}/api/auth/${provider}`;
+  const handleOAuthSignIn = async (provider: string) => {
+    const router = useRouter();
+    try {
+      // Call your Next.js API route that will initiate the OAuth flow with October CMS
+      const response = await fetch(`/api/auth/${provider}`);
+      const data = await response.json();
+
+      if (response.ok) {
+        // If the API route returns a URL, redirect the user to it
+        if (typeof window !== 'undefined' && data.url) {
+          router.push(data.url);
+        } else {
+          // Handle successful authentication
+          setVisible(false);
+          router.push('/dashboard'); // or wherever you want to redirect after login
+        }
+      } else {
+        // Handle errors
+        setErrorMessage(data.message || 'Authentication failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('OAuth Sign-in error:', error);
+      setErrorMessage('An error occurred during authentication');
+    }
   };
 
   const handleEmailAuth = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -72,7 +94,7 @@ const LoginModal: React.FC = () => {
           email,
           password,
           acceptTerms,
-          acceptEmails
+          acceptEmails,
         }),
         credentials: 'include',
       });

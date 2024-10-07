@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import UserProfile from '../../components/User/UserProfile';
 import { UserProfileData } from '../../types/userProfileTypes';
-import {useRecoilState} from "recoil";
-import {loggedInUserName} from "../../atoms/userName";
+import { useRecoilState } from 'recoil';
+import { loggedInUserName } from '../../atoms/userName';
 
 interface ProfilePageProps {
+  initialLoggedInUsername: never;
   userProfileData: UserProfileData | null;
   isOwner: boolean;
   error?: {
@@ -85,10 +86,10 @@ export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async (c
 };
 
 const ProfilePage: React.FC<ProfilePageProps> = ({
-                                                   userProfileData,
-                                                   initialLoggedInUsername,
-                                                   error,
-                                                 }) => {
+  userProfileData,
+  initialLoggedInUsername,
+  error,
+}) => {
   const [loggedInUsername, setLoggedInUsername] = useRecoilState(loggedInUserName);
 
   useEffect(() => {

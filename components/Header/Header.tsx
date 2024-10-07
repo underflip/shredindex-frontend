@@ -11,8 +11,7 @@ import MobileLogo from '../../images/s-i-logo-small-png.svg';
 import HeaderMenuMain from '../HeaderMenuMain/HeaderMenuMain';
 import { showSidebar as showSidebarAtom } from '../../atoms/showSidebar';
 import ResortSearchAutosuggest from '../ResortSearchAutoSuggest/ResortSearchAutoSuggest';
-import UserProfileMenu from "@/User/UserProfileMenu";
-import UserProfile from "@/User/UserProfile";
+import UserProfileMenu from '@/User/UserProfileMenu';
 
 const Header: React.FC = () => {
   const [showSidebar, setShowSidebar] = useRecoilState(showSidebarAtom);
