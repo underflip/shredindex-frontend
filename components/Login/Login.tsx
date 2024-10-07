@@ -123,7 +123,7 @@ const LoginModal: React.FC = () => {
                 <CButton
                   color="warning"
                   className="mb-2 w-100"
-                  disabled={!acceptTerms}
+                  disabled={!acceptTerms && isSigningUp}
                   onClick={() => setLoggedInUserName('janedoe')}
                 >
                   Sign in fake user
@@ -132,7 +132,7 @@ const LoginModal: React.FC = () => {
                 <CButton
                   color="light"
                   className="mb-2 w-100"
-                  disabled={!acceptTerms}
+                  disabled={!acceptTerms && isSigningUp}
                   onClick={() => handleOAuthSignIn('google')}
                 >
                   <CIcon icon={googleIcon} className="me-2"/>
@@ -140,7 +140,7 @@ const LoginModal: React.FC = () => {
                 </CButton>
                 <CButton
                   color="dark"
-                  disabled={!acceptTerms}
+                  disabled={!acceptTerms && isSigningUp}
                   className="facebook mb-2 w-100"
                   onClick={() => handleOAuthSignIn('facebook')}
                 >
@@ -149,7 +149,7 @@ const LoginModal: React.FC = () => {
                 </CButton>
                 <CButton
                   color="dark"
-                  disabled={!acceptTerms}
+                  disabled={!acceptTerms && isSigningUp}
                   className="x-logo mb-4 w-100"
                   onClick={() => handleOAuthSignIn('x')}
                 >
@@ -178,7 +178,7 @@ const LoginModal: React.FC = () => {
                       <CFormInput
                         type="name"
                         name="name"
-                        disabled={!acceptTerms}
+                        disabled={!acceptTerms && isSigningUp}
                         placeholder="Name"
                         className="mb-3"
                         required
@@ -187,7 +187,7 @@ const LoginModal: React.FC = () => {
                     <CFormInput
                       type="email"
                       name="email"
-                      disabled={!acceptTerms}
+                      disabled={!acceptTerms && isSigningUp}
                       placeholder="Email"
                       className="mb-3"
                       required
@@ -195,7 +195,7 @@ const LoginModal: React.FC = () => {
                     <CFormInput
                       type="password"
                       name="password"
-                      disabled={!acceptTerms}
+                      disabled={!acceptTerms && isSigningUp}
                       placeholder="Password"
                       className="mb-3"
                       required
@@ -203,7 +203,7 @@ const LoginModal: React.FC = () => {
                     <CButton
                       type="submit"
                       color="success"
-                      disabled={!acceptTerms}
+                      disabled={!acceptTerms && isSigningUp}
                       className="w-100"
                     >
                       {isSigningUp ? 'Sign Up' : 'Login'}
