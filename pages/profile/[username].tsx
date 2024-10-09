@@ -6,9 +6,8 @@ import { useRecoilState } from 'recoil';
 import { loggedInUserName } from '../../atoms/userName';
 
 interface ProfilePageProps {
-  initialLoggedInUsername: never;
+  initialLoggedInUsername: string | null;
   userProfileData: UserProfileData | null;
-  isOwner: boolean;
   error?: {
     message: string;
   };
@@ -56,7 +55,7 @@ const mockProfiles: { [key: string]: UserProfileData } = {
     emergency_contact_name: 'John Doe',
     emergency_contact_phone: '987-654-3210',
     bio: 'Enjoying the slopes one day at a time.',
-    profile_picture: '/images/janedoe.jpg',
+    profile_picture: 'https://lh3.googleusercontent.com/ogw/AF2bZyglPyEFm4b62iHIYJBimPhUp937NSGC1QnJCtQYkkWiDhw=s64-c-mo',
     preferred_lessons: ['group'],
     interested_in_competitions: false,
     achievements: ['Completed first blue run'],
@@ -73,8 +72,7 @@ export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async (c
     return { notFound: true };
   }
 
-  // In a real application, you would get the logged-in user from the session or JWT token
-  // For this example, we'll simulate getting it from a cookie
+  // Simulate getting the logged-in username from a cookie
   const initialLoggedInUsername = context.req.cookies.loggedInUser || null;
 
   return {
@@ -86,10 +84,10 @@ export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async (c
 };
 
 const ProfilePage: React.FC<ProfilePageProps> = ({
-  userProfileData,
-  initialLoggedInUsername,
-  error,
-}) => {
+                                                   userProfileData,
+                                                   initialLoggedInUsername,
+                                                   error,
+                                                 }) => {
   const [loggedInUsername, setLoggedInUsername] = useRecoilState(loggedInUserName);
 
   useEffect(() => {
@@ -109,9 +107,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({
     return <p>User profile data not found.</p>;
   }
 
-  return (
-    <UserProfile userProfileData={userProfileData} isOwner={isOwner} />
-  );
+  return <UserProfile userProfileData={userProfileData} isOwner={isOwner} />;
 };
 
 export default ProfilePage;

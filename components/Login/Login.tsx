@@ -146,7 +146,12 @@ const LoginModal: React.FC = () => {
                   color="warning"
                   className="mb-2 w-100"
                   disabled={!acceptTerms && isSigningUp}
-                  onClick={() => setLoggedInUserName('janedoe')}
+                  onClick={
+                  () => {
+                    setLoggedInUserName('janedoe');
+                    setVisible(false);
+                  }
+                }
                 >
                   Sign in fake user
                 </CButton>

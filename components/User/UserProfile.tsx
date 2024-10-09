@@ -65,6 +65,13 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
         <div className="user-profile-card-wrap">
           <CCard className="user-profile-card">
             <CCardBody>
+              <div className="user-profile-card-header">
+                <img
+                  src={userProfileData.profile_picture}
+                  alt={`${userProfileData.username}'s profile`}
+                />
+                <h2>{userProfileData.username}</h2>
+              </div>
               <h1>{formState.username}</h1>
               <CForm onSubmit={handleSubmit}>
                 {/* Member Tier */}
@@ -307,7 +314,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
                   {loading ? 'Saving...' : 'Save Changes'}
                 </CButton>
                 {error && (
-                  <p style={{ color: 'red' }}>An error occurred: {error.message}</p>
+                  <p style={{color: 'red'}}>An error occurred: {error.message}</p>
                 )}
               </CForm>
             </CCardBody>
@@ -318,12 +325,17 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
   } else {
     return (
       <CContainer>
-        <ResortsParallaxBackground />
+        <ResortsParallaxBackground/>
         <div className="user-profile-card-wrap">
           <CCard className="user-profile-card">
             <CCardBody>
-              <h1>{userProfileData.username}&apos;s Profile</h1>
-              {/* Display profile data in read-only mode */}
+              <div className="user-profile-card-header">
+                <img
+                  src={userProfileData.profile_picture}
+                  alt={`${userProfileData.username}'s profile`}
+                />
+                <h2>{userProfileData.username}</h2>
+              </div>
               <p>
                 <strong>Member Tier:</strong> {userProfileData.member_tier}
               </p>

@@ -42,13 +42,9 @@ const UserProfileMenu: React.FC = () => {
   if (!loggedInUsername)
     return (
     <>
-      <CDropdown variant="nav-item">
-        <CDropdownToggle caret={false}>
-          <div onClick={() => setShowLoginState(true)}>
-            Login
-          </div>
-        </CDropdownToggle>
-      </CDropdown>
+      <div onClick={() => setShowLoginState(true)}>
+        Login
+      </div>
     </>
     );
 
