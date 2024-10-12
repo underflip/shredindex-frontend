@@ -10,7 +10,7 @@ import {
 } from '@coreui/react';
 import { UserProfileData } from '../../types/userProfileTypes';
 import ResortsParallaxBackground from '@/ResortsParallaxBackground/ResortsParallaxBackground';
-import Image from 'next/image'
+import Image from 'next/image';
 
 interface UserProfileProps {
   userProfileData: UserProfileData;
@@ -27,7 +27,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
 
   const handleChange = (
     e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >,
   ) => {
     const { name, value, type, checked } = e.target;
@@ -80,7 +80,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
     setIsEditingProfilePicture(false);
     setFormState(prevState => ({
       ...prevState,
-      profile_picture: newProfilePictureUrl
+      profile_picture: newProfilePictureUrl,
     }));
     // Here you would typically update the backend with the new profile picture URL
   };
@@ -103,8 +103,8 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
                   alt={`${formState.username}'s profile`}
                   onClick={handleProfilePictureEdit}
                   style={{ cursor: 'pointer' }}
-                  layout="fill"
-                  objectFit="cover"
+                  width={300}
+                  height={300}
                 />
                 {isEditingUsername ? (
                   <CFormInput
@@ -356,7 +356,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
                   {loading ? 'Saving...' : 'Save Changes'}
                 </CButton>
                 {error && (
-                  <p style={{color: 'red'}}>An error occurred: {error.message}</p>
+                  <p style={{ color: 'red' }}>An error occurred: {error.message}</p>
                 )}
               </CForm>
             </CCardBody>
@@ -394,9 +394,11 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
           <CCard className="user-profile-card">
             <CCardBody>
               <div className="user-profile-card-header">
-                <img
+                <Image
                   src={userProfileData.profile_picture}
                   alt={`${userProfileData.username}'s profile`}
+                  width={300}
+                  height={300}
                 />
                 <h2>{userProfileData.username}</h2>
               </div>
