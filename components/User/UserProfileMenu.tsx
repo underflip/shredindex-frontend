@@ -42,7 +42,7 @@ const UserProfileMenu: React.FC = () => {
   if (!loggedInUsername)
     return (
     <>
-      <div onClick={() => setShowLoginState(true)}>
+      <div className="user-button-menu" onClick={() => setShowLoginState(true)}>
         Login
       </div>
     </>
@@ -50,7 +50,7 @@ const UserProfileMenu: React.FC = () => {
 
   return (
     <>
-      <CDropdown className="login-button-menu" variant="nav-item" alignment={'end'}>
+      <CDropdown className="user-button-menu" variant="nav-item" alignment={'end'}>
         <CDropdownToggle caret={false}>
           <CAvatar src={profilePicture} size="md" />
         </CDropdownToggle>
