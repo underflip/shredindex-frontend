@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
 import { RecoilRoot, useSetRecoilState } from 'recoil';
@@ -14,7 +14,6 @@ import GlobalToast from '../components/GlobalToast/GlobalToast';
 import { useApollo } from '../lib/apollo-client';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../src/scss/style.scss';
-import { useRouter } from 'next/router';
 import Login from '@/Login/Login';
 
 const t = {
