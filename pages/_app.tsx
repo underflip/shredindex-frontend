@@ -32,26 +32,6 @@ export const layouts = {
   home: dynamic(() => import('./../components/Home/home')),
 };
 
-const ScrollToTop: React.FC = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      window.scrollTo(0, 0);
-    };
-
-    router.events.on('routeChangeComplete', handleRouteChange);
-
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method:
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
-
-  return null;
-};
-
 const InitializeRecoilState = () => {
   const setLayouts = useSetRecoilState(layoutsAtom);
 
@@ -75,7 +55,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <div className="wrapper d-flex flex-column min-vh-100">
               <Header />
               <div className="body flex-grow-1 min-vh-100">
-                <ScrollToTop />
                 <GlobalToast />
                 <Login />
                 <main className="c-main">
