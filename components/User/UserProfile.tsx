@@ -6,6 +6,7 @@ import {
   CFormCheck,
   CFormTextarea,
   CButton, CContainer, CCardBody, CCard,
+  CModal, CModalHeader, CModalBody, CModalFooter,
 } from '@coreui/react';
 import { UserProfileData } from '../../types/userProfileTypes';
 import ResortsParallaxBackground from '@/ResortsParallaxBackground/ResortsParallaxBackground';
@@ -19,10 +20,13 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
   const [formState, setFormState] = useState({ ...userProfileData });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const [isEditingUsername, setIsEditingUsername] = useState(false);
+  const [isEditingProfilePicture, setIsEditingProfilePicture] = useState(false);
+  const [newProfilePictureUrl, setNewProfilePictureUrl] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<
-    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >,
   ) => {
     const { name, value, type, checked } = e.target;
@@ -58,6 +62,33 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
     }
   };
 
+  const handleUsernameEdit = () => {
+    setIsEditingUsername(true);
+  };
+
+  const handleUsernameSubmit = () => {
+    setIsEditingUsername(false);
+    // Here you would typically update the backend with the new username
+  };
+
+  const handleProfilePictureEdit = () => {
+    setIsEditingProfilePicture(true);
+  };
+
+  const handleProfilePictureSubmit = () => {
+    setIsEditingProfilePicture(false);
+    setFormState(prevState => ({
+      ...prevState,
+      profile_picture: newProfilePictureUrl
+    }));
+    // Here you would typically update the backend with the new profile picture URL
+  };
+
+  const handleUpdateMembership = () => {
+    // Implement membership update logic here
+    alert('Redirecting to membership update page...');
+  };
+
   if (isOwner) {
     return (
       <CContainer alignContent={'center'}>
@@ -67,27 +98,35 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
             <CCardBody>
               <div className="user-profile-card-header">
                 <img
-                  src={userProfileData.profile_picture}
-                  alt={`${userProfileData.username}'s profile`}
+                  src={formState.profile_picture}
+                  alt={`${formState.username}'s profile`}
+                  onClick={handleProfilePictureEdit}
+                  style={{ cursor: 'pointer' }}
                 />
-                <h2>{userProfileData.username}</h2>
+                {isEditingUsername ? (
+                  <CFormInput
+                    type="text"
+                    value={formState.username}
+                    onChange={(e) => setFormState(prevState => ({ ...prevState, username: e.target.value }))}
+                    onBlur={handleUsernameSubmit}
+                    autoFocus
+                  />
+                ) : (
+                  <h2 onClick={handleUsernameEdit} style={{ cursor: 'pointer' }}>{formState.username}</h2>
+                )}
               </div>
-              <h1>{formState.username}</h1>
               <CForm onSubmit={handleSubmit}>
                 {/* Member Tier */}
-                <CFormSelect
-                  label="Member Tier"
-                  name="member_tier"
-                  value={formState.member_tier || ''}
-                  onChange={handleChange}
-                  className="mb-3"
-                >
-                  <option value="">Select Member Tier</option>
-                  <option value="free">Free</option>
-                  <option value="pro">Pro</option>
-                  <option value="life-time">Life-Time</option>
-                  <option value="pro-2">Pro-2</option>
-                </CFormSelect>
+                <div className="d-flex align-items-center mb-3">
+                  <CFormInput
+                    label="Member Tier"
+                    name="member_tier"
+                    value={formState.member_tier || ''}
+                    readOnly
+                    className="me-2"
+                  />
+                  <CButton onClick={handleUpdateMembership}>Update Membership</CButton>
+                </div>
 
                 {/* Preferred Sport */}
                 <CFormSelect
@@ -320,6 +359,28 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
             </CCardBody>
           </CCard>
         </div>
+
+        {/* Modal for editing profile picture */}
+        <CModal visible={isEditingProfilePicture} onClose={() => setIsEditingProfilePicture(false)}>
+          <CModalHeader closeButton>Update Profile Picture</CModalHeader>
+          <CModalBody>
+            <CFormInput
+              type="text"
+              label="New Profile Picture URL"
+              value={newProfilePictureUrl}
+              onChange={(e) => setNewProfilePictureUrl(e.target.value)}
+            />
+            {/* You can add file upload functionality here */}
+          </CModalBody>
+          <CModalFooter>
+            <CButton color="secondary" onClick={() => setIsEditingProfilePicture(false)}>
+              Cancel
+            </CButton>
+            <CButton color="primary" onClick={handleProfilePictureSubmit}>
+              Update
+            </CButton>
+          </CModalFooter>
+        </CModal>
       </CContainer>
     );
   } else {
