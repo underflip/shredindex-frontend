@@ -50,7 +50,7 @@ const UserProfileMenu: React.FC = () => {
 
   return (
     <>
-      <CDropdown variant="nav-item">
+      <CDropdown className="login-button-menu" variant="nav-item" alignment={'end'}>
         <CDropdownToggle caret={false}>
           <CAvatar src={profilePicture} size="md" />
         </CDropdownToggle>
