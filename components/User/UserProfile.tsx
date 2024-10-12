@@ -10,6 +10,7 @@ import {
 } from '@coreui/react';
 import { UserProfileData } from '../../types/userProfileTypes';
 import ResortsParallaxBackground from '@/ResortsParallaxBackground/ResortsParallaxBackground';
+import Image from 'next/image'
 
 interface UserProfileProps {
   userProfileData: UserProfileData;
@@ -97,11 +98,13 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
           <CCard className="user-profile-card">
             <CCardBody>
               <div className="user-profile-card-header">
-                <img
+                <Image
                   src={formState.profile_picture}
                   alt={`${formState.username}'s profile`}
                   onClick={handleProfilePictureEdit}
                   style={{ cursor: 'pointer' }}
+                  layout="fill"
+                  objectFit="cover"
                 />
                 {isEditingUsername ? (
                   <CFormInput

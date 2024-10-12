@@ -5,11 +5,11 @@ import ResortMap from '@/ResortSingle/ResortMapCard/ResortMap/ResortMap';
 import NoUserAccess from '@/FeatureToggle/NoUserAccess';
 import MapDummy from '../../../images/map-dummy.png';
 import { Location } from '../../../types/resortTypes';
-import {useRecoilState} from "recoil";
-import {loggedInUserName} from "../../../atoms/userName";
+import { useRecoilState } from 'recoil';
+import { loggedInUserName } from '../../../atoms/userName';
 
 const ResortMapCard: React.FC <Location> = ({ location }) => {
-  const [loggedInUsername,] = useRecoilState(loggedInUserName);
+  const [loggedInUsername] = useRecoilState(loggedInUserName);
 
   return (
     <>

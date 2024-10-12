@@ -84,10 +84,10 @@ export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async (c
 };
 
 const ProfilePage: React.FC<ProfilePageProps> = ({
-                                                   userProfileData,
-                                                   initialLoggedInUsername,
-                                                   error,
-                                                 }) => {
+  userProfileData,
+  initialLoggedInUsername,
+  error,
+}) => {
   const [loggedInUsername, setLoggedInUsername] = useRecoilState(loggedInUserName);
 
   useEffect(() => {

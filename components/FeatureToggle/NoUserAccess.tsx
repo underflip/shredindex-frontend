@@ -2,8 +2,8 @@ import React from 'react';
 import { CButton, CCard, CCardBody } from '@coreui/react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {useRecoilState} from "recoil";
-import {showLogin} from "../../atoms/showLogin";
+import { useRecoilState } from 'recoil';
+import { showLogin } from '../../atoms/showLogin';
 
 interface NoUserAccessProps {
   title: string;
