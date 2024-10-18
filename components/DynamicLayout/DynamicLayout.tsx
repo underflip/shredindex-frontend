@@ -25,9 +25,11 @@ const DynamicLayout: React.FC<DynamicLayoutProps> = ({
   return (
     <>
       <Helmet>
-        <meta charSet="utf-8" />
+        <meta charSet="utf-8"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
         <title>Shred Index</title>
-        <meta name="description" content="Shred Index - Snow resort rankings" />
+        <meta name="description" content="Shred Index - Snow resort rankings"/>
       </Helmet>
       <Component
         url={url}
