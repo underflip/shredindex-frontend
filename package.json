@@ -145,6 +145,7 @@
     "graphql": "^15.6.1",
     "graphql-tag": "^2.12.5",
     "history": "^5.0.1",
+    "js-cookie": "^3.0.5",
     "mapbox-gl": "^3.4.0",
     "next": "^14.2.6",
     "normalize-scss": "^7.0.1",
@@ -164,6 +165,7 @@
     "recoil": "^0.7.6",
     "sass": "^1.69.5",
     "serialize-query-params": "^2.0.2",
+    "styled-jsx": "^5.1.6",
     "use-query-params": "^2.2.1",
     "waait": "^1.0.5"
   },

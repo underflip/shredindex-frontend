@@ -1,20 +1,37 @@
 import { useMemo } from 'react';
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import Cookies from 'js-cookie';
+
 
 let apolloClient: ApolloClient<unknown> | undefined;
+
+const authLink = setContext((_, { headers }) => {
+  // Client-side only: Retrieve the token from the client cookie
+  if (typeof window !== 'undefined') {
+    const token = Cookies.get('shred_47h');
+    return {
+      headers: {
+        ...headers,
+        Authorization: token ? `Bearer ${token}` : '',
+      },
+    };
+  }
+
+  return { headers };
+});
 
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: new HttpLink({
-      uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT, // Your GraphQL endpoint
-    }),
+    link: authLink.concat(new HttpLink({
+      uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
+    })),
     cache: new InMemoryCache(),
   });
 }
 
 export function initializeApollo(initialState = null) {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   const _apolloClient = apolloClient ?? createApolloClient();
 
   if (initialState) {
@@ -28,7 +45,6 @@ export function initializeApollo(initialState = null) {
 }
 
 export function useApollo(initialState: unknown) {
-  // @ts-expect-error yes
   const store = useMemo(() => initializeApollo(initialState), [initialState]);
   return store;
 }

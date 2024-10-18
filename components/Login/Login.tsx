@@ -12,6 +12,7 @@ import {
   CNavItem,
   CNavLink,
 } from '@coreui/react';
+import { useRouter } from 'next/router'
 import { showLogin } from '../../atoms/showLogin';
 import { useRecoilState } from 'recoil';
 import { loggedInUserName } from '../../atoms/userName';
@@ -24,6 +25,9 @@ import useWindowDimensions from '../../hooks/getWindowDimensions';
 import breakpoints from '@/js/components/config/breakpoints';
 import { googleIcon, xLogo } from '../../icons/awesomeIcons';
 import Link from 'next/link';
+import { useMutation, gql } from '@apollo/client';
+import { LOGIN_MUTATION } from "../../src/stories/auth/NextAuth"
+import Cookies from 'js-cookie';
 
 const LoginModal: React.FC = () => {
   const { width } = useWindowDimensions();
@@ -35,14 +39,24 @@ const LoginModal: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [acceptTerms, setAcceptTerms] = useState(true);
   const [acceptEmails, setAcceptEmails] = useState(true);
-
-  const backendBaseUrl = 'https://your-backend-url.com';
+  const router = useRouter();
+  
+  const backendBaseUrl = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT; 
+  const frontendBaseUrl = process.env.NEXT_PUBLIC_FRONTEND_ENDPOINT;
 
   const TermsConditionsLabel = () => (
     <span>
       I&apos;ve read the <Link href="/terms-and-conditions">Terms and Conditions</Link>, I agree, now let me ski!
     </span>
   );
+
+  const [login, { data, loading, error }] = useMutation(LOGIN_MUTATION, {
+    onCompleted: (data) => {
+     setLoggedInUserName(data.login.user.username);
+     Cookies.set('shred_47h', data.login.token);
+     router.push(`${frontendBaseUrl}/profile/`+data.login.user.username);
+    },
+  });
 
   const handleOAuthSignIn = async (provider: string) => {
     const router = useRouter();
@@ -82,34 +96,58 @@ const LoginModal: React.FC = () => {
       return;
     }
 
-    try {
-      const endpoint = isSigningUp ? '/api/auth/register' : '/api/auth/login';
-
-      const response = await fetch(`${backendBaseUrl}${endpoint}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-          acceptTerms,
-          acceptEmails,
-        }),
-        credentials: 'include',
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setVisible(false);
-      } else {
-        setErrorMessage(data.message || 'Authentication failed');
+    if(!isSigningUp){
+      try {
+        const response = await login({
+          variables: { email, password },
+          context: {
+            fetchOptions: {
+              credentials: 'include', 
+            },
+          },
+        });
+        console.log(response);
+        if (response) {
+          console.log('Login successful');
+          setVisible(false);
+        }else {
+          setErrorMessage(data.message || 'Authentication failed');
+        }
+      } catch (err) {
+        console.error('Login failed', err);
+        setErrorMessage('An error occurred during authentication');
       }
-    } catch (error) {
-      console.error('An error occurred:', error);
-      setErrorMessage('An error occurred during authentication');
-    }
+      }else{
+        try {
+          const endpoint = isSigningUp ? '/api/auth/register' : '/api/auth/login';
+
+          const response = await fetch(`${backendBaseUrl}${endpoint}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              password,
+              acceptTerms,
+              acceptEmails,
+            }),
+            credentials: 'include',
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            setVisible(false);
+          } else {
+            setErrorMessage(data.message || 'Authentication failed');
+          }
+        } catch (error) {
+          console.error('An error occurred:', error);
+          setErrorMessage('An error occurred during authentication');
+        }
+      }
+    
   };
 
   return (

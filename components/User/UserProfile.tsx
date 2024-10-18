@@ -9,7 +9,7 @@ import {
   CModal, CModalHeader, CModalBody, CModalFooter,
 } from '@coreui/react';
 import { UserProfileData } from '../../types/userProfileTypes';
-import ResortsParallaxBackground from '@/ResortsParallaxBackground/ResortsParallaxBackground';
+import ResortsParallaxBackground from '../ResortsParallaxBackground/ResortsParallaxBackground';
 import Image from 'next/image';
 
 interface UserProfileProps {
@@ -89,6 +89,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
     // Implement membership update logic here
     alert('Redirecting to membership update page...');
   };
+
 
   if (isOwner) {
     return (
@@ -387,6 +388,15 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
       </CContainer>
     );
   } else {
+    let visitedResorts = userProfileData.visited_resorts ? JSON.parse(userProfileData.visited_resorts) : [];
+    let resortList = visitedResorts.join(', '); 
+
+    let preferredLessons = userProfileData.preferred_lessons ? JSON.parse(userProfileData.preferred_lessons) : [];
+    let lessonsList = preferredLessons.join(', ');
+
+    let achievements = userProfileData.achievements ? JSON.parse(userProfileData.achievements) : [];
+    let achievementsList = achievements.join(', ');
+
     return (
       <CContainer>
         <ResortsParallaxBackground/>
@@ -395,8 +405,8 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
             <CCardBody>
               <div className="user-profile-card-header">
                 <Image
-                  src={userProfileData.profile_picture}
-                  alt={`${userProfileData.username}'s profile`}
+                  src={userProfileData.profile_picture?userProfileData.profile_picture:"/"}
+                  alt={`${userProfileData.user.first_name} ${userProfileData.user.last_name}'s profile`}
                   width={300}
                   height={300}
                 />
@@ -423,7 +433,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
               </p>
               <p>
                 <strong>Visited Resorts:</strong>{' '}
-                {userProfileData.visited_resorts?.join(', ')}
+                {resortList}
               </p>
               <p>
                 <strong>Preferred Terrain:</strong> {userProfileData.preferred_terrain}
@@ -447,7 +457,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
               </p>
               <p>
                 <strong>Preferred Lessons:</strong>{' '}
-                {userProfileData.preferred_lessons?.join(', ')}
+                {lessonsList}
               </p>
               <p>
                 <strong>Interested in Competitions:</strong>{' '}
@@ -455,7 +465,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ userProfileData, isOwner }) =
               </p>
               <p>
                 <strong>Achievements:</strong>{' '}
-                {userProfileData.achievements?.join(', ')}
+                {achievementsList}
               </p>
               {/* Note: Do not display emergency contact info or other sensitive data */}
             </CCardBody>

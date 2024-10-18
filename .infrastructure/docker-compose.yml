@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    image: cimg/node:18.17.0-browsers  # Use a Node.js image that includes npm
+    container_name: shredindex-frontend
+    working_dir: /usr/src/app
+    environment:
+      - NEXT_PUBLIC_MAPBOX_API_KEY=${NEXT_PUBLIC_MAPBOX_API_KEY}
+      - NEXT_PUBLIC_GRAPHQL_ENDPOINT=${NEXT_PUBLIC_MAPBOX_STYLE}
+      - NEXT_PUBLIC_GRAPHQL_ENDPOINT=${NEXT_PUBLIC_GRAPHQL_ENDPOINT}
+    volumes:
+      - ../:/usr/src/app  
+#    entrypoint: 
+#      - /bin/sh
+#      - -c
+#      - |
+#        npm install
+#        npm install styled-jsx
+#        npm start
+    stdin_open: true
+    tty: true
+    ports:
+      - ${NODE_PORT}
+    networks:
+      - shredindex
+networks:
+  shredindex:
+    name: infrastructure_shredindex
+    external: true

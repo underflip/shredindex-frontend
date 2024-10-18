@@ -4,10 +4,15 @@ import UserProfile from '../../components/User/UserProfile';
 import { UserProfileData } from '../../types/userProfileTypes';
 import { useRecoilState } from 'recoil';
 import { loggedInUserName } from '../../atoms/userName';
+import { ApolloClient, InMemoryCache, useMutation, gql  } from '@apollo/client';
+import {initializeApollo} from "../../lib/apollo-client";
+import { PROFILE_QUERY, PROFILE_MUTATION } from "../../src/stories/auth/NextAuth";
+import Cookies from 'cookies';
 
 interface ProfilePageProps {
   initialLoggedInUsername: string | null;
   userProfileData: UserProfileData | null;
+  isOwner: boolean;
   error?: {
     message: string;
   };
@@ -66,21 +71,50 @@ export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async (c
   const { username } = context.params as { username: string };
 
   // Simulate fetching the profile data based on the username
-  const userProfileData = mockProfiles[username] || null;
+  // const userProfileData = mockProfiles[username] || null;
 
-  if (!userProfileData) {
-    return { notFound: true };
+  const token = context.req.cookies['shred_47h'];
+  const client = new initializeApollo();
+
+  try {
+    const { data } = await client.mutate({
+      mutation: PROFILE_MUTATION,
+      variables: { username },
+      context: {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : '',
+        },
+      },
+    });
+
+    const userProfileData = data.userProfile.shredProfile || null;
+    if (!userProfileData) {
+      return { notFound: true };
+    }
+    console.log("check 1");
+    console.log(userProfileData);
+    console.log(initialLoggedInUsername);
+    const initialLoggedInUsername = context.req.cookies.loggedInUser || null;
+
+    console.log("check 2");
+    console.log(initialLoggedInUsername);
+    return {
+      props: {
+        userProfileData,
+        initialLoggedInUsername,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching user profile:', error);
+    console.log(error);
+    return {
+      props: {
+        error: {
+          message: 'Failed to fetch user profile.',
+        },
+      },
+    };
   }
-
-  // Simulate getting the logged-in username from a cookie
-  const initialLoggedInUsername = context.req.cookies.loggedInUser || null;
-
-  return {
-    props: {
-      userProfileData,
-      initialLoggedInUsername,
-    },
-  };
 };
 
 const ProfilePage: React.FC<ProfilePageProps> = ({
